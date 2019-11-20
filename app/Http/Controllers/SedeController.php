@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Sede;
 use Illuminate\Http\Request;
 
 class SedeController extends Controller
@@ -13,7 +14,8 @@ class SedeController extends Controller
      */
     public function index()
     {
-        $sedes='';
+        $sedes=Sede::paginate();
+
         return view('CRM.sedes.index', compact('sedes'));
     }
 
