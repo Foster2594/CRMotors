@@ -18,6 +18,12 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('vehiculo.index') }}">
+                    <i class="tim-icons icon-bell-55"></i>
+                    <p>{{ _('Vehiculos') }}</p>
+                </a>
+            </li>
+            <li>
                 <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
                     <i class="fab fa-laravel" ></i>
                     <span class="nav-link-text" >{{ __('Laravel Examples') }}</span>
