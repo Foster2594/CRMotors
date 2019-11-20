@@ -40,6 +40,7 @@
                                 <td>{{ $sede->idDistrito }}</td>
                                 <td>{{ $sede->direccionExacta }}</td>
                                 <td>{{ $sede->idEstadoSede }}</td>
+                                
 
                                 <td width="10px">
                                     @can('sedes.show')
