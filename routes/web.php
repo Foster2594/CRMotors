@@ -18,6 +18,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
+//Route::resourse('clientes','CRM/ClienteController');
+
+
+
 Route::group(['middleware' => 'auth'], function () {
 		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'PageController@icons']);
 		Route::get('maps', ['as' => 'pages.maps', 'uses' => 'PageController@maps']);
