@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header"><h4>Sedes
+                <div class="card-header"><h4>Vehículo
                     @can('vehiculo.create')
                     <a href="{{ route('vehiculo.create') }}" class="btn btn-sm btn-primary float-right">
                         Crear
@@ -47,34 +47,8 @@
 
                                 <td width="10px">
                                     @can('vehiculo.show')
-                                        <a href="{{ route('vehiculo.show', $sede->idVehiculo) }}" class="btn btn-sm btn-success">
-                                            Ver
-                                        </a>
-                                        <a href="{{ route('vehiculo.show', $sede->idProveedor) }}" class="btn btn-sm btn-success">
-                                            Ver
-                                        </a>
-                                        <a href="{{ route('vehiculo.show', $vehiculo->idTipoVehiculo) }}" class="btn btn-sm btn-success">
-                                            Ver
-                                        </a>
-                                        <a href="{{ route('vehiculo.show', $vehiculo->codigo) }}" class="btn btn-sm btn-success">
-                                            Ver
-                                        </a>
-                                        <a href="{{ route('vehiculo.show', $vehiculo->marca) }}" class="btn btn-sm btn-success">
-                                            Ver
-                                        </a>
-                                        <a href="{{ route('vehiculo.show', $vehiculo->modelo) }}" class="btn btn-sm btn-success">
-                                            Ver
-                                        </a>
-                                        <a href="{{ route('vehiculo.show', $vehiculo->annio) }}" class="btn btn-sm btn-success">
-                                            Ver
-                                        </a>
-                                        <a href="{{ route('vehiculo.show', $vehiculo->cantidadDisponible) }}" class="btn btn-sm btn-success">
-                                            Ver
-                                        </a>
-                                        <a href="{{ route('vehiculo.show', $vehiculo->fechaIngreso) }}" class="btn btn-sm btn-success">
-                                            Ver
-                                        </a>
-                                        <a href="{{ route('vehiculo.show', $vehiculo->fechaSalida) }}" class="btn btn-sm btn-success">
+
+                                     <a href="{{ route('vehiculo.show', $vehiculo->fechaSalida) }}" class="btn btn-sm btn-success">
                                             Ver
                                         </a>
                                     @endcan

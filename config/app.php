@@ -162,6 +162,10 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+
+        //extras de la plantilla
+
+
         /*
          * Package Service Providers...
          */

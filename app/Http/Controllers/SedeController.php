@@ -26,7 +26,8 @@ class SedeController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('CRM.sedes.create');
     }
 
     /**
@@ -37,7 +38,11 @@ class SedeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sede = Sede::create($request->all());
+
+//        $sede->permissions()->sync($request->get('permissions'));
+
+        return redirect()->route('sedes.edit',$sede->idSede)->with('info','Sede guardada con éxito');
     }
 
     /**
@@ -46,9 +51,11 @@ class SedeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($sede)
     {
-        //
+
+        $sede=Sede::where('idSede',$sede)->first();
+        return view('CRM.sedes.show', compact('sede'));
     }
 
     /**
@@ -57,9 +64,11 @@ class SedeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($sede)
     {
-        //
+//        $permissions= Permission::get();
+        $sede=Sede::where('idSede',$sede)->first();
+        return view('CRM.sedes.edit', compact('sede'));
     }
 
     /**
@@ -69,9 +78,13 @@ class SedeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $sede)
     {
-        //
+        $sede=Sede::where('idSede',$sede)->first();
+        $sede->update($request->all());
+//        $role->permissions()->sync($request->get('permissions'));
+
+        return redirect()->route('sedes.edit',$sede->idSede)->with('info','Sede actualizada con éxito');
     }
 
     /**
@@ -80,8 +93,10 @@ class SedeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($sede)
     {
-        //
+        $sede=Sede::where('idSede',$sede)->delete();
+       
+        return back()->with('info', 'Eliminado correctamente');
     }
 }
