@@ -20,9 +20,16 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 //Route::resourse('clientes','CRM/ClienteController');
 
+        Route::get('sede', 'SedeController@index')->name('sede.index');
+/*      Route::post('roles/store', 'Roles\RoleController@store')->name('roles.store')->middleware('can:roles.create');
+        Route::get('roles/create', 'Roles\RoleController@create')->name('roles.create')->middleware('can:roles.create');
+        Route::put('roles/{role}', 'Roles\RoleController@update')->name('roles.update')->middleware('can:roles.edit');
+        Route::get('roles/{role}', 'Roles\RoleController@show')->name('roles.show')->middleware('can:roles.show');
+        Route::delete('roles/{role}', 'Roles\RoleController@destroy')->name('roles.destroy')->middleware('can:roles.destroy');
+        Route::get('roles/{role}/edit', 'Roles\RoleController@edit')->name('roles.edit')->middleware('can:roles.edit');
+*/
 
-
-Route::group(['middleware' => 'auth'], function () {
+        Route::group(['middleware' => 'auth'], function () {
 		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'PageController@icons']);
 		Route::get('maps', ['as' => 'pages.maps', 'uses' => 'PageController@maps']);
 		Route::get('notifications', ['as' => 'pages.notifications', 'uses' => 'PageController@notifications']);
@@ -37,5 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
-});
+
+    }
+);
 
