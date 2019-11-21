@@ -20,9 +20,23 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 //Route::resourse('clientes','CRM/ClienteController');
 
-        Route::get('sede', 'SedeController@index')->name('sede.index');
+        Route::get('sedes/index', 'SedeController@index')->name('sedes.index');
+Route::post('sedes/store', 'SedeController@store')->name('sedes.store');
+Route::get('sedes/create', 'SedeController@create')->name('sedes.create');
+Route::put('sedes/{sede}', 'SedeController@update')->name('sedes.update');
+Route::get('sedes/{sede}', 'SedeController@show')->name('sedes.show');
+Route::delete('sedes/{sede}', 'SedeController@destroy')->name('sedes.destroy');
+Route::get('sedes/{sede}/edit', 'SedeController@edit')->name('sedes.edit');
+
+
+
+
+
+
+
+
         Route::get('vehiculo', 'VehiculoController@index')->name('vehiculo.index');
-        Route::get('cliente', 'ClienteController@index')->name('cliente.index');
+        Route::get('cliente', 'ClienteController@index')->name('clientes.index');
 /*      Route::post('roles/store', 'Roles\RoleController@store')->name('roles.store')->middleware('can:roles.create');
         Route::get('roles/create', 'Roles\RoleController@create')->name('roles.create')->middleware('can:roles.create');
         Route::put('roles/{role}', 'Roles\RoleController@update')->name('roles.update')->middleware('can:roles.edit');
