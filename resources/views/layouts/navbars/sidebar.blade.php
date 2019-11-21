@@ -12,7 +12,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('sede.index') }}">
+                <a href="{{ route('sedes.index') }}">
                     <i class="tim-icons icon-atom"></i>
                     <p>{{ _('Sedes') }}</p>
                 </a>

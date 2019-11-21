@@ -5,12 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header"><h4>Sedes
-                    @can('sedes.create')
-                    <a href="{{ route('sedes.create') }}" class="btn btn-sm btn-primary float-right">
-                        Crear
-                    </a>
-                        @endcan</h4>
+                <div class="card-header">
+                    <h4>Sedes
+
+                            <a href="{{ route('sedes.create', $sedes) }}" class="btn btn-sm btn-primary float-right">
+                                Crear
+                            </a>
+
+                    </h4>
                 </div>
                 <div class="card-body table-responsive">
                     <table class="table table-striped table-hover">
@@ -40,54 +42,25 @@
                                 <td>{{ $sede->idDistrito }}</td>
                                 <td>{{ $sede->direccionExacta }}</td>
                                 <td>{{ $sede->idEstadoSede }}</td>
-                                
 
                                 <td width="10px">
-                                    @can('sedes.show')
-                                        <a href="{{ route('sedes.show', $sede->idSucursal) }}" class="btn btn-sm btn-success">
-                                            Ver
-                                        </a>
-                                        <a href="{{ route('sedes.show', $sede->nombre) }}" class="btn btn-sm btn-success">
-                                            Ver
-                                        </a>
-                                        <a href="{{ route('sedes.show', $sede->telefono) }}" class="btn btn-sm btn-success">
-                                            Ver
-                                        </a>
-                                        <a href="{{ route('sedes.show', $sede->correo) }}" class="btn btn-sm btn-success">
-                                            Ver
-                                        </a>
-                                        <a href="{{ route('sedes.show', $sede->idProvincia) }}" class="btn btn-sm btn-success">
-                                            Ver
-                                        </a>
-                                        <a href="{{ route('sedes.show', $sede->idCanton) }}" class="btn btn-sm btn-success">
-                                            Ver
-                                        </a>
-                                        <a href="{{ route('sedes.show', $sede->idDistrito) }}" class="btn btn-sm btn-success">
-                                            Ver
-                                        </a>
-                                        <a href="{{ route('sedes.show', $sede->direccionExacta) }}" class="btn btn-sm btn-success">
-                                            Ver
-                                        </a>
-                                        <a href="{{ route('sedes.show', $sede->idEstadoSede) }}" class="btn btn-sm btn-success">
-                                            Ver
-                                        </a>
-
-                                    @endcan
+                                    <a href="{{ route('sedes.show', $sede->idSede) }}" class="btn btn-sm btn-success">
+                                        Ver
+                                    </a>
                                 </td>
                                 <td width="10px">
-                                    @can('sedes.edit')
-                                    <a href="{{ route('sedes.edit', $sede->id) }}" class="btn btn-sm btn-success">
+                                    <a href="{{ route('sedes.edit', $sede->idSede) }}" class="btn btn-sm btn-success">
                                         Editar
                                     </a>
-                                    @endcan
+
                                 </td>
                                 <td width="10px">
-                                    @can('sedes.destroy')
-                                    {!! Form::open(['route' => ['sedes.destroy', $sede->id],
+
+                                    {!! Form::open(['route' => ['sedes.destroy', $sede->idSede],
                                     'method' => 'DELETE']) !!}
                                     <button class="btn btn-sm btn-danger">Eliminar</button>
                                     {!! Form::close() !!}
-                                    @endcan
+
                                 </td>
                             </tr>
                             @endforeach
