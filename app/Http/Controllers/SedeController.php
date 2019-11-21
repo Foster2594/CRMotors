@@ -27,7 +27,7 @@ class SedeController extends Controller
     public function create()
     {
 
-        return view('CRM.sedes.create');
+        return view('CRM.sedes.create',compact('sedes'));
     }
 
     /**
@@ -40,9 +40,7 @@ class SedeController extends Controller
     {
         $sede = Sede::create($request->all());
 
-//        $sede->permissions()->sync($request->get('permissions'));
-
-        return redirect()->route('sedes.edit',$sede->idSede)->with('info','Sede guardada con éxito');
+        return redirect()->route('sedes.index')->with('info','Sede guardada con éxito');
     }
 
     /**
@@ -66,8 +64,9 @@ class SedeController extends Controller
      */
     public function edit($sede)
     {
-//        $permissions= Permission::get();
+
         $sede=Sede::where('idSede',$sede)->first();
+
         return view('CRM.sedes.edit', compact('sede'));
     }
 
@@ -96,7 +95,7 @@ class SedeController extends Controller
     public function destroy($sede)
     {
         $sede=Sede::where('idSede',$sede)->delete();
-       
+
         return back()->with('info', 'Eliminado correctamente');
     }
 }
