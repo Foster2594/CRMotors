@@ -24,6 +24,12 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('clientes.index') }}">
+                    <i class="tim-icons icon-atom"></i>
+                    <p>{{ _('Icons') }}</p>
+                </a>
+            </li>
+            <li>
                 <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
                     <i class="fab fa-laravel" ></i>
                     <span class="nav-link-text" >{{ __('Laravel Examples') }}</span>

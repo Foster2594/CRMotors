@@ -47,10 +47,10 @@
 
                                 <td width="10px">
                                     @can('vehiculo.show')
-                                        <a href="{{ route('vehiculo.show', $sede->idVehiculo) }}" class="btn btn-sm btn-success">
+                                        <a href="{{ route('vehiculo.show', $vehiculo->idVehiculo) }}" class="btn btn-sm btn-success">
                                             Ver
                                         </a>
-                                        <a href="{{ route('vehiculo.show', $sede->idProveedor) }}" class="btn btn-sm btn-success">
+                                        <a href="{{ route('vehiculo.show', $vehiculo->idProveedor) }}" class="btn btn-sm btn-success">
                                             Ver
                                         </a>
                                         <a href="{{ route('vehiculo.show', $vehiculo->idTipoVehiculo) }}" class="btn btn-sm btn-success">

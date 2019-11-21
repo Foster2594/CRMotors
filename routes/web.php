@@ -21,7 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 //Route::resourse('clientes','CRM/ClienteController');
 
         Route::get('sede', 'SedeController@index')->name('sede.index');
-       Route::get('vehiculo', 'VehiculoController@index')->name('vehiculo.index');
+        Route::get('vehiculo', 'VehiculoController@index')->name('vehiculo.index');
+        Route::get('cliente', 'ClienteController@index')->name('cliente.index');
 /*      Route::post('roles/store', 'Roles\RoleController@store')->name('roles.store')->middleware('can:roles.create');
         Route::get('roles/create', 'Roles\RoleController@create')->name('roles.create')->middleware('can:roles.create');
         Route::put('roles/{role}', 'Roles\RoleController@update')->name('roles.update')->middleware('can:roles.edit');
