@@ -20,18 +20,35 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 //Route::resourse('clientes','CRM/ClienteController');
 
+//Pruebas
+        //Route::get('prueba/sedes', 'SedeController@store')->name('sedes.store');
+       // Route::get('prueba/cotizaciones/create', 'CotizacionController@create')->name('cotizaciones.create');
+//Sedes
         Route::get('sedes/index', 'SedeController@index')->name('sedes.index');
-Route::post('sedes/store', 'SedeController@store')->name('sedes.store');
-Route::get('sedes/create', 'SedeController@create')->name('sedes.create');
-Route::put('sedes/{sede}', 'SedeController@update')->name('sedes.update');
-Route::get('sedes/{sede}', 'SedeController@show')->name('sedes.show');
-Route::delete('sedes/{sede}', 'SedeController@destroy')->name('sedes.destroy');
-Route::get('sedes/{sede}/edit', 'SedeController@edit')->name('sedes.edit');
+        Route::post('sedes/store', 'SedeController@store')->name('sedes.store');
+        Route::get('sedes/create', 'SedeController@create')->name('sedes.create');
+        Route::put('sedes/{sede}', 'SedeController@update')->name('sedes.update');
+        Route::get('sedes/{sede}', 'SedeController@show')->name('sedes.show');
+        Route::delete('sedes/{sede}', 'SedeController@destroy')->name('sedes.destroy');
+        Route::get('sedes/{sede}/edit', 'SedeController@edit')->name('sedes.edit');
 
+//Cotizacion
+        Route::get('cotizaciones/index', 'CotizacionController@index')->name('cotizaciones.index');
+        Route::post('cotizaciones/store', 'CotizacionController@store')->name('cotizaciones.store');
+        Route::get('cotizaciones/create', 'CotizacionController@create')->name('cotizaciones.create');
+        Route::put('cotizaciones/{cotizacion}', 'CotizacionController@update')->name('cotizaciones.update');
+        Route::get('cotizaciones/{cotizacion}', 'CotizacionController@show')->name('cotizaciones.show');
+        Route::delete('cotizaciones/{cotizacion}', 'CotizacionController@destroy')->name('cotizaciones.destroy');
+        Route::get('cotizaciones/{cotizacion}/edit', 'CotizacionController@edit')->name('cotizaciones.edit');
 
-
-
-
+//Detalle
+//        Route::get('sedes/index', 'SedeController@index')->name('sedes.index');
+//        Route::post('sedes/store', 'SedeController@store')->name('sedes.store');
+//        Route::get('sedes/create', 'SedeController@create')->name('sedes.create');
+//        Route::put('sedes/{sede}', 'SedeController@update')->name('sedes.update');
+//        Route::get('sedes/{sede}', 'SedeController@show')->name('sedes.show');
+//        Route::delete('sedes/{sede}', 'SedeController@destroy')->name('sedes.destroy');
+//        Route::get('sedes/{sede}/edit', 'SedeController@edit')->name('sedes.edit');
 
 
 

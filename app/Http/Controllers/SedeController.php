@@ -38,6 +38,10 @@ class SedeController extends Controller
      */
     public function store(Request $request)
     {
+        $idSede = Sede::max('idSede');
+        $idSede=$idSede+1;
+        //return response()->json($idSede);
+        $request->request->add(['idSede' => $idSede]);
         $sede = Sede::create($request->all());
 
         return redirect()->route('sedes.index')->with('info','Sede guardada con éxito');
