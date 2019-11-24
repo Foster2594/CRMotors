@@ -30,7 +30,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('vehiculo.index') }}">
+                <a href="{{ route('vehiculos.index') }}">
                     <i class="tim-icons icon-bell-55"></i>
                     <p>{{ _('Vehiculos') }}</p>
                 </a>

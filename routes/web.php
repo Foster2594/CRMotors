@@ -27,7 +27,7 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
         Route::get('sedes/index', 'SedeController@index')->name('sedes.index');
         Route::post('sedes/store', 'SedeController@store')->name('sedes.store');
         Route::get('sedes/create', 'SedeController@create')->name('sedes.create');
-        Route::put('sedes/{sede}', 'SedeController@update')->name('sedes.update');
+        Route::post('sedes/{sede}', 'SedeController@update')->name('sedes.update');
         Route::get('sedes/{sede}', 'SedeController@show')->name('sedes.show');
         Route::delete('sedes/{sede}', 'SedeController@destroy')->name('sedes.destroy');
         Route::get('sedes/{sede}/edit', 'SedeController@edit')->name('sedes.edit');
@@ -59,9 +59,18 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 //        Route::get('sedes/{sede}/edit', 'SedeController@edit')->name('sedes.edit');
 
 
+//vehiculo
 
-        Route::get('vehiculo', 'VehiculoController@index')->name('vehiculo.index');
-        Route::get('cliente', 'ClienteController@index')->name('clientes.index');
+        Route::get('vehiculos/index', 'VehiculoController@index')->name('vehiculos.index');
+        Route::post('vehiculos/store', 'VehiculoController@store')->name('vehiculos.store');
+        Route::get('vehiculos/create', 'VehiculoController@create')->name('vehiculos.create');
+        Route::put('vehiculos/{vehiculo}', 'VehiculoController@update')->name('vehiculos.update');
+        Route::get('vehiculos/{vehiculo}', 'VehiculoController@show')->name('vehiculos.show');
+        Route::delete('vehiculos/{vehiculo}', 'VehiculoController@destroy')->name('vehiculos.destroy');
+        Route::get('vehiculos/{vehiculo}/edit', 'VehiculoController@edit')->name('vehiculos.edit');
+
+ //       Route::get('vehiculo', 'VehiculoController@index')->name('vehiculos.index');
+    Route::get('cliente', 'ClienteController@index')->name('clientes.index');
 /*      Route::post('roles/store', 'Roles\RoleController@store')->name('roles.store')->middleware('can:roles.create');
         Route::get('roles/create', 'Roles\RoleController@create')->name('roles.create')->middleware('can:roles.create');
         Route::put('roles/{role}', 'Roles\RoleController@update')->name('roles.update')->middleware('can:roles.edit');
