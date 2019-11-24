@@ -41,6 +41,14 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
         Route::delete('cotizaciones/{cotizacion}', 'CotizacionController@destroy')->name('cotizaciones.destroy');
         Route::get('cotizaciones/{cotizacion}/edit', 'CotizacionController@edit')->name('cotizaciones.edit');
 
+//Campana
+        Route::get('campanas/index', 'CampanaController@index')->name('campanas.index');
+        Route::post('campanas/store', 'CampanaController@store')->name('campanas.store');
+        Route::get('campanas/{campana}', 'CampanaController@update')->name('campanas.update');
+        Route::get('campanas/{campana}', 'CampanaController@show')->name('campanas.show');
+        Route::delete('campanas/{campana}', 'CampanaController@destroy')->name('campanas.destroy');
+        Route::get('campanas/{campana}/edit', 'CampanaController@edit')->name('campanas.edit');
+
 //Detalle
 //        Route::get('sedes/index', 'SedeController@index')->name('sedes.index');
 //        Route::post('sedes/store', 'SedeController@store')->name('sedes.store');

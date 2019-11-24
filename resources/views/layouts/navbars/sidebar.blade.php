@@ -18,6 +18,12 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('campanas.index') }}">
+                    <i class="tim-icons icon-atom"></i>
+                    <p>{{ _('Campana') }}</p>
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('sedes.index') }}">
                     <i class="tim-icons icon-atom"></i>
                     <p>{{ _('Sedes') }}</p>
