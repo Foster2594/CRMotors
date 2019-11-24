@@ -8,7 +8,7 @@
                 <div class="card-header">
                     <h4>Cotizaciones
 
-                            <a href="{{ route('cotizaciones.create', $cotizaciones) }}" class="btn btn-sm btn-primary float-right">
+                            <a href="{{ route('cotizaciones.nueva', $cotizaciones) }}" class="btn btn-sm btn-primary float-right">
                                 Crear
                             </a>
 

@@ -1,11 +1,11 @@
 <div class="form-group">
     {{ Form::label('fechaCreacion','fecha creacion *') }}
-    {{ Form::date('fechaCreacion',null,['class' => 'form-control']) }}
+    {{ Form::date('fechaCreacion',null,['class' => 'form-control readonly']) }}
 </div>
 
 <div class="form-group">
     {{ Form::label('idCliente','Id cliente*') }}
-    {{ Form::select('idCliente',null,['class' => 'form-control']) }}
+    {{ Form::text('idCliente',null,['class' => 'form-control']) }}
 </div>
 
 <div class="form-group">
