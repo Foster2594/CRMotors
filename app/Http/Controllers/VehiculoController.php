@@ -84,11 +84,10 @@ class VehiculoController extends Controller
      */
     public function update(Request $request, $vehiculo)
     {
-        $vehiculo=Vehiculo::where('idVehiculo',$vehiculo)->first();
-        $vehiculo->update($request->all());
+        $vehiculo=Vehiculo::where('idVehiculo',$vehiculo)->update($request->except('_token','_method'));
 //        $role->permissions()->sync($request->get('permissions'));
 
-        return redirect()->route('vehiculos.edit',$vehiculo->idVehiculo)->with('info','Sede actualizada con éxito');
+        return redirect()->route('vehiculos.edit',$vehiculo)->with('info','Sede actualizada con éxito');
     }
 
     /**
