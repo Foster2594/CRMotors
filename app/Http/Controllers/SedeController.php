@@ -83,8 +83,8 @@ class SedeController extends Controller
      */
     public function update(Request $request, $sede)
     {
-        $sede=Sede::where('idSede',$sede)->first();
-        $sede->update($request->all());
+        return 'hola';
+        $sede=Sede::where('idSede',$sede)->update($request->all());
 //        $role->permissions()->sync($request->get('permissions'));
 
         return redirect()->route('sedes.edit',$sede->idSede)->with('info','Sede actualizada con éxito');
