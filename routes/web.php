@@ -40,7 +40,7 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
         Route::get('cotizaciones/{cotizacion}', 'CotizacionController@show')->name('cotizaciones.show');
         Route::delete('cotizaciones/{cotizacion}', 'CotizacionController@destroy')->name('cotizaciones.destroy');
         Route::get('cotizaciones/{cotizacion}/edit', 'CotizacionController@edit')->name('cotizaciones.edit');
-
+        Route::get('cotizaciones/nueva', 'CotizacionController@nueva')->name('cotizaciones.nueva');
 //Campana
         Route::get('campanas/index', 'CampanaController@index')->name('campanas.index');
         Route::post('campanas/store', 'CampanaController@store')->name('campanas.store');
