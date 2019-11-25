@@ -36,15 +36,6 @@
     {{ Form::label('idEmpleadoAprobador','Aprovada por   *') }}
     {{ Form::text('idEmpleadoAprobador',null,['class' => 'form-control']) }}
 </div>
-<div class="form-group">
-    {{ Form::label('direccionExacta','Direccion *') }}
-    {{ Form::textarea('direccionExacta',null,['class' => 'form-control']) }}
-</div>
-
-<div class="form-group">
-    {{ Form::label('idEstadoSede','Estado de Sede *') }}
-    {{ Form::text('idEstadoSede',null,['class' => 'form-control']) }}
-</div>
 
 <div class="form-group">
     {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}
