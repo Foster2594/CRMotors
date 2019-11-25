@@ -41,8 +41,12 @@ class CotizacionController extends Controller
      */
     public function store(Request $request)
     {
+        $idEncabezadoCotizacion = Cotizacion::max('idEncabezadoCotizacion');
+        $idEncabezadoCotizacion=$idEncabezadoCotizacion+1;
+        //return response()->json($idSede);
+        $request->request->add(['idEncabezadoCotizacion' => $idEncabezadoCotizacion]);
+        $idEncabezadoCotizacion = Cotizacion::create($request->all());
 
-        $cotizacion = Cotizacion::create($request->all());
 
         return redirect()->route('cotizaciones.index')->with('info','Sede guardada con éxito');
     }
@@ -55,9 +59,6 @@ class CotizacionController extends Controller
      */
     public function show($cotizacion)
     {
-
-
-
         $cotizacion=Cotizacion::where('idEncabezadoCotizacion',$cotizacion)->first();
         return view('CRM.cotizaciones.show', compact('cotizacion'));
     }

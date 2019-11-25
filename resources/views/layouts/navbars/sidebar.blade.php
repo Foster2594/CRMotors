@@ -1,8 +1,8 @@
 <div class="sidebar">
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="#" class="simple-text logo-mini">{{ _('BD') }}</a>
-            <a href="#" class="simple-text logo-normal">{{ _('Black Dashboard') }}</a>
+            <a href="#" class="simple-text logo-mini">{{ _('CRM') }}</a>
+            <a href="#" class="simple-text logo-normal">{{ _('Royal Motors') }}</a>
         </div>
         <ul class="nav">
             <li>
@@ -20,7 +20,7 @@
             <li>
                 <a href="{{ route('campanas.index') }}">
                     <i class="tim-icons icon-atom"></i>
-                    <p>{{ _('Campana') }}</p>
+                    <p>{{ _('Campaña') }}</p>
                 </a>
             </li>
             <li>
@@ -30,7 +30,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('vehiculo.index') }}">
+                <a href="{{ route('vehiculos.index') }}">
                     <i class="tim-icons icon-bell-55"></i>
                     <p>{{ _('Vehiculos') }}</p>
                 </a>
@@ -38,7 +38,7 @@
             <li>
                 <a href="{{ route('clientes.index') }}">
                     <i class="tim-icons icon-atom"></i>
-                    <p>{{ _('Icons') }}</p>
+                    <p>{{ _('Clientes') }}</p>
                 </a>
             </li>
             <li>
@@ -62,51 +62,52 @@
                                 <p>{{ _('User Management') }}</p>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ route('pages.icons') }}">
+                                <i class="tim-icons icon-atom"></i>
+                                <p>{{ _('Icons') }}</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('pages.maps') }}">
+                                <i class="tim-icons icon-pin"></i>
+                                <p>{{ _('Maps') }}</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('pages.notifications') }}">
+                                <i class="tim-icons icon-bell-55"></i>
+                                <p>{{ _('Notifications') }}</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('pages.tables') }}">
+                                <i class="tim-icons icon-puzzle-10"></i>
+                                <p>{{ _('Table List') }}</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('pages.typography') }}">
+                                <i class="tim-icons icon-align-center"></i>
+                                <p>{{ _('Typography') }}</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('pages.rtl') }}">
+                                <i class="tim-icons icon-world"></i>
+                                <p>{{ _('RTL Support') }}</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('pages.upgrade') }}">
+                                <i class="tim-icons icon-spaceship"></i>
+                                <p>{{ _('Upgrade to PRO') }}</p>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </li>
-            <li>
-                <a href="{{ route('pages.icons') }}">
-                    <i class="tim-icons icon-atom"></i>
-                    <p>{{ _('Icons') }}</p>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('pages.maps') }}">
-                    <i class="tim-icons icon-pin"></i>
-                    <p>{{ _('Maps') }}</p>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('pages.notifications') }}">
-                    <i class="tim-icons icon-bell-55"></i>
-                    <p>{{ _('Notifications') }}</p>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('pages.tables') }}">
-                    <i class="tim-icons icon-puzzle-10"></i>
-                    <p>{{ _('Table List') }}</p>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('pages.typography') }}">
-                    <i class="tim-icons icon-align-center"></i>
-                    <p>{{ _('Typography') }}</p>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('pages.rtl') }}">
-                    <i class="tim-icons icon-world"></i>
-                    <p>{{ _('RTL Support') }}</p>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('pages.upgrade') }}">
-                    <i class="tim-icons icon-spaceship"></i>
-                    <p>{{ _('Upgrade to PRO') }}</p>
-                </a>
-            </li>
+
         </ul>
     </div>
 </div>

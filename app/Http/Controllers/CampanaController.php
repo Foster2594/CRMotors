@@ -14,7 +14,9 @@ class CampanaController extends Controller
      */
     public function index()
     {
-        //
+        $campanas=Campana::paginate();
+
+        return view('CRM.campanas.index', compact('campanas'));
     }
 
     /**
@@ -24,7 +26,11 @@ class CampanaController extends Controller
      */
     public function create()
     {
-        //
+<<<<<<< HEAD
+=======
+
+>>>>>>> 315af915ae121b9d31f6f7d6f21d3152b8d98bb5
+        return view('CRM.campanas.create',compact('campanas'));
     }
 
     /**
@@ -54,7 +60,7 @@ class CampanaController extends Controller
     public function show($campana)
     {
         $campana=Campana::where('idCampana',$campana)->first();
-        return view('CRM.campana.show', compact('campana'));
+        return view('CRM.campanas.show', compact('campana'));
     }
 
 
@@ -80,11 +86,10 @@ class CampanaController extends Controller
      */
     public function update(Request $request, $campana)
     {
-        $campana=Campana::where('idCampana',$campana)->first();
-        $campana->update($request->all());
+        $campana=Campana::where('idCampana',$campana)->update($request->except('_token','_method'));
 //        $role->permissions()->sync($request->get('permissions'));
 
-        return redirect()->route('campanas.edit',$campana->idCampana)->with('info','Campana actualizada con éxito');
+        return redirect()->route('campanas.edit',$campana)->with('info','Campana actualizada con éxito');
     }
 
     /**

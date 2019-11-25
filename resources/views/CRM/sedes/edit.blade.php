@@ -7,9 +7,10 @@
             <div class="card">
                 <div class="card-header">Sede</div>
                 <div class="card-body">
-                    {!! Form::model($sede, ['route' => ['sedes.update',$sede->idSede],
-                    'method' => 'PUT']) !!}
-                        @include('CRM.sedes.partials.form')
+                    {{--{!! Form::model($sede, ['route' => ['sedes.update',$sede->idSede],--}}
+                    {{--'method' => 'POST']) !!}--}}
+                    {!! Form::model($sede,['route' => ['sedes.update',$sede->idSede]]) !!}
+                    @include('CRM.sedes.partials.form')
                     {!! Form::close() !!}
                 </div>
             </div>
@@ -19,6 +20,6 @@
 @endsection
 @section('script')
     <script>
-        document.getElementById('nav-roles').className+=' active';
+        document.getElementById('nav-sedes').className+=' active';
     </script>
 @endsection

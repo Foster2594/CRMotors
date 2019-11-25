@@ -14,9 +14,10 @@ class VehiculoController extends Controller
      */
     public function index()
     {
-        $vehiculo=Vehiculo::paginate();
 
-        return view('CRM.vehiculo.index', compact('vehiculo'));
+        $vehiculos=Vehiculo::paginate();
+
+        return view('CRM.vehiculos.index', compact('vehiculos'));
     }
 
     /**
@@ -26,7 +27,8 @@ class VehiculoController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('CRM.vehiculos.create',compact('vehiculos'));
     }
 
     /**
@@ -37,7 +39,13 @@ class VehiculoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $idVehiculo = Vehiculo::max('idVehiculo');
+        $idVehiculo=$idVehiculo+1;
+        //return response()->json($idSede);
+        $request->request->add(['idVehiculo' => $idVehiculo]);
+        $vehiculo =  Vehiculo::create($request->all());
+
+        return redirect()->route('vehiculos.index')->with('info','Sede guardada con éxito');
     }
 
     /**
@@ -46,9 +54,11 @@ class VehiculoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($vehiculo)
     {
-        //
+
+        $vehiculo=Vehiculo::where('idVehiculo',$vehiculo)->first();
+        return view('CRM.vehiculos.show', compact('vehiculo'));
     }
 
     /**
@@ -57,9 +67,12 @@ class VehiculoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($vehiculo)
     {
-        //
+
+        $vehiculo=Vehiculo::where('idVehiculo',$vehiculo)->first();
+
+        return view('CRM.vehiculos.edit', compact('vehiculo'));
     }
 
     /**
@@ -69,9 +82,12 @@ class VehiculoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $vehiculo)
     {
-        //
+        $vehiculo=Vehiculo::where('idVehiculo',$vehiculo)->update($request->except('_token','_method'));
+//        $role->permissions()->sync($request->get('permissions'));
+
+        return redirect()->route('vehiculos.edit',$vehiculo)->with('info','Sede actualizada con éxito');
     }
 
     /**
@@ -80,8 +96,10 @@ class VehiculoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($vehiculo)
     {
-        //
+        $vehiculo=Vehiculo::where('idVehiculo',$vehiculo)->delete();
+
+        return back()->with('info', 'Eliminado correctamente');
     }
 }

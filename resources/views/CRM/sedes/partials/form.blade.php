@@ -1,3 +1,4 @@
+
 <div class="form-group">
     {{ Form::label('nombre','Nombre Sucursal*') }}
     {{ Form::text('nombre',null,['class' => 'form-control']) }}

@@ -6,9 +6,9 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Sedes
+                    <h4>Campañas
 
-                            <a href="{{ route('campanas.create', $campanas) }}" class="btn btn-sm btn-primary float-right">
+                        <a href="{{ route('campanas.create', $campanas) }}" class="btn btn-sm btn-primary float-right">
                                 Crear
                             </a>
 
@@ -31,6 +31,7 @@
                         <tbody>
                             @foreach ($campanas as $campana)
                             <tr>
+                                <td>{{ $campana->idCampana }}</td>
                                 <td>{{ $campana->Nombre }}</td>
                                 <td>{{ $campana->Descripcion }}</td>
                                 <td>{{ $campana->FechaInicio }}</td>
@@ -51,7 +52,7 @@
                                 </td>
                                 <td width="10px">
 
-                                    {!! Form::open(['route' => ['sedes.destroy', $campana->idCampana],
+                                    {!! Form::open(['route' => ['campanas.destroy', $campana->idCampana],
                                     'method' => 'DELETE']) !!}
                                     <button class="btn btn-sm btn-danger">Eliminar</button>
                                     {!! Form::close() !!}
@@ -70,6 +71,6 @@
 @endsection
 @section('script')
     <script>
-        document.getElementById('nav-sedes').className+=' active';
+        document.getElementById('nav-campanas').className+=' active';
     </script>
 @endsection

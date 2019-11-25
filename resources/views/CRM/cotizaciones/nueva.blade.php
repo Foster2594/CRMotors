@@ -5,11 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Role</div>
+                <div class="card-header">
+                    <h1><label class="label-left ">Crear nueva cotizacion</label></h1>
+                    <h1><label class="label float-right simple-text" >Numero de Cotización: COT#-00{{$idCotizacion}}</label></h1>
+                </div>
+
                 <div class="card-body">
-                    {!! Form::model($role, ['route' => ['roles.update',$role->id],
-                    'method' => 'PUT']) !!}
-                        @include('admin.roles.partials.form')
+                    {!! Form::open(['route' => 'cotizaciones.store']) !!}
+                        @include('CRM.cotizaciones.partials.form')
                     {!! Form::close() !!}
                 </div>
             </div>
