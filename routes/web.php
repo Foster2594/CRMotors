@@ -71,6 +71,17 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
         Route::get('roles/{role}/edit', 'Roles\RoleController@edit')->name('roles.edit')->middleware('can:roles.edit');
 */
 
+//cliente
+
+Route::get('clientes/index', 'ClienteController@index')->name('clientes.index');
+Route::post('clientes/store', 'ClienteController@store')->name('clientes.store');
+Route::get('clientes/create', 'ClienteController@create')->name('clientes.create');
+Route::put('clientes/{cliente}', 'ClienteController@update')->name('clientes.update');
+Route::get('clientes/{cliente}', 'ClienteController@show')->name('clientes.show');
+Route::delete('clientes/{cliente}', 'ClienteController@destroy')->name('clientes.destroy');
+Route::get('clientes/{cliente}/edit', 'ClienteController@edit')->name('clientes.edit');
+Route::get('cliente', 'ClienteController@index')->name('clientes.index');
+
         Route::group(['middleware' => 'auth'], function () {
 		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'PageController@icons']);
 		Route::get('maps', ['as' => 'pages.maps', 'uses' => 'PageController@maps']);
