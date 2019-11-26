@@ -8,9 +8,9 @@
                 <div class="card-header">Campanas</div>
                 <div class="card-body">
                     <p><strong>Nombre: </strong>{{ $campana->nombre }}</p>
-                    <p><strong>Descripcion: </strong>{{ $campana->correo }}</p>
-                    <p><strong>Fecha Inicio: </strong>{{ $campana->telefono }}</p>
-                    <p><strong>Fecha Final: </strong>{{ $campana->telefono }}</p>
+                    <p><strong>Descripcion: </strong>{{ $campana->descripcion }}</p>
+                    <p><strong>Fecha Inicio: </strong>{{ $campana->fechaInicio }}</p>
+                    <p><strong>Fecha Final: </strong>{{ $campana->fechaFinal }}</p>
                 </div>
             </div>
         </div>

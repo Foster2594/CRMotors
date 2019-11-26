@@ -26,7 +26,6 @@ class CampanaController extends Controller
      */
     public function create()
     {
-
         return view('CRM.campanas.create',compact('campanas'));
     }
 
@@ -57,7 +56,7 @@ class CampanaController extends Controller
     public function show($campana)
     {
         $campana=Campana::where('idCampana',$campana)->first();
-        return view('CRM.campana.show', compact('campana'));
+        return view('CRM.campanas.show', compact('campana'));
     }
 
 
@@ -83,10 +82,11 @@ class CampanaController extends Controller
      */
     public function update(Request $request, $campana)
     {
-        $campana=Campana::where('idCampana',$campana)->update($request->except('_token','_method'));
+        $campana=Campana::where('idCampana',$campana)->first();
+        $campana->update($request->all());
 //        $role->permissions()->sync($request->get('permissions'));
 
-        return redirect()->route('campanas.edit',$campana)->with('info','Campana actualizada con éxito');
+        return redirect()->route('campanas.edit',$campana->idCampana)->with('info','Campana actualizada con éxito');
     }
 
     /**
