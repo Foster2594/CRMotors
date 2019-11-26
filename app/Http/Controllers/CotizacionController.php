@@ -33,6 +33,14 @@ class CotizacionController extends Controller
         return view('CRM.cotizaciones.create',compact('cotizaciones','idCotizacion'));
     }
 
+    public function nueva()
+    {
+        $idCotizacion=Cotizacion::max('idEncabezadoCotizacion');
+        if ($idCotizacion==null){$idCotizacion=0;}
+        $idCotizacion=$idCotizacion+1;
+
+        return view('CRM.cotizaciones.nuevaCot',compact('cotizaciones','idCotizacion'));
+    }
     /**
      * Store a newly created resource in storage.
      *
