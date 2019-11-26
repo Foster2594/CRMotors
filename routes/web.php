@@ -81,6 +81,12 @@ Route::get('cliente', 'ClienteController@index')->name('clientes.index');
         Route::get('roles/{role}/edit', 'Roles\RoleController@edit')->name('roles.edit')->middleware('can:roles.edit');
 */
 
+//envio de correo
+// ruta de formulario
+Route::get('envio/index', 'ControllerMail@index');
+// ruta al enviar correo
+Route::post('mensaje/send', 'ControllerMail@send');
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('icons', ['as' => 'pages.icons', 'uses' => 'PageController@icons']);
     Route::get('maps', ['as' => 'pages.maps', 'uses' => 'PageController@maps']);
