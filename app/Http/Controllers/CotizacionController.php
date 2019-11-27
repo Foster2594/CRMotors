@@ -12,6 +12,8 @@ class CotizacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //en esta fucnion retornara la vista correspondiente a la consulta general
     public function index()
     {
         $cotizaciones=Cotizacion::paginate();
@@ -24,6 +26,8 @@ class CotizacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //en esta se migrara la vista de crear un encabezado solamente
     public function create()
     {
         $idCotizacion=Cotizacion::max('idEncabezadoCotizacion');
@@ -32,7 +36,7 @@ class CotizacionController extends Controller
 
         return view('CRM.cotizaciones.create',compact('cotizaciones','idCotizacion'));
     }
-
+//en esta vista se mostrara como crear una cotizacion totalmente nueva
     public function nueva()
     {
         $idCotizacion=Cotizacion::max('idEncabezadoCotizacion');
@@ -47,6 +51,7 @@ class CotizacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //En esta funcion recibira los datos para guardarlos en la base de datos y enviar su respectiva notificacion por correo
     public function store(Request $request)
     {
         $idEncabezadoCotizacion = Cotizacion::max('idEncabezadoCotizacion');
@@ -65,6 +70,8 @@ class CotizacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+   // Esta vista dara un panorama mas amplio de la vista consulta index
     public function show($cotizacion)
     {
         $cotizacion=Cotizacion::where('idEncabezadoCotizacion',$cotizacion)->first();
@@ -107,6 +114,7 @@ class CotizacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //al dar click en el icono de eliminar retornara la vista estandar y eliminara el valor
     public function destroy($cotizacion)
     {
         $cotizacion=Cotizacion::where('idEncabezadoCotizacion',$cotizacion)->delete();
@@ -114,7 +122,7 @@ class CotizacionController extends Controller
         return back()->with('info', 'Eliminado correctamente');
     }
 
-    //Logica de Negocio
+   
 
 
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php
-
+//librerias php  para ejecutar las sentencias de comando de linea
 define('LARAVEL_START', microtime(true));
 
 /*

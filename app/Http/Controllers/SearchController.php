@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
+    //Contiene toda la informacion de los controladores de tipo combobox
     public function comClientes(Request $request)
     {
         $cliente = Cliente::pluck('name', 'nombre', 'apellido1');
