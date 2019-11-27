@@ -1,3 +1,4 @@
+<!--En esta vista se crean la para generar las sedes-->
 @extends('layouts.app')
 
 @section('content')
