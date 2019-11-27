@@ -34,6 +34,7 @@ class VerificationController extends Controller
      */
     public function __construct()
     {
+        //autenticacion HTTP de los datos que el usuario esta poniendo para loguearse correctamente
         $this->middleware('auth');
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');

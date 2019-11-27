@@ -27,6 +27,7 @@ class ForgotPasswordController extends Controller
      */
     public function __construct()
     {
+        //filtrar las peticiones HTTP,autenticacion
         $this->middleware('guest');
     }
 }

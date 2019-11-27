@@ -1,5 +1,5 @@
 @extends('layouts.app', ['class' => 'login-page', 'page' => _('Login'), 'contentClass' => 'login-page'])
-
+{{-- extiende de layouts--}}
 @section('content')
     <div class="col-md-10 text-center ml-auto mr-auto">
         <h3 class="mb-5">Ingresa a tu perfil personal aqui: </h3>
@@ -14,7 +14,10 @@
                     <h1 class="card-title">{{ _('Login') }}</h1>
                 </div>
                 <div class="card-body">
+                    {{-- se le espefica al usuario que se ingresa con correo y contraseña--}}
                     <p class="text-dark mb-2">Ingresa con tu correo personal <strong>admin@black.com</strong> y tu contraseña <strong>secreta</strong></p>
+                    {{-- se valida el email y la contraseña en la base de datos--}}
+                    {{-- se agregan validaciones para los datos--}}
                     <div class="input-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
@@ -34,15 +37,18 @@
                         @include('alerts.feedback', ['field' => 'password'])
                     </div>
                 </div>
+                {{-- boton para ingresar al home--}}
                 <div class="card-footer">
                     <button type="submit" href="" class="btn btn-primary btn-lg btn-block mb-3">{{ _('Ingresar') }}</button>
                     <div class="pull-left">
+                        {{-- boton para registrarme como nuevo usuario--}}
                         <h6>
                             <a href="{{ route('register') }}" class="link footer-link">{{ _('Registrarme') }}</a>
                         </h6>
                     </div>
                     <div class="pull-right">
                         <h6>
+                            {{--aqui es por si olvide la contraseña para restaurarla --}}
                             <a href="{{ route('password.request') }}" class="link footer-link">{{ _('Olvidaste tu contraseña?') }}</a>
                         </h6>
                     </div>

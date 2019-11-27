@@ -1,7 +1,8 @@
 @extends('layouts.app', ['class' => 'login-page', 'page' => _('Reset password'), 'contentClass' => 'login-page'])
-
+{{--extiende de layouts --}}
 @section('content')
     <div class="col-lg-5 col-md-7 ml-auto mr-auto">
+        {{--ruta para actualizar la contraseña --}}
         <form class="form" method="post" action="{{ route('password.update') }}">
             @csrf
 
@@ -14,7 +15,7 @@
                     @include('alerts.success')
 
                     <input type="hidden" name="token" value="{{ $token }}">
-
+                    {{--agregar el email para verificar--}}
                     <div class="input-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
@@ -30,6 +31,7 @@
                                     <i class="tim-icons icon-lock-circle"></i>
                                 </div>
                             </div>
+                        {{--Aqui ponemos la contraseña nueva --}}
                             <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ _('Password') }}">
                             @include('alerts.feedback', ['field' => 'password'])
                         </div>
@@ -43,6 +45,7 @@
                         </div>
                 </div>
                 <div class="card-footer">
+                    {{--boton para actualizar contraseña --}}
                     <button type="submit" class="btn btn-primary btn-lg btn-block mb-3">{{ _('Reset Password') }}</button>
                 </div>
             </div>

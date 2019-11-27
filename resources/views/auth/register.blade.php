@@ -1,5 +1,5 @@
 @extends('layouts.app', ['class' => 'register-page', 'page' => _('Registro'), 'contentClass' => 'register-page'])
-
+{{-- extiende de layouts--}}
 @section('content')
     <div class="row">
         <div class="col-md-5 ml-auto">
@@ -45,7 +45,8 @@
                 </div>
                 <form class="form" method="post" action="{{ route('register') }}">
                     @csrf
-
+                    {{-- aqui pondremos el formulario para llenar el registro del usuario--}}
+                    {{-- agregamos validaciones--}}
                     <div class="card-body">
                         <div class="input-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                             <div class="input-group-prepend">
@@ -82,6 +83,7 @@
                             </div>
                             <input type="password" name="password_confirmation" class="form-control" placeholder="{{ _('Confirmar Contraseña') }}">
                         </div>
+                        {{-- esta parte es para aceptar las condicones de la empresa--}}
                         <div class="form-check text-left">
                             <label class="form-check-label">
                                 <input class="form-check-input" type="checkbox">
@@ -91,6 +93,7 @@
                             </label>
                         </div>
                     </div>
+                    {{--para guardar el registro--}}
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary btn-round btn-lg">{{ _('Guardar') }}</button>
                     </div>

@@ -34,6 +34,7 @@ class ResetPasswordController extends Controller
      */
     public function __construct()
     {
+        //resetear la contraseña por si el usuario la olvido
         $this->middleware('guest');
     }
 }

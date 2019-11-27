@@ -14,8 +14,10 @@ class UserController extends Controller
      * @param  \App\User  $model
      * @return \Illuminate\View\View
      */
+    //Aqui tenemos el controlador del usuario
     public function index(User $model)
     {
+        //aqui devolvemos la vista del index que creamos .
         return view('users.index', ['users' => $model->paginate(15)]);
     }
 
@@ -26,6 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        //aqui agregamos la vista para crear un usuario
         return view('users.create');
     }
 
@@ -38,6 +41,7 @@ class UserController extends Controller
      */
     public function store(UserRequest $request, User $model)
     {
+        //aqui hacemos una validacion de la contraseña
         $model->create($request->merge(['password' => Hash::make($request->get('password'))])->all());
 
         return redirect()->route('user.index')->withStatus(__('User successfully created.'));
@@ -51,6 +55,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        //aqui vamos a editar un usuario , entonces si el usuario coincide con el id de la base entonces se lle permitira editar
         if ($user->id == 1) {
             return redirect()->route('user.index');
         }
@@ -67,6 +72,7 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, User  $user)
     {
+        //aqui para actualizar primero se hara una validadion de los datos para luego poder actualizarlos
         $hasPassword = $request->get('password');
         $user->update(
             $request->merge(['password' => Hash::make($request->get('password'))])
@@ -84,6 +90,7 @@ class UserController extends Controller
      */
     public function destroy(User  $user)
     {
+        //para eliminar un usuario entonces se buscar el usuario con el id en la base para luego eliminarlo o desactivarlo
         if ($user->id == 1) {
             return abort(403);
         }

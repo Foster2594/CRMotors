@@ -1,5 +1,5 @@
 <?php
-
+//todas estas rutas se ejecutaran a la hora de arrancar la pagina
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,17 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//ruta para ejecutar la pagina de bienvenida
 Route::get('/', function () {
     return view('welcome');
 });
 Auth::routes();
-
+//ruta para ejecutar el home de la pagina
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
 
-//Sedes
+// rutas para el mantenimiento de Sedes, aqui esta para ver la seccion sedes,para actualizar,crear,eliminar,etc
     Route::get('sedes/index', 'SedeController@index')->name('sedes.index');
     Route::post('sedes/store', 'SedeController@store')->name('sedes.store');
     Route::get('sedes/create', 'SedeController@create')->name('sedes.create');
@@ -29,7 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('sedes/{sede}', 'SedeController@destroy')->name('sedes.destroy');
     Route::get('sedes/{sede}/edit', 'SedeController@edit')->name('sedes.edit');
 
-//Cotizacion
+// rutas para el mantenimiento de cotizacion, aqui esta para ver la seccion COTIZACION,para actualizar,crear,eliminar,etc
     Route::get('cotizaciones/index', 'CotizacionController@index')->name('cotizaciones.index');
     Route::post('cotizaciones/store', 'CotizacionController@store')->name('cotizaciones.store');
     Route::get('cotizaciones/create', 'CotizacionController@create')->name('cotizaciones.create');
@@ -40,7 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('cotizaciones/{cotizacion}/edit', 'CotizacionController@edit')->name('cotizaciones.edit');
 
 
-//Campana
+/// rutas para el mantenimiento de campaña, aqui esta para ver la seccion Campañas,para actualizar,crear,eliminar,etc
     Route::get('campanas/index', 'CampanaController@index')->name('campanas.index');
     Route::post('campanas/store', 'CampanaController@store')->name('campanas.store');
     Route::get('campanas/create', 'CampanaController@create')->name('campanas.create');
@@ -60,7 +60,7 @@ Route::group(['middleware' => 'auth'], function () {
 //        Route::get('sedes/{sede}/edit', 'SedeController@edit')->name('sedes.edit');
 
 
-//vehiculo
+//// rutas para el mantenimiento de vehiculo, aqui esta para ver la seccion Vehiculo,para actualizar,crear,eliminar,etc
 
     Route::get('vehiculos/index', 'VehiculoController@index')->name('vehiculos.index');
     Route::post('vehiculos/store', 'VehiculoController@store')->name('vehiculos.store');
@@ -70,7 +70,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('vehiculos/{vehiculo}', 'VehiculoController@destroy')->name('vehiculos.destroy');
     Route::get('vehiculos/{vehiculo}/edit', 'VehiculoController@edit')->name('vehiculos.edit');
 
-//Clientes
+// rutas para el mantenimiento de cliente, aqui esta para ver la seccion Clientes,para actualizar,crear,eliminar,etc
     Route::get('cliente', 'ClienteController@index')->name('clientes.index');
 //    Route::post('vehiculos/store', 'VehiculoController@store')->name('vehiculos.store');
 //    Route::get('vehiculos/create', 'VehiculoController@create')->name('vehiculos.create');
@@ -87,6 +87,7 @@ Route::get('envio/index', 'ControllerMail@index');
 // ruta al enviar correo
 Route::post('mensaje/send', 'ControllerMail@send');
 
+// rutas extraer los iconos,tipografia,notificaciones,mapas,entre otras que la plantilla ofrece
 Route::group(['middleware' => 'auth'], function () {
     Route::get('icons', ['as' => 'pages.icons', 'uses' => 'PageController@icons']);
     Route::get('maps', ['as' => 'pages.maps', 'uses' => 'PageController@maps']);
@@ -96,7 +97,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('typography', ['as' => 'pages.typography', 'uses' => 'PageController@typography']);
     Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'PageController@upgrade']);
 });
-
+// rutas para el mantenimiento de usuarios, aqui esta para editar,crear y actualizar los usuarios
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('user', 'UserController', ['except' => ['show']]);
     Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
@@ -105,7 +106,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 }
 );
-
+// rutas para el envio de correo a la hora de realizar un registro
 Route::get('registro', 'Auth\RegisterController@registroMail')->name('Email.registroMail');
 //Route::get('registro', 'EmailController@registro')->name('Email.registro');
 

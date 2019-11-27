@@ -1,5 +1,5 @@
 @extends('layouts.app', ['page' => __('User Management'), 'pageSlug' => 'users'])
-
+{{-- extiende de layouts--}}
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -10,16 +10,19 @@
                             <h4 class="card-title">{{ __('Users') }}</h4>
                         </div>
                         <div class="col-4 text-right">
+                            {{-- utilizamos la ruta para crear usuarios--}}
                             <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">{{ __('Add user') }}</a>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
+                    {{-- incluimos una alerta de validacion--}}
                     @include('alerts.success')
 
                     <div class="">
                         <table class="table tablesorter " id="">
                             <thead class=" text-primary">
+                            {{--Hacemos uso de los siguientes datos para agregar un usuario a la base de datos--}}
                                 <th scope="col">{{ __('Name') }}</th>
                                 <th scope="col">{{ __('Email') }}</th>
                                 <th scope="col">{{ __('Creation Date') }}</th>
@@ -28,10 +31,13 @@
                             <tbody>
                                 @foreach ($users as $user)
                                     <tr>
+                                        {{-- usuario sera igual al nombre--}}
                                         <td>{{ $user->name }}</td>
                                         <td>
+                                            {{-- usuario esta unido con email--}}
                                             <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
                                         </td>
+                                        {{--formato para fechas--}}
                                         <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
                                         <td class="text-right">
                                                 <div class="dropdown">
@@ -39,17 +45,20 @@
                                                         <i class="fas fa-ellipsis-v"></i>
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                        {{-- utilizamos el id del usuario eliminarlo--}}
                                                         @if (auth()->user()->id != $user->id)
+                                                            {{-- utilizamos la ruta para eliminar usuario--}}
                                                             <form action="{{ route('user.destroy', $user) }}" method="post">
                                                                 @csrf
                                                                 @method('delete')
-
+                                                                {{-- utilizamos la ruta para editar o actualizar usuario--}}
                                                                 <a class="dropdown-item" href="{{ route('user.edit', $user) }}">{{ __('Edit') }}</a>
                                                                 <button type="button" class="dropdown-item" onclick="confirm('{{ __("Are you sure you want to delete this user?") }}') ? this.parentElement.submit() : ''">
                                                                             {{ __('Delete') }}
                                                                 </button>
                                                             </form>
                                                         @else
+                                                            {{-- utilizamos la ruta para editar usuario--}}
                                                             <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Edit') }}</a>
                                                         @endif
                                                     </div>

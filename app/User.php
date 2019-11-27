@@ -16,6 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        //datos que tendra un usuario
         'name', 'email', 'password',
     ];
 
@@ -25,6 +26,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
+        //para mostrar la contraseña si el usuario lo desea
         'password', 'remember_token',
     ];
 
@@ -34,6 +36,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
+        //verificador
         'email_verified_at' => 'datetime',
     ];
 

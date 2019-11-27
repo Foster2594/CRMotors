@@ -49,8 +49,11 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        //en esta parte yo voy a otorgar validaciones importantes para el registro de usuario.
         return Validator::make($data, [
+            //todos los datos son requeridos y tienen un tamaño
             'name' => ['required', 'string', 'max:255'],
+            //indica que debe ser unico en la base de datos, no puede haber otro usuario con el mismo email.
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);

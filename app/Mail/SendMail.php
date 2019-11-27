@@ -32,7 +32,7 @@ class SendMail extends Mailable
     public function build()
     {
 
-
+//para mostrar la vista del email que se mandara
         $mensaje=mensaje::paginate();
 
         return view('CRM.mensaje.index', compact('mensaje'));
