@@ -6,11 +6,16 @@ use Illuminate\Http\Request;
 
 class ClienteController extends Controller
 {
+<<<<<<< Updated upstream
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+=======
+/*En la funcion index es donde se realiza la conexion del controlador cliente con la vista de cliente para asi mostrar en pantalla los clientes
+que han sido ingresados dentro del sistema*/
+>>>>>>> Stashed changes
     public function index()
     {
         $cliente=Cliente::paginate();
@@ -23,6 +28,7 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+/*En esta funcion es para mostrar la vista donde se crea al cliente*/
     public function create()
     {
         //
