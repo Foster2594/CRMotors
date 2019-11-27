@@ -32,11 +32,11 @@ class Clientecontroller extends Controller
      */
     public function store(Request $request)
     {
-        $idCliente= Cliente::max('idCliente');
+        $idCliente= Clientes::max('idCliente');
         $idCliente=$idCliente+1;
         //return response()->json($idCliente);
         $request->request->add(['idCliente' => $idCliente]);
-        $cliente= Cliente::create($request->all());
+        $cliente= Clientes::create($request->all());
 
         return redirect()->route('clientes.index')->with('info','Sede guardada con éxito');
     }
