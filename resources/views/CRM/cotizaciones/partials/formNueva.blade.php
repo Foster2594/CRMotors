@@ -1,3 +1,4 @@
+<!--En este Form para generar las cotizaciones-->
 <div class="form-group">
     {{ Form::label('fechaCreacion',today()) }}
     {{ Form::date('fechaCreacion',today(),['class' => 'form-control']) }}

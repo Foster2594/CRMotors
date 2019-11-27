@@ -122,7 +122,7 @@ class CotizacionController extends Controller
         return back()->with('info', 'Eliminado correctamente');
     }
 
-   
+
 
 
 }

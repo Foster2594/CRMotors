@@ -9,6 +9,8 @@ class HomeController extends Controller
      *
      * @return void
      */
+
+    //Contructor del HOme, verificado por midleware
     public function __construct()
     {
         $this->middleware('auth');
@@ -19,6 +21,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\View\View
      */
+    //Muestra el dashboard de graficos y reportes de primera mano
     public function index()
     {
         return view('dashboard');

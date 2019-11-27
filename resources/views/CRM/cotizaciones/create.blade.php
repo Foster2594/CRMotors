@@ -1,3 +1,4 @@
+<!--En esta vista se crean la para generar las cotizaciones-->
 @extends('layouts.app')
 
 @section('content')

@@ -1,5 +1,5 @@
 @extends('layouts.app', ['pageSlug' => 'dashboard'])
-
+<!--En esta vista se mostraran la informacion de detalle para reportes y graficos-->
 @section('content')
     <div class="row">
         <div class="col-12">
