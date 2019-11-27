@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<!--En esta vista se mostraran la pagina de inicio-->
 @section('content')
     <body style="background-color: black">
     <div  class="header py-7 py-lg-8">
