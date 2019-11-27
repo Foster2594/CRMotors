@@ -1,4 +1,4 @@
-{
+{//import de librerias necesarias del proyecto
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
@@ -7,6 +7,7 @@
         "laravel"
     ],
     "license": "MIT",
+    //aqui se importan todas las librerias necesarias para ejecutar el proyecto con sus versiones
     "require": {
         "php": "^7.2",
         "laravel-frontend-presets/black-dashboard": "^1.0",

@@ -1,26 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Clientes;
 use Illuminate\Http\Request;
 
-class ClienteController extends Controller
+class Clientecontroller extends Controller
 {
-<<<<<<< Updated upstream
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-=======
-/*En la funcion index es donde se realiza la conexion del controlador cliente con la vista de cliente para asi mostrar en pantalla los clientes
-que han sido ingresados dentro del sistema*/
->>>>>>> Stashed changes
     public function index()
     {
-        $cliente=Cliente::paginate();
+        $clientes=Clientes::paginate();
 
-        return view('CRM.clientes.index', compact('cliente'));
+        return view('CRM.clientes.index', compact('clientes'));
     }
 
     /**
@@ -28,10 +18,10 @@ que han sido ingresados dentro del sistema*/
      *
      * @return \Illuminate\Http\Response
      */
-/*En esta funcion es para mostrar la vista donde se crea al cliente*/
     public function create()
     {
-        //
+
+        return view('CRM.clientes.create',compact('clientes'));
     }
 
     /**
@@ -42,7 +32,13 @@ que han sido ingresados dentro del sistema*/
      */
     public function store(Request $request)
     {
-        //
+        $idCliente= Clientes::max('idCliente');
+        $idCliente=$idCliente+1;
+        //return response()->json($idCliente);
+        $request->request->add(['idCliente' => $idCliente]);
+        $cliente= Clientes::create($request->all());
+
+        return redirect()->route('clientes.index')->with('info','Sede guardada con éxito');
     }
 
     /**
@@ -51,9 +47,11 @@ que han sido ingresados dentro del sistema*/
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($cliente)
     {
-        //
+
+        $cliente=Cliente::where('idCliente',$cliente)->first();
+        return view('CRM.clientes.show', compact('cliente'));
     }
 
     /**
@@ -62,9 +60,12 @@ que han sido ingresados dentro del sistema*/
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($cliente)
     {
-        //
+
+        $cliente=Cliente::where('idCliente',$cliente)->first();
+
+        return view('CRM.clientes.edit', compact('cliente'));
     }
 
     /**
@@ -74,9 +75,16 @@ que han sido ingresados dentro del sistema*/
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $cliente)
     {
-        //
+        //  return $request;
+        $request->request->add(['idCliente' => $cliente]);
+
+        $cliente=Cliente::where('idCliente',$cliente)->update($request->except('_token'));
+
+//        $role->permissions()->sync($request->get('permissions'));
+
+        return redirect()->route('clientes.show', compact('cliente'))->with('info','Sede actualizada con éxito');
     }
 
     /**
@@ -85,8 +93,10 @@ que han sido ingresados dentro del sistema*/
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($cliente)
     {
-        //
+        $cliente=Cliente::where('idCliente',$cliente)->delete();
+
+        return back()->with('info', 'Eliminado correctamente');
     }
 }

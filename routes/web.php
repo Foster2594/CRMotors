@@ -71,13 +71,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('vehiculos/{vehiculo}/edit', 'VehiculoController@edit')->name('vehiculos.edit');
 
 //Clientes
+    Route::get('clientes/index', 'ClienteController@index')->name('clientes.index');
+    Route::post('clientes/store', 'ClienteController@store')->name('clientes.store');
+    Route::get('clientes/create', 'ClienteController@create')->name('clientes.create');
+    Route::put('clientes/{cliente}', 'ClienteController@update')->name('clientes.update');
+    Route::get('clientes/{cliente}', 'ClienteController@show')->name('clientes.show');
+    Route::delete('clientes/{cliente}', 'ClienteController@destroy')->name('clientes.destroy');
+    Route::get('clientes/{cliente}/edit', 'ClienteController@edit')->name('clientes.edit');
     Route::get('cliente', 'ClienteController@index')->name('clientes.index');
-//    Route::post('vehiculos/store', 'VehiculoController@store')->name('vehiculos.store');
-//    Route::get('vehiculos/create', 'VehiculoController@create')->name('vehiculos.create');
-//    Route::post('vehiculos/{vehiculo}', 'VehiculoController@update')->name('vehiculos.update');
-//    Route::get('vehiculos/{vehiculo}', 'VehiculoController@show')->name('vehiculos.show');
-//    Route::delete('vehiculos/{vehiculo}', 'VehiculoController@destroy')->name('vehiculos.destroy');
-//    Route::get('vehiculos/{vehiculo}/edit', 'VehiculoController@edit')->name('vehiculos.edit');
 
 });
 
