@@ -134,3 +134,5 @@ return [
     'log_channel' => env('MAIL_LOG_CHANNEL'),
 
 ];
+
+#aqui estoy usando el mail trap para mandar correos a los usuarios,el correo es info@royalmotors.cr y la contraseña es CRM12345

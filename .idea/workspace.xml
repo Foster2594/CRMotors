@@ -130,6 +130,38 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="107">
+              <caret line="25" column="78" lean-forward="true" selection-start-line="25" selection-start-column="78" selection-end-line="25" selection-end-column="78" />
+              <folding>
+                <element signature="e#72#454#0#PHP" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="39">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mail.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/mail.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="335">
+              <caret line="137" column="99" lean-forward="false" selection-start-line="137" selection-start-column="80" selection-end-line="137" selection-end-column="99" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="email.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -152,7 +184,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/users/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
@@ -199,7 +231,6 @@
         <option value="$PROJECT_DIR$/resources/views/layouts/navbars/navs/guest.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/navbars/navs/auth.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/resources/views/CRM/mensaje/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ControllerMail.php" />
         <option value="$PROJECT_DIR$/resources/views/CRM/envio/index.blade.php" />
@@ -208,7 +239,6 @@
         <option value="$PROJECT_DIR$/resources/views/users/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/users/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/users/create.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/app/Mail/SendMail.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/EmailController.php" />
@@ -226,6 +256,9 @@
         <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/config/mail.php" />
       </list>
     </option>
   </component>
@@ -504,12 +537,12 @@
       <workItem from="1574575976193" duration="99000" />
       <workItem from="1574631856934" duration="2111000" />
       <workItem from="1574634043340" duration="11065000" />
-      <workItem from="1574823474353" duration="6472000" />
+      <workItem from="1574823474353" duration="7533000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19648000" />
+    <option name="totallyTimeSpent" value="20709000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
@@ -708,26 +741,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CotizacionController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="18" column="71" lean-forward="false" selection-start-line="16" selection-start-column="7" selection-end-line="18" selection-end-column="71" />
           <folding>
-            <marker date="1574823230651" expanded="true" signature="1095:1249" ph=" Store a newly created resource in storage. ..." />
-            <marker date="1574823230651" expanded="true" signature="1295:1743" ph="{...}" />
-            <marker date="1574823230651" expanded="true" signature="1752:1869" ph=" Display the specified resource. ..." />
-            <marker date="1574823230651" expanded="true" signature="1909:2076" ph="{...}" />
-            <marker date="1574823230651" expanded="true" signature="2085:2220" ph=" Show the form for editing the specified resource. ..." />
-            <marker date="1574823230651" expanded="true" signature="2260:2429" ph="{...}" />
-            <marker date="1574823230651" expanded="true" signature="2438:2615" ph=" Update the specified resource in storage. ..." />
-            <marker date="1574823230651" expanded="true" signature="2675:3022" ph="{...}" />
+            <marker date="1574830109736" expanded="true" signature="1095:1249" ph=" Store a newly created resource in storage. ..." />
+            <marker date="1574830109736" expanded="true" signature="1295:1743" ph="{...}" />
+            <marker date="1574830109736" expanded="true" signature="1752:1869" ph=" Display the specified resource. ..." />
+            <marker date="1574830109736" expanded="true" signature="1909:2076" ph="{...}" />
+            <marker date="1574830109736" expanded="true" signature="2085:2220" ph=" Show the form for editing the specified resource. ..." />
+            <marker date="1574830109736" expanded="true" signature="2260:2429" ph="{...}" />
+            <marker date="1574830109736" expanded="true" signature="2438:2615" ph=" Update the specified resource in storage. ..." />
+            <marker date="1574830109736" expanded="true" signature="2675:3022" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -817,14 +843,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="10" column="14" lean-forward="false" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/mail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -970,16 +988,6 @@
         <state relative-caret-position="238">
           <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="108" column="66" lean-forward="false" selection-start-line="108" selection-start-column="66" selection-end-line="108" selection-end-column="66" />
-          <folding>
-            <element signature="e#72#454#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1185,6 +1193,32 @@
             <marker date="1574825111010" expanded="true" signature="4434:4446" ph="..." />
             <marker date="1574825111010" expanded="true" signature="5033:5050" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="25" column="78" lean-forward="true" selection-start-line="25" selection-start-column="78" selection-end-line="25" selection-end-column="78" />
+          <folding>
+            <element signature="e#72#454#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/mail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="137" column="99" lean-forward="false" selection-start-line="137" selection-start-column="80" selection-end-line="137" selection-end-column="99" />
+          <folding />
         </state>
       </provider>
     </entry>
