@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<!--En esta vista se crean la para crear las campanhas-->
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

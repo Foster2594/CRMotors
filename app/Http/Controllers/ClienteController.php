@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class Clientecontroller extends Controller
 {
+    //esta funcion sirve para mostrar la vista principal donde nos muestra todos los clientes introducidos
     public function index()
     {
         $clientes=Clientes::paginate();
@@ -18,6 +19,7 @@ class Clientecontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //aqui muestra la vista donde se crearan los clientes nuevos
     public function create()
     {
 
@@ -30,6 +32,7 @@ class Clientecontroller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //en esta funcion es donde se guarda los clientes para posteriormente mostrarse en la pantalla principal
     public function store(Request $request)
     {
         $idCliente= Clientes::max('idCliente');
@@ -47,6 +50,7 @@ class Clientecontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //aqui nos muestra con mas detalles los datos del cliente desde otra vista distinta
     public function show($cliente)
     {
 
@@ -60,6 +64,7 @@ class Clientecontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //esto nos abre una vista en donde podemos editar a algun usuario
     public function edit($cliente)
     {
 
@@ -75,6 +80,7 @@ class Clientecontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //aqui nos actualiza al usuario
     public function update(Request $request, $cliente)
     {
         //  return $request;
@@ -93,6 +99,7 @@ class Clientecontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //aqui se borra un usuario
     public function destroy($cliente)
     {
         $cliente=Cliente::where('idCliente',$cliente)->delete();
