@@ -34,10 +34,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('cotizaciones/store', 'CotizacionController@store')->name('cotizaciones.store');
     Route::get('cotizaciones/create', 'CotizacionController@create')->name('cotizaciones.create');
     Route::get('cotizaciones/nueva', 'CotizacionController@nueva')->name('cotizaciones.nueva');
+    Route::get('cotizaciones/nueva/{vehiculo}', 'CotizacionController@agregar')->name('cotizaciones.agregar');
     Route::post('cotizaciones/{cotizacion}', 'CotizacionController@update')->name('cotizaciones.update');
     Route::get('cotizaciones/{cotizacion}', 'CotizacionController@show')->name('cotizaciones.show');
     Route::delete('cotizaciones/{cotizacion}', 'CotizacionController@destroy')->name('cotizaciones.destroy');
     Route::get('cotizaciones/{cotizacion}/edit', 'CotizacionController@edit')->name('cotizaciones.edit');
+
+    //importacion de vehiculos para el modal
+
 
 
 /// rutas para el mantenimiento de campaña, aqui esta para ver la seccion Campañas,para actualizar,crear,eliminar,etc
@@ -62,6 +66,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 //// rutas para el mantenimiento de vehiculo, aqui esta para ver la seccion Vehiculo,para actualizar,crear,eliminar,etc
 
+
+    Route::get('vehiculos/select', 'VehiculoController@select')->name('vehiculos.select');
     Route::get('vehiculos/index', 'VehiculoController@index')->name('vehiculos.index');
     Route::post('vehiculos/store', 'VehiculoController@store')->name('vehiculos.store');
     Route::get('vehiculos/create', 'VehiculoController@create')->name('vehiculos.create');
@@ -72,7 +78,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 // rutas para el mantenimiento de cliente, aqui esta para ver la seccion Clientes,para actualizar,crear,eliminar,etc
     Route::get('clientes/index', 'ClienteController@index')->name('clientes.index');
-  Route::post('clientes/store', 'ClienteController@store')->name('clientes.store');
+    Route::post('clientes/store', 'ClienteController@store')->name('clientes.store');
     Route::get('clientes/create', 'ClienteController@create')->name('clientes.create');
     Route::post('clientes/{cliente}', 'ClienteController@update')->name('clientes.update');
     Route::get('clientes/{cliente}', 'ClienteController@show')->name('clientes.show');

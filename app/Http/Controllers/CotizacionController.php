@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cotizacion;
+use App\Vehiculo;
 use Illuminate\Http\Request;
 
 class CotizacionController extends Controller
@@ -16,7 +17,13 @@ class CotizacionController extends Controller
     //en esta fucnion retornara la vista correspondiente a la consulta general
     public function index()
     {
-        $cotizaciones=Cotizacion::paginate();
+        $cotizaciones = Cotizacion::join('Cliente', 'EncabezadoCotizacion.idCliente', 'Cliente.idCliente')
+            ->join('Empleado','EncabezadoCotizacion.idEmpleado','Empleado.idEmpleado')
+            ->select('EncabezadoCotizacion.*','Cliente.nombre as nomcli','Cliente.apellido1 as ap1cli','Cliente.apellido2 as ap2cli'
+                ,'Empleado.nombre as nomemp','Empleado.apellido1 as ap1emp','Empleado.apellido2 as ap2emp','Cliente.numeroCelular as tel')->paginate();
+//        $cotizaciones = Cotizacion::paginate();
+//        return response()->json($cotizaciones);
+
 
         return view('CRM.cotizaciones.index', compact('cotizaciones'));
     }
@@ -43,7 +50,9 @@ class CotizacionController extends Controller
         if ($idCotizacion==null){$idCotizacion=0;}
         $idCotizacion=$idCotizacion+1;
 
-        return view('CRM.cotizaciones.nuevaCot',compact('cotizaciones','idCotizacion'));
+        $vehiculos=Vehiculo::paginate();
+
+        return view('CRM.cotizaciones.nuevaCot',compact('cotizaciones','idCotizacion','vehiculos'));
     }
     /**
      * Store a newly created resource in storage.
@@ -57,7 +66,10 @@ class CotizacionController extends Controller
         $idEncabezadoCotizacion = Cotizacion::max('idEncabezadoCotizacion');
         $idEncabezadoCotizacion=$idEncabezadoCotizacion+1;
         //return response()->json($idSede);
-        $request->request->add(['idEncabezadoCotizacion' => $idEncabezadoCotizacion]);
+        $request->request->add(['idEncabezadoCotizacion' => $idEncabezadoCotizacion,
+                                'idEstadoCotizacion'=>1
+
+            ]);
         $idEncabezadoCotizacion = Cotizacion::create($request->all());
 
 
@@ -92,6 +104,7 @@ class CotizacionController extends Controller
         return view('CRM.cotizaciones.edit', compact('cotizacion'));
     }
 
+
     /**
      * Update the specified resource in storage.
      *
@@ -122,7 +135,26 @@ class CotizacionController extends Controller
         return back()->with('info', 'Eliminado correctamente');
     }
 
+    public function select()
+    {
 
+        $vehiculos=Vehiculo::paginate();
 
+        return view('CRM.cotizaciones.select', compact('vehiculos'));
+    }
 
+    public function showv($vehiculo)
+    {
+
+        $vehiculo=Vehiculo::where('idVehiculo',$vehiculo)->first();
+        return view('CRM.vehiculos.show', compact('vehiculo'));
+    }
+
+    public function agregar($vehiculo)
+    {
+
+        $vehiculo=Vehiculo::where('idVehiculo',$vehiculo)->first();
+
+        return back()->with('vehiculo') ;
+    }
 }

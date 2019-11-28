@@ -8,12 +8,10 @@
 
                     <div class="panel-content">
                         <h4>
-
                             <a href="{{ route('cotizaciones.nueva', $cotizaciones) }}"
                                class="btn btn-sm btn-primary float-right">
                                 Crear Nueva Cotizacion
                             </a>
-
                         </h4>
                     </div>
 
@@ -23,9 +21,7 @@
                     <div class="card-header">
                         <div class="panel-content">
                             <h4>Cotizaciones</h4>
-
                         </div>
-
                     </div>
                     <div class="card-body table-responsive">
                         <table class="table table-striped table-hover">
@@ -33,20 +29,20 @@
                             <tr>
                                 <th width="10px">ID</th>
                                 <th>Nombre</th>
+                                <th>Empleado</th>
                                 <th>Telefono</th>
-                                <th>Correo</th>
-
-                                <th colspan="3">&nbsp;</th>
+                                <th>Total</th>
+                                <th colspan="3"></th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach ($cotizaciones as $cotizacion)
                                 <tr>
                                     <td>{{ $cotizacion->idEncabezadoCotizacion }}</td>
-                                    <td>{{ $cotizacion->idCliente }}</td>
-                                    <td>{{ $cotizacion->idEmpleado }}</td>
-
-
+                                    <td>{{ $cotizacion->nomcli }}</td>
+                                    <td>{{ $cotizacion->nomemp }}</td>
+                                    <td>{{ $cotizacion->tel }}</td>
+                                    <td>{{ $cotizacion->total }}</td>
                                     <td width="10px">
                                         <a href="{{ route('cotizaciones.show', $cotizacion->idEncabezadoCotizacion) }}"
                                            class="btn btn-sm btn-success">

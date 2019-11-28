@@ -102,4 +102,12 @@ class VehiculoController extends Controller
 
         return back()->with('info', 'Eliminado correctamente');
     }
+
+//    public function select()
+//    {
+//
+//        $vehiculos=Vehiculo::paginate();
+//
+//        return view('CRM.vehiculos.select', compact('vehiculos'));
+//    }
 }
