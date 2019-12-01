@@ -1,5 +1,6 @@
 
 <div class="form-group">
+    {{--<input type="number" name="a" class="form-control" value="1" />--}}
     {{ Form::label('nombre','Nombre Sucursal*') }}
     {{ Form::text('nombre',null,['class' => 'form-control']) }}
 </div>
@@ -35,5 +36,6 @@
 </div>
 
 <div class="form-group">
-    {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}
+    <input type="submit" value="Guardar">
+    {{--{{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}--}}
 </div>

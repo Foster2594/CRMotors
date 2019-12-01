@@ -38,6 +38,8 @@ class SedeController extends Controller
      */
     public function store(Request $request)
     {
+        return $request;
+
         $idSede = Sede::max('idSede');
         $idSede=$idSede+1;
         //return response()->json($idSede);

@@ -34,10 +34,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('cotizaciones/store', 'CotizacionController@store')->name('cotizaciones.store');
     Route::get('cotizaciones/create', 'CotizacionController@create')->name('cotizaciones.create');
     Route::get('cotizaciones/nueva', 'CotizacionController@nueva')->name('cotizaciones.nueva');
+    Route::get('cotizaciones/nueva/detalle', 'CotizacionController@detalle')->name('cotizacion.detalle');
+    Route::get('cotizaciones/nueva/{vehiculo}', 'CotizacionController@agregar')->name('cotizaciones.agregar');
     Route::post('cotizaciones/{cotizacion}', 'CotizacionController@update')->name('cotizaciones.update');
     Route::get('cotizaciones/{cotizacion}', 'CotizacionController@show')->name('cotizaciones.show');
     Route::delete('cotizaciones/{cotizacion}', 'CotizacionController@destroy')->name('cotizaciones.destroy');
     Route::get('cotizaciones/{cotizacion}/edit', 'CotizacionController@edit')->name('cotizaciones.edit');
+
 
 
 //Campana
