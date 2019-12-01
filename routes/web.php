@@ -116,6 +116,10 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('registro', 'Auth\RegisterController@registroMail')->name('Email.registroMail');
 //Route::get('registro', 'EmailController@registro')->name('Email.registro');
 
+// rutas para el envio de correo a la hora de realizar un registro
+Route::get('cotizacion', 'CRM\CotizacionController@cotizacionMail')->name('Email.cotizacionMail');
+//Route::get('registro', 'EmailController@registro')->name('Email.registro');
+
 
 
 

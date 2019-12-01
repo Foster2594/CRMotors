@@ -37,6 +37,7 @@ class CotizacionController extends Controller
     //en esta se migrara la vista de crear un encabezado solamente
     public function create()
     {
+
         $idCotizacion=Cotizacion::max('idEncabezadoCotizacion');
         if ($idCotizacion==null){$idCotizacion=0;}
         $idCotizacion=$idCotizacion+1;
@@ -156,5 +157,51 @@ class CotizacionController extends Controller
         $vehiculo=Vehiculo::where('idVehiculo',$vehiculo)->first();
 
         return back()->with('vehiculo') ;
+    }
+
+    protected function datos(array $data)
+    {
+        $envio=$this->cotizacionMail($data['cliente'],$data['empleado'],$data['idvehiculo'],$data['descripcion'],$data['cantidad'],$data['precio'],$data['descuento'],$data['impuesto'],$data['subtotal'],$data['total']);
+
+
+        return User::datos([
+            'cliente' => $data['cliente'],
+            'empleado' => $data['empleado'],
+            'idvehiculo' => $data['idvehiculo'],
+        'descripcion' => $data['descripcion'],
+            'cantidad' => $data['cantidad'],
+            'precio' => $data['precio'],
+        'descuento' => $data['descuento'],
+            'subtotal' => $data['subtotal'],
+            'total' => $data['total']
+        ]);
+
+    }
+
+    public function cotizacionMail($cliente, $empleado,$campaña,$campaña,$idvehiculo,$descripcion,$cantidad,$precio,$descuento,$impuesto,$subtotal,$total)
+    {
+        $data = ['cliente' => $cliente,
+            'empleado' => $empleado,
+            'campana' => $campaña,
+            'idvehiculo' => $idvehiculo,
+            'descripcion' => $descripcion,
+            'cantidad' => $cantidad,
+            'precio' => $precio,
+            'descuento' => $descuento,
+            'impuesto' => $impuesto,
+            'subtotal' => $subtotal,
+            'total' => $total
+        ];
+
+        Mail::send('emails.cotizacion', $data, function ($message) {
+
+            $message->from('email@styde.net', 'Styde.Net');
+
+//          $message->to('user@example.com')->subject('Notificación');
+            $message->to('foster2594@gmail.com')->subject('Cotizacion CRM Royal Motors');
+
+        });
+
+        return "Se envío el email";
     }
 }

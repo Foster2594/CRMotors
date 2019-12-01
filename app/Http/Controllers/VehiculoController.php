@@ -110,4 +110,8 @@ class VehiculoController extends Controller
 //
 //        return view('CRM.vehiculos.select', compact('vehiculos'));
 //    }
+
+
+
+
 }
