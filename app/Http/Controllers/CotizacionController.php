@@ -142,7 +142,7 @@ class CotizacionController extends Controller
 //        $insertadetalle=$this->detalle($request);
         $det = $request->detalle;
         $det = \GuzzleHttp\json_decode($det);
-   
+
         foreach ($det as $linea) {
             $jsonlinea = \GuzzleHttp\json_decode($linea);
             $detalle = new DetalleCotizacion();

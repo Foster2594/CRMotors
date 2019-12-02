@@ -66,9 +66,15 @@
             </tbody>
             <tfoot class="footer">
             <tr>
-                <td colspan="8">
+                <td colspan="6">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                         Agregar
+                    </button>
+
+                </td>
+                <td colspan="6">
+                    <button type="button" class="btn btn-primary" onclick="eliminarfila()">
+                        Eliminar
                     </button>
 
                 </td>
@@ -84,9 +90,9 @@
 
     <div class="col-sm-4">
 
-
+        {{ Form::textarea('detalle',0,['class' => 'form-control','id'=>'jsonhidden']) }}
+        {{ Form::textarea('operaciones',0,['class' => 'form-control','id'=>'operaciones']) }}
         {{ Form::hidden('numeroLineas',0,['class' => 'form-control','id'=>'numeroLineas']) }}
-        {{ Form::textarea('detalle',0,['class' => 'form-control','id'=>'hidden']) }}
 
     </div>
 </div>
@@ -123,9 +129,6 @@
 <div class="form-group">
     {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}
 </div>
-
-
-
 
 
 {{--modal--}}
@@ -182,12 +185,9 @@
                         @endforeach
                         </tbody>
                     </table>
-
                 </div>
             </div>
-            <div>
 
-            </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>
@@ -198,35 +198,14 @@
 
 {{--//inicio javascript--}}
 <script>
-
+    let int=0
     let cont = 0;
     let sub=0;
-    var JsonOut=[];
-    var obj;
+    var JsonOut=[];//json string global
+    var JsonObj=[];//json object global
+    var obj;//Json object global x fila del modal
     var numeroLinea;
 
-    function sendData() {
-
-        $.ajax({
-            url:'/test',
-            type: 'POST',
-            dataType:'json',
-            contentType: 'json',
-            data: JSON.stringify(JsonOut),
-            contentType: 'application/json; charset=utf-8',
-        });
-    }
-
-    function enviar() {
-        $.ajax({
-            type: "POST",
-            url:'/cotizacion/detalles' ,
-            data: {'array': JSON.stringify(array)},//capturo array
-            success: function(data){
-
-            }
-        });
-    }
 
     function agregafila(id) {
         var jsonIn = document.getElementById(id).value;
@@ -238,11 +217,11 @@
                     <td width="10px">` + numeroLinea + `</td>
                     <td>` + obj["codigo"] + `   </td>
                     <td>` + descripcion + `</td>
-                    <td><input class="form-control col-md-8" type="number" id="cant` + cont + `" value="1"></td>
+                    <td><input class="form-control col-md-11" type="number" name="` + cont + `" id="cant` + numeroLinea + `" value="1" onclick=total(this)></td>
                     <td>` + obj['precio'] + `</td>
-                    <td><input class="form-control col-md-8" type="number" id="descuento` + cont + `" value="0"></td>
-                    <td><input class="form-control col-md-8" type="number" id="impuesto` + cont + `" value="0"></td>
-                    <td><input class="form-control col-md-8" type="number" id="impuesto` + cont + `" value="` + obj['precio'] + `"></td>
+                    <td><input class="form-control col-md-11" type="number" id="descuento` + numeroLinea + `" value="0"></td>
+                    <td><input class="form-control col-md-11" type="number" id="impuesto` + numeroLinea + `" value="0"></td>
+                    <td><input class="form-control col-md-11" type="number" id="sub` + numeroLinea + `" value="` + obj['precio'] + `"></td>
                 </tr>`;
         $("#cotizacion").append(da);
         cont++;
@@ -251,13 +230,37 @@
 
     }
 
+    function total(click) {
+        //editar el json que se imprime oculto antes de enviarse
+        var opJson=[];
+        var numId=parseFloat(click.name)+1;
+        alert(numId);
+        var cant=document.getElementById(click.id).value;
+        var prec=JsonObj[click.name].precio;
+        let tot=parseFloat(cant)*parseFloat(prec);
+        JsonObj[click.name].cantidad=document.getElementById(click.id).value;
+        document.getElementById("sub"+numId).value=tot;
+        alert(JsonObj[click.name]);
+
+
+
+        JsonObj.forEach(myFunction);
+        function myFunction(item) {
+            opJson.push(JSON.stringify(item));
+        }
+        document.getElementById('jsonhidden').value =  JSON.stringify(opJson);
+
+    }
+
     function subtotal(numero) {
+
+        
 
         sub = parseFloat(sub) + parseFloat(numero);
 
+
         document.getElementById('subtotal').value=sub;
         document.getElementById('total').value=sub;
-
     }
 
     function agregajsonahidden() {
@@ -265,7 +268,7 @@
         var detalle = {
             idDetalleCotizacion: numeroLinea,
             idVehiculo: obj["codigo"],
-            cantidad: 0,
+            cantidad: 1,
             porcentajeDescuento: 0,
             precio: obj["precio"],
             montoDescuento: 0,
@@ -273,11 +276,13 @@
             montoTotal: 0
         };
         JsonOut.push(JSON.stringify(detalle));
+
         document.getElementById('numeroLineas').value = numeroLinea;
         //se imprime el json resultado
-        document.getElementById('hidden').value =  JSON.stringify(JsonOut);
+        document.getElementById('jsonhidden').value =  JSON.stringify(JsonOut);
         //se suma en los resultados
         subtotal(obj['precio']);
+        JsonObj.push(detalle);
     }
 
     function eliminarfila() {
