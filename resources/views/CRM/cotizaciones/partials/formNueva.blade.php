@@ -1,20 +1,17 @@
 <div class="form-group">
-    {{ Form::label('fechaCreacion',today()) }}
-    {{ Form::date('fechaCreacion',today(),['class' => 'form-control']) }}
+    {{--{{ Form::label('fechaCreacion',today()) }}--}}
+    {{ Form::date('fechaCreacion',today(),['class' => 'form-control col-md-4']) }}
 </div>
 
 <div class="form-group">
     <div class="row">
-
         <div class="col-md-4">
             {{ Form::label('idCliente','Cliente*') }}
             {{ Form::text('idCliente',1,['class' => 'form-control']) }}
         </div>
         <div class="col-md-4">
-
             {{ Form::label('idEmpleado','Empleado*') }}
             {{ Form::text('idEmpleado',1,['class' => 'form-control']) }}
-
         </div>
         <div class="col-md-4">
             {{ Form::label('idCampana','Campana *') }}
@@ -26,18 +23,14 @@
 <div class="form-group">
     <div class="center">
         Detalle de Cotizacion
-
     </div>
 </div>
 
 <div class="form-group">
-
     <div class="card-body table-responsive">
         <table class="table table-striped table-hover">
-
             <thead>
             <tr>
-
                 <th width="10px">ID</th>
                 <th>Vehiculo</th>
                 <th>Descripcion</th>
@@ -46,23 +39,19 @@
                 <th>descuento</th>
                 <th>Impuesto</th>
                 <th>SubTotal</th>
-
             </tr>
             </thead>
             <tbody id="cotizacion">
-
-                <tr>
-                    <td>{{ "" }}</td>
-                    <td>{{ "" }}</td>
-                    <td>{{ "" }}</td>
-                    <td>{{ "" }}</td>
-                    <td>{{ "" }}</td>
-                    <td>{{ "" }}</td>
-                    <td>{{ "" }}</td>
-                    <td >{{ "" }}</td>
-
-                </tr>
-
+            <tr>
+                <td>{{ "" }}</td>
+                <td>{{ "" }}</td>
+                <td>{{ "" }}</td>
+                <td>{{ "" }}</td>
+                <td>{{ "" }}</td>
+                <td>{{ "" }}</td>
+                <td>{{ "" }}</td>
+                <td>{{ "" }}</td>
+            </tr>
             </tbody>
             <tfoot class="footer">
             <tr>
@@ -70,38 +59,29 @@
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                         Agregar
                     </button>
-
                 </td>
                 <td colspan="6">
                     <button type="button" class="btn btn-primary" onclick="eliminarfila()">
                         Eliminar
                     </button>
-
                 </td>
             </tr>
-
             </tfoot>
         </table>
     </div>
-
 </div>
 
 <div class="form-group row">
-
     <div class="col-sm-4">
-
-        {{ Form::textarea('detalle',0,['class' => 'form-control','id'=>'jsonhidden']) }}
-        {{ Form::textarea('operaciones',0,['class' => 'form-control','id'=>'operaciones']) }}
+        {{ Form::hidden('detalle',0,['class' => 'form-control','id'=>'jsonhidden']) }}
+        {{ Form::hidden('operaciones',0,['class' => 'form-control','id'=>'operaciones']) }}
         {{ Form::hidden('numeroLineas',0,['class' => 'form-control','id'=>'numeroLineas']) }}
-
     </div>
 </div>
-
 
 <div class="form-group row">
     {{ Form::label('subTotal','subtotal' ,['class' => 'col-sm-2 col-form-label offset-sm-6']) }}
     <div class="col-sm-4">
-
         {{ Form::text('subTotal',0,['class' => 'form-control','id'=>'subtotal']) }}
     </div>
 </div>
@@ -115,14 +95,12 @@
 
     {{ Form::label('impuestoVentas','IVA',['class' => 'col-sm-2 col-form-label offset-sm-6']) }}
     <div class="col-sm-4">
-
         {{ Form::text('impuestoVentas',0,['class' => 'form-control','id'=>'iva']) }}
     </div>
 </div>
 <div class="form-group row">
     {{ Form::label('total','Total',['class' => 'col-sm-2 col-form-label offset-sm-6']) }}
     <div class="col-sm-4">
-
         {{ Form::text('total',0,['class' => 'form-control','id'=>'total']) }}
     </div>
 </div>
@@ -142,7 +120,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" onclick="subtotal()">
                 // inicia el include
                 <div class="card-body table-responsive">
                     <table class="table table-dark table-hover">
@@ -198,14 +176,12 @@
 
 {{--//inicio javascript--}}
 <script>
-    let int=0
     let cont = 0;
-    let sub=0;
-    var JsonOut=[];//json string global
-    var JsonObj=[];//json object global
+    let sub = 0;
+    var JsonOut = [];//json string global
+    var JsonObj = [];//json object global
     var obj;//Json object global x fila del modal
     var numeroLinea;
-
 
     function agregafila(id) {
         var jsonIn = document.getElementById(id).value;
@@ -227,40 +203,40 @@
         cont++;
         //json de lineas de cotizacion
         agregajsonahidden();
-
     }
 
     function total(click) {
         //editar el json que se imprime oculto antes de enviarse
-        var opJson=[];
-        var numId=parseFloat(click.name)+1;
-        alert(numId);
-        var cant=document.getElementById(click.id).value;
-        var prec=JsonObj[click.name].precio;
-        let tot=parseFloat(cant)*parseFloat(prec);
-        JsonObj[click.name].cantidad=document.getElementById(click.id).value;
-        document.getElementById("sub"+numId).value=tot;
-        alert(JsonObj[click.name]);
+        var opJson = [];
+        var numId = parseFloat(click.name) + 1;
+        var cant = document.getElementById(click.id).value;
+        var prec = JsonObj[click.name].precio;
+        //multiplicacion y asigna el total
+        let tot = parseFloat(cant) * parseFloat(prec);
+        document.getElementById("sub" + numId).value = tot;
 
+        JsonObj[click.name].cantidad = document.getElementById(click.id).value;
+        JsonObj[click.name].montoTotal = tot;
 
-
+        //agrega valores al json en modo string
         JsonObj.forEach(myFunction);
         function myFunction(item) {
             opJson.push(JSON.stringify(item));
         }
-        document.getElementById('jsonhidden').value =  JSON.stringify(opJson);
-
+        document.getElementById('jsonhidden').value = JSON.stringify(opJson);
+        subtotal();
     }
 
-    function subtotal(numero) {
+    function subtotal() {
+        let num=0;
+        for (let i = 1; i <= numeroLinea; i++) {
 
-        
-
-        sub = parseFloat(sub) + parseFloat(numero);
-
-
-        document.getElementById('subtotal').value=sub;
-        document.getElementById('total').value=sub;
+            num = document.getElementById("sub" + i).value;
+            sub = parseFloat(sub) + parseFloat(num);
+        }
+        document.getElementById('subtotal').value = sub;
+        document.getElementById('total').value = sub;
+        sub=0;
     }
 
     function agregajsonahidden() {
@@ -273,15 +249,14 @@
             precio: obj["precio"],
             montoDescuento: 0,
             montoImpuesto: 0,
-            montoTotal: 0
+            montoTotal: obj["precio"]
         };
         JsonOut.push(JSON.stringify(detalle));
-
         document.getElementById('numeroLineas').value = numeroLinea;
         //se imprime el json resultado
-        document.getElementById('jsonhidden').value =  JSON.stringify(JsonOut);
+        document.getElementById('jsonhidden').value = JSON.stringify(JsonOut);
         //se suma en los resultados
-        subtotal(obj['precio']);
+        subtotal();
         JsonObj.push(detalle);
     }
 
@@ -293,6 +268,7 @@
 
         }
     }
+
 
 
 </script>

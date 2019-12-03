@@ -73,7 +73,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('vehiculos/{vehiculo}', 'VehiculoController@destroy')->name('vehiculos.destroy');
     Route::get('vehiculos/{vehiculo}/edit', 'VehiculoController@edit')->name('vehiculos.edit');
 
-//Clientes
+//Cliente
     Route::get('cliente', 'ClienteController@index')->name('clientes.index');
 //    Route::post('vehiculos/store', 'VehiculoController@store')->name('vehiculos.store');
 //    Route::get('vehiculos/create', 'VehiculoController@create')->name('vehiculos.create');
