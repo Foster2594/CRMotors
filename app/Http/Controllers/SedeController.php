@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Provincia;
 use App\Sede;
 use Illuminate\Http\Request;
 
@@ -26,8 +27,8 @@ class SedeController extends Controller
      */
     public function create()
     {
-
-        return view('CRM.sedes.create',compact('sedes'));
+        $provincias=Provincia::pluck('nombre','idProvincia');
+        return view('CRM.sedes.create',compact('sedes','provincias'));
     }
 
     /**
@@ -38,7 +39,7 @@ class SedeController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+
 
         $idSede = Sede::max('idSede');
         $idSede=$idSede+1;
