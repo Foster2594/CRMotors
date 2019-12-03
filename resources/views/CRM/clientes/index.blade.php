@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Sedes
+                    <h4>Cartera de Clientes
 
                             <a href="{{ route('clientes.create', $clientes) }}" class="btn btn-sm btn-primary float-right">
                                 Crear

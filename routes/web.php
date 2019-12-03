@@ -34,6 +34,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('cotizaciones/store', 'CotizacionController@store')->name('cotizaciones.store');
     Route::get('cotizaciones/create', 'CotizacionController@create')->name('cotizaciones.create');
     Route::get('cotizaciones/nueva', 'CotizacionController@nueva')->name('cotizaciones.nueva');
+
+    Route::get('cotizaciones/nueva/detalle', 'CotizacionController@detalle')->name('cotizacion.detalle');
+
     Route::get('cotizaciones/nueva/{vehiculo}', 'CotizacionController@agregar')->name('cotizaciones.agregar');
     Route::post('cotizaciones/{cotizacion}', 'CotizacionController@update')->name('cotizaciones.update');
     Route::get('cotizaciones/{cotizacion}', 'CotizacionController@show')->name('cotizaciones.show');
@@ -43,8 +46,8 @@ Route::group(['middleware' => 'auth'], function () {
     //importacion de vehiculos para el modal
 
 
+//Campana
 
-/// rutas para el mantenimiento de campaña, aqui esta para ver la seccion Campañas,para actualizar,crear,eliminar,etc
     Route::get('campanas/index', 'CampanaController@index')->name('campanas.index');
     Route::post('campanas/store', 'CampanaController@store')->name('campanas.store');
     Route::get('campanas/create', 'CampanaController@create')->name('campanas.create');
@@ -76,6 +79,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('vehiculos/{vehiculo}', 'VehiculoController@destroy')->name('vehiculos.destroy');
     Route::get('vehiculos/{vehiculo}/edit', 'VehiculoController@edit')->name('vehiculos.edit');
 
+
 // rutas para el mantenimiento de cliente, aqui esta para ver la seccion Clientes,para actualizar,crear,eliminar,etc
     Route::get('clientes/index', 'ClienteController@index')->name('clientes.index');
     Route::post('clientes/store', 'ClienteController@store')->name('clientes.store');
@@ -84,6 +88,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('clientes/{cliente}', 'ClienteController@show')->name('clientes.show');
     Route::delete('clientes/{cliente}', 'ClienteController@destroy')->name('clientes.destroy');
     Route::get('clientes/{cliente}/edit', 'ClienteController@edit')->name('clientes.edit');
+
 
 });
 

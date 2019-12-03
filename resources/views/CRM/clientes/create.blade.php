@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Sedes</div>
+                <div class="card-header">Clientes</div>
                 <div class="card-body">
                     {!! Form::open(['route' => 'clientes.store']) !!}
                         @include('CRM.clientes.partials.form')

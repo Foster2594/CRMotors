@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Clientes;
+use App\Cliente;
 use Illuminate\Http\Request;
 
 class Clientecontroller extends Controller
@@ -9,7 +9,7 @@ class Clientecontroller extends Controller
     //esta funcion sirve para mostrar la vista principal donde nos muestra todos los clientes introducidos
     public function index()
     {
-        $clientes=Clientes::paginate();
+        $clientes=Cliente::paginate();
 
         return view('CRM.clientes.index', compact('clientes'));
     }
@@ -35,11 +35,11 @@ class Clientecontroller extends Controller
     //en esta funcion es donde se guarda los clientes para posteriormente mostrarse en la pantalla principal
     public function store(Request $request)
     {
-        $idCliente= Clientes::max('idCliente');
+        $idCliente= Cliente::max('idCliente');
         $idCliente=$idCliente+1;
         //return response()->json($idCliente);
         $request->request->add(['idCliente' => $idCliente]);
-        $cliente= Clientes::create($request->all());
+        $cliente= Cliente::create($request->all());
 
         return redirect()->route('clientes.index')->with('info','Sede guardada con éxito');
     }
@@ -53,7 +53,6 @@ class Clientecontroller extends Controller
     //aqui nos muestra con mas detalles los datos del cliente desde otra vista distinta
     public function show($cliente)
     {
-
         $cliente=Cliente::where('idCliente',$cliente)->first();
         return view('CRM.clientes.show', compact('cliente'));
     }

@@ -39,7 +39,7 @@
 
                 <a href="{{ route('clientes.index') }}">
                     <i class="tim-icons icon-atom"></i>
-                    <p>{{ _('Clientes') }}</p>
+                    <p>{{ _('Cliente') }}</p>
                 </a>
             </li>
             <li>
