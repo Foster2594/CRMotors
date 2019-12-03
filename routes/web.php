@@ -90,6 +90,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('clientes/{cliente}/edit', 'ClienteController@edit')->name('clientes.edit');
 
 
+// rutas para el mantenimiento de empleados, aqui esta para ver la seccion Empleados,para actualizar,crear,eliminar,etc
+
+    Route::get('empleados/index', 'EmpleadoController@index')->name('empleados.index');
+    Route::post('empleados/store', 'EmpleadoController@store')->name('empleados.store');
+    Route::get('empleados/create', 'EmpleadoController@create')->name('empleados.create');
+    Route::post('empleados/{empleado}', 'EmpleadoController@update')->name('empleados.update');
+    Route::get('empleados/{empleado}', 'EmpleadoController@show')->name('empleados.show');
+    Route::delete('empleados/{empleado}', 'EmpleadoController@destroy')->name('empleados.destroy');
+    Route::get('empleados/{empleado}/edit', 'EmpleadoController@edit')->name('empleados.edit');
+
+
 });
 
 //envio de correo

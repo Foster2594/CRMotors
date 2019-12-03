@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e37a962e-2b49-4f04-9a3a-bd87e5cc2aee" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Clientes.php" afterPath="$PROJECT_DIR$/app/Cliente.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ClienteController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClienteController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CotizacionController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CotizacionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/SedeController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/SedeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/CRM/campanas/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/CRM/campanas/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/CRM/clientes/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/CRM/clientes/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/CRM/clientes/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/CRM/clientes/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/CRM/clientes/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/CRM/clientes/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/CRM/clientes/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/CRM/clientes/show.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/CRM/cotizaciones/partials/formNueva.blade.php" afterPath="$PROJECT_DIR$/resources/views/CRM/cotizaciones/partials/formNueva.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/CRM/sedes/partials/form.blade.php" afterPath="$PROJECT_DIR$/resources/views/CRM/sedes/partials/form.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/navbars/sidebar.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/navbars/sidebar.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Empleados.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmpleadoController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,7 +22,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CotizacionController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CotizacionController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CotizacionController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
@@ -69,6 +59,16 @@
                 <marker date="1575334078002" expanded="true" signature="717:732" ph="..." />
                 <marker date="1575334078002" expanded="true" signature="832:840" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="101" column="0" lean-forward="true" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -170,7 +170,6 @@
         <option value="$PROJECT_DIR$/resources/views/CRM/cotizaciones/nuevaCot.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/CRM/cotizaciones/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/emails/cotizacion.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CRM/EmailController1.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/VehiculoController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ClienteController.php" />
@@ -182,6 +181,7 @@
         <option value="$PROJECT_DIR$/resources/views/CRM/clientes/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/CRM/cotizaciones/partials/formNueva.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CotizacionController.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
       </list>
     </option>
   </component>
@@ -676,7 +676,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68491000" />
+    <option name="totallyTimeSpent" value="69130000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -973,14 +973,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="117" column="1" lean-forward="true" selection-start-line="117" selection-start-column="1" selection-end-line="117" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/emails/registro.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1261,6 +1253,14 @@
             <element signature="e#40#56#0#PHP" expanded="true" />
             <element signature="e#4069#5716#0#PHP" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="101" column="0" lean-forward="true" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
