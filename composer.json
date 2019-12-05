@@ -10,12 +10,12 @@
 
     "require": {
         "php": "^7.2",
-        "laravel-frontend-presets/black-dashboard": "^1.0",
         "barryvdh/laravel-dompdf": "^0.8.5",
         "caffeinated/shinobi": "^5.0",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.3",
         "jenssegers/date": "^3.5",
+        "laravel-frontend-presets/black-dashboard": "^1.0",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^6.0",

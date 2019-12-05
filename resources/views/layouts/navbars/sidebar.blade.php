@@ -23,12 +23,7 @@
                     <p>{{ _('Campaña') }}</p>
                 </a>
             </li>
-            <li>
-                <a href="{{ route('sedes.index') }}">
-                    <i class="tim-icons icon-atom"></i>
-                    <p>{{ _('Sedes') }}</p>
-                </a>
-            </li>
+
             <li>
                 <a href="{{ route('vehiculos.index') }}">
                     <i class="tim-icons icon-bell-55"></i>
@@ -36,16 +31,48 @@
                 </a>
             </li>
             <li>
-
-                <a href="{{ route('clientes.index') }}">
+                <a href="{{ route('clientes.indexCartera') }}">
                     <i class="tim-icons icon-atom"></i>
-                    <p>{{ _('Cliente') }}</p>
+                    <p>{{ _('Cartera de Clientes') }}</p>
                 </a>
             </li>
-            <li>
+
+            @can('roles.index')
+                <li>
+                    <a href="{{ route('empleados.index') }}">
+                        <i class="tim-icons icon-atom"></i>
+                        <p>{{ _('Empleados') }}</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('roles.index') }}">
+                        <i class="tim-icons icon-atom"></i>
+                        <p>{{ _('Roles') }}</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('permissions.index') }}">
+                        <i class="tim-icons icon-atom"></i>
+                        <p>{{ _('Permisos') }}</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('users.index') }}">
+                        <i class="tim-icons icon-atom"></i>
+                        <p>{{ _('Usuarios') }}</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('sedes.index') }}">
+                        <i class="tim-icons icon-atom"></i>
+                        <p>{{ _('Sedes') }}</p>
+                    </a>
+                </li>
+            @endcan
+            <!--li>
                 <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
-                    <i class="fab fa-laravel" ></i>
-                    <span class="nav-link-text" >{{ __('Laravel Examples') }}</span>
+                    <i class="fab fa-laravel"></i>
+                    <span class="nav-link-text">{{ __('Laravel Examples') }}</span>
                     <b class="caret mt-1"></b>
                 </a>
 
@@ -107,7 +134,7 @@
                         </li>
                     </ul>
                 </div>
-            </li>
+            </li-->
 
         </ul>
     </div>

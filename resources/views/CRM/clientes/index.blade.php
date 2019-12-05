@@ -19,14 +19,13 @@
                         <thead>
                             <tr>
                                 <th width="10px">ID</th>
-                                <th>Tipo de cliente</th>
                                 <th>Cedula</th>
                                 <th>Nombre</th>
                                 <th>Primer apellido</th>
                                 <th>Segundo apellido</th>
-                                <th>Genero</th>
-                                <th>Ocupacion</th>
                                 <th>Numero de celular</th>
+                                <th>Correo</th>
+                                <th>Ingreso $</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>
                         </thead>
@@ -34,43 +33,24 @@
                             @foreach ($clientes as $cliente)
                             <tr>
                                 <td>{{ $cliente->idCliente }}</td>
-                                <td>{{ $cliente->idTipoCliente }}</td>
                                 <td>{{ $cliente->cedula }}</td>
                                 <td>{{ $cliente->nombre }}</td>
                                 <td>{{ $cliente->apellido1 }}</td>
                                 <td>{{ $cliente->apellido2 }}</td>
-                                <td>{{ $cliente->idGenero }}</td>
-                                <td>{{ $cliente->idOcupacion }}</td>
                                 <td>{{ $cliente->numeroCelular }}</td>
-                                <td>{{ $cliente->otroNumero }}</td>
                                 <td>{{ $cliente->correo }}</td>
-                                <td>{{ $cliente->fechaNacimiento }}</td>
                                 <td>{{ $cliente->ingresoSalarial }}</td>
-                                <td>{{ $cliente->idProvincia }}</td>
-                                <td>{{ $cliente->idCanton }}</td>
-                                <td>{{ $cliente->idDistrito }}</td>
-                                <td>{{ $cliente->direccionExacta }}</td>
-                                <td>{{ $cliente->idVehiculo }}</td>
-
-
                                 <td width="10px">
-                                    <a href="{{ route('clientes.show', $cliente->idCliente) }}" class="btn btn-sm btn-success">
-                                        Ver
-                                    </a>
+                                    <a href="{{ route('clientes.show', $cliente->idCliente) }}" class="btn btn-sm btn-success fa fa-eye"></a>
                                 </td>
                                 <td width="10px">
-                                    <a href="{{ route('clientes.edit', $cliente->idCliente) }}" class="btn btn-sm btn-success">
-                                        Editar
-                                    </a>
-
+                                    <a href="{{ route('clientes.edit', $cliente->idCliente) }}" class="btn btn-sm btn-success fa fa-edit"></a>
                                 </td>
                                 <td width="10px">
-
                                     {!! Form::open(['route' => ['clientes.destroy', $cliente->idCliente],
                                     'method' => 'DELETE']) !!}
-                                    <button class="btn btn-sm btn-danger">Eliminar</button>
+                                    <button class="btn btn-sm btn-danger fa fa-trash"></button>
                                     {!! Form::close() !!}
-
                                 </td>
                             </tr>
                             @endforeach

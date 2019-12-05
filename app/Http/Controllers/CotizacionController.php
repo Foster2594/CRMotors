@@ -7,7 +7,10 @@ use App\Cliente;
 use App\Cotizacion;
 use App\DetalleCotizacion;
 
+use App\Empleado;
+use App\empleados;
 use App\Vehiculo;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 
 class CotizacionController extends Controller
@@ -68,8 +71,12 @@ return $clientes;
 
     public function show($cotizacion)
     {
+        $id=$cotizacion;
         $cotizacion = Cotizacion::where('idEncabezadoCotizacion', $cotizacion)->first();
-        return view('CRM.cotizaciones.show', compact('cotizacion'));
+        $detalles = DetalleCotizacion::where('idEncabezadoCotizacion', $id)->get();
+
+
+        return view('CRM.cotizaciones.show', compact('cotizacion','detalles'));
     }
 
     /**
@@ -194,10 +201,10 @@ return $clientes;
         $vehiculos = Vehiculo::paginate();
 
         $clientes=Cliente::pluck('nombre','idCliente');
-//        $empleados=
         $campanas=Campana::pluck('nombre','idCampana');
-//        return $clientes;
-        return view('CRM.cotizaciones.nuevaCot', compact('cotizaciones', 'idCotizacion', 'vehiculos','clientes','campanas'));
+        $empleados=Empleado::pluck('nombre','idEmpleado');
+
+        return view('CRM.cotizaciones.nuevaCot', compact('cotizaciones', 'idCotizacion', 'vehiculos','clientes','campanas','empleados'));
     }
     /**
      * Store a newly created resource in storage.
@@ -264,12 +271,15 @@ return $clientes;
         return $detalle;
     }
 
+    public function create_pdf($cotizacion){
+        $id=$cotizacion;
+        $cotizacion = Cotizacion::where('idEncabezadoCotizacion', $cotizacion)->first();
+        $detalles = DetalleCotizacion::where('idEncabezadoCotizacion', $id)->get();
 
-    public function limpiarString($texto)
-    {
-        $texto = \GuzzleHttp\json_decode($texto);
-        return $texto;
+
+//        return view('CRM.cotizaciones.show', compact('cotizacion','detalles'));
+
+        $pdf = \PDF::loadView('CRM\cotizaciones\showlabel',compact('guide','cotizacion','detalles'));
+        return $pdf->download('cotizacion.pdf');
     }
-
-
 }

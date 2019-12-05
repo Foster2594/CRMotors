@@ -57,6 +57,14 @@
 
                                     </td>
                                     <td width="10px">
+                                        <a href="{{ route('cotizaciones.pdf', $cotizacion->idEncabezadoCotizacion) }}" class="btn btn-sm btn-success float-right">
+                                            PDF
+                                        </a>
+
+                                    </td>
+
+                                    @can('admin')
+                                    <td width="10px">
 
                                         {!! Form::open(['route' => ['cotizaciones.destroy', $cotizacion->idEncabezadoCotizacion],
                                         'method' => 'DELETE']) !!}
@@ -64,6 +72,7 @@
                                         {!! Form::close() !!}
 
                                     </td>
+                                    @endcan
                                 </tr>
                             @endforeach
                             </tbody>

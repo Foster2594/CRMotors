@@ -13,6 +13,15 @@ class Clientecontroller extends Controller
 
         return view('CRM.clientes.index', compact('clientes'));
     }
+//busca clientes por cartera
+    public function indexCartera()
+    {
+        $user= auth()->id();
+        $clientes=Cliente::where('idUsuario',$user)->paginate();
+
+
+        return view('CRM.clientes.index', compact('clientes'));
+    }
 
     /**
      * Show the form for creating a new resource.

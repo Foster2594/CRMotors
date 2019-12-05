@@ -17,7 +17,8 @@
             {{ Form::label('idEmpleado','Empleado*') }}
             <div>
                 {{--{{ Form::select('idEmpleado', $empleados, null, ['placeholder' => 'Seleccione un Empleado','class' => 'form control btn dropdown-toggle btn-sm']) }}--}}
-            {{ Form::text('idEmpleado',1,['class' => 'form-control']) }}
+            {{ Form::select('idEmpleado',$empleados,null, ['placeholder' => 'Seleccione un Empleado','class' => 'form control btn dropdown-toggle btn-sm']) }}
+
             </div>
         </div>
         <div class="col-md-4">

@@ -34,15 +34,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('cotizaciones/store', 'CotizacionController@store')->name('cotizaciones.store');
     Route::get('cotizaciones/create', 'CotizacionController@create')->name('cotizaciones.create');
     Route::get('cotizaciones/nueva', 'CotizacionController@nueva')->name('cotizaciones.nueva');
-
     Route::get('cotizaciones/nueva/detalle', 'CotizacionController@detalle')->name('cotizacion.detalle');
-
     Route::get('cotizaciones/nueva/{vehiculo}', 'CotizacionController@agregar')->name('cotizaciones.agregar');
     Route::post('cotizaciones/{cotizacion}', 'CotizacionController@update')->name('cotizaciones.update');
     Route::get('cotizaciones/{cotizacion}', 'CotizacionController@show')->name('cotizaciones.show');
     Route::delete('cotizaciones/{cotizacion}', 'CotizacionController@destroy')->name('cotizaciones.destroy');
     Route::get('cotizaciones/{cotizacion}/edit', 'CotizacionController@edit')->name('cotizaciones.edit');
 
+ Route::get('cotizaciones/{cotizacion}/pdf', 'CotizacionController@create_pdf')->name('cotizaciones.pdf');
     //importacion de vehiculos para el modal
 
 
@@ -57,14 +56,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('campanas/{campana}/edit', 'CampanaController@edit')->name('campanas.edit');
 
 
-//Detalle
-//        Route::get('sedes/index', 'SedeController@index')->name('sedes.index');
-//        Route::post('sedes/store', 'SedeController@store')->name('sedes.store');
-//        Route::get('sedes/create', 'SedeController@create')->name('sedes.create');
-//        Route::put('sedes/{sede}', 'SedeController@update')->name('sedes.update');
-//        Route::get('sedes/{sede}', 'SedeController@show')->name('sedes.show');
-//        Route::delete('sedes/{sede}', 'SedeController@destroy')->name('sedes.destroy');
-//        Route::get('sedes/{sede}/edit', 'SedeController@edit')->name('sedes.edit');
 
 
 //// rutas para el mantenimiento de vehiculo, aqui esta para ver la seccion Vehiculo,para actualizar,crear,eliminar,etc
@@ -81,6 +72,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 // rutas para el mantenimiento de cliente, aqui esta para ver la seccion Clientes,para actualizar,crear,eliminar,etc
+
+    Route::get('clientes/indexCartera', 'ClienteController@indexCartera')->name('clientes.indexCartera');
     Route::get('clientes/index', 'ClienteController@index')->name('clientes.index');
     Route::post('clientes/store', 'ClienteController@store')->name('clientes.store');
     Route::get('clientes/create', 'ClienteController@create')->name('clientes.create');
@@ -100,6 +93,39 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('empleados/{empleado}', 'EmpleadoController@destroy')->name('empleados.destroy');
     Route::get('empleados/{empleado}/edit', 'EmpleadoController@edit')->name('empleados.edit');
 
+    Route::prefix('admin')->group(function () {
+        //Roles
+        Route::post('roles/store', 'Roles\RoleController@store')->name('roles.store')->middleware('can:roles.create');
+        Route::get('roles', 'Roles\RoleController@index')->name('roles.index')->middleware('can:roles.index');
+        Route::get('roles/create', 'Roles\RoleController@create')->name('roles.create')->middleware('can:roles.create');
+        Route::put('roles/{role}', 'Roles\RoleController@update')->name('roles.update')->middleware('can:roles.edit');
+        Route::get('roles/{role}', 'Roles\RoleController@show')->name('roles.show')->middleware('can:roles.show');
+        Route::delete('roles/{role}', 'Roles\RoleController@destroy')->name('roles.destroy')->middleware('can:roles.destroy');
+        Route::get('roles/{role}/edit', 'Roles\RoleController@edit')->name('roles.edit')->middleware('can:roles.edit');
+
+        //Permissions
+        Route::post('permissions/store', 'Roles\PermissionController@store')->name('permissions.store')->middleware('can:permissions.create');
+        Route::get('permissions', 'Roles\PermissionController@index')->name('permissions.index')->middleware('can:permissions.index');
+        Route::get('permissions/create', 'Roles\PermissionController@create')->name('permissions.create')->middleware('can:permissions.create');
+        Route::put('permissions/{permission}', 'Roles\PermissionController@update')->name('permissions.update')->middleware('can:permissions.edit');
+        Route::get('permissions/{permission}', 'Roles\PermissionController@show')->name('permissions.show')->middleware('can:permissions.show');
+        Route::delete('permissions/{permission}', 'Roles\PermissionController@destroy')->name('permissions.destroy')->middleware('can:permissions.destroy');
+        Route::get('permissions/{permission}/edit', 'Roles\PermissionController@edit')->name('permissions.edit')->middleware('can:permissions.edit');
+
+        //Users
+        Route::get('users', 'Roles\UserController@index')->name('users.index')->middleware('can:users.index');
+        Route::put('users/{user}', 'Roles\UserController@update')->name('users.update')->middleware('can:users.edit');
+        Route::get('users/{user}', 'Roles\UserController@show')->name('users.show')->middleware('can:users.show');
+        Route::delete('users/{user}', 'Roles\UserController@destroy')->name('users.destroy')->middleware('can:users.destroy');
+        Route::get('users/{user}/edit', 'Roles\UserController@edit')->name('users.edit')->middleware('can:users.edit');
+
+        //Cupones
+        Route::post('coupons/store', 'Roles\CouponController@store')->name('coupons.store')->middleware('can:coupons.create');
+        Route::get('coupons', 'Roles\CouponController@index')->name('coupons.index')->middleware('can:coupons.index');
+        Route::get('coupons/create', 'Roles\CouponController@create')->name('coupons.create')->middleware('can:coupons.create');
+        Route::put('coupons/{coupon}', 'Roles\CouponController@update')->name('coupons.update')->middleware('can:coupons.edit');
+        Route::get('coupons/{coupon}/edit', 'Roles\CouponController@edit')->name('coupons.edit')->middleware('can:coupons.edit');
+    });
 
 });
 
