@@ -111,4 +111,11 @@ class Clientecontroller extends Controller
 
         return back()->with('info', 'Eliminado correctamente');
     }
+
+    public function quitarDeCartera($cliente)
+    {
+        $cliente=Cliente::where('idCliente',$cliente)->delete();
+
+        return back()->with('info', 'Eliminado correctamente');
+    }
 }
