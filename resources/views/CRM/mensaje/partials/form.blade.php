@@ -23,8 +23,11 @@
 </div>
 <div class="form-group">
     {{ Form::label('idDistrito','Distrito *') }}
-    {{ Form::text('idDistrito',null,['class' => 'form-control']) }}
-</div>
+    {{--}}{{ Form::text('idProvincia',null,['class' => 'form-control']) }}--}}
+    <div>
+        {{ Form::select('idProvincia', $provincias, null, ['placeholder' => 'Seleccione Provincia','class' => 'form control btn dropdown-toggle btn-sm']) }}
+    </div></div>
+
 <div class="form-group">
     {{ Form::label('direccionExacta','Direccion *') }}
     {{ Form::textarea('direccionExacta',null,['class' => 'form-control']) }}

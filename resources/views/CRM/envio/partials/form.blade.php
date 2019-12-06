@@ -15,7 +15,10 @@
 
 <div class="form-group">
     {{ Form::label('idProvincia','Provincia *') }}
-    {{ Form::text('idProvincia',null,['class' => 'form-control']) }}
+    {{--}}{{ Form::text('idProvincia',null,['class' => 'form-control']) }}--}}
+    <div>
+        {{ Form::select('idProvincia', $provincias, null, ['placeholder' => 'Seleccione Provincia','class' => 'form control btn dropdown-toggle btn-sm']) }}
+    </div>
 </div>
 <div class="form-group">
     {{ Form::label('idCanton','Canton *') }}

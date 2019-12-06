@@ -26,7 +26,8 @@ class CampanaController extends Controller
      */
     public function create()
     {
-        return view('CRM.campanas.create',compact('campanas'));
+        $provincias=Provincia::pluck('nombre','idProvincia');
+        return view('CRM.campanas.create',compact('campanas','provincias'));
     }
 
     /**

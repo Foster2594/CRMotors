@@ -29,7 +29,8 @@ class Clientecontroller extends Controller
     //aqui muestra la vista donde se crearan los clientes nuevos
     public function create()
     {
-        return view('CRM.clientes.create',compact('clientes'));
+        $provincias=Provincia::pluck('nombre','idProvincia');
+        return view('CRM.clientes.create',compact('clientes','provincias'));
     }
 
     /**
