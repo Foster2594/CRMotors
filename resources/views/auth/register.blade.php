@@ -5,13 +5,13 @@
         <div class="col-md-5 ml-auto">
             <div class="info-area info-horizontal mt-5">
                 <div class="icon icon-warning">
-                    <i class="tim-icons icon-wifi"></i>
+                    <i class="tim-icons icon-tag"></i>
                 </div>
                 <div class="description">
                     <h3 class="info-title">¿Qué es un CRM?</h3>
                     <p class="description">
-                        Un CRM es una solución de gestión de las relaciones<br/>
-                        con clientes, orientada normalmente a gestionar tres<br/>
+                        Un CRM es una solución de gestión de las relaciones
+                        con clientes, orientada normalmente a gestionar tres
                         áreas básicas:
                     <ul>
                         <li>la gestión comercial,
@@ -21,17 +21,7 @@
                     </p>
                 </div>
             </div>
-            <div class="info-area info-horizontal">
-                <div class="icon icon-info">
-                    <i class="tim-icons icon-trophy"></i>
-                </div>
-                <div class="description">
-                    <h3 class="info-title">{{ _('Built Audience') }}</h3>
-                    <p class="description">
-                        {{ _('There is also a Fully Customizable CMS Admin Dashboard for this product.') }}
-                    </p>
-                </div>
-            </div>
+
         </div>
         <div class="col-md-7 mr-auto">
             <div class="card card-register card-white">
@@ -86,15 +76,7 @@
                             <input type="password" name="password_confirmation" class="form-control"
                                    placeholder="{{ _('Confirmar Contraseña') }}">
                         </div>
-                        {{-- esta parte es para aceptar las condicones de la empresa--}}
-                        <div class="form-check text-left">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox">
-                                <span class="form-check-sign"></span>
-                                {{ _('Yo estoy de acuerdo con los') }}
-                                <a href="#">{{ _('terminos y condiciones') }}</a>.
-                            </label>
-                        </div>
+
                     </div>
                     {{--para guardar el registro--}}
                     <div class="card-footer">
