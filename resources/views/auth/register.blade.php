@@ -8,20 +8,16 @@
                     <i class="tim-icons icon-wifi"></i>
                 </div>
                 <div class="description">
-                    <h3 class="info-title">{{ _('Marketing') }}</h3>
+                    <h3 class="info-title">¿Qué es un CRM?</h3>
                     <p class="description">
-                        {{ _('We\'ve created the marketing campaign of the website. It was a very interesting collaboration.') }}
-                    </p>
-                </div>
-            </div>
-            <div class="info-area info-horizontal">
-                <div class="icon icon-primary">
-                    <i class="tim-icons icon-triangle-right-17"></i>
-                </div>
-                <div class="description">
-                    <h3 class="info-title">{{ _('Fully Coded in HTML5') }}</h3>
-                    <p class="description">
-                        {{ _('We\'ve developed the website with HTML5 and CSS3. The client has access to the code using GitHub.') }}
+                        Un CRM es una solución de gestión de las relaciones<br/>
+                        con clientes, orientada normalmente a gestionar tres<br/>
+                        áreas básicas:
+                    <ul>
+                        <li>la gestión comercial,
+                        <li>el marketing
+                        <li>el servicio postventa o de atención al cliente.
+                    </ul>
                     </p>
                 </div>
             </div>
@@ -54,7 +50,9 @@
                                     <i class="tim-icons icon-single-02"></i>
                                 </div>
                             </div>
-                            <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ _('Nombre Completo') }}">
+                            <input type="text" name="name"
+                                   class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
+                                   placeholder="{{ _('Nombre Completo') }}">
                             @include('alerts.feedback', ['field' => 'name'])
                         </div>
                         <div class="input-group{{ $errors->has('email') ? ' has-danger' : '' }}">
@@ -63,7 +61,9 @@
                                     <i class="tim-icons icon-email-85"></i>
                                 </div>
                             </div>
-                            <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ _('Email') }}">
+                            <input type="email" name="email"
+                                   class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                                   placeholder="{{ _('Email') }}">
                             @include('alerts.feedback', ['field' => 'email'])
                         </div>
                         <div class="input-group{{ $errors->has('password') ? ' has-danger' : '' }}">
@@ -72,7 +72,9 @@
                                     <i class="tim-icons icon-lock-circle"></i>
                                 </div>
                             </div>
-                            <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ _('Contraseña') }}">
+                            <input type="password" name="password"
+                                   class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                                   placeholder="{{ _('Contraseña') }}">
                             @include('alerts.feedback', ['field' => 'password'])
                         </div>
                         <div class="input-group">
@@ -81,7 +83,8 @@
                                     <i class="tim-icons icon-lock-circle"></i>
                                 </div>
                             </div>
-                            <input type="password" name="password_confirmation" class="form-control" placeholder="{{ _('Confirmar Contraseña') }}">
+                            <input type="password" name="password_confirmation" class="form-control"
+                                   placeholder="{{ _('Confirmar Contraseña') }}">
                         </div>
                         {{-- esta parte es para aceptar las condicones de la empresa--}}
                         <div class="form-check text-left">

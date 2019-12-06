@@ -70,6 +70,18 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('vehiculos/{vehiculo}', 'VehiculoController@destroy')->name('vehiculos.destroy');
     Route::get('vehiculos/{vehiculo}/edit', 'VehiculoController@edit')->name('vehiculos.edit');
 
+//// rutas para el mantenimiento de vehiculo, aqui esta para ver la seccion Proveedores,para actualizar,crear,eliminar,etc
+
+
+    Route::get('proveedores/select', 'ProveedorController@select')->name('proveedores.select');
+    Route::get('proveedores/index', 'ProveedorController@index')->name('proveedores.index');//->middleware('proveedores.index');
+    Route::post('proveedores/store', 'ProveedorController@store')->name('proveedores.store');
+    Route::get('proveedores/create', 'ProveedorController@create')->name('proveedores.create');
+    Route::post('proveedores/{vehiculo}', 'ProveedorController@update')->name('proveedores.update');
+    Route::get('proveedores/{vehiculo}', 'ProveedorController@show')->name('proveedores.show');
+    Route::delete('proveedores/{vehiculo}', 'ProveedorController@destroy')->name('proveedores.destroy');
+    Route::get('proveedores/{vehiculo}/edit', 'ProveedorController@edit')->name('proveedores.edit');
+
 
 // rutas para el mantenimiento de cliente, aqui esta para ver la seccion Clientes,para actualizar,crear,eliminar,etc
 
@@ -119,12 +131,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('users/{user}', 'Roles\UserController@destroy')->name('users.destroy')->middleware('can:users.destroy');
         Route::get('users/{user}/edit', 'Roles\UserController@edit')->name('users.edit')->middleware('can:users.edit');
 
-        //Cupones
-        Route::post('coupons/store', 'Roles\CouponController@store')->name('coupons.store')->middleware('can:coupons.create');
-        Route::get('coupons', 'Roles\CouponController@index')->name('coupons.index')->middleware('can:coupons.index');
-        Route::get('coupons/create', 'Roles\CouponController@create')->name('coupons.create')->middleware('can:coupons.create');
-        Route::put('coupons/{coupon}', 'Roles\CouponController@update')->name('coupons.update')->middleware('can:coupons.edit');
-        Route::get('coupons/{coupon}/edit', 'Roles\CouponController@edit')->name('coupons.edit')->middleware('can:coupons.edit');
+
     });
 
 });

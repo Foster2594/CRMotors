@@ -3,22 +3,17 @@
         <ul class="nav">
             <li class="nav-item">
                 <a href="https://creative-tim.com" target="blank" class="nav-link">
-                    {{ __('Creative Tim') }}
+                    {{ __('Universidad Fidelitas') }}
                 </a>
             </li>
             <li class="nav-item">
                 <a href="https://updivision.com" target="blank" class="nav-link">
-                    {{ __('Updivision') }}
+                    {{ __('CRM') }}
                 </a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">
-                    {{ __('About Us') }}
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    {{ __('Blog') }}
+                    {{ __('Analisis 2') }}
                 </a>
             </li>
         </ul>

@@ -18,8 +18,6 @@ class Clientecontroller extends Controller
     {
         $user= auth()->id();
         $clientes=Cliente::where('idUsuario',$user)->paginate();
-
-
         return view('CRM.clientes.index', compact('clientes'));
     }
 
@@ -31,7 +29,6 @@ class Clientecontroller extends Controller
     //aqui muestra la vista donde se crearan los clientes nuevos
     public function create()
     {
-
         return view('CRM.clientes.create',compact('clientes'));
     }
 
@@ -49,7 +46,6 @@ class Clientecontroller extends Controller
         //return response()->json($idCliente);
         $request->request->add(['idCliente' => $idCliente]);
         $cliente= Cliente::create($request->all());
-
         return redirect()->route('clientes.index')->with('info','Sede guardada con éxito');
     }
 
