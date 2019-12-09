@@ -89,11 +89,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('clientes/index', 'ClienteController@index')->name('clientes.index');
     Route::post('clientes/store', 'ClienteController@store')->name('clientes.store');
     Route::get('clientes/create', 'ClienteController@create')->name('clientes.create');
+    Route::get('clientes/asignar', 'ClienteController@asignarCartera')->name('clientes.asignarCartera');
+    Route::get('clientes/{cliente}/asignarCli', 'ClienteController@asignarCliente')->name('clientes.asignarCliente');
     Route::post('clientes/{cliente}', 'ClienteController@update')->name('clientes.update');
+    Route::get('clientes/{cliente}/quitar', 'ClienteController@quitarDeCartera')->name('clientes.quitarDeCartera');
     Route::get('clientes/{cliente}', 'ClienteController@show')->name('clientes.show');
     Route::delete('clientes/{cliente}', 'ClienteController@destroy')->name('clientes.destroy');
     Route::get('clientes/{cliente}/edit', 'ClienteController@edit')->name('clientes.edit');
-
 
 // rutas para el mantenimiento de empleados, aqui esta para ver la seccion Empleados,para actualizar,crear,eliminar,etc
 

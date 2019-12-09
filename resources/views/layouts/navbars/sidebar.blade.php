@@ -12,11 +12,31 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('clientes.indexCartera') }}">
-                    <i class="tim-icons icon-atom"></i>
-                    <p>{{ _('Cartera de Clientes') }}</p>
+                <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
+                    <i class="fab fa-laravel"></i>
+                    <span class="nav-link-text">{{ __('Clientes') }}</span>
+                    <b class="caret mt-1"></b>
                 </a>
+
+                <div class="collapse show" id="laravel-examples">
+                    <ul class="nav pl-4">
+                        <li>
+                            <a href="{{ route('clientes.indexCartera') }}">
+                                <i class="tim-icons icon-atom"></i>
+                                <p>{{ _('Cartera de Clientes') }}</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('clientes.asignarCartera') }}">
+                                <i class="tim-icons icon-atom"></i>
+                                <p>{{ _('Clientes Disponibles') }}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
             </li>
+
             <li>
                 <a href="{{ route('cotizaciones.index') }}">
                     <i class="tim-icons icon-atom"></i>

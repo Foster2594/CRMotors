@@ -4,6 +4,10 @@
     {{ Form::text('idTipoCliente',null,['class' => 'form-control']) }}
 </div>
 <div class="form-group">
+    {{ Form::label('idEmpleado','Empleado') }}
+    {{ Form::text('idEmpleado',auth()->id(),['class' => 'form-control','readonly'=>'true']) }}
+</div>
+<div class="form-group">
     {{ Form::label('cedula','Cedula*') }}
     {{ Form::text('cedula',null,['class' => 'form-control']) }}
 </div>
@@ -48,7 +52,8 @@
 <div class="form-group">
     {{ Form::label('ingresoSalarial','Ingreso salarial *') }}
     {{ Form::text('ingresoSalarial',null,['class' => 'form-control']) }}
-</div><div class="form-group">
+</div>
+<div class="form-group">
     {{ Form::label('idProvincia','Provincia *') }}
     {{--}}{{ Form::text('idProvincia',null,['class' => 'form-control']) }}--}}
     <div>

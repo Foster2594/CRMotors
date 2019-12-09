@@ -7,11 +7,9 @@
             <div class="card">
                 <div class="card-header">
                     <h4>Cartera de Clientes
-
                             <a href="{{ route('clientes.create', $clientes) }}" class="btn btn-sm btn-primary float-right">
                                 Crear
                             </a>
-
                     </h4>
                 </div>
                 <div class="card-body table-responsive">
@@ -26,7 +24,8 @@
                                 <th>Numero de celular</th>
                                 <th>Correo</th>
                                 <th>Ingreso $</th>
-                                <th colspan="3">&nbsp;</th>
+                                <th colspan="4">&nbsp;</th>
+                                <th ></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,11 +46,16 @@
                                     <a href="{{ route('clientes.edit', $cliente->idCliente) }}" class="btn btn-sm btn-success fa fa-edit"></a>
                                 </td>
                                 <td width="10px">
+                                    <a href="{{ route('clientes.quitarDeCartera', $cliente->idCliente) }}" class="btn btn-sm btn-success fa fa-cancel"></a>
+                                </td>
+                                @can('clientes.delete')
+                                <td width="10px">
                                     {!! Form::open(['route' => ['clientes.destroy', $cliente->idCliente],
                                     'method' => 'DELETE']) !!}
                                     <button class="btn btn-sm btn-danger fa fa-trash"></button>
                                     {!! Form::close() !!}
                                 </td>
+                                @endcan
                             </tr>
                             @endforeach
                         </tbody>
@@ -61,6 +65,7 @@
             </div>
         </div>
     </div>
+    {{--@include('CRM.clientes.partials.indexCartera')--}}
 </div>
 @endsection
 @section('script')

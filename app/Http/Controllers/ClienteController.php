@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Cliente;
+use App\Empleado;
+use App\Provincia;
+use App\User;
 use Illuminate\Http\Request;
 
 class Clientecontroller extends Controller
@@ -10,15 +13,17 @@ class Clientecontroller extends Controller
     public function index()
     {
         $clientes=Cliente::paginate();
-
-        return view('CRM.clientes.index', compact('clientes'));
+        $clientesVacios=Cliente::where('idEmpleado',null)->where('idEmpleado',0)->paginate();
+        return view('CRM.clientes.index', compact('clientes','clientesVacios'));
     }
 //busca clientes por cartera
     public function indexCartera()
     {
         $user= auth()->id();
-        $clientes=Cliente::where('idUsuario',$user)->paginate();
-        return view('CRM.clientes.index', compact('clientes'));
+        $clientes=Cliente::where('idEmpleado',$user)->paginate();
+        $clientesVacios=Cliente::whereIn('idEmpleado',[null,0])->paginate();
+
+        return view('CRM.clientes.index', compact('clientes','clientesVacios'));
     }
 
     /**
@@ -114,8 +119,24 @@ class Clientecontroller extends Controller
 
     public function quitarDeCartera($cliente)
     {
-        $cliente=Cliente::where('idCliente',$cliente)->delete();
+        $cliente=Cliente::where('idCliente',$cliente)->update(['idEmpleado'=>0]);
 
-        return back()->with('info', 'Eliminado correctamente');
+        return back()->with('info', 'Se ha eliminado de su cartera correctamente');
+    }
+//
+    public function asignarCartera()
+    {
+        $clientesVacios=Cliente::whereIn('idEmpleado',[null,0,])->paginate();
+        $usuarios=User::pluck('name','id');
+
+        return view('CRM.clientes.CarteraDisponible', compact('clientesVacios','usuarios'));
+    }
+    //Metodo para asignar cliente a cartera de empleado
+    public function asignarCliente($cliente,Request $request)
+    {
+        return $request;
+        $clienteAsignado=Cliente::where('idCliente',$cliente)->update(['idEmpleado'=>$request->idEmpleado]);
+
+        return back()->with('info', 'Se ha eliminado de su cartera correctamente');
     }
 }
