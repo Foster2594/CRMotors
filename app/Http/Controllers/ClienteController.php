@@ -132,10 +132,10 @@ class Clientecontroller extends Controller
         return view('CRM.clientes.CarteraDisponible', compact('clientesVacios','usuarios'));
     }
     //Metodo para asignar cliente a cartera de empleado
-    public function asignarCliente($cliente,Request $request)
+    public function asignarCliente(Request $request)
     {
-        return $request;
-        $clienteAsignado=Cliente::where('idCliente',$cliente)->update(['idEmpleado'=>$request->idEmpleado]);
+
+        $clienteAsignado=Cliente::where('idCliente',$request->idCliente)->update(['idEmpleado'=>$request->idEmpleado]);
 
         return back()->with('info', 'Se ha eliminado de su cartera correctamente');
     }

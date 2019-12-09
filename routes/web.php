@@ -90,7 +90,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('clientes/store', 'ClienteController@store')->name('clientes.store');
     Route::get('clientes/create', 'ClienteController@create')->name('clientes.create');
     Route::get('clientes/asignar', 'ClienteController@asignarCartera')->name('clientes.asignarCartera');
-    Route::get('clientes/{cliente}/asignarCli', 'ClienteController@asignarCliente')->name('clientes.asignarCliente');
+    Route::post('clientes/asignarCli', 'ClienteController@asignarCliente')->name('clientes.asignarCliente');
     Route::post('clientes/{cliente}', 'ClienteController@update')->name('clientes.update');
     Route::get('clientes/{cliente}/quitar', 'ClienteController@quitarDeCartera')->name('clientes.quitarDeCartera');
     Route::get('clientes/{cliente}', 'ClienteController@show')->name('clientes.show');

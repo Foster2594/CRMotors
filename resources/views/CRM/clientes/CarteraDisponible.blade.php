@@ -5,10 +5,18 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    {!! Form::open(['route' => 'clientes.store']) !!}
+                    {!! Form::open(['route' => ['clientes.asignarCliente']]) !!}
+                    <div class="form-group card-header">
+                        <div >
+                            <label class="label"> Seleccione un empleado</label>
+                        </div>
+                        <a onchange="setId()">
+                            {{ Form::select('idEmpleado', $usuarios, 10, ['class' => 'form control btn dropdown-toggle btn-sm', 'onclick=setId()']) }}
+                        </a>
+
+                    </div>
                     <div>
 
-                        {{ Form::select('idEmpleado', $usuarios, null, ['placeholder' => 'Seleccione un Empleado','class' => 'form control btn dropdown-toggle btn-sm']) }}
 
                     </div>
                     <div class="card-body table-responsive">
@@ -39,9 +47,8 @@
                                     <td>{{ $clienteV->correo }}</td>
                                     <td>{{ $clienteV->ingresoSalarial }}</td>
                                     <td width="10px">
-                                        <button></button>
-                                        <a href="{{ route('clientes.asignarCliente', $clienteV->idCliente) }}"
-                                           class="btn btn-sm btn-success fa fa-cancel"></a>
+                                        {{ Form::hidden('idCliente',$clienteV->idCliente,['class' => 'form-control','name'=>'idCliente']) }}
+                                        {{ Form::submit('asignar',['class' => 'btn btn-sm btn-success']) }}
                                     </td>
                                 </tr>
                             @endforeach
@@ -54,9 +61,22 @@
         </div>
 
     </div>
+    <script>
+
+        let emp;
+        let strUser
+        function setId() {
+            emp = document.getElementById('selectEmpleados');
+            strUser = emp.options[emp.selectedIndex].text;
+            document.getElementById('idEmpleado').value = strUser;
+            alert('j');
+        }
+    </script>
 @endsection
 @section('script')
     <script>
+
+
         document.getElementById('nav-roles').className += ' active';
     </script>
 @endsection
