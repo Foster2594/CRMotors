@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Canton;
+use App\Departamento;
+use App\Distrito;
 use App\Empleado;
+use App\estadoEmpleado;
+use App\Genero;
 use App\Provincia;
 
+use App\Sede;
 use Illuminate\Http\Request;
 
 class EmpleadoController extends Controller
@@ -27,8 +33,15 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
+        $generos=Genero::pluck('nombre','idGenero');
         $provincias=Provincia::pluck('nombre','idProvincia');
-        return view('CRM.empleados.create',compact('empleados','provincias'));
+        $cantones=Canton::pluck('nombre','idCanton');
+        $distritos=Distrito::pluck('nombre','idDistrito');
+        $sedes=Sede::pluck('nombre','idSede');
+        $departamentos=Departamento::pluck('nombre','idDepartamento');
+        //$usuarios=Provincia::pluck('nombre','idProvincia');
+        $estados=estadoEmpleado::pluck('nombre','idEstadoEmpleado');
+        return view('CRM.empleados.create',compact('empleados','generos','provincias','cantones','distritos','sedes','departamentos','estados'));
     }
 
     /**
@@ -39,6 +52,24 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+             'cedula'=>'required|numeric|digits:9|unique:Empleado',
+             'nombre'=>'required',
+             'apellido1'=>'required',
+             'apellido2',
+             'idGenero'=>'required',
+             'telefonoCelular'=>'required|numeric|unique:Empleado|digits:8',
+             'otroTelefono'=>'numeric|unique:Empleado|digits:8',
+             'correo'=>'required|unique:Empleado|email',
+             'idProvincia'=>'required',
+             'idCanton'=>'required',
+             'idDistrito'=>'required',
+             'direccionExacta'=>'required',
+             'idSede'=>'required',
+             'idDepartamento'=>'required',
+             'idUsuario'=>'required',
+             'idEstadoEmpleado'=>'required',
+        ]);
         $idempleado = Empleado::max('idempleado');
         $idempleado=$idempleado+1;
         //return response()->json($idempleado);

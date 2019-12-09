@@ -11,7 +11,7 @@ class Empleado extends Model
         , 'cedula'
         , 'nombre'
         , 'apellido1'
-        , 'apellido2]'
+        , 'apellido2'
         , 'idGenero'
         , 'telefonoCelular'
         , 'otroTelefono'

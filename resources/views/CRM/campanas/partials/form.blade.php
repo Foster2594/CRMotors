@@ -1,16 +1,19 @@
 <div class="form-group">
-    {{ Form::label('idTipoCampana','Tipo de campaña*') }}
-    {{ Form::text('idTipoCampana',null,['class' => 'form-control']) }}
+    <div>
+        {{ Form::select('idTipoCampana', $tipos, null, ['placeholder' => 'Seleccione Tipo Campaña','class' => 'form control btn dropdown-toggle btn-sm']) }}
+    </div>
     {{$errors->first('idTipoCampana')}}
-</div>
+</div><br>
 <div class="form-group">
-    {{ Form::label('idSede','Sede*') }}
-    {{ Form::text('idSede',null,['class' => 'form-control']) }}
+    <div>
+        {{ Form::select('idSede', $sedes, null, ['placeholder' => 'Seleccione Sede','class' => 'form control btn dropdown-toggle btn-sm']) }}
+    </div>
     {{$errors->first('idSede')}}
-</div>
+</div><br>
 <div class="form-group">
-    {{ Form::label('idEstadoCampana','Estado de campaña*') }}
-    {{ Form::text('idEstadoCampana',null,['class' => 'form-control']) }}
+    <div>
+        {{ Form::select('idEstadoCampana', $estados, null, ['placeholder' => 'Seleccione Estado Campaña','class' => 'form control btn dropdown-toggle btn-sm']) }}
+    </div>
     {{$errors->first('idEstadoCampana')}}
 </div>
 <div class="form-group">
@@ -28,10 +31,11 @@
         {{ Form::select('idProvincia', $provincias, null, ['placeholder' => 'Seleccione Provincia','class' => 'form control btn dropdown-toggle btn-sm']) }}
     </div>
     {{$errors->first('idProvincia')}}
-</div>
+</div><br>
 <div class="form-group">
-    {{ Form::label('idCanton','Canton*') }}
-    {{ Form::text('idCanton',null,['class' => 'form-control']) }}
+    <div>
+        {{ Form::select('idCanton', $cantones, null, ['placeholder' => 'Seleccione Canton','class' => 'form control btn dropdown-toggle btn-sm']) }}
+    </div>
     {{$errors->first('idCanton')}}
 </div>
 <div class="form-group">

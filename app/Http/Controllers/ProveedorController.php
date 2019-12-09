@@ -36,7 +36,7 @@ class ProveedorController extends Controller
         $request->validate([
             'cedula' =>'required|numeric|digits:9|unique:Proveedor',
             'nombre' =>'required',
-            'numeroTelefono' =>'required|unique:Proveedor',
+            'numeroTelefono' =>'required|unique:Proveedor|digits:8',
             'correo' =>'required|email|unique:Proveedor',
             'idEstadoProveedor' =>'required',
     ]);

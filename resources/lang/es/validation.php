@@ -140,13 +140,21 @@ return [
     'attributes' => [
         'idEstadoProveedor'=>'estado proveedor',
         'numeroTelefono'=>'teléfono',
-        'idProvinca'=>'provincia',
+        'idProvincia'=>'provincia',
         'idCanton'=>'cantón',
         'idDistrito'=>'distrito',
         'annio'=>'año',
         'parametroVersion'=>'versión',
         'idTipoVehiculo'=>'tipo vehículo',
-        'idProveedor'=>'proveedor'
+        'idProveedor'=>'proveedor',
+        'apellido1'=>'primer apellido',
+        'apellido2'=>'segundo apellido',
+        'idGenero'=>'genero',
+        'telefonoCelular'=>'telefono',
+        'idSede'=>'sede',
+        'idDepartamento'=>'departamento',
+        'idEstadoEmpleado'=>'estado empleado',
+        'password'=>'contraseña'
     ],
 
 ];

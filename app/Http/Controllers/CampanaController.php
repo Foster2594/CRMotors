@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Campana;
+use App\Canton;
+use App\estadoCampana;
 use App\Provincia;
+use App\Sede;
+use App\tipoCampana;
 use Illuminate\Http\Request;
 
 class CampanaController extends Controller
@@ -27,8 +31,12 @@ class CampanaController extends Controller
      */
     public function create()
     {
+        $tipos=tipoCampana::pluck('nombre','idTipoCampana');
+        $estados=estadoCampana::pluck('nombre','idEstadoCampana');
+        $sedes=Sede::pluck('nombre','idSede');
         $provincias=Provincia::pluck('nombre','idProvincia');
-        return view('CRM.campanas.create',compact('campanas','provincias'));
+        $cantones=Canton::pluck('nombre','idCanton');
+        return view('CRM.campanas.create',compact('campanas','tipos','estados','sedes','provincias','cantones'));
     }
 
     /**
