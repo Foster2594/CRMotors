@@ -1,11 +1,13 @@
 <div class="form-group">
-    {{ Form::label('idProveedor','Proveedor*') }}
-    {{ Form::text('idProveedor',null,['class' => 'form-control']) }}
+    <div>
+        {{ Form::select('idProveedor', $proveedores, null, ['placeholder' => 'Seleccione Proveedor','class' => 'form control btn dropdown-toggle btn-sm']) }}
+    </div>
     {{$errors->first('idProveedor')}}
-</div>
+</div><br>
 <div class="form-group">
-    {{ Form::label('idTipoVehiculo','Tipo Vehiculo*') }}
-    {{ Form::text('idTipoVehiculo',null,['class' => 'form-control']) }}
+    <div>
+        {{ Form::select('idTipoVehiculo', $tipos, null, ['placeholder' => 'Seleccione Tipo Vehiculo','class' => 'form control btn dropdown-toggle btn-sm']) }}
+    </div>
     {{$errors->first('idTipoVehiculo')}}
 </div>
 

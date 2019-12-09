@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Proveedor;
+use App\tipoVehiculo;
 use App\Vehiculo;
 use Illuminate\Http\Request;
 
@@ -27,8 +29,9 @@ class VehiculoController extends Controller
      */
     public function create()
     {
-
-        return view('CRM.vehiculos.create',compact('vehiculos'));
+        $proveedores=Proveedor::pluck('nombre','idProveedor');
+        $tipos=tipoVehiculo::pluck('nombre','idTipoVehiculo');
+        return view('CRM.vehiculos.create',compact('vehiculos','proveedores','tipos'));
     }
 
     /**
@@ -42,14 +45,14 @@ class VehiculoController extends Controller
         $request->validate([
             'idProveedor' =>'required',
             'idTipoVehiculo' =>'required',
-            'codigo' =>'required',
+            'codigo' =>'required|numeric|unique:Vehiculo',
             'marca' =>'required',
             'modelo' =>'required',
             'parametroVersion' =>'required',
-            'annio' =>'required',
-            'cantidadDisponible' =>'required',
-            'fechaIngreso' =>'required',
-            'fechaSalida' =>'required',
+            'annio' =>'required|numeric|digits:4',
+            'cantidadDisponible' =>'required|numeric',
+            'fechaIngreso' =>'required|date',
+            'fechaSalida' =>'required|date',
         ]);
         $idVehiculo = Vehiculo::max('idVehiculo');
         $idVehiculo=$idVehiculo+1;

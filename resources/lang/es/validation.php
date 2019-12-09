@@ -138,11 +138,15 @@ return [
     |
     */
     'attributes' => [
-        'idEstadoProveedor'=>'Estado Provedor',
-        'numeroTelefono'=>'telefono',
+        'idEstadoProveedor'=>'estado proveedor',
+        'numeroTelefono'=>'teléfono',
         'idProvinca'=>'provincia',
-        'idCanton'=>'canton',
-        'idDistrito'=>'distrito'
+        'idCanton'=>'cantón',
+        'idDistrito'=>'distrito',
+        'annio'=>'año',
+        'parametroVersion'=>'versión',
+        'idTipoVehiculo'=>'tipo vehículo',
+        'idProveedor'=>'proveedor'
     ],
 
 ];

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\estadoProveedor;
 use App\Proveedor;
 use Illuminate\Http\Request;
 
@@ -20,8 +21,8 @@ class ProveedorController extends Controller
      */
     public function create()
     {
-        $provincias=Proveedor::pluck('nombre');
-        return view('CRM.proveedores.create',compact('proveedores'));
+        $estados=estadoProveedor::pluck('nombre','idEstadoProveedor');
+        return view('CRM.proveedores.create',compact('proveedores','estados'));
     }
 
     /**
@@ -33,10 +34,10 @@ class ProveedorController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'cedula' =>'required|numeric',
+            'cedula' =>'required|numeric|digits:9|unique:Proveedor',
             'nombre' =>'required',
-            'numeroTelefono' =>'required',
-            'correo' =>'required|email',
+            'numeroTelefono' =>'required|unique:Proveedor',
+            'correo' =>'required|email|unique:Proveedor',
             'idEstadoProveedor' =>'required',
     ]);
         $idproveedor = Proveedor::max('idProveedor');
