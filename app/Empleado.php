@@ -23,7 +23,7 @@ class Empleado extends Model
         , 'idSede'
         , 'idDepartamento'
         , 'idUsuario'
-        , 'idEstadoEmpleado'
+        , 'idEstadoEmpleado',
     ];
 
     protected $primary_key = 'idEmpleado';

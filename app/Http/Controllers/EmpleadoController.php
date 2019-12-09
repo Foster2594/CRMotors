@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Empleado;
+use App\Provincia;
+
 use Illuminate\Http\Request;
 
 class EmpleadoController extends Controller

@@ -17,14 +17,11 @@
                         <thead>
                             <tr>
                                 <th width="10px">ID</th>
+                                <th>Cedula</th>
                                 <th>Nombre</th>
                                 <th>Telefono</th>
                                 <th>Correo</th>
-                                <th>ID Provincia</th>
-                                <th>ID Canton</th>
-                                <th>ID Distrito</th>
-                                <th>Direccion</th>
-                                <th>ID Estado/proveedor</th>
+                                <th>Estado Proveedor</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>
                         </thead>
@@ -32,14 +29,11 @@
                             @foreach ($proveedores as $proveedor)
                             <tr>
                                 <td>{{ $proveedor->idProveedor }}</td>
+                                <td>{{ $proveedor->cedula }}</td>
                                 <td>{{ $proveedor->nombre }}</td>
-                                <td>{{ $proveedor->telefono }}</td>
+                                <td>{{ $proveedor->numeroTelefono }}</td>
                                 <td>{{ $proveedor->correo }}</td>
-                                <td>{{ $proveedor->idProvincia }}</td>
-                                <td>{{ $proveedor->idCanton }}</td>
-                                <td>{{ $proveedor->idDistrito }}</td>
-                                <td>{{ $proveedor->direccionExacta }}</td>
-                                <td>{{ $proveedor->idEstadoproveedor }}</td>
+                                <td>{{ $proveedor->idEstadoProveedor }}</td>
 
                                 <td width="10px">
                                     <a href="{{ route('proveedores.show', $proveedor->idProveedor) }}" class="btn btn-sm btn-success">

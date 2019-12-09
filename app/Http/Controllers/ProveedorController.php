@@ -20,8 +20,8 @@ class ProveedorController extends Controller
      */
     public function create()
     {
-        $provincias=Proveedor::pluck('nombre','idProvincia');
-        return view('CRM.proveedores.create',compact('proveedores','provincias'));
+        $provincias=Proveedor::pluck('nombre');
+        return view('CRM.proveedores.create',compact('proveedores'));
     }
 
     /**
@@ -32,6 +32,13 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'cedula' =>'required|numeric',
+            'nombre' =>'required',
+            'numeroTelefono' =>'required',
+            'correo' =>'required|email',
+            'idEstadoProveedor' =>'required',
+    ]);
         $idproveedor = Proveedor::max('idProveedor');
         $idproveedor=$idproveedor+1;
         //return response()->json($idProveedor);

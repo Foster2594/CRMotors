@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Campana;
+use App\Provincia;
 use Illuminate\Http\Request;
 
 class CampanaController extends Controller
@@ -38,6 +39,20 @@ class CampanaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'idTipoCampana' =>'required',
+            'idSede' =>'required',
+            'idEstadoCampana' =>'required',
+            'nombre' =>'required',
+            'descripcion' =>'required',
+            'idProvincia' =>'required',
+            'idCanton' =>'required',
+            'fechaInicio' =>'required|date',
+            'fechaFinal' =>'required|date',
+            'descuentoMinimo' =>'required|numeric',
+            'descuentoMaximo' =>'required|numeric',
+            'idEmpleadoCreador' =>'required',
+        ]);
         $idCampana= Campana::max('idCampana');
         $idCampana = $idCampana+1;
         //return response()->json($idCampana);

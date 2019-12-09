@@ -9,6 +9,7 @@ class Campana extends Model
     protected $fillable=[
         'idCampana',
         'idTipoCampana',
+        'idSede',
         'idEstadoCampana',
         'nombre',
         'descripcion',

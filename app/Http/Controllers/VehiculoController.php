@@ -39,6 +39,18 @@ class VehiculoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'idProveedor' =>'required',
+            'idTipoVehiculo' =>'required',
+            'codigo' =>'required',
+            'marca' =>'required',
+            'modelo' =>'required',
+            'parametroVersion' =>'required',
+            'annio' =>'required',
+            'cantidadDisponible' =>'required',
+            'fechaIngreso' =>'required',
+            'fechaSalida' =>'required',
+        ]);
         $idVehiculo = Vehiculo::max('idVehiculo');
         $idVehiculo=$idVehiculo+1;
         //return response()->json($idSede);
