@@ -9,8 +9,9 @@
                 <div class="card-body">
                     {{--{!! Form::model($sede, ['route' => ['sedes.update',$sede->idSede],--}}
                     {{--'method' => 'POST']) !!}--}}
-                    {!! Form::model($sede,['route' => ['sedes.update',$sede->idSede]]) !!}
-                    @include('CRM.sedes.partials.form')
+                    {!! Form::model($cliente,['route' => ['clientes.update',$cliente->idCliente]]) !!}
+                    @include('CRM.clientes.partials.form')
+
                     {!! Form::close() !!}
                 </div>
             </div>
@@ -20,6 +21,7 @@
 @endsection
 @section('script')
     <script>
-        document.getElementById('nav-sedes').className+=' active';
+        document.getElementById('nav-clientes').className+=' active';
     </script>
+    @include('CRM.includes.direccion')
 @endsection

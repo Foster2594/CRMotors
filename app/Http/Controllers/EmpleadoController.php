@@ -100,10 +100,18 @@ class EmpleadoController extends Controller
      */
     public function edit($empleado)
     {
-
+        $generos=Genero::pluck('nombre','idGenero');
+        $provincias=Provincia::pluck('nombre','idProvincia');
+        $cantones=Canton::pluck('nombre','idCanton');
+        $distritos=Distrito::pluck('nombre','idDistrito');
+        $sedes=Sede::pluck('nombre','idSede');
+        $departamentos=Departamento::pluck('nombre','idDepartamento');
+        //$usuarios=Provincia::pluck('nombre','idProvincia');
+        $estados=estadoEmpleado::pluck('nombre','idEstadoEmpleado');
         $empleado=Empleado::where('idempleado',$empleado)->first();
 
-        return view('CRM.empleados.edit', compact('empleado'));
+        return view('CRM.empleados.edit', compact('empleado','generos','provincias','cantones','distritos','sedes','departamentos','estados'));
+
     }
 
     /**

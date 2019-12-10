@@ -57,6 +57,7 @@ class ProveedorController extends Controller
     public function show($proveedor)
     {
         $proveedor=Proveedor::where('idProveedor',$proveedor)->first();
+
         return view('CRM.proveedores.show', compact('proveedor'));
     }
 
@@ -69,7 +70,8 @@ class ProveedorController extends Controller
     public function edit($proveedor)
     {
         $proveedor=Proveedor::where('idProveedor',$proveedor)->first();
-        return view('CRM.proveedores.edit', compact('proveedor'));
+        $estados=estadoProveedor::pluck('nombre','idEstadoProveedor');
+        return view('CRM.proveedores.edit', compact('proveedor','estados'));
     }
 
     /**

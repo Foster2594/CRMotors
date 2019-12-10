@@ -9,7 +9,7 @@
                 <div class="card-body">
                     {{--{!! Form::model($empleado, ['route' => ['empleados.update',$empleado->idempleado],--}}
                     {{--'method' => 'POST']) !!}--}}
-                    {!! Form::model($empleado,['route' => ['empleados.update',$empleado->idempleado]]) !!}
+                    {!! Form::model($empleado,['route' => ['empleados.update',$empleado->idEmpleado]]) !!}
                     @include('CRM.empleados.partials.form')
                     {!! Form::close() !!}
                 </div>

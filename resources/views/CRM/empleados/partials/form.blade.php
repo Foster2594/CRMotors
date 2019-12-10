@@ -53,7 +53,7 @@
 </div><br>
 <div class="form-group">
     <div>
-        {{ Form::select('idDisitrito', $distritos, null, ['placeholder' => 'Seleccione Distrito','class' => 'form control btn dropdown-toggle btn-sm']) }}
+        {{ Form::select('idDistrito', $distritos, null, ['placeholder' => 'Seleccione Distrito','class' => 'form control btn dropdown-toggle btn-sm']) }}
     </div>
     {{$errors->first('idDistrito')}}
 </div>
@@ -86,6 +86,5 @@
     {{$errors->first('idEstadoEmpleado')}}
 </div>
 <div class="form-group">
-    <input type="submit" value="Guardar">
-    {{--{{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}--}}
+    {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}
 </div>

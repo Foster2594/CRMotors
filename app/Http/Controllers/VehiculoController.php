@@ -86,8 +86,9 @@ class VehiculoController extends Controller
     {
 
         $vehiculo=Vehiculo::where('idVehiculo',$vehiculo)->first();
-
-        return view('CRM.vehiculos.edit', compact('vehiculo'));
+        $proveedores=Proveedor::pluck('nombre','idProveedor');
+        $tipos=tipoVehiculo::pluck('nombre','idTipoVehiculo');
+        return view('CRM.vehiculos.edit',compact('vehiculo','proveedores','tipos'));
     }
 
     /**
@@ -102,7 +103,7 @@ class VehiculoController extends Controller
         $vehiculo=Vehiculo::where('idVehiculo',$vehiculo)->update($request->except('_token','_method'));
 //        $role->permissions()->sync($request->get('permissions'));
 
-        return redirect()->route('vehiculos.edit',$vehiculo)->with('info','Sede actualizada con éxito');
+        return redirect()->route('vehiculos.edit',$vehiculo)->with('info','Vehiculo actualizado con éxito');
     }
 
     /**

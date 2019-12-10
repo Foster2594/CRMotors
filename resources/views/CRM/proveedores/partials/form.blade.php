@@ -30,6 +30,6 @@
 </div>
 
 <div class="form-group">
-    <input type="submit" value="Guardar">
-    {{--{{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}--}}
+    {{--<input type="submit" value="Guardar">--}}
+    {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}
 </div>

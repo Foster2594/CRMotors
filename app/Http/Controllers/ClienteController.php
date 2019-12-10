@@ -1,11 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Canton;
 use App\Cliente;
+use App\Distrito;
 use App\Empleado;
+use App\Http\Requests\ClienteRequest;
 use App\Provincia;
 use App\User;
+use App\Vehiculo;
 use Illuminate\Http\Request;
+use Mockery\Exception;
 
 class Clientecontroller extends Controller
 {
@@ -35,7 +40,12 @@ class Clientecontroller extends Controller
     public function create()
     {
         $provincias=Provincia::pluck('nombre','idProvincia');
-        return view('CRM.clientes.create',compact('clientes','provincias'));
+        $cantones=[];
+        $distritos=[];
+        $vehiculos=Vehiculo::pluck('modelo','idVehiculo');
+
+
+        return view('CRM.clientes.create',compact('cliente','provincias','cantones','distritos','vehiculos'));
     }
 
     /**
@@ -45,14 +55,24 @@ class Clientecontroller extends Controller
      * @return \Illuminate\Http\Response
      */
     //en esta funcion es donde se guarda los clientes para posteriormente mostrarse en la pantalla principal
-    public function store(Request $request)
+    public function store(ClienteRequest $request)
     {
+//        return $request;
+        try{
+
         $idCliente= Cliente::max('idCliente');
         $idCliente=$idCliente+1;
         //return response()->json($idCliente);
-        $request->request->add(['idCliente' => $idCliente]);
+        $request->request->add(['idCliente' => $idCliente,
+            'idEstadoCliente'=>1]);
         $cliente= Cliente::create($request->all());
-        return redirect()->route('clientes.index')->with('info','Sede guardada con éxito');
+            return redirect()->route('clientes.index')->with('info','Cliente guardado con éxito');
+
+        }catch (Exception $exception){
+
+//            Alert::danger('this is a test message');
+            return redirect()->route('clientes.index')->with('alert','Error inesperado');
+        }
     }
 
     /**
@@ -77,10 +97,13 @@ class Clientecontroller extends Controller
     //esto nos abre una vista en donde podemos editar a algun usuario
     public function edit($cliente)
     {
-
+        $provincias=Provincia::pluck('nombre','idProvincia');
+        $cantones=Canton::pluck('nombre','idCanton');
+        $distritos="";
+        $vehiculos=Vehiculo::pluck('modelo','idVehiculo');
         $cliente=Cliente::where('idCliente',$cliente)->first();
 
-        return view('CRM.clientes.edit', compact('cliente'));
+        return view('CRM.clientes.edit', compact('cliente','provincias','cantones','distritos','vehiculos'));
     }
 
     /**
@@ -91,16 +114,15 @@ class Clientecontroller extends Controller
      * @return \Illuminate\Http\Response
      */
     //aqui nos actualiza al usuario
-    public function update(Request $request, $cliente)
+    public function update(ClienteRequest $request, $cliente)
     {
         //  return $request;
         $request->request->add(['idCliente' => $cliente]);
-
         $cliente=Cliente::where('idCliente',$cliente)->update($request->except('_token'));
 
 //        $role->permissions()->sync($request->get('permissions'));
 
-        return redirect()->route('clientes.show', compact('cliente'))->with('info','Sede actualizada con éxito');
+        return redirect()->route('clientes.show', compact('cliente'))->with('info','cliente actualizado con éxito');
     }
 
     /**

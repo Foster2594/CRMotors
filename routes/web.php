@@ -18,6 +18,12 @@ Auth::routes();
 //ruta para ejecutar el home de la pagina
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
+//rutas direccion
+Route::post('search/provincia', 'SearchController@provincia')->name('search.provincia');
+Route::post('search/canton', 'SearchController@canton')->name('search.canton');
+Route::post('search/distrito', 'SearchController@distrito')->name('search.distrito');
+
+
 Route::group(['middleware' => 'auth'], function () {
 
 // rutas para el mantenimiento de Sedes, aqui esta para ver la seccion sedes,para actualizar,crear,eliminar,etc
@@ -41,6 +47,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('cotizaciones/{cotizacion}', 'CotizacionController@destroy')->name('cotizaciones.destroy');
     Route::get('cotizaciones/{cotizacion}/edit', 'CotizacionController@edit')->name('cotizaciones.edit');
 
+
  Route::get('cotizaciones/{cotizacion}/pdf', 'CotizacionController@create_pdf')->name('cotizaciones.pdf');
     //importacion de vehiculos para el modal
 
@@ -50,7 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('campanas/index', 'CampanaController@index')->name('campanas.index');
     Route::post('campanas/store', 'CampanaController@store')->name('campanas.store');
     Route::get('campanas/create', 'CampanaController@create')->name('campanas.create');
-    Route::put('campanas/{campana}', 'CampanaController@update')->name('campanas.update');
+    Route::post('campanas/{campana}', 'CampanaController@update')->name('campanas.update');
     Route::get('campanas/{campana}', 'CampanaController@show')->name('campanas.show');
     Route::delete('campanas/{campana}', 'CampanaController@destroy')->name('campanas.destroy');
     Route::get('campanas/{campana}/edit', 'CampanaController@edit')->name('campanas.edit');
@@ -77,10 +84,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('proveedores/index', 'ProveedorController@index')->name('proveedores.index');//->middleware('proveedores.index');
     Route::post('proveedores/store', 'ProveedorController@store')->name('proveedores.store');
     Route::get('proveedores/create', 'ProveedorController@create')->name('proveedores.create');
-    Route::post('proveedores/{vehiculo}', 'ProveedorController@update')->name('proveedores.update');
-    Route::get('proveedores/{vehiculo}', 'ProveedorController@show')->name('proveedores.show');
-    Route::delete('proveedores/{vehiculo}', 'ProveedorController@destroy')->name('proveedores.destroy');
-    Route::get('proveedores/{vehiculo}/edit', 'ProveedorController@edit')->name('proveedores.edit');
+    Route::post('proveedores/{proveedor}', 'ProveedorController@update')->name('proveedores.update');
+    Route::get('proveedores/{proveedor}', 'ProveedorController@show')->name('proveedores.show');
+    Route::delete('proveedores/{proveedor}', 'ProveedorController@destroy')->name('proveedores.destroy');
+    Route::get('proveedores/{proveedor}/edit', 'ProveedorController@edit')->name('proveedores.edit');
 
 
 // rutas para el mantenimiento de cliente, aqui esta para ver la seccion Clientes,para actualizar,crear,eliminar,etc
@@ -168,7 +175,7 @@ Route::get('registro', 'Auth\RegisterController@registroMail')->name('Email.regi
 //Route::get('registro', 'EmailController@registro')->name('Email.registro');
 
 // rutas para el envio de correo a la hora de realizar un registro
-Route::get('cotizacion', 'CRM\CotizacionController@cotizacionMail')->name('Email.cotizacionMail');
+Route::get('cotizacionMail/{cotizacion}/envia', 'CotizacionController@cotizacionMail')->name('Email.cotizacionMail');
 //Route::get('registro', 'EmailController@registro')->name('Email.registro');
 
 
