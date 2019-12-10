@@ -1,31 +1,30 @@
 <!--En este Form para generar las cotizaciones-->
 <div class="form-group">
-    {{--{{ Form::label('fechaCreacion',today()) }}--}}
     {{ Form::date('fechaCreacion',today(),['class' => 'form-control col-md-4']) }}
 </div>
 
 <div class="form-group">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-sm-4">
             {{ Form::label('idCliente','Cliente*') }}
-            {{--{{ Form::text('idCliente',1,['class' => 'form-control']) }}--}}
             <div>
-            {{ Form::select('idCliente', $clientes, null, ['placeholder' => 'Seleccione un Cliente','class' => 'form control btn dropdown-toggle btn-sm']) }}
+            {{ Form::select('idCliente', $clientes, null, ['placeholder' => 'Seleccione un Cliente','class' => 'form-control btn dropdown-toggle btn-sm']) }}
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-sm-4">
             {{ Form::label('idEmpleado','Empleado*') }}
             <div>
-                {{--{{ Form::select('idEmpleado', $empleados, null, ['placeholder' => 'Seleccione un Empleado','class' => 'form control btn dropdown-toggle btn-sm']) }}--}}
-            {{ Form::select('idEmpleado',$empleados,null, ['placeholder' => 'Seleccione un Empleado','class' => 'form control btn dropdown-toggle btn-sm']) }}
-
+            {{ Form::select('idEmpleado',$empleados,null, ['placeholder' => 'Seleccione un Empleado','class' => 'form-control btn dropdown-toggle btn-sm']) }}
             </div>
         </div>
-        <div class="col-md-4">
-            {{ Form::label('idCampana','Campana *') }}
+        <div class="col-sm-4">
+            {{ Form::label('idCampana','Campana*') }}
             <div>
-                {{ Form::select('idCampana', $campanas, null, ['placeholder' => 'Seleccione Campaña','class' => 'form control btn dropdown-toggle btn-sm']) }}
-                {{--{{ Form::text('idCampana',1,['class' => 'form-control']) }}--}}
+                <a onchange="descuento()">
+
+                {{ Form::select('idCampana', $campanas, null, ['placeholder' => 'Seleccione Campaña','class' => 'form-control btn dropdown-toggle btn-sm']) }}
+                    <input type="hidden" name="idDescuento" id="idDescuento"/>
+                </a>
             </div>
         </div>
     </div>
@@ -39,26 +38,20 @@
 
 <div class="form-group">
     <div class="card-body table-responsive">
-
         <table class="table table-striped table-hover">
             <thead>
             <tr>
-
                 <th width="10px">ID</th>
-
                 <th>Vehiculo</th>
                 <th>Descripcion</th>
                 <th>Cantidad</th>
                 <th>precio</th>
-                <th>descuento</th>
                 <th>Impuesto</th>
                 <th>SubTotal</th>
             </tr>
             </thead>
             <tbody id="cotizacion">
-
             <tr>
-                <td>{{ "" }}</td>
                 <td>{{ "" }}</td>
                 <td>{{ "" }}</td>
                 <td>{{ "" }}</td>
@@ -71,20 +64,16 @@
             </tbody>
             <tfoot class="footer">
             <tr>
-                <td colspan="6">
-
+                <td colspan="4">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                         Agregar
                     </button>
                 </td>
-
-                <td colspan="6">
+                <td colspan="4">
                     <button type="button" class="btn btn-primary" onclick="eliminarfila()">
                         Eliminar
                     </button>
-
                 </td>
-                {{--<input type="text" id="idNumeroLinea" value="0" />--}}
             </tr>
             </tfoot>
         </table>
@@ -96,13 +85,7 @@
         {{ Form::hidden('detalle',0,['class' => 'form-control','id'=>'jsonhidden']) }}
         {{ Form::hidden('operaciones',0,['class' => 'form-control','id'=>'operaciones']) }}
         {{ Form::hidden('numeroLineas',0,['class' => 'form-control','id'=>'numeroLineas']) }}
-    </div>
-</div>
-<div class="form-group row">
-
-    <div class="col-sm-4">
-
-        {{ Form::text('numeroLineas',0,['class' => 'form-control','id'=>'numeroLineas']) }}
+        {{ Form::hidden('hiddenCamp',$campanasG,['class' => 'form-control','id'=>'hiddenCamp']) }}
     </div>
 </div>
 
@@ -110,13 +93,13 @@
     {{ Form::label('subTotal','subtotal' ,['class' => 'col-sm-2 col-form-label offset-sm-6']) }}
     <div class="col-sm-4">
 
-        {{ Form::text('subTotal',0,['class' => 'form-control','id'=>'subtotal']) }}
+        {{ Form::text('subTotal',0,['class' => 'form-control','id'=>'subtotal','readonly'=>'true']) }}
     </div>
 </div>
 <div class="form-group row">
     {{ Form::label('montoDescuento','Descuento',['class' => 'col-sm-2 col-form-label offset-sm-6']) }}
     <div class="col-sm-4">
-        {{ Form::text('montoDescuento',0,['class' => 'form-control','id'=>'descuento']) }}
+        {{ Form::text('montoDescuento',0,['class' => 'form-control','id'=>'descuento','readonly'=>'true']) }}
     </div>
 </div>
 <div class="form-group row">
@@ -124,34 +107,43 @@
     {{ Form::label('impuestoVentas','IVA',['class' => 'col-sm-2 col-form-label offset-sm-6']) }}
     <div class="col-sm-4">
 
-        {{ Form::text('impuestoVentas',0,['class' => 'form-control','id'=>'iva']) }}
+        {{ Form::text('impuestoVentas',0,['class' => 'form-control','id'=>'iva','readonly'=>'readonly']) }}
     </div>
 </div>
 <div class="form-group row">
     {{ Form::label('total','Total',['class' => 'col-sm-2 col-form-label offset-sm-6']) }}
     <div class="col-sm-4">
 
-        {{ Form::text('total',0,['class' => 'form-control','id'=>'total']) }}
+        {{ Form::text('total',0,['class' => 'form-control','id'=>'total','readonly'=>'true']) }}
     </div>
 </div>
-<div class="form-group">
+<div class="form-group row">
+    <div>
     {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}
+    </div>
+    <a href="{{ route('Email.cotizacionMail') }}" class="btn btn-sm btn-success float-right">
+        Enviar
+    </a>
+
+
 </div>
 
 
 {{--modal--}}
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+<div class="form-group">
+
+
+<div class="modal"  id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
      aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document" >
+        <div class="modal-2black modal-content" style="background: #1d2124;  color: white;" >
+            <div class="modal-header modal-2black">
+                <h3 class="modal-black justify-content-center" id="exampleModalLongTitle">Vehiculos disponibles</h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body" onclick="subtotal()">
-                // inicia el include
                 <div class="card-body table-responsive">
                     <table class="table table-dark table-hover">
                         <thead>
@@ -197,13 +189,13 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
             </div>
         </div>
     </div>
 </div>
-
+</div>
 {{--//inicio javascript--}}
 <script>
     let cont = 0;
@@ -226,8 +218,7 @@
                     <td>` + descripcion + `</td>
                     <td><input class="form-control col-md-11" type="number" name="` + cont + `" id="cant` + numeroLinea + `" value="1" onclick=total(this)></td>
                     <td>` + obj['precio'] + `</td>
-                    <td><input class="form-control col-md-11" type="number" id="descuento` + numeroLinea + `" value="0"></td>
-                    <td><input class="form-control col-md-11" type="number" id="impuesto` + numeroLinea + `" value="0"></td>
+                    <td><input class="form-control col-md-11" type="number" id="iva` + numeroLinea + `" value="` + obj['precio']*0.13    + `" rea></td>
                     <td><input class="form-control col-md-11" type="number" id="sub` + numeroLinea + `" value="` + obj['precio'] + `"></td>
                 </tr>`;
         $("#cotizacion").append(da);
@@ -243,9 +234,11 @@
         var cant = document.getElementById(click.id).value;
         var prec = JsonObj[click.name].precio;
         //multiplicacion y asigna el total
-        let tot = parseFloat(cant) * parseFloat(prec);
+        let sub = parseFloat(cant) * parseFloat(prec);
+        let iva = (parseFloat(cant) * parseFloat(prec))*0.13;
+        let tot = sub + iva;
         document.getElementById("sub" + numId).value = tot;
-
+        document.getElementById("iva" + numId).value = iva;
         JsonObj[click.name].cantidad = document.getElementById(click.id).value;
         JsonObj[click.name].montoTotal = tot;
 
@@ -260,14 +253,25 @@
 
     function subtotal() {
         let num=0;
+        let iva;
+        let desc=document.getElementById('idDescuento').value;
+        let tot;
+        sub=0;
         for (let i = 1; i <= numeroLinea; i++) {
 
             num = document.getElementById("sub" + i).value;
             sub = parseFloat(sub) + parseFloat(num);
+
         }
+        iva =sub*0.13;
+        desc =sub*-desc;
+        tot= sub+iva+desc;
+
         document.getElementById('subtotal').value = sub;
-        document.getElementById('total').value = sub;
-        sub=0;
+        document.getElementById('iva').value = iva;
+        document.getElementById('descuento').value = desc ;
+        document.getElementById('total').value = tot;
+
     }
 
     function agregajsonahidden() {
@@ -297,10 +301,22 @@
         } else {
             cont = cont - 1;
             $("#" + cont).remove();
-
         }
+        agregajsonahidden();
+        total();
+        subtotal();
     }
 
+//funciones de campaña
+    function descuento() {
+        let desc= document.getElementById('idCampana').value;
+        let jsonCamp = document.getElementById('hiddenCamp').value;
+        let objCamp = JSON.parse(jsonCamp);
+        let des =objCamp[desc].descuentoMinimo;
+        document.getElementById('idDescuento').value = des*0.01 ;
 
+        subtotal();
+
+    }
 
 </script>

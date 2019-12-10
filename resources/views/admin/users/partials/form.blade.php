@@ -1,4 +1,4 @@
-adiv class="form-group">
+ <div class="form-group">
     {{ Form::label('name','Nombre del Usuario *') }}
     {{ Form::text('name',null,['class' => 'form-control']) }}
 </div>

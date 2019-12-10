@@ -1,4 +1,4 @@
-//Muestra las tablas que estan en la base de datos
+
 <div class="form-group">
     {{ Form::label('fechaCreacion','fecha creacion *') }}
     {{ Form::date('fechaCreacion',null,['class' => 'form-control readonly']) }}

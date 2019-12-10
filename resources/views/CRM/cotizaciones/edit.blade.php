@@ -5,11 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Sede</div>
+                <div class="card-header">Cotizaciones</div>
                 <div class="card-body">
-                    {!! Form::model($sede, ['route' => ['sedes.update',$sede->idSede],
-                    'method' => 'PUT']) !!}
-                        @include('CRM.sedes.partials.form')
+                    {!! Form::model($cotizacion, ['route' => ['cotizaciones.update',$cotizacion->idEncabezadoCotizacion]]) !!}
+                        @include('CRM.cotizaciones.partials.form')
                     {!! Form::close() !!}
                 </div>
             </div>

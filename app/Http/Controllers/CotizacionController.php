@@ -9,9 +9,12 @@ use App\DetalleCotizacion;
 
 use App\Empleado;
 use App\empleados;
+use App\Http\Requests\CotizacionRequest;
 use App\Vehiculo;
 use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class CotizacionController extends Controller
 {
@@ -101,11 +104,11 @@ return $clientes;
      */
     public function update(Request $request, $cotizacion)
     {
-        $cotizacion = Cotizacion::where('idEncabezadoCotizacion', $cotizacion)->first();
-        $cotizacion->update($request->all());
+        $request->request->add(['idEncabezadoCotizacion' => $cotizacion]);
+        $cotizacion = Cotizacion::where('idEncabezadoCotizacion', $cotizacion)->update($request->except('_token'));
 //        $role->permissions()->sync($request->get('permissions'));
 
-        return redirect()->route('cotizaciones.edit', $cotizacion->idEncabezadoCotizacion)->with('info', 'Sede actualizada con éxito');
+        return redirect()->route('cotizaciones.show',compact('cotizacion') )->with('info', 'Cotizacion actualizada con éxito');
     }
 
     /**
@@ -144,51 +147,6 @@ return $clientes;
 
         return back()->with('vehiculo') ;
     }
-/*
-    protected function datos(array $data)
-    {
-        $envio=$this->cotizacionMail($data['cliente'],$data['empleado'],$data['idvehiculo'],$data['descripcion'],$data['cantidad'],$data['precio'],$data['descuento'],$data['impuesto'],$data['subtotal'],$data['total']);
-
-
-        return User::datos([
-            'cliente' => $data['cliente'],
-            'empleado' => $data['empleado'],
-            'idvehiculo' => $data['idvehiculo'],
-        'descripcion' => $data['descripcion'],
-            'cantidad' => $data['cantidad'],
-            'precio' => $data['precio'],
-        'descuento' => $data['descuento'],
-            'subtotal' => $data['subtotal'],
-            'total' => $data['total']
-        ]);
-
-    }
-
-    public function cotizacionMail($cliente, $empleado,$campaña,$campaña,$idvehiculo,$descripcion,$cantidad,$precio,$descuento,$impuesto,$subtotal,$total)
-    {
-        $data = ['cliente' => $cliente,
-            'empleado' => $empleado,
-            'campana' => $campaña,
-            'idvehiculo' => $idvehiculo,
-            'descripcion' => $descripcion,
-            'cantidad' => $cantidad,
-            'precio' => $precio,
-            'descuento' => $descuento,
-            'impuesto' => $impuesto,
-            'subtotal' => $subtotal,
-            'total' => $total
-        ];
-
-        Mail::send('emails.cotizacion', $data, function ($message) {
-            $message->from('email@styde.net', 'Styde.Net');
-//          $message->to('user@example.com')->subject('Notificación');
-            $message->to('foster2594@gmail.com')->subject('Cotizacion CRM Royal Motors');
-
-        });
-        return "Se envío el email";
-    }
-
-*/
 
     //inserta cotizaciones
     public function nueva()
@@ -202,9 +160,10 @@ return $clientes;
 
         $clientes=Cliente::pluck('nombre','idCliente');
         $campanas=Campana::pluck('nombre','idCampana');
+        $campanasG=Campana::get();//despliega todas las campanas
         $empleados=Empleado::pluck('nombre','idEmpleado');
 
-        return view('CRM.cotizaciones.nuevaCot', compact('cotizaciones', 'idCotizacion', 'vehiculos','clientes','campanas','empleados'));
+        return view('CRM.cotizaciones.nuevaCot', compact('cotizaciones', 'idCotizacion', 'vehiculos','clientes','campanas','empleados','campanasG'));
     }
     /**
      * Store a newly created resource in storage.
@@ -213,7 +172,7 @@ return $clientes;
      * @return \Illuminate\Http\Response
      */
     //En esta funcion recibira los datos para guardarlos en la base de datos y enviar su respectiva notificacion por correo
-    public function store(Request $request)
+    public function store(CotizacionRequest $request)
     {
 
         $idEncabezadoCotizacion = Cotizacion::max('idEncabezadoCotizacion');
@@ -243,7 +202,7 @@ return $clientes;
             $detalle->save();
         }
 
-        return redirect()->route('cotizaciones.index')->with('info', 'Sede guardada con éxito');
+        return redirect()->route('cotizaciones.index')->with('info', 'Cotizacion guardada con éxito');
     }
 
     //Detalles de Cotizacion
@@ -281,5 +240,37 @@ return $clientes;
 
         $pdf = \PDF::loadView('CRM\cotizaciones\showlabel',compact('guide','cotizacion','detalles'));
         return $pdf->download('cotizacion.pdf');
+    }
+
+    public function cotizacionMail($cotizacion)
+    {   $id=$cotizacion;
+        $cotizacion = Cotizacion::where('idEncabezadoCotizacion', $cotizacion)->first();
+        $detalles = DetalleCotizacion::where('idEncabezadoCotizacion', $id)->get();
+        $data = ['user' => Auth()->id(),
+            'cotizacion'=>$cotizacion,
+            'detalles'=>$detalles,
+//            'idEncabezadoCotizacion'=>$id,
+//            'fechaCreacion'=>$cotizacion->fechaCreacion,
+//            'idCliente'=>$cotizacion->fechaCreacion,
+//            'idEmpleado'=>$cotizacion->idEmpleado,
+//            'numeroLineas'=>$cotizacion->numeroLineas,
+//            'idCampana'=>$cotizacion->idCampana,
+//            'idEstadoCotizacion'=>$cotizacion->idEstadoCotizacion,
+//            'subTotal'=>$cotizacion->subTotal,
+//            'montoDescuento'=>$cotizacion->montoDescuento,
+//            'impuestoVentas'=>$cotizacion->impuestoVentas,
+//            'total'=>$cotizacion->total,
+//            'detalles'=>$detalles,
+//            'data'=>'hola'
+            ];
+
+
+        Mail::send('CRM\cotizaciones\showEmail',$data, function ($message) {
+
+            $message->from('email@royalmotors.net', 'Styde.Net');
+            $message->to('user@example.com')->subject('Registro CRM Royal Motors');
+        });
+
+        return redirect()->back()->with('success', ['mensaje enviado con exito']);
     }
 }

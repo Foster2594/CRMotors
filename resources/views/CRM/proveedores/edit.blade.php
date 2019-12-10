@@ -8,7 +8,7 @@
                 <div class="card-header">Proveedores</div>
                 <div class="card-body">
 
-                    {!! Form::model($proveedores,['route' => ['proveedores.update',$proveedores->idProveedor]]) !!}
+                    {!! Form::model($proveedor,['route' => ['proveedores.update',$proveedor->idProveedor]]) !!}
                     @include('CRM.proveedores.partials.form')
                     {!! Form::close() !!}
                 </div>

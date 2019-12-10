@@ -7,8 +7,7 @@
             <div class="card">
                 <div class="card-header">Campana</div>
                 <div class="card-body">
-                    {!! Form::model($campana, ['route' => ['campanas.update',$campana->idCampana],
-                    'method' => 'PUT']) !!}
+                    {!! Form::model($campana, ['route' => ['campanas.update',$campana->idCampana]]) !!}
                         @include('CRM.campanas.partials.form')
                     {!! Form::close() !!}
                 </div>

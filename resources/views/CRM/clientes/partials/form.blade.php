@@ -1,4 +1,8 @@
-
+{{--@php--}}
+    {{--$provincias = \App\Provincia::pluck('nombre', 'idProvincia');--}}
+    {{--$cantones=[];--}}
+    {{--$distritos=[];--}}
+{{--@endphp--}}
 <div class="form-group">
     {{ Form::label('idTipoCliente','Tipo de cliente*') }}
     {{ Form::text('idTipoCliente',null,['class' => 'form-control']) }}
@@ -57,29 +61,35 @@
     {{ Form::label('idProvincia','Provincia *') }}
     {{--}}{{ Form::text('idProvincia',null,['class' => 'form-control']) }}--}}
     <div>
-        {{ Form::select('idProvincia', $provincias, null, ['placeholder' => 'Seleccione Provincia','class' => 'form control btn dropdown-toggle btn-sm']) }}
+        {{ Form::select('idProvincia', $provincias, null, ['placeholder' => 'Seleccione Provincia','class' => 'form-control btn dropdown-toggle btn-sm','id'=>'idProvincia']) }}
     </div>
 </div>
 <div class="form-group">
     {{ Form::label('idCanton','Canton *') }}
-    {{ Form::text('idCanton',null,['class' => 'form-control']) }}
+    <div>
+        {{ Form::select('idCanton', $cantones, null, ['placeholder' => 'Seleccione Canton','class' => 'form-control btn dropdown-toggle btn-sm']) }}
+    </div>
 </div>
 <div class="form-group">
     {{ Form::label('idDistrito','Distrito *') }}
-    {{ Form::text('idDistrito',null,['class' => 'form-control']) }}
+    <div>
+        {{ Form::select('idDistrito', $distritos, null, ['placeholder' => 'Seleccione Distrito','class' => 'form-control btn dropdown-toggle btn-sm']) }}
+    </div>
 </div>
 <div class="form-group">
     {{ Form::label('direccionExacta','Direccion exacta *') }}
-    {{ Form::text('direccionExacta',null,['class' => 'form-control']) }}
+    {{ Form::text('direccionExacta',null,['class' => 'form-control','placeholder' => 'Indique aqui las señas exactas ']) }}
 </div>
 <div class="form-group">
     {{ Form::label('idVehiculoInteres','Vehiculo de interes *') }}
-    {{ Form::text('idVehiculoInteres',null,['class' => 'form-control']) }}
+    <div>
+        {{ Form::select('idVehiculoInteres', $vehiculos, null, ['placeholder' => 'Seleccione vehiculo','class' => 'form-control btn dropdown-toggle btn-sm']) }}
+    </div>
 </div>
-<div class="form-group">
-    {{ Form::label('idEstadoCliente','Estado cliente *') }}
-    {{ Form::text('idEstadoCliente',null,['class' => 'form-control']) }}
-</div>
+{{--<div class="form-group">--}}
+    {{--{{ Form::label('idEstadoCliente','Estado cliente *') }}--}}
+    {{--{{ Form::text('idEstadoCliente',null,['class' => 'form-control']) }}--}}
+{{--</div>--}}
 <div class="form-group">
     {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}
 </div>
