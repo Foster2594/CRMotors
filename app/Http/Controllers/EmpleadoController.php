@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Canton;
+use App\Distrito;
 use App\Empleado;
-use App\Provincia;
 
+
+use App\Provincia;
 use Illuminate\Http\Request;
 
 class EmpleadoController extends Controller
@@ -28,7 +31,9 @@ class EmpleadoController extends Controller
     public function create()
     {
         $provincias=Provincia::pluck('nombre','idProvincia');
-        return view('CRM.empleados.create',compact('empleados','provincias'));
+        $cantones=Canton::pluck('nombre','idCanton');
+        $distritos=Distrito::pluck('nombre','idDistrito');
+        return view('CRM.empleados.create',compact('empleados','provincias','cantones','distritos'));
     }
 
     /**

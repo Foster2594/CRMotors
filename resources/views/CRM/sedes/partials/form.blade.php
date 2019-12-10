@@ -23,16 +23,23 @@
     <div>
         {{ Form::select('idProvincia', $provincias, null, ['placeholder' => 'Seleccione Provincia','class' => 'form control btn dropdown-toggle btn-sm']) }}
     </div>
+
     {{$errors->first('idProvincia')}}
 </div>
 <div class="form-group">
     {{ Form::label('idCanton','Canton *') }}
-    {{ Form::text('idCanton',null,['class' => 'form-control']) }}
+    {{--}}{{ Form::text('idCanton',null,['class' => 'form-control']) }}--}}
+    <div>
+        {{ Form::select('idCanton', $cantones, null, ['placeholder' => 'Seleccione Canton','class' => 'form control btn dropdown-toggle btn-sm']) }}
+    </div>
     {{$errors->first('idCanton')}}
 </div>
 <div class="form-group">
     {{ Form::label('idDistrito','Distrito *') }}
-    {{ Form::text('idDistrito',null,['class' => 'form-control']) }}
+    {{--}}{{ Form::text('idDistrito',null,['class' => 'form-control']) }}--}}
+    <div>
+        {{ Form::select('idDistrito', $distritos, null, ['placeholder' => 'Seleccione Distrito','class' => 'form control btn dropdown-toggle btn-sm']) }}
+    </div>
     {{$errors->first('idDistrito')}}
 </div>
 <div class="form-group">

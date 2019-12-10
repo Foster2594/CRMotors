@@ -20,7 +20,6 @@ class ProveedorController extends Controller
      */
     public function create()
     {
-        $provincias=Proveedor::pluck('nombre');
         return view('CRM.proveedores.create',compact('proveedores'));
     }
 
