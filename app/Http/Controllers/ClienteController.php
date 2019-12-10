@@ -40,8 +40,8 @@ class Clientecontroller extends Controller
     public function create()
     {
         $provincias=Provincia::pluck('nombre','idProvincia');
-        $cantones=[];
-        $distritos=[];
+        $cantones=Canton::pluck('nombre','idCanton');
+        $distritos=Distrito::pluck('nombre','idDistrito');
         $vehiculos=Vehiculo::pluck('modelo','idVehiculo');
 
 

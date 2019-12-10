@@ -271,6 +271,6 @@ return $clientes;
             $message->to('user@example.com')->subject('Registro CRM Royal Motors');
         });
 
-        return redirect()->back()->with('success', ['mensaje enviado con exito']);
+        return redirect()->back()->with('info', 'mensaje enviado con exito');
     }
 }

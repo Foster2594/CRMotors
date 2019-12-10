@@ -17,7 +17,7 @@
 </div>
 
     <script>
-
+        import axios from 'axios';
         document.getElementById('idProvincia').addEventListener('change',cantones);
         document.getElementById('idCanton').addEventListener('change',distritos);
         function cantones() {
@@ -25,6 +25,7 @@
             let provincia=document.getElementById('idProvincia').value,
                 cantoList='',
                 data={provincia};
+
             axios.post('{{ route('search.canton') }}',data).then( response=>{
                 response.data.forEach( data =>{
                     cantoList+=`<option value=`+data.idCanton+`>`+data.nombre+`</option>`;
