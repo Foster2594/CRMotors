@@ -1,4 +1,5 @@
 <div class="form-group">
+
     <div>
         {{ Form::select('idTipoCampana', $tipos, null, ['placeholder' => 'Seleccione Tipo Campaña','class' => 'form control btn dropdown-toggle btn-sm']) }}
     </div>
@@ -14,6 +15,7 @@
         {{ Form::select('idEstadoCampana', $estados, null, ['placeholder' => 'Seleccione Estado Campaña','class' => 'form control btn dropdown-toggle btn-sm']) }}
     </div>
 {{--    {{$errors->first('idEstadoCampana')}}--}}
+
 </div>
 <div class="form-group">
     {{ Form::label('nombre','Nombre Campana*') }}
@@ -26,17 +28,33 @@
 {{--    {{$errors->first('descripcion')}}--}}
 </div>
 <div class="form-group">
+    {{ Form::label('idProvincia','Provincia *') }}
+    {{--{{ Form::text('idProvincia',null,['class' => 'form-control']) }}--}}
     <div>
-        {{ Form::select('idProvincia', $provincias, null, ['placeholder' => 'Seleccione Provincia','class' => 'form control btn dropdown-toggle btn-sm']) }}
+        {{ Form::select('idProvincia', $provincias , null, ['placeholder' => 'Seleccione Provincia','class' => 'form control btn dropdown-toggle btn-sm']) }}
     </div>
+
 {{--    {{$errors->first('idProvincia')}}--}}
 </div><br>
+
 <div class="form-group">
+    {{ Form::label('idCanton','Canton *') }}
+    {{--}}{{ Form::text('idCanton',null,['class' => 'form-control']) }}--}}
     <div>
         {{ Form::select('idCanton', $cantones, null, ['placeholder' => 'Seleccione Canton','class' => 'form control btn dropdown-toggle btn-sm']) }}
     </div>
 {{--    {{$errors->first('idCanton')}}--}}
 </div>
+
+<div class="form-group">
+    {{ Form::label('idDistrito','Distrito *') }}
+    {{--}}{{ Form::text('idDistrito',null,['class' => 'form-control']) }}--}}
+    <div>
+        {{ Form::select('idDistrito', $distritos, null, ['placeholder' => 'Seleccione Distritos','class' => 'form control btn dropdown-toggle btn-sm']) }}
+    </div>
+    {{$errors->first('idDistrito')}}
+</div>
+
 <div class="form-group">
     {{ Form::label('fechaInicio','Fecha de Inicio*') }}
     {{ Form::date('fechaInicio',null,['class' => 'form-control']) }}

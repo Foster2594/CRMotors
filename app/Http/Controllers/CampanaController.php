@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Campana;
 use App\Canton;
+
 use App\estadoCampana;
 use App\Http\Requests\CreateCampana;
+
+use App\Distrito;
+
 use App\Provincia;
-use App\Sede;
-use App\tipoCampana;
 use Illuminate\Http\Request;
 
 class CampanaController extends Controller
@@ -32,13 +34,10 @@ class CampanaController extends Controller
      */
     public function create()
     {
-        $tipos=tipoCampana::pluck('nombre','idTipoCampana');
-        $estados=estadoCampana::pluck('nombre','idEstadoCampana');
-        $sedes=Sede::pluck('nombre','idSede');
         $provincias=Provincia::pluck('nombre','idProvincia');
         $cantones=Canton::pluck('nombre','idCanton');
-
-        return view('CRM.campanas.create',compact('campanas','tipos','estados','sedes','provincias','cantones'));
+        $distritos=Distrito::pluck('nombre','idDistrito');
+        return view('CRM.campanas.create',compact('campanas','provincias','cantones','distritos'));
     }
 
     /**
@@ -80,14 +79,9 @@ class CampanaController extends Controller
      */
     public function edit($campana)
     {
-        $tipos=tipoCampana::pluck('nombre','idTipoCampana');
-        $estados=estadoCampana::pluck('nombre','idEstadoCampana');
-        $sedes=Sede::pluck('nombre','idSede');
-        $provincias=Provincia::pluck('nombre','idProvincia');
-        $cantones=Canton::pluck('nombre','idCanton');
         $campana=Campana::where('idCampana',$campana)->first();
 
-        return view('CRM.campanas.edit', compact('campanas','tipos','estados','sedes','provincias','cantones','campana'));
+        return view('CRM.campanas.edit', compact('campana'));
     }
 
     /**

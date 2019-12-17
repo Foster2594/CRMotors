@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Canton;
+use App\Distrito;
 use App\Provincia;
 use App\Sede;
 use Illuminate\Http\Request;
@@ -28,7 +30,9 @@ class SedeController extends Controller
     public function create()
     {
         $provincias=Provincia::pluck('nombre','idProvincia');
-        return view('CRM.sedes.create',compact('sedes','provincias'));
+        $cantones=Canton::pluck('nombre','idCanton');
+        $distritos=Distrito::pluck('nombre','idDistrito');
+        return view('CRM.sedes.create',compact('sedes','provincias','cantones','distritos'));
     }
 
     /**

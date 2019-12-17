@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\estadoProveedor;
 use App\Proveedor;
 use Illuminate\Http\Request;
 
@@ -21,8 +20,7 @@ class ProveedorController extends Controller
      */
     public function create()
     {
-        $estados=estadoProveedor::pluck('nombre','idEstadoProveedor');
-        return view('CRM.proveedores.create',compact('proveedores','estados'));
+        return view('CRM.proveedores.create',compact('proveedores'));
     }
 
     /**
@@ -34,10 +32,10 @@ class ProveedorController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'cedula' =>'required|numeric|digits:9|unique:Proveedor',
+            'cedula' =>'required|numeric',
             'nombre' =>'required',
-            'numeroTelefono' =>'required|unique:Proveedor|digits:8',
-            'correo' =>'required|email|unique:Proveedor',
+            'numeroTelefono' =>'required',
+            'correo' =>'required|email',
             'idEstadoProveedor' =>'required',
     ]);
         $idproveedor = Proveedor::max('idProveedor');
@@ -57,7 +55,6 @@ class ProveedorController extends Controller
     public function show($proveedor)
     {
         $proveedor=Proveedor::where('idProveedor',$proveedor)->first();
-
         return view('CRM.proveedores.show', compact('proveedor'));
     }
 
@@ -70,8 +67,7 @@ class ProveedorController extends Controller
     public function edit($proveedor)
     {
         $proveedor=Proveedor::where('idProveedor',$proveedor)->first();
-        $estados=estadoProveedor::pluck('nombre','idEstadoProveedor');
-        return view('CRM.proveedores.edit', compact('proveedor','estados'));
+        return view('CRM.proveedores.edit', compact('proveedor'));
     }
 
     /**
