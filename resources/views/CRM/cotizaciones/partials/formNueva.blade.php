@@ -121,9 +121,6 @@
     <div>
     {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}
     </div>
-    <a href="{{ route('Email.cotizacionMail') }}" class="btn btn-sm btn-success float-right">
-        Enviar
-    </a>
 
 
 </div>

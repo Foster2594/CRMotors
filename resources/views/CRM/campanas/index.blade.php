@@ -51,12 +51,12 @@
 
                                     </td>
                                     <td width="10px">
-
+@can('campanas.delete')
                                         {!! Form::open(['route' => ['campanas.destroy', $campana->idCampana],
                                         'method' => 'DELETE']) !!}
                                         <button class="btn btn-sm btn-danger">Eliminar</button>
                                         {!! Form::close() !!}
-
+@endcan
                                     </td>
                                 </tr>
                             @endforeach
