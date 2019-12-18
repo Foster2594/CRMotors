@@ -80,8 +80,11 @@ class CampanaController extends Controller
     public function edit($campana)
     {
         $campana=Campana::where('idCampana',$campana)->first();
+        $provincias=Provincia::pluck('nombre','idProvincia');
+        $cantones=Canton::pluck('nombre','idCanton');
+        $distritos=Distrito::pluck('nombre','idDistrito');
 
-        return view('CRM.campanas.edit', compact('campana'));
+        return view('CRM.campanas.edit', compact('campana','provincias','cantones','distritos'));
     }
 
     /**

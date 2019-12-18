@@ -5151,14 +5151,14 @@ input[type="button"].btn-block {
 
 .badge-primary {
   color: #ffffff;
-  background-color: #e14eca;
+  background-color: #2F4F4F;
 }
 
 .badge-primary[href]:hover,
 .badge-primary[href]:focus {
   color: #ffffff;
   text-decoration: none;
-  background-color: #d725bb;
+  background-color: #2F4F4F;
 }
 
 .badge-secondary {
@@ -5347,11 +5347,11 @@ input[type="button"].btn-block {
 }
 
 .alert-primary hr {
-  border-top-color: #e254cb;
+  border-top-color: #2F4F4F;
 }
 
 .alert-primary .alert-link {
-  color: #d725bb;
+  color: #2F4F4F;
 }
 
 .alert-secondary {
