@@ -13,21 +13,26 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header float-right">
-                    <p><strong><h2> Numero de cotizacion: COT-#00{{ $cotizacion->idEncabezadoCotizacion }}</h2></strong></p>
+                <div class="float-right">
+                    <p><strong><h2>Numero de cotizacion: COT-#00{{ $cotizacion->idEncabezadoCotizacion }}</h2></strong></p>
                     <p><strong>Fecha creacion: </strong>{{ $cotizacion->fechaCreacion }}</p>
                 </div>
-                <div class="card-body">
-
-                    <div class="card">
-                        <div class="card-header"><h3>Cotizacion</h3></div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div>
+                    <div>
                         <div class="body ml-3">
                             <p><strong>Cliente: </strong>{{ $cotizacion->idCliente }}</p>
                             <p><strong>Empleado: </strong>{{ $cotizacion->idEmpleado }}</p>
                         </div>
                     </div>
+                    <br>
+                    <br>
+                    <br>
                     <div class="card">
-                        <div class="card-header"><h4>Detalle de Cotizacion</h4></div>
+                        <div><h2>Detalle de Cotizacion</h2></div>
                         <div class="body ml-3">
                             <div class="card-body table-responsive">
                                 <table class="table table-striped table-hover">
