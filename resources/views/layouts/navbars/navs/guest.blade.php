@@ -22,14 +22,14 @@
                         {{--<i class="tim-icons icon-minimal-left"></i> {{ __('Volver al Inicio') }}--}}
                     {{--</a>--}}
                 {{--</li>--}}
-                <li class="nav-item ">
+                {{--<li class="nav-item ">
                     <a href="{{ route('register') }}" class="nav-link">
                         <i class="tim-icons icon-laptop"></i> {{ __('Registrarme') }}
                     </a>
-                </li>
+                </li>--}}
                 <li class="nav-item ">
                     <a href="{{ route('login') }}" class="nav-link">
-                        <i class="tim-icons icon-single-02"></i> {{ __('Login') }}
+                       {{-- <i class="tim-icons icon-single-02"></i> {{ __('Login') --}}
                     </a>
                 </li>
             </ul>
