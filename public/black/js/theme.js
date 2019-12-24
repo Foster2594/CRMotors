@@ -75,7 +75,7 @@ demo = {
     ctx = document.getElementById('lineChartExample').getContext("2d");
 
     gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
-    gradientStroke.addColorStop(0, '#80b6f4');
+    gradientStroke.addColorStop(0, '#777777');
     gradientStroke.addColorStop(1, chartColor);
 
     gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
@@ -89,9 +89,9 @@ demo = {
         labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         datasets: [{
           label: "Active Users",
-          borderColor: "#f96332",
+          borderColor: "#777777",
           pointBorderColor: "#FFF",
-          pointBackgroundColor: "#f96332",
+          pointBackgroundColor: "#777777",
           pointBorderWidth: 2,
           pointHoverRadius: 4,
           pointHoverBorderWidth: 1,
@@ -137,7 +137,7 @@ demo = {
             suggestedMin: 60,
             suggestedMax: 125,
             padding: 20,
-            fontColor: "#2380f7"
+            fontColor: "#777777"
           }
         }],
 
@@ -150,7 +150,7 @@ demo = {
           },
           ticks: {
             padding: 20,
-            fontColor: "#2380f7"
+            fontColor: "#777777"
           }
         }]
       }
@@ -233,7 +233,7 @@ demo = {
             suggestedMin: 50,
             suggestedMax: 110,
             padding: 20,
-            fontColor: "#ff8a76"
+            fontColor: "#777777"
           }
         }],
 
@@ -246,7 +246,7 @@ demo = {
           },
           ticks: {
             padding: 20,
-            fontColor: "#ff8a76"
+            fontColor: "#777777"
           }
         }]
       }
@@ -363,13 +363,13 @@ demo = {
         label: "Data",
         fill: true,
         backgroundColor: gradientStroke,
-        borderColor: '#d048b6',
+        borderColor: '#777777',
         borderWidth: 2,
         borderDash: [],
         borderDashOffset: 0.0,
-        pointBackgroundColor: '#d048b6',
+        pointBackgroundColor: '#777777',
         pointBorderColor: 'rgba(255,255,255,0)',
-        pointHoverBackgroundColor: '#d048b6',
+        pointHoverBackgroundColor: '#777777',
         pointBorderWidth: 20,
         pointHoverRadius: 4,
         pointHoverBorderWidth: 15,
@@ -399,13 +399,13 @@ demo = {
         label: "My First dataset",
         fill: true,
         backgroundColor: gradientStroke,
-        borderColor: '#00d6b4',
+        borderColor: '#777777',
         borderWidth: 2,
         borderDash: [],
         borderDashOffset: 0.0,
-        pointBackgroundColor: '#00d6b4',
+        pointBackgroundColor: '#777777',
         pointBorderColor: 'rgba(255,255,255,0)',
-        pointHoverBackgroundColor: '#00d6b4',
+        pointHoverBackgroundColor: '#777777',
         pointBorderWidth: 20,
         pointHoverRadius: 4,
         pointHoverBorderWidth: 15,
@@ -442,13 +442,13 @@ demo = {
           label: "My First dataset",
           fill: true,
           backgroundColor: gradientStroke,
-          borderColor: '#d346b1',
+          borderColor: '#777777',
           borderWidth: 2,
           borderDash: [],
           borderDashOffset: 0.0,
-          pointBackgroundColor: '#d346b1',
+          pointBackgroundColor: '#777777',
           pointBorderColor: 'rgba(255,255,255,0)',
-          pointHoverBackgroundColor: '#d346b1',
+          pointHoverBackgroundColor: '#777777',
           pointBorderWidth: 20,
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
@@ -504,7 +504,7 @@ demo = {
           fill: true,
           backgroundColor: gradientStroke,
           hoverBackgroundColor: gradientStroke,
-          borderColor: '#1f8ef1',
+          borderColor: '#777777',
           borderWidth: 2,
           borderDash: [],
           borderDashOffset: 0.0,
@@ -531,7 +531,7 @@ demo = {
         {
           "elementType": "labels.text.fill",
           "stylers": [{
-            "color": "#8ec3b9"
+            "color": "#777777"
           }]
         },
         {
@@ -642,28 +642,28 @@ demo = {
           "featureType": "road.highway",
           "elementType": "geometry.fill",
           "stylers": [{
-            "color": "#9d2a80"
+            "color": "#777777"
           }]
         },
         {
           "featureType": "road.highway",
           "elementType": "geometry.stroke",
           "stylers": [{
-            "color": "#9d2a80"
+            "color": "#777777"
           }]
         },
         {
           "featureType": "road.highway",
           "elementType": "labels.text.fill",
           "stylers": [{
-            "color": "#b0d5ce"
+            "color": "#777777"
           }]
         },
         {
           "featureType": "road.highway",
           "elementType": "labels.text.stroke",
           "stylers": [{
-            "color": "#023e58"
+            "color": "#777777"
           }]
         },
         {
