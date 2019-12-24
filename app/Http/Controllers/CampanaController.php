@@ -48,6 +48,24 @@ class CampanaController extends Controller
      */
     public function store(CreateCampana $request)
     {
+        $request->validate([
+            'idCampana' =>'required',
+            'idTipoCampana' =>'required',
+            'idSede'=>'required',
+            'idEstadoCampana'=>'required',
+            'nombre' =>'required',
+            'descripcion'=>'required',
+            'idProvincia' =>'required',
+            'idCanton'=>'required',
+            'fechaInicio'=>'required|date',
+            'fechaFinal'=>'required|date',
+            'descuentoMinimo'=>'required|numeric',
+            'descuentoMaximo'=>'required|numeric',
+            'idEmpleadoCreador' =>'required',
+            'idEmpleadoAprobador'=>'required',
+
+        ]);
+
         $idCampana= Campana::max('idCampana');
         $idCampana = $idCampana+1;
         //return response()->json($idCampana);

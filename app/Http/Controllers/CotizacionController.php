@@ -175,6 +175,8 @@ return $clientes;
     public function store(CotizacionRequest $request)
     {
 
+
+
         $idEncabezadoCotizacion = Cotizacion::max('idEncabezadoCotizacion');
         $idEncabezadoCotizacion = $idEncabezadoCotizacion + 1;
         //return response()->json($idSede);

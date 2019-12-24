@@ -44,6 +44,33 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'idEmpleado' =>'required'
+            , 'cedula' =>'required|numeric|digits:8'
+            , 'nombre'=>'required'
+            , 'apellido1'=>'required'
+            , 'apellido2'=>'required'
+            , 'idGenero'=>'required'
+            , 'telefonoCelular' =>'required|numeric'
+            , 'otroTelefono' =>'required|numeric'
+            , 'correo'=>'required|email'
+            , 'idProvincia'=>'required'
+            , 'idCanton'=>'required'
+            , 'idDistrito'=>'required'
+            , 'direccionExacta'=>'required'
+            , 'idSede'=>'required'
+            , 'idDepartamento'=>'required'
+            , 'idUsuario'=>'required'
+            , 'idEstadoEmpleado' =>'required',
+
+
+
+        ]);
+
+
+
+
+
         $idempleado = Empleado::max('idempleado');
         $idempleado=$idempleado+1;
         //return response()->json($idempleado);

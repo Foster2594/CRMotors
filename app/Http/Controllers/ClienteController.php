@@ -57,7 +57,28 @@ class Clientecontroller extends Controller
     //en esta funcion es donde se guarda los clientes para posteriormente mostrarse en la pantalla principal
     public function store(ClienteRequest $request)
     {
-//        return $request;
+        $request->validate([
+            'idCliente'  =>'required',
+            'idEmpleado' ,
+            'idTipoCliente'  =>'required',
+            'cedula'  => 'required|numeric|digits:8',
+            'nombre' =>'required',
+            'apellido1' =>'required',
+            'apellido2' =>'required',
+            'idGenero' =>'required',
+            'idOcupacion' =>'required',
+            'numeroCelular' =>'required|numeric',
+            'otroTelefono' =>'required|numeric',
+            'correo'=>'required|email',
+            'fechaNacimiento'=>'required|date',
+            'ingresoSalarial' =>'required',
+            'idProvincia'=>'required',
+            'idCanton'=>'required',
+            'idDistrito'=>'required',
+            'direccionExacta'=>'required',
+            'idVehiculoInteres'=>'required',
+            'idEstadoCliente'=>'required',
+        ]);
         try{
 
         $idCliente= Cliente::max('idCliente');
