@@ -1,11 +1,14 @@
-@extends('layouts.app')
+<!--En esta vista se crean la para generar los vehiculos-->
+@extends('layouts.app', ['pageSlug' => 'create', 'page' => _('Crear Vehículo'), 'contentClass' => 'create'])
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Vehiculos</div>
+                <div class="card-header">
+                    <h4>Crear Vehículo</h4>
+                </div>
                 <div class="card-body">
                     {!! Form::open(['route' => 'vehiculos.store']) !!}
                         @include('CRM.vehiculos.partials.form')

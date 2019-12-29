@@ -1,4 +1,8 @@
-
+<div class="form-group">
+    {{ Form::label('cedula','Cedula *') }}
+    {{ Form::text('cedula',null,['class' => 'form-control']) }}
+    {{$errors->first('cedula')}}
+</div>
 <div class="form-group">
     {{--<input type="number" name="a" class="form-control" value="1" />--}}
     {{ Form::label('nombre','Nombre proveedor *') }}
@@ -7,20 +11,14 @@
 
 </div>
 <div class="form-group">
-    {{ Form::label('cedula','Cedula *') }}
-    {{ Form::text('cedula',null,['class' => 'form-control']) }}
-    {{$errors->first('cedula')}}
+    {{ Form::label('numeroTelefono','Telefono *') }}
+    {{ Form::text('numeroTelefono',null,['class' => 'form-control']) }}
+    {{$errors->first('numeroTelefono')}}
 </div>
 <div class="form-group">
     {{ Form::label('correo','Correo *') }}
     {{ Form::text('correo',null,['class' => 'form-control']) }}
     {{$errors->first('correo')}}
-</div>
-
-<div class="form-group">
-    {{ Form::label('numeroTelefono','Telefono *') }}
-    {{ Form::text('numeroTelefono',null,['class' => 'form-control']) }}
-    {{$errors->first('numeroTelefono')}}
 </div>
 <div class="form-group">
     <div>
@@ -32,4 +30,5 @@
 <div class="form-group">
     {{--<input type="submit" value="Guardar">--}}
     {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}
+    <button type="button" onclick="history.go(-1)" class="btn btn-sm btn-success">{{ _('Regresar') }}</button>
 </div>

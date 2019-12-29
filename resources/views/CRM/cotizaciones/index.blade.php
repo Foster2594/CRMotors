@@ -1,26 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.app', ['pageSlug' => 'index', 'page' => _('Cotización'), 'contentClass' => 'index'])
 <!--En esta vista se crean la para mostrar todas las cotizaciones-->
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card col-md-3">
-
-                    <div class="panel-content">
-                        <h4>
-                            <a href="{{ route('cotizaciones.nueva', $cotizaciones) }}"
-                               class="btn btn-sm btn-primary float-right">
-                                Crear Nueva Cotizacion
-                            </a>
-                        </h4>
-                    </div>
-
-                </div>
-
                 <div class="card">
                     <div class="card-header">
                         <div class="panel-content">
-                            <h4>Cotizaciones</h4>
+                            <h4>Cotización
+                                <a href="{{ route('cotizaciones.nueva', $cotizaciones) }}"
+                                   class="btn btn-sm btn-primary float-right">
+                                    Crear
+                                </a>
+                            </h4>
                         </div>
                     </div>
                     <div class="card-body table-responsive">

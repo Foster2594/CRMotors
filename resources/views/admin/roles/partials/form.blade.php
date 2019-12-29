@@ -8,14 +8,12 @@
 </div>
 <div class="form-group">
     {{ Form::label('description','Descripción *') }}
-    {{ Form::textarea('description',null,['class' => 'form-control']) }}
+    {{ Form::text('description',null,['class' => 'form-control']) }}
 </div>
-<hr>
 <h3>Permiso especial</h3>
 <div class="form-group">
     <label>{{ Form::radio('special','no-access') }} Ningún acceso</label>
 </div>
-<hr>
 <h3>Lista de permisos</h3>
 <div class="form-group">
     <ul class="list-unstyled">
@@ -26,10 +24,11 @@
                 {{ $permission->name }}
                 <em>({{ $permission->description ? : 'N/A'}})</em>
             </label>
-        </li>    
+        </li>
         @endforeach
     </ul>
 </div>
 <div class="form-group">
     {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}
+    <button type="button" onclick="history.go(-1)" class="btn btn-sm btn-success">{{ _('Regresar') }}</button>
 </div>

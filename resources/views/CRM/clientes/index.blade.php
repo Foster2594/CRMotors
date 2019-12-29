@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['pageSlug' => 'index', 'page' => _('Cartera de Clientes'), 'contentClass' => 'index'])
 
 @section('content')
 <div class="container">
@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4>Cartera de Clientes
-                            <a href="{{ route('clientes.create', $clientes) }}" class="btn btn-sm btn-primary float-right">
+                            <a href="{{ route('clientes.create', $clientes) }}" class="btn btn-sm btn-success float-right">
                                 Crear
                             </a>
                     </h4>
@@ -23,7 +23,7 @@
                                 <th>Segundo apellido</th>
                                 <th>Numero de celular</th>
                                 <th>Correo</th>
-                                <th>Ingreso $</th>
+                                <th>Ingreso Salarial</th>
                                 <th colspan="4">&nbsp;</th>
                                 <th ></th>
                             </tr>

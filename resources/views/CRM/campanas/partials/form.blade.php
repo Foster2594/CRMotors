@@ -1,5 +1,4 @@
 <div class="form-group">
-
     <div>
         {{ Form::select('idTipoCampana', $tipos, null, ['placeholder' => 'Seleccione Tipo Campaña','class' => 'form control btn dropdown-toggle btn-sm']) }}
     </div>
@@ -15,7 +14,6 @@
         {{ Form::select('idEstadoCampana', $estados, null, ['placeholder' => 'Seleccione Estado Campaña','class' => 'form control btn dropdown-toggle btn-sm']) }}
     </div>
 {{--    {{$errors->first('idEstadoCampana')}}--}}
-
 </div>
 <div class="form-group">
     {{ Form::label('nombre','Nombre Campana*') }}
@@ -93,4 +91,5 @@
 
 <div class="form-group">
     {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}
+    <button type="button" onclick="history.go(-1)" class="btn btn-sm btn-success">{{ _('Regresar') }}</button>
 </div>

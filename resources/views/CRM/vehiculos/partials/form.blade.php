@@ -10,13 +10,11 @@
     </div>
     {{$errors->first('idTipoVehiculo')}}
 </div>
-
 <div class="form-group">
     {{ Form::label('codigo','Codigo*') }}
     {{ Form::text('codigo',null,['class' => 'form-control']) }}
     {{$errors->first('codigo')}}
 </div>
-
 <div class="form-group">
     {{ Form::label('marca','Marca*') }}
     {{ Form::text('marca',null,['class' => 'form-control']) }}
@@ -52,7 +50,7 @@
     {{ Form::date('fechaSalida',null,['class' => 'form-control']) }}
     {{$errors->first('fechaSalida')}}
 </div>
-
 <div class="form-group">
     {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}
+    <button type="button" onclick="history.go(-1)" class="btn btn-sm btn-success">{{ _('Regresar') }}</button>
 </div>

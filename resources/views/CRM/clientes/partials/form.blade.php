@@ -15,12 +15,10 @@
     {{ Form::label('cedula','Cedula*') }}
     {{ Form::text('cedula',null,['class' => 'form-control']) }}
 </div>
-
 <div class="form-group">
     {{ Form::label('nombre','Nombre*') }}
     {{ Form::text('nombre',null,['class' => 'form-control']) }}
 </div>
-
 <div class="form-group">
     {{ Form::label('apellido1','Primer apellido*') }}
     {{ Form::text('apellido1',null,['class' => 'form-control']) }}
@@ -35,7 +33,7 @@
 </div>
 <div class="form-group">
     {{ Form::label('idOcupacion','Ocupacion*') }}
-    {{ Form::textarea('idOcupacion',null,['class' => 'form-control']) }}
+    {{ Form::text('idOcupacion',null,['class' => 'form-control']) }}
 </div>
 <div class="form-group">
     {{ Form::label('numeroCelular','Telefono *') }}
@@ -92,4 +90,5 @@
 {{--</div>--}}
 <div class="form-group">
     {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}
+    <button type="button" onclick="history.go(-1)" class="btn btn-sm btn-success">{{ _('Regresar') }}</button>
 </div>

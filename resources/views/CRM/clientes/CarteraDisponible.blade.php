@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['pageSlug' => 'CarteraDisponible', 'page' => _('Clientes Disponibles'), 'contentClass' => 'CarteraDisponible'])
 
 @section('content')
     <div class="container">
@@ -7,17 +7,15 @@
                 <div class="card">
                     {!! Form::open(['route' => ['clientes.asignarCliente']]) !!}
                     <div class="form-group card-header">
+                        <h4>Clientes Disponibles</h4>
                         <div >
                             <label class="label"> Seleccione un empleado</label>
                         </div>
                         <a onchange="setId()">
                             {{ Form::select('idEmpleado', $usuarios, 10, ['class' => 'form control btn dropdown-toggle btn-sm', 'onclick=setId()']) }}
                         </a>
-
                     </div>
                     <div>
-
-
                     </div>
                     <div class="card-body table-responsive">
                         <table class="table table-striped table-hover">
@@ -30,7 +28,7 @@
                                 <th>Segundo apellido</th>
                                 <th>Numero de celular</th>
                                 <th>Correo</th>
-                                <th>Ingreso $</th>
+                                <th>Ingreso Salarial</th>
                                 <th>&nbsp;</th>
                                 <th></th>
                             </tr>

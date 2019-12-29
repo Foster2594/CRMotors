@@ -10,21 +10,21 @@
                     <div class="card-body px-lg-5 py-lg-5">
                         <div class="text-center text-muted mb-4">
 
-                            <small>{{ __('Verify Your Email Address') }}</small>
+                            <small>{{ __('Verificando su correo electrónico') }}</small>
                         </div>
                         <div>
                             @if (session('resent'))
                                 <div class="alert alert-success" role="alert">
                                     {{-- alerta para el usuario de que se ha mandado una verificacion al email del usuario--}}
-                                    {{ __('A fresh verification link has been sent to your email address.') }}
+                                    {{ __('Se ha enviado la ruta de verificación a su correo electronico.') }}
                                 </div>
                             @endif
-                            
-                            {{ __('Before proceeding, please check your email for a verification link.') }}
-                            
+
+                            {{ __('Amtes de proceder, por favor verificar su correo electronico para enviar la ruta de verificación.') }}
+
                             @if (Route::has('verification.resend'))
                                     {{-- si la verificacion aun no ha llegado se tiene la opcion de mandar de nuevo el correo--}}
-                                {{ __('If you did not receive the email') }}, <a href="{{ route('verification.resend') }}">{{ __('click here to request another') }}</a>
+                                {{ __('Si usted no ha recibido el correo electrónico') }}, <a href="{{ route('verification.resend') }}">{{ __('clic aquí para reenviar otra petición') }}</a>
                             @endif
                         </div>
                     </div>

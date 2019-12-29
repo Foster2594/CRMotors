@@ -92,10 +92,7 @@ body {
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #525f7f;
-  text-align: left;
-  background-color: #1e1e2f;
-
+  background-color: #000000 !important;
 }
 
 [tabindex="-1"]:focus {
@@ -194,19 +191,18 @@ sup {
 }
 
 a {
-  color: #777777;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
 
 a:hover {
-  color: #777777;
+  color: #eeeeee;
   text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {
-  color: inherit;
+  color: #eeeeee;
   text-decoration: none;
 }
 
@@ -3411,7 +3407,7 @@ input[type="button"].btn-block {
   color: #525f7f;
   text-align: left;
   list-style: none;
-  background-color: #ffffff;
+  background-color: #212529;
   background-clip: padding-box;
   border: 0 solid rgba(34, 42, 66, 0.15);
   border-radius: 0.1428rem;
@@ -3529,7 +3525,7 @@ input[type="button"].btn-block {
   height: 0;
   margin: 0.5rem 0;
   overflow: hidden;
-  border-top: 1px solid #e9ecef;
+  border-top: 1px solid #212529;
 }
 
 .dropdown-item {
@@ -4848,7 +4844,6 @@ input[type="button"].btn-block {
 }
 
 .card-img {
-  width: 100%;
   border-radius: calc(0.2857rem - 0.0625rem);
 }
 
@@ -6738,6 +6733,10 @@ button.bg-darker:focus {
 
 .bg-white {
   background-color: #ffffff !important;
+}
+
+.bg-theme {
+    background-color: #212529 !important;
 }
 
 .bg-transparent {
@@ -10134,7 +10133,7 @@ a.text-light:focus {
 }
 
 .text-dark {
-  color: #212529 !important;
+  color: #0a0c0d !important;
 }
 
 a.text-dark:hover,
@@ -10386,14 +10385,14 @@ a.text-darker:focus {
   margin: 4px 1px;
   border-radius: 0.4285rem;
   cursor: pointer;
-  background: #344675;
-  background-image: -webkit-linear-gradient(to bottom left, #344675, #263148, #344675);
-  background-image: -o-linear-gradient(to bottom left, #344675, #263148, #344675);
-  background-image: -moz-linear-gradient(to bottom left, #344675, #263148, #344675);
-  background-image: linear-gradient(to bottom left, #344675, #263148, #344675);
+  background: #212529;
+  background-image: -webkit-linear-gradient(to bottom left, #212529, #212529, #212529);
+  background-image: -o-linear-gradient(to bottom left, #212529, #212529, #212529);
+  background-image: -moz-linear-gradient(to bottom left, #212529, #212529, #212529);
+  background-image: linear-gradient(to bottom left, #212529, #212529, #212529);
   background-size: 210% 210%;
   background-position: top right;
-  background-color: #344675;
+  background-color: #212529;
   transition: all 0.15s ease;
   box-shadow: none;
   color: #ffffff;
@@ -10421,11 +10420,11 @@ a.text-darker:focus {
 .navbar .navbar-nav>a.btn:active:hover,
 .navbar .navbar-nav>a.btn.active:focus,
 .navbar .navbar-nav>a.btn.active:hover {
-  background-color: #263148 !important;
-  background-image: linear-gradient(to bottom left, #344675, #263148, #344675) !important;
-  background-image: -webkit-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
-  background-image: -o-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
-  background-image: -moz-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
+  background-color: #212529 !important;
+  background-image: linear-gradient(to bottom left, #212529, #212529, #212529) !important;
+  background-image: -webkit-linear-gradient(to bottom left, #212529, #212529, #212529) !important;
+  background-image: -o-linear-gradient(to bottom left, #212529, #212529, #212529) !important;
+  background-image: -moz-linear-gradient(to bottom left, #212529, #212529, #212529) !important;
   color: #ffffff;
   box-shadow: none;
 }
@@ -12183,7 +12182,7 @@ fieldset[disabled] .btn-link.active {
 
 @media screen and (min-width: 992px) {
   .dropdown-menu .dropdown-item {
-    color: #9A9A9A;
+    color: #e9ecef;
   }
 }
 
@@ -12224,7 +12223,7 @@ fieldset[disabled] .btn-link.active {
 }
 
 .footer .copyright {
-  font-size: 0.75rem;
+  font-size: 0.875rem;;
   line-height: 1.8;
   color: #ffffff;
 }
@@ -12261,8 +12260,12 @@ fieldset[disabled] .btn-link.active {
 }
 
 @media screen and (max-width: 576px) {
+    .mt-5, .my-5 {
+        margin-top: 0 !important;
+    }
   .footer {
     text-align: center;
+    padding: 48px 0 5px 0;
   }
   .footer .copyright {
     text-align: center;
@@ -12300,7 +12303,7 @@ fieldset[disabled] .btn-link.active {
 }
 
 .form-control {
-  border-color: #2b3553;
+  /*border-color: #2b3553;*/
   border-radius: 0.4285rem;
   font-size: 0.75rem;
   -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
@@ -13382,7 +13385,7 @@ img {
 }
 
 .navbar {
-  padding: 10px 30px 10px 15px;
+  padding: 10px 45px 10px 61px;
   width: 100%;
   z-index: 1050;
   background: #1a1e34;
@@ -13404,6 +13407,7 @@ img {
 .navbar .navbar-wrapper {
   display: flex;
   align-items: center;
+  color: #ffffff;
 }
 
 .navbar .navbar-text {
@@ -13594,7 +13598,7 @@ img {
     display: none;
   }
   .navbar .dropdown .dropdown-menu li a {
-    color: #222a42;
+    color: white;
   }
   .navbar .dropdown.show .dropdown-menu,
   .navbar .dropdown .dropdown-menu {
@@ -13978,10 +13982,6 @@ h6,
   line-height: 1.2;
 }
 
-p {
-  font-weight: 300;
-}
-
 button,
 input,
 optgroup,
@@ -14010,14 +14010,9 @@ h6 {
   color: rgba(255, 255, 255, 0.8);
 }
 
-a {
-  color: #212529;
-  font-weight: 300;
-}
-
 a:hover,
 a:focus {
-  color: #212529;
+  color: #eeeeee;
 }
 
 h1,
@@ -14857,7 +14852,7 @@ table.tablesorter thead tr .headerSortDown {
   background: -o-linear-gradient(0deg, #212529 0%, #212529 100%);
   background: -moz-linear-gradient(0deg, #212529 0%, #212529 100%);
   background: linear-gradient(0deg, #212529 0%, #212529 100%);
-  height: calc(100vh - 90px);
+  height: 687px;
   width: 230px;
   position: fixed;
   top: 0;
@@ -15006,7 +15001,7 @@ table.tablesorter thead tr .headerSortDown {
 
 .sidebar .nav li>a,
 .off-canvas-sidebar .nav li>a {
-  margin: 10px 15px 0;
+  margin: 0 15px 0;
   border-radius: 30px;
   color: #ffffff;
   display: block;
@@ -15015,7 +15010,7 @@ table.tablesorter thead tr .headerSortDown {
   text-transform: uppercase;
   cursor: pointer;
   font-size: 0.62475rem;
-  padding: 10px 8px;
+  padding: 5px 8px;
   line-height: 1.625rem;
 }
 
@@ -15118,7 +15113,7 @@ table.tablesorter thead tr .headerSortDown {
 .sidebar .nav p,
 .off-canvas-sidebar .nav p {
   margin: 0;
-  line-height: 30px;
+  line-height: 1.625rem;
   position: relative;
   display: block;
   height: auto;
@@ -15321,7 +15316,7 @@ table.tablesorter thead tr .headerSortDown {
   width: 100%;
   min-height: 100vh;
   border-top: 2px solid #212529;
-  background: linear-gradient(#1e1e2f, #1e1e24);
+  /*background: linear-gradient(#1e1e2f, #1e1e24);*/
   -webkit-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
   -moz-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
   -o-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
@@ -15356,7 +15351,6 @@ table.tablesorter thead tr .headerSortDown {
 
 .perfect-scrollbar-on .sidebar,
 .perfect-scrollbar-on .main-panel {
-  height: 100%;
   max-height: 100%;
 }
 
@@ -15715,7 +15709,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 }
 
 .card form label+.form-control {
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .card .map-title {
@@ -16347,7 +16341,7 @@ code {
 
 .input-group,
 .form-group {
-  margin-bottom: 10px;
+  margin: 0 15px 5px 0;
   position: relative;
 }
 
@@ -17251,11 +17245,11 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .card {
-  background: #27293d;
+  background: #212529;
   border: 0;
   position: relative;
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);
 }
 
@@ -17268,7 +17262,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .card .card-body {
-  padding: 15px;
+  padding: 0 15px 15px 15px;
 }
 
 .card .card-body.table-full-width {
@@ -17501,7 +17495,7 @@ Copyright (c) 2015 Daniel Eden
 .card .card-footer {
   background-color: transparent;
   border: 0;
-  padding: 15px;
+  padding: 0 15px 15px 15px;
 }
 
 .card .card-footer .stats i {
@@ -17699,9 +17693,9 @@ Copyright (c) 2015 Daniel Eden
   position: relative;
 }
 
-.card-user .card-body {
-  min-height: 240px;
-}
+/*.card-user .card-body {
+  min-height: 0px;
+}*/
 
 .card-user hr {
   margin: 5px 15px;
@@ -17763,12 +17757,11 @@ Copyright (c) 2015 Daniel Eden
 
 .full-page.pricing-page, .full-page.login-page, .full-page.lock-page, .full-page.register-page {
   min-height: 100vh;
-  background: radial-gradient(#1e1e2f, #1e1e24);
 }
 
 .full-page>.content {
-  padding-bottom: 150px;
-  padding-top: 150px;
+  padding-bottom: 50px;
+  padding-top: 100px;
 }
 
 .full-page .footer {
@@ -17805,15 +17798,16 @@ Copyright (c) 2015 Daniel Eden
 
 .login-page .card-login .card-header img {
   position: absolute;
+    padding: 0.75rem;
 }
 
 .login-page .card-login .input-group:last-child {
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 .login-page .link {
-  font-size: 10px;
   text-decoration: none;
+  color: #0a0c0d;
 }
 
 .card-register .card-header {
@@ -17848,14 +17842,12 @@ Copyright (c) 2015 Daniel Eden
 
 .card-register .card-img {
   position: absolute;
-  left: 0;
-  top: -15%;
-  width: 70%;
+  padding: 0.75rem;
 }
 
 .full-page.register-page .info-horizontal {
   text-align: left !important;
-  padding: 0px 0px 20px;
+  padding: 0px 0px 2px;
 }
 
 .full-page.register-page .info-horizontal .icon {
@@ -17871,7 +17863,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .full-page.register-page .info-horizontal .description .info-title {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .info-horizontal .icon {

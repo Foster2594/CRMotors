@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['pageSlug' => 'edit', 'page' => _('Editar Campaña'), 'contentClass' => 'edit'])
 <!--En esta vista se crean la para editar las campanas-->
 @section('content')
 <div class="container">

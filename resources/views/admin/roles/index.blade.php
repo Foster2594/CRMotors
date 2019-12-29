@@ -1,11 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.app', ['pageSlug' => 'index', 'page' => _('Roles'), 'contentClass' => 'index'])
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header"><h4>Roles
+                <div class="card-header">
+                    <h4>Roles
                     @can('roles.create')
                     <a href="{{ route('roles.create') }}" class="btn btn-sm btn-primary float-right">
                         Crear
@@ -16,7 +17,7 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th width="10px">ID</th>
+                                <th width="10px">Id</th>
                                 <th>Nombre</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>

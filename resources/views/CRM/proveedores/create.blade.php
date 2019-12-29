@@ -1,12 +1,14 @@
 <!--En esta vista se crean la para generar las proveedores-->
-@extends('layouts.app')
+@extends('layouts.app', ['pageSlug' => 'create', 'page' => _('Crear Proveedor'), 'contentClass' => 'create'])
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Proveedores</div>
+                <div class="card-header">
+                    <h4>Crear Proveedor</h4>
+                </div>
                 <div class="card-body">
                     {!! Form::open(['route' => 'proveedores.store']) !!}
                         @include('CRM.proveedores.partials.form')

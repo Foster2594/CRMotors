@@ -1,11 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.app', ['pageSlug' => 'index', 'page' => _('Permisos'), 'contentClass' => 'index'])
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header"><h4>Permisos
+                <div class="card-header">
+                    <h4>Permisos
                     @can('permissions.create')
                     <a href="{{ route('permissions.create') }}" class="btn btn-sm btn-primary float-right">
                         Crear

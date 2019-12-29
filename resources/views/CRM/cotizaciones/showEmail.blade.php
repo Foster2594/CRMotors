@@ -61,11 +61,7 @@
                     </div>
                     <div class="card">
                         <div class="card-header">
-
-
                         </div>
-
-
                         <div class="body ml-3">
                             <p><strong>Numero de lineas: </strong>{{ $cotizacion->numeroLineas }}</p>
                             <p><strong>Campaña: </strong>{{ $cotizacion->idCampana }}</p>
@@ -74,7 +70,6 @@
                             <p><strong>Descuento: </strong>{{ $cotizacion->montoDescuento }}</p>
                             <p><strong>IVA: </strong>{{ $cotizacion->impuestoVentas }}</p>
                             <p><strong>Total: </strong>{{ $cotizacion->total }}</p>
-
                         </div>
                     </div>
 
@@ -86,5 +81,3 @@
 </body>
 </html>
 <!--En esta vista se crean la para mostrar una de las cotizaciones-->
-
-

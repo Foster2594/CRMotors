@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['pageSlug' => 'index', 'page' => _('Vehículos'), 'contentClass' => 'index'])
 
 @section('content')
 <div class="container">
@@ -7,11 +7,9 @@
             <div class="card">
                 <div class="card-header">
                     <h4>Vehiculos
-
                             <a href="{{ route('vehiculos.create', $vehiculos) }}" class="btn btn-sm btn-primary float-right">
                                 Crear
                             </a>
-
                     </h4>
                 </div>
                 <div class="card-body table-responsive">
@@ -19,9 +17,6 @@
                         <thead>
                             <tr>
                                 <th width="10px">ID</th>
-                                <th>Proveedor</th>
-                                <th>Tipo Vehiculo</th>
-                                <th>Codigo</th>
                                 <th>Marca</th>
                                 <th>Modelo</th>
                                 <th>Version</th>
@@ -36,9 +31,6 @@
                             @foreach ($vehiculos as $vehiculo)
                             <tr>
                                 <td>{{ $vehiculo->idVehiculo }}</td>
-                                <td>{{ $vehiculo->idProveedor }}</td>
-                                <td>{{ $vehiculo->idTipoVehiculo }}</td>
-                                <td>{{ $vehiculo->codigo }}</td>
                                 <td>{{ $vehiculo->marca }}</td>
                                 <td>{{ $vehiculo->modelo }}</td>
                                 <td>{{ $vehiculo->parametroVersion }}</td>
@@ -46,7 +38,6 @@
                                 <td>{{ $vehiculo->cantidadDisponible }}</td>
                                 <td>{{ $vehiculo->fechaIngreso }}</td>
                                 <td>{{ $vehiculo->fechaSalida }}</td>
-
                                 <td width="10px">
                                     <a href="{{ route('vehiculos.show', $vehiculo->idVehiculo) }}" class="btn btn-sm btn-success">
                                         Ver
@@ -56,15 +47,12 @@
                                     <a href="{{ route('vehiculos.edit', $vehiculo->idVehiculo) }}" class="btn btn-sm btn-success">
                                         Editar
                                     </a>
-
                                 </td>
                                 <td width="10px">
-
                                     {!! Form::open(['route' => ['vehiculos.destroy', $vehiculo->idVehiculo],
                                     'method' => 'DELETE']) !!}
                                     <button class="btn btn-sm btn-danger">Eliminar</button>
                                     {!! Form::close() !!}
-
                                 </td>
                             </tr>
                             @endforeach

@@ -22,8 +22,6 @@
                 <td>{{ $vehiculo->modelo }}</td>
                 <td>{{ $vehiculo->annio }}</td>
                 <td>{{ $vehiculo->Precio }}</td>
-
-
                 <td width="10px">
                     <a href="{{ route('vehiculos.show', $vehiculo->idVehiculo) }}" class="btn btn-sm btn-success">
                         Ver
@@ -34,10 +32,8 @@
                         Add
                     </a>
                 </td>
-
             </tr>
         @endforeach
         </tbody>
     </table>
-
 </div>

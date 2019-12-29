@@ -1,5 +1,5 @@
 <!--En esta vista se crean la para generar las cotizaciones-->
-@extends('layouts.app')
+@extends('layouts.app', ['pageSlug' => 'create', 'page' => _('Crear Cotización'), 'contentClass' => 'create'])
 
 @section('content')
 <div class="container">

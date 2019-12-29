@@ -14,7 +14,7 @@
                                 <th>Segundo apellido</th>
                                 <th>Numero de celular</th>
                                 <th>Correo</th>
-                                <th>Ingreso $</th>
+                                <th>Ingreso Salarial</th>
                                 <th>&nbsp;</th>
                                 <th ></th>
                             </tr>

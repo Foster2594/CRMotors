@@ -135,6 +135,7 @@ Route::group(['middleware' => 'auth'], function () {
 
         //Users
         Route::get('users', 'Roles\UserController@index')->name('users.index')->middleware('can:users.index');
+        Route::get('users/create', 'Roles\UserController@create')->name('users.create')->middleware('can:users.create');
         Route::put('users/{user}', 'Roles\UserController@update')->name('users.update')->middleware('can:users.edit');
         Route::get('users/{user}', 'Roles\UserController@show')->name('users.show')->middleware('can:users.show');
         Route::delete('users/{user}', 'Roles\UserController@destroy')->name('users.destroy')->middleware('can:users.destroy');
@@ -177,7 +178,3 @@ Route::get('registro', 'Auth\RegisterController@registroMail')->name('Email.regi
 // rutas para el envio de correo a la hora de realizar un registro
 Route::get('cotizacionMail/{cotizacion}/envia', 'CotizacionController@cotizacionMail')->name('Email.cotizacionMail');
 //Route::get('registro', 'EmailController@registro')->name('Email.registro');
-
-
-
-

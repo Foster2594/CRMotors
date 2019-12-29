@@ -18,7 +18,6 @@
                 <div class="card-body">
                     {{-- incluimos una alerta de validacion--}}
                     @include('alerts.success')
-
                     <div class="">
                         <table class="table tablesorter " id="">
                             <thead class=" text-primary">

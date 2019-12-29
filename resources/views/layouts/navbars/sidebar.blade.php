@@ -1,8 +1,8 @@
 <div class="sidebar">
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="#" class="simple-text logo-mini">{{ _('CRM') }}</a>
-            <a href="#" class="simple-text logo-normal">{{ _('Royal Motors') }}</a>
+            <a href="{{ route('home') }}" class="simple-text logo-mini"><img src="{{ asset('black') }}/img/MGIcon.png"></a>
+            <a href="{{ route('home') }}" class="simple-text logo-normal">{{ _('RM Client') }}</a>
         </div>
         <ul class="nav">
             <li>
@@ -13,46 +13,43 @@
             </li>
             <li>
                 <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
-                    <i class="fab fa-laravel"></i>
+                    <i class="tim-icons icon-single-02"></i>
                     <span class="nav-link-text">{{ __('Clientes') }}</span>
                     <b class="caret mt-1"></b>
                 </a>
-
                 <div class="collapse show" id="laravel-examples">
                     <ul class="nav pl-4">
                         <li>
                             <a href="{{ route('clientes.indexCartera') }}">
-                                <i class="tim-icons icon-atom"></i>
+                                <i class="tim-icons icon-credit-card"></i>
                                 <p>{{ _('Cartera de Clientes') }}</p>
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('clientes.asignarCartera') }}">
-                                <i class="tim-icons icon-atom"></i>
+                                <i class="tim-icons icon-basket-simple"></i>
                                 <p>{{ _('Clientes Disponibles') }}</p>
                             </a>
                         </li>
                     </ul>
                 </div>
-
             </li>
-
             <li>
                 <a href="{{ route('cotizaciones.index') }}">
-                    <i class="tim-icons icon-atom"></i>
+                    <i class="tim-icons icon-notes"></i>
                     <p>{{ _('Cotizacion') }}</p>
                 </a>
             </li>
             <li>
                 <a href="{{ route('campanas.index') }}">
-                    <i class="tim-icons icon-atom"></i>
+                    <i class="tim-icons icon-bell-55"></i>
                     <p>{{ _('Campaña') }}</p>
                 </a>
             </li>
             @can('vehiculos.index')
                 <li>
                     <a href="{{ route('vehiculos.index') }}">
-                        <i class="tim-icons fa fa-car"></i>
+                        <i class="tim-icons icon-bus-front-12"></i>
                         <p>{{ _('Vehiculos') }}</p>
                     </a>
                 </li>
@@ -60,7 +57,7 @@
             @can('proveedores.index')
                 <li>
                     <a href="{{ route('proveedores.index') }}">
-                        <i class="tim-icons icon-bell-55"></i>
+                        <i class="tim-icons icon-credit-card"></i>
                         <p>{{ _('Proveedores') }}</p>
                     </a>
                 </li>
@@ -68,7 +65,7 @@
             @can('empleados.index')
                 <li>
                     <a href="{{ route('empleados.index') }}">
-                        <i class="tim-icons icon-atom"></i>
+                        <i class="tim-icons icon-single-02"></i>
                         <p>{{ _('Empleados') }}</p>
                     </a>
                 </li>
@@ -76,7 +73,7 @@
             @can('roles.index')
                 <li>
                     <a href="{{ route('roles.index') }}">
-                        <i class="tim-icons icon-atom"></i>
+                        <i class="tim-icons icon-check-2"></i>
                         <p>{{ _('Roles') }}</p>
                     </a>
                 </li>
@@ -84,7 +81,7 @@
             @can('permissions.index')
                 <li>
                     <a href="{{ route('permissions.index') }}">
-                        <i class="tim-icons icon-atom"></i>
+                        <i class="tim-icons icon-bag-16"></i>
                         <p>{{ _('Permisos') }}</p>
                     </a>
                 </li>
@@ -92,7 +89,7 @@
             @can('users.index')
                 <li>
                     <a href="{{ route('users.index') }}">
-                        <i class="tim-icons icon-atom"></i>
+                        <i class="tim-icons icon-single-02"></i>
                         <p>{{ _('Usuarios') }}</p>
                     </a>
                 </li>
@@ -100,12 +97,11 @@
             @can('sedes.index')
                 <li>
                     <a href="{{ route('sedes.index') }}">
-                        <i class="tim-icons icon-atom"></i>
+                        <i class="tim-icons icon-world"></i>
                         <p>{{ _('Sedes') }}</p>
                     </a>
                 </li>
         @endcan
-
         <!--li>
                 <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
                     <i class="fab fa-laravel"></i>

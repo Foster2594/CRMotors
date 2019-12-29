@@ -2,7 +2,6 @@
 <div class="form-group">
     {{ Form::date('fechaCreacion',today(),['class' => 'form-control col-md-4']) }}
 </div>
-
 <div class="form-group">
     <div class="row">
         <div class="col-sm-4">
@@ -21,7 +20,6 @@
             {{ Form::label('idCampana','Campana*') }}
             <div>
                 <a onchange="descuento()">
-
                 {{ Form::select('idCampana', $campanas, null, ['placeholder' => 'Seleccione Campaña','class' => 'form-control btn dropdown-toggle btn-sm']) }}
                     <input type="hidden" name="idDescuento" id="idDescuento"/>
                 </a>
@@ -29,13 +27,11 @@
         </div>
     </div>
 </div>
-
 <div class="form-group">
-    <div class="center">
+    <h5>
         Detalle de Cotizacion
-    </div>
+    </h5>
 </div>
-
 <div class="form-group">
     <div class="card-body table-responsive">
         <table class="table table-striped table-hover">
@@ -119,10 +115,9 @@
 </div>
 <div class="form-group row">
     <div>
-    {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}
+        {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}
+        <button type="button" onclick="history.go(-1)" class="btn btn-sm btn-success">{{ _('Regresar') }}</button>
     </div>
-
-
 </div>
 
 
@@ -184,9 +179,8 @@
                     </table>
                 </div>
             </div>
-
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
                 <button type="button" class="btn btn-primary">Guardar</button>
             </div>
         </div>

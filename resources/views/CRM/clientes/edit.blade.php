@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['pageSlug' => 'edit', 'page' => _('Editar Cliente'), 'contentClass' => 'edit'])
 
 @section('content')
 <div class="container">
@@ -11,7 +11,6 @@
                     {{--'method' => 'POST']) !!}--}}
                     {!! Form::model($cliente,['route' => ['clientes.update',$cliente->idCliente]]) !!}
                     @include('CRM.clientes.partials.form')
-
                     {!! Form::close() !!}
                 </div>
             </div>

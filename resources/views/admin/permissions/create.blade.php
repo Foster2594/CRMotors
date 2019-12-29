@@ -1,11 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.app', ['pageSlug' => 'create', 'page' => _('Crear Permiso'), 'contentClass' => 'create'])
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Permisos</div>
+                <div class="card-header">
+                    <h4>Crear Permiso</h4>
+                </div>
                 <div class="card-body">
                     {!! Form::open(['route' => 'permissions.store']) !!}
                         @include('admin.permissions.partials.form')

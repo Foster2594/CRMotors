@@ -1,5 +1,5 @@
-@extends('layouts.app')
-<!--En esta vista se crean la para crear las campanhas-->
+@extends('layouts.app', ['pageSlug' => 'create', 'page' => _('Crear Campaña'), 'contentClass' => 'create'])
+<!--En esta vista se crean la para crear las campañas-->
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

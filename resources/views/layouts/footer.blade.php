@@ -2,25 +2,11 @@
     <div class="container-fluid">
         <ul class="nav">
             <li class="nav-item">
-                <a href="https://creative-tim.com" target="blank" class="nav-link">
-                    {{ __('Universidad Fidelitas') }}
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="https://updivision.com" target="blank" class="nav-link">
-                    {{ __('CRM') }}
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    {{ __('Analisis 2') }}
-                </a>
+                    {{ __('Royal Motors CR') }}
             </li>
         </ul>
         <div class="copyright">
-            &copy; {{ now()->year }} {{ __('made with') }} <i class="tim-icons icon-heart-2"></i> {{ __('by') }}
-            <a href="https://creative-tim.com" target="_blank">{{ __('Creative Tim') }}</a> &amp;
-            <a href="https://updivision.com" target="_blank">{{ __('Updivision') }}</a> {{ __('for a better web') }}.
+            &copy; {{ now()->year }} {{ __('Tech Company') }}
         </div>
     </div>
 </footer>

@@ -7,8 +7,6 @@
             <div class="card">
                 <div class="card-header">
                     <h4>Vehiculos
-
-
                     </h4>
                 </div>
                 <div class="card-body table-responsive">
@@ -43,20 +41,16 @@
                                 <td>{{ $vehiculo->cantidadDisponible }}</td>
                                 <td>{{ $vehiculo->fechaIngreso }}</td>
                                 <td>{{ $vehiculo->fechaSalida }}</td>
-
                                 <td width="10px">
-
                                     <a href="{{ route('cotizaciones.nueva', $vehiculo) }}"
                                        class="btn btn-sm btn-primary float-right">
                                         Seleccion
                                     </a>
-
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </div>

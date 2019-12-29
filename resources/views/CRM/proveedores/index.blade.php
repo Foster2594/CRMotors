@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['pageSlug' => 'index', 'page' => _('Proveedores'), 'contentClass' => 'index'])
 <!--En esta vista se crean la para mostrar todas las proveedores-->
 @section('content')
 <div class="container">
@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>proveedores
+                    <h4>Proveedores
                             <a href="{{ route('proveedores.create', $proveedores) }}" class="btn btn-sm btn-primary float-right">
                                 Crear
                             </a>

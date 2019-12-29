@@ -1,17 +1,15 @@
-@extends('layouts.app')
-<!--En esta vista se crean la para mostrar todas las campanhas-->
+@extends('layouts.app', ['pageSlug' => 'index', 'page' => _('Campaña'), 'contentClass' => 'index'])
+<!--En esta vista se crean la para mostrar todas las campañas-->
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Campañas
-
+                        <h4>Campaña
                             <a href="{{ route('campanas.create', $campanas) }}" class="btn btn-sm btn-primary float-right">
                                 Crear
                             </a>
-
                         </h4>
                     </div>
                     <div class="card-body table-responsive">

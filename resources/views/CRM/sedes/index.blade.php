@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['pageSlug' => 'index', 'page' => _('Sedes'), 'contentClass' => 'index'])
 <!--En esta vista se crean la para mostrar todas las sedes-->
 @section('content')
 <div class="container">
@@ -7,26 +7,23 @@
             <div class="card">
                 <div class="card-header">
                     <h4>Sedes
-
                             <a href="{{ route('sedes.create', $sedes) }}" class="btn btn-sm btn-primary float-right">
                                 Crear
                             </a>
-
                     </h4>
                 </div>
                 <div class="card-body table-responsive">
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th width="10px">ID</th>
+                                <th width="10px">Id</th>
                                 <th>Nombre</th>
                                 <th>Telefono</th>
                                 <th>Correo</th>
-                                <th>ID Provincia</th>
-                                <th>ID Canton</th>
-                                <th>ID Distrito</th>
-                                <th>Direccion</th>
-                                <th>ID Estado/Sede</th>
+                                <th>Provincia</th>
+                                <th>Canton</th>
+                                <th>Distrito</th>
+                                <th>Estado</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>
                         </thead>
@@ -40,9 +37,7 @@
                                 <td>{{ $sede->idProvincia }}</td>
                                 <td>{{ $sede->idCanton }}</td>
                                 <td>{{ $sede->idDistrito }}</td>
-                                <td>{{ $sede->direccionExacta }}</td>
                                 <td>{{ $sede->idEstadoSede }}</td>
-
                                 <td width="10px">
                                     <a href="{{ route('sedes.show', $sede->idSede) }}" class="btn btn-sm btn-success">
                                         Ver
@@ -52,7 +47,6 @@
                                     <a href="{{ route('sedes.edit', $sede->idSede) }}" class="btn btn-sm btn-success">
                                         Editar
                                     </a>
-
                                 </td>
                                 <td width="10px">
 
@@ -60,7 +54,6 @@
                                     'method' => 'DELETE']) !!}
                                     <button class="btn btn-sm btn-danger">Eliminar</button>
                                     {!! Form::close() !!}
-
                                 </td>
                             </tr>
                             @endforeach

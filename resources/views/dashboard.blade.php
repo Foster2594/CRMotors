@@ -1,7 +1,6 @@
-@extends('layouts.app', ['pageSlug' => 'dashboard'])
+@extends('layouts.app', ['pageSlug' => 'dashboard', 'page' => _('Dashboard'), 'contentClass' => 'dashboard'])
 <!--En esta vista se mostraran la informacion de detalle para reportes y graficos-->
 @section('content')
-
     {{--<div class="row">--}}
         {{--<div class="col-12">--}}
             {{--<div class="card card-chart">--}}
@@ -41,13 +40,11 @@
                 {{--<div class="card-body">--}}
                     {{--<div class="chart-area">--}}
                         {{--<canvas id="chartBig1"></canvas>--}}
-
                     {{--</div>--}}
                 {{--</div>--}}
             {{--</div>--}}
         {{--</div>--}}
     {{--</div>--}}
-
     {{--<div class="row">--}}
         {{--<div class="col-lg-4">--}}
             {{--<div class="card card-chart">--}}
@@ -371,11 +368,10 @@
                 </div>
             </div>
         </--div-->
-    </div>
+{{--    </div>
     <div>
-
     <canvas id="myChart" width="400" height="400"></canvas>
-    </div>
+    </div>--}}
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
@@ -415,9 +411,7 @@
             }
         });
     </script>
-
 @endsection
-
 @push('js')
 <script src="{{ asset('black') }}/js/plugins/chartjs.min.js"></script>
 <script>
