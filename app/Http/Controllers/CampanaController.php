@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Campana;
 use App\Canton;
-
+use App\Sede;
 use App\estadoCampana;
 use App\Http\Requests\CreateCampana;
-
+use App\Empleado;
+use App\empleados;
 use App\Distrito;
 
 use App\Provincia;
+use App\tipoCampana;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class CampanaController extends Controller
 {
@@ -34,10 +38,13 @@ class CampanaController extends Controller
      */
     public function create()
     {
+        $sedes=Sede::pluck('nombre','idSede');
+        $tipos=tipoCampana::pluck('nombre','idTipoCampana');
+        $estados=estadoCampana::pluck('nombre','idEstadoCampana');
         $provincias=Provincia::pluck('nombre','idProvincia');
         $cantones=Canton::pluck('nombre','idCanton');
         $distritos=Distrito::pluck('nombre','idDistrito');
-        return view('CRM.campanas.create',compact('campanas','provincias','cantones','distritos'));
+        return view('CRM.campanas.create',compact('campanas','sedes','tipos','estados','provincias','cantones','distritos'));
     }
 
     /**
@@ -131,7 +138,7 @@ class CampanaController extends Controller
     {   $id=$campana;
         $campana = Campana::where('idCampana', $campana)->first();
         $detalles = DetalleCampana::where('idCampana', $id)->get();
-        $data = ['Id de Campaña' => Auth()->id(),
+        $data = ['idCampana' => Auth()->id(),
             'campana'=>$campana,
             'detalles'=>$detalles,
 //
