@@ -30,7 +30,7 @@
                                 <td>{{ $clienteV->correo }}</td>
                                 <td>{{ $clienteV->ingresoSalarial }}</td>
                                 <td width="10px">
-                                    <a href="{{ route('clientes.asignaCartera', $clienteV->idCliente) }}" class="btn btn-sm btn-success">
+                                    <a href="{{ route('clientes.asignarCartera', $clienteV->idCliente) }}" class="btn btn-sm btn-success">
                                         Asignar Cartera
                                     </a>
                                 </td>

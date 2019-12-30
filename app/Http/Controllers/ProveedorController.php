@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\estadoProveedor;
 use App\Proveedor;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,8 @@ class ProveedorController extends Controller
      */
     public function create()
     {
-        return view('CRM.proveedores.create',compact('proveedores'));
+        $estados=estadoProveedor::pluck('nombre','idEstadoProveedor');
+        return view('CRM.proveedores.create',compact('proveedores','estados'));
     }
 
     /**
@@ -66,8 +68,9 @@ class ProveedorController extends Controller
      */
     public function edit($proveedor)
     {
+        $estados=estadoProveedor::pluck('nombre','idEstadoProveedor');
         $proveedor=Proveedor::where('idProveedor',$proveedor)->first();
-        return view('CRM.proveedores.edit', compact('proveedor'));
+        return view('CRM.proveedores.edit', compact('proveedor','estados'));
     }
 
     /**
