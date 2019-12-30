@@ -127,6 +127,24 @@ class CampanaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function enviaremail($compana)
+    {   $id=$compana;
+        $compana = Campana::where('idCampana', $compana)->first();
+        $detalles = DetalleCampana::where('idCampana', $id)->get();
+        $data = ['Id de Campaña' => Auth()->id(),
+            'nombre'=>$compana,
+            'detalles'=>$detalles,
+//
+        ];
+        Mail::send('CRM\campanas\showEmail',$data, function ($message) {
+
+            $message->from('email@royalmotors.net', 'Styde.Net');
+            $message->to('user@example.com')->subject('Campañas Royal Motors');
+        });
+
+        return redirect()->back()->with('info', 'mensaje enviado con exito');
+    }
+
     public function destroy($campana)
     {
         $campana=Campana::where('idCampana',$campana)->delete();
