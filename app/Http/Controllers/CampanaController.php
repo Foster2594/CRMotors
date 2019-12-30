@@ -127,12 +127,12 @@ class CampanaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function enviaremail($compana)
-    {   $id=$compana;
-        $compana = Campana::where('idCampana', $compana)->first();
+    public function enviaremail($campana)
+    {   $id=$campana;
+        $campana = Campana::where('idCampana', $campana)->first();
         $detalles = DetalleCampana::where('idCampana', $id)->get();
         $data = ['Id de Campaña' => Auth()->id(),
-            'nombre'=>$compana,
+            'campana'=>$campana,
             'detalles'=>$detalles,
 //
         ];
@@ -144,7 +144,27 @@ class CampanaController extends Controller
 
         return redirect()->back()->with('info', 'mensaje enviado con exito');
     }
+    //Detalles de Cotizacion
+    public function detalle(Request $request)
+    {
+        $det = $request->detalle;
+        $det = \GuzzleHttp\json_decode($det);
+        $detalle = new DetalleCampana();
 
+        $detalle->idCampana = $det->idCampana;
+        $detalle->nombre = $request->nombre;
+        $detalle->descripcion = $det->descripcion;
+        $detalle->fechaInicio = $det->fechaInicio;
+        $detalle->fechaFinal = $det->fechaFinal;
+        $detalle->descuentoMinimo = $det->descuentoMinimo;
+        $detalle->descuentoMaximo = $det->descuentoMaximo;
+
+
+        $detalle->save();
+
+
+        return $detalle;
+    }
     public function destroy($campana)
     {
         $campana=Campana::where('idCampana',$campana)->delete();

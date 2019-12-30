@@ -65,6 +65,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 
+
 //// rutas para el mantenimiento de vehiculo, aqui esta para ver la seccion Vehiculo,para actualizar,crear,eliminar,etc
 
 
@@ -179,3 +180,6 @@ Route::get('registro', 'Auth\RegisterController@registroMail')->name('Email.regi
 // rutas para el envio de correo a la hora de realizar un registro
 Route::get('cotizacionMail/{cotizacion}/envia', 'CotizacionController@cotizacionMail')->name('Email.cotizacionMail');
 //Route::get('registro', 'EmailController@registro')->name('Email.registro');
+
+
+Route::get('enviaremail/{campana}/envia', 'CampanaController@enviaremail')->name('Email.enviaremail');

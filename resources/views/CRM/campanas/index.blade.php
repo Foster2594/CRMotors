@@ -47,7 +47,7 @@
                                         </a>
                                     </td>
                                     <td width="10px">
-                                        <a href="{{ route('campanas.enviaremail', $campana->idCampana) }}" class="btn btn-sm btn-success">
+                                        <a href="{{ route('Email.enviaremail', $campana->idCampana) }}" class="btn btn-sm btn-success">
                                             Enviar
                                         </a>
                                     </td>
