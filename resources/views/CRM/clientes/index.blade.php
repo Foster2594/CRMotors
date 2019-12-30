@@ -16,14 +16,12 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th width="10px">ID</th>
+                                <th width="10px">Id</th>
                                 <th>Cedula</th>
                                 <th>Nombre</th>
                                 <th>Primer apellido</th>
                                 <th>Segundo apellido</th>
-                                <th>Numero de celular</th>
-                                <th>Correo</th>
-                                <th>Ingreso Salarial</th>
+                                <th>Celular</th>
                                 <th colspan="4">&nbsp;</th>
                                 <th ></th>
                             </tr>
@@ -37,22 +35,28 @@
                                 <td>{{ $cliente->apellido1 }}</td>
                                 <td>{{ $cliente->apellido2 }}</td>
                                 <td>{{ $cliente->numeroCelular }}</td>
-                                <td>{{ $cliente->correo }}</td>
-                                <td>{{ $cliente->ingresoSalarial }}</td>
                                 <td width="10px">
-                                    <a href="{{ route('clientes.show', $cliente->idCliente) }}" class="btn btn-sm btn-success fa fa-eye"></a>
+                                    <a href="{{ route('clientes.show', $cliente->idCliente) }}" class="btn btn-sm btn-success">
+                                        Ver
+                                    </a>
                                 </td>
                                 <td width="10px">
-                                    <a href="{{ route('clientes.edit', $cliente->idCliente) }}" class="btn btn-sm btn-success fa fa-edit"></a>
+                                    <a href="{{ route('clientes.edit', $cliente->idCliente) }}" class="btn btn-sm btn-success">
+                                        Editar
+                                    </a>
                                 </td>
                                 <td width="10px">
-                                    <a href="{{ route('clientes.quitarDeCartera', $cliente->idCliente) }}" class="btn btn-sm btn-success fa fa-cancel"></a>
+                                    <a href="{{ route('clientes.quitarDeCartera', $cliente->idCliente) }}" class="btn btn-sm btn-success">
+                                        Quitar Cartera
+                                    </a>
                                 </td>
                                 @can('clientes.delete')
                                 <td width="10px">
                                     {!! Form::open(['route' => ['clientes.destroy', $cliente->idCliente],
                                     'method' => 'DELETE']) !!}
-                                    <button class="btn btn-sm btn-danger fa fa-trash"></button>
+                                    <button class="btn btn-sm btn-success">
+                                        Eliminar
+                                    </button>
                                     {!! Form::close() !!}
                                 </td>
                                 @endcan

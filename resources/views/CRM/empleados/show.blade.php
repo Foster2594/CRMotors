@@ -25,7 +25,9 @@
                     <p><strong>Sede: </strong>{{ $empleado->idSede }}</p>
                     <p><strong>Departamento: </strong>{{ $empleado->idDepartamento }}</p>
                     <p><strong>Estado: </strong>{{ $empleado->idEstadoEmpleado }}</p>
-                    <button type="button" onclick="history.go(-1)" class="btn btn-sm btn-success">{{ _('Regresar') }}</button>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ route('empleados.index') }}" class="btn btn-sm btn-primary">{{ _('Regresar') }}</a>
                 </div>
             </div>
         </div>
@@ -34,6 +36,6 @@
 @endsection
 @section('script')
     <script>
-        document.getElementById('nav-roles').className+=' active';
+        document.getElementById('nav-empleados').className+=' active';
     </script>
 @endsection

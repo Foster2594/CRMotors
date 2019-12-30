@@ -36,7 +36,6 @@
                                     <td>{{ $campana->fechaFinal }}</td>
                                     <td>{{ $campana->descuentoMinimo }}</td>
                                     <td>{{ $campana->descuentoMaximo }}</td>
-
                                     <td width="10px">
                                         <a href="{{ route('campanas.show', $campana->idCampana) }}" class="btn btn-sm btn-success">
                                             Ver
@@ -46,15 +45,14 @@
                                         <a href="{{ route('campanas.edit', $campana->idCampana) }}" class="btn btn-sm btn-success">
                                             Editar
                                         </a>
-
                                     </td>
                                     <td width="10px">
-@can('campanas.delete')
+                                        @can('campanas.delete')
                                         {!! Form::open(['route' => ['campanas.destroy', $campana->idCampana],
                                         'method' => 'DELETE']) !!}
                                         <button class="btn btn-sm btn-danger">Eliminar</button>
                                         {!! Form::close() !!}
-@endcan
+                                        @endcan
                                     </td>
                                 </tr>
                             @endforeach

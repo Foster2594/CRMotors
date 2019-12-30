@@ -9,8 +9,6 @@
                     <h4>Editar Sede</h4>
                 </div>
                 <div class="card-body">
-                    {{--{!! Form::model($sede, ['route' => ['sedes.update',$sede->idSede],--}}
-                    {{--'method' => 'POST']) !!}--}}
                     {!! Form::model($sede,['route' => ['sedes.update',$sede->idSede]]) !!}
                     @include('CRM.sedes.partials.form')
                     {!! Form::close() !!}

@@ -86,7 +86,7 @@ class RegisterController extends Controller
         Mail::send('emails.registro', $data, function ($message) {
 
             $message->from('email@royalmotors.net', 'Styde.Net');
-            $message->to('user@example.com')->subject('Registro CRM Royal Motors');
+            $message->to('user@example.com')->subject('Registro RM Client');
         });
 
         return "Se envío el email";

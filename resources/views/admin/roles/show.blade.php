@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <h4>
@@ -16,7 +16,7 @@
                     <p><strong>Descripción: </strong>{{ $role->description }}</p>
                 </div>
                 <div class="card-footer">
-                    <button type="button" onclick="history.go(-1)" class="btn btn-sm btn-success">{{ _('Regresar') }}</button>
+                    <a href="{{ route('roles.index') }}" class="btn btn-sm btn-primary">{{ _('Regresar') }}</a>
                 </div>
             </div>
         </div>

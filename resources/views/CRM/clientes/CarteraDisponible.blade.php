@@ -9,11 +9,12 @@
                     <div class="form-group card-header">
                         <h4>Clientes Disponibles</h4>
                         <div >
-                            <label class="label"> Seleccione un empleado</label>
+                            <p><strong>Seleccione un empleado</strong>
+                                <a onchange="setId()">
+                                    {{ Form::select('idEmpleado', $usuarios, 10, ['class' => 'form control btn dropdown-toggle btn-sm', 'onclick=setId()']) }}
+                                </a>
+                            </p>
                         </div>
-                        <a onchange="setId()">
-                            {{ Form::select('idEmpleado', $usuarios, 10, ['class' => 'form control btn dropdown-toggle btn-sm', 'onclick=setId()']) }}
-                        </a>
                     </div>
                     <div>
                     </div>
@@ -26,7 +27,7 @@
                                 <th>Nombre</th>
                                 <th>Primer apellido</th>
                                 <th>Segundo apellido</th>
-                                <th>Numero de celular</th>
+                                <th>Celular</th>
                                 <th>Correo</th>
                                 <th>Ingreso Salarial</th>
                                 <th>&nbsp;</th>
@@ -75,6 +76,6 @@
     <script>
 
 
-        document.getElementById('nav-roles').className += ' active';
+        document.getElementById('nav-clientes').className += ' active';
     </script>
 @endsection

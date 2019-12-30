@@ -57,7 +57,6 @@
 </div>
 <div class="form-group">
     {{ Form::label('idProvincia','Provincia *') }}
-    {{--}}{{ Form::text('idProvincia',null,['class' => 'form-control']) }}--}}
     <div>
         {{ Form::select('idProvincia', $provincias, null, ['placeholder' => 'Seleccione Provincia','class' => 'form-control btn dropdown-toggle btn-sm','id'=>'idProvincia']) }}
     </div>
@@ -90,5 +89,5 @@
 {{--</div>--}}
 <div class="form-group">
     {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}
-    <button type="button" onclick="history.go(-1)" class="btn btn-sm btn-success">{{ _('Regresar') }}</button>
+    <a href="{{ route('clientes.indexCartera') }}" class="btn btn-sm btn-primary">{{ _('Regresar') }}</a>
 </div>

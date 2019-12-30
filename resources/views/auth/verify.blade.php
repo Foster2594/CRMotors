@@ -9,7 +9,6 @@
                 <div class="card bg-secondary shadow border-0">
                     <div class="card-body px-lg-5 py-lg-5">
                         <div class="text-center text-muted mb-4">
-
                             <small>{{ __('Verificando su correo electrónico') }}</small>
                         </div>
                         <div>
@@ -19,9 +18,7 @@
                                     {{ __('Se ha enviado la ruta de verificación a su correo electronico.') }}
                                 </div>
                             @endif
-
-                            {{ __('Amtes de proceder, por favor verificar su correo electronico para enviar la ruta de verificación.') }}
-
+                            {{ __('Antes de proceder, por favor verificar su correo electronico para enviar la ruta de verificación.') }}
                             @if (Route::has('verification.resend'))
                                     {{-- si la verificacion aun no ha llegado se tiene la opcion de mandar de nuevo el correo--}}
                                 {{ __('Si usted no ha recibido el correo electrónico') }}, <a href="{{ route('verification.resend') }}">{{ __('clic aquí para reenviar otra petición') }}</a>

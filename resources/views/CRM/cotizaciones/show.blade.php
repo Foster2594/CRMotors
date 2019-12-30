@@ -6,20 +6,20 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header float-right">
-                        <p><strong><h2>Numero de cotizacion: COT-000{{ $cotizacion->idEncabezadoCotizacion }}</h2></strong></p>
-                        <p><strong>Fecha creacion: </strong>{{ $cotizacion->fechaCreacion }}</p>
+                        <h4>Ver Cotización</h4>
                     </div>
                     <div class="card-body">
-
                         <div class="card">
-                            <div class="card-header"><h3>Cotizacion</h3></div>
+                            <div class="card-header"><h4>Información</h4></div>
                             <div class="body ml-3">
+                                <p><strong>Número: </strong>COT-000{{ $cotizacion->idEncabezadoCotizacion }}</p>
                                 <p><strong>Cliente: </strong>{{ $cotizacion->idCliente }}</p>
                                 <p><strong>Empleado: </strong>{{ $cotizacion->idEmpleado }}</p>
+                                <p><strong>Fecha de creacion: </strong>{{ $cotizacion->fechaCreacion }}</p>
                             </div>
                         </div>
                         <div class="card">
-                            <div class="card-header"><h4>Detalle de Cotizacion</h4></div>
+                            <div class="card-header"><h4>Detalle</h4></div>
                             <div class="body ml-3">
                                 <div class="card-body table-responsive">
                                     <table class="table table-striped table-hover">
@@ -58,13 +58,13 @@
                                 <p><strong>Numero de lineas: </strong>{{ $cotizacion->numeroLineas }}</p>
                                 <p><strong>Campaña: </strong>{{ $cotizacion->idCampana }}</p>
                                 <p><strong>Estado: </strong>{{ $cotizacion-> idEstadoCotizacion}}</p>
-                                <p><strong>subtotal: </strong>{{ $cotizacion->subTotal }}</p>
+                                <p><strong>SubTotal: </strong>{{ $cotizacion->subTotal }}</p>
                                 <p><strong>Descuento: </strong>{{ $cotizacion->montoDescuento }}</p>
                                 <p><strong>IVA: </strong>{{ $cotizacion->impuestoVentas }}</p>
                                 <p><strong>Total: </strong>{{ $cotizacion->total }}</p>
                             </div>
                         </div>
-                        <button type="button" onclick="history.go(-1)" class="btn btn-sm btn-success">{{ _('Regresar') }}</button>
+                        <a href="{{ route('cotizaciones.index') }}" class="btn btn-sm btn-primary">{{ _('Regresar') }}</a>
                     </div>
                 </div>
             </div>
@@ -73,6 +73,6 @@
 @endsection
 @section('script')
     <script>
-        document.getElementById('nav-roles').className += ' active';
+        document.getElementById('nav-cotizaciones').className += ' active';
     </script>
 @endsection

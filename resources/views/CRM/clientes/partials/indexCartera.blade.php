@@ -1,4 +1,3 @@
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -12,7 +11,7 @@
                                 <th>Nombre</th>
                                 <th>Primer apellido</th>
                                 <th>Segundo apellido</th>
-                                <th>Numero de celular</th>
+                                <th>Telefono</th>
                                 <th>Correo</th>
                                 <th>Ingreso Salarial</th>
                                 <th>&nbsp;</th>
@@ -30,11 +29,11 @@
                                 <td>{{ $clienteV->numeroCelular }}</td>
                                 <td>{{ $clienteV->correo }}</td>
                                 <td>{{ $clienteV->ingresoSalarial }}</td>
-
                                 <td width="10px">
-                                    <a href="{{ route('clientes.asignaCartera', $clienteV->idCliente) }}" class="btn btn-sm btn-success fa fa-cancel"></a>
+                                    <a href="{{ route('clientes.asignaCartera', $clienteV->idCliente) }}" class="btn btn-sm btn-success">
+                                        Asignar Cartera
+                                    </a>
                                 </td>
-
                             </tr>
                             @endforeach
                         </tbody>
@@ -43,5 +42,4 @@
             </div>
         </div>
     </div>
-
 </div>

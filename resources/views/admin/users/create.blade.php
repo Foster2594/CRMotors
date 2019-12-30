@@ -10,27 +10,9 @@
                         <h4>Crear Usuario</h4>
                     </div>
                     <div class="card-body">
-                        <form class="form" method="post" action="{{ route('create') }}">
-                            @csrf
-                            {{-- se llena los datos del nuevo usuario--}}
-                            <div class="form-group">
-                                {{ Form::label('name','Nombre *') }}
-                                {{ Form::text('name',null,['class' => 'form-control']) }}
-                            </div>
-                            <div class="form-group">
-                                {{ Form::label('email','Correo *') }}
-                                {{ Form::text('email',null,['class' => 'form-control']) }}
-                            </div>
-                            <div class="form-group">
-                                {{ Form::label('password','Contraseña *') }}
-                                {{ Form::text('password',null,['class' => 'form-control']) }}
-                            </div>
-                        {{--para crear el usuario--}}
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block mb-3">{{ _('Crear') }}</button>
-                            <button type="button" onclick="history.go(-1)" class="btn btn-primary btn-lg btn-block mb-3">{{ _('Regresar') }}</button>
-                        </div>
-                        </form>
+                        {!! Form::open(['route' => 'users.store']) !!}
+                        @include('admin.users.partials.createForm')
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

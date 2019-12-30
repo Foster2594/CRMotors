@@ -8,6 +8,8 @@ use App\User;
 use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -18,11 +20,22 @@ class UserController extends Controller
      */
     public function index()
     {
-        $usuaio=Auth::user();
+        $usuario=Auth::user();
 
         $users=User::paginate();
-        
+
         return view('admin.users.index', compact('users'));
+    }
+
+    public function create()
+    {
+        //aqui agregamos la vista para crear un usuario
+        return view('admin.users.create',compact('users'));
+    }
+    public function store(Request $request)
+    {
+        $users = User::create($request->all());
+        return redirect()->route('users.index',$users->id)->with('info','Usuario guardado con éxito');
     }
 
     /**
@@ -63,7 +76,7 @@ class UserController extends Controller
          */
         $user->update($request->all());
 
-        $user->roles()->sync($request->get('roles'));      
+        $user->roles()->sync($request->get('roles'));
 
         return redirect()->route('users.edit',$user->id)->with('info','Usuario actualizado con éxito');
     }

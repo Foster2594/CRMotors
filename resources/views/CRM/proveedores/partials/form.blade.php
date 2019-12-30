@@ -26,9 +26,8 @@
     </div>
     {{$errors->first('idEstadoProveedor')}}
 </div>
-
 <div class="form-group">
     {{--<input type="submit" value="Guardar">--}}
     {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}
-    <button type="button" onclick="history.go(-1)" class="btn btn-sm btn-success">{{ _('Regresar') }}</button>
+    <a href="{{ route('proveedores.index') }}" class="btn btn-sm btn-primary">{{ _('Regresar') }}</a>
 </div>

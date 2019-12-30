@@ -21,6 +21,6 @@
 @endsection
 @section('script')
     <script>
-        document.getElementById('nav-roles').className+=' active';
+        document.getElementById('nav-proveedores').className+=' active';
     </script>
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['pageSlug' => 'show', 'page' => _('Ver Campaña'), 'contentClass' => 'show'])
 <!--En esta vista se crean la para mostrar una de las campanhas-->
 @section('content')
 <div class="container">
@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Campaña</h4>
+                    <h4>Ver Campaña</h4>
                 </div>
                 <div class="card-body">
                     <p><strong>Id: </strong>{{ $campana->idCampana }}</p>
@@ -16,7 +16,9 @@
                     <p><strong>Fecha Final: </strong>{{ $campana->fechaFinal }}</p>
                     <p><strong>Descuento Mínimo: </strong>{{ $campana->descuentoMinimo }}</p>
                     <p><strong>Descuento Máximo: </strong>{{ $campana->descuentoMaximo }}</p>
-                    <button type="button" onclick="history.go(-1)" class="btn btn-sm btn-success">{{ _('Regresar') }}</button>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ route('campanas.index') }}" class="btn btn-sm btn-primary">{{ _('Regresar') }}</a>
                 </div>
             </div>
         </div>
@@ -25,6 +27,6 @@
 @endsection
 @section('script')
     <script>
-        document.getElementById('nav-roles').className+=' active';
+        document.getElementById('nav-campanas').className+=' active';
     </script>
 @endsection

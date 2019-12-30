@@ -134,6 +134,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('permissions/{permission}/edit', 'Roles\PermissionController@edit')->name('permissions.edit')->middleware('can:permissions.edit');
 
         //Users
+        Route::post('users/store', 'Roles\UserController@store')->name('users.store')->middleware('can:users.create');
         Route::get('users', 'Roles\UserController@index')->name('users.index')->middleware('can:users.index');
         Route::get('users/create', 'Roles\UserController@create')->name('users.create')->middleware('can:users.create');
         Route::put('users/{user}', 'Roles\UserController@update')->name('users.update')->middleware('can:users.edit');

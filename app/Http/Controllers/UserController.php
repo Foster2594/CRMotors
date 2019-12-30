@@ -28,6 +28,8 @@ class UserController extends Controller
      */
     public function create()
     {
+
+
         //aqui agregamos la vista para crear un usuario
         return view('users.create');
     }
@@ -43,8 +45,7 @@ class UserController extends Controller
     {
         //aqui hacemos una validacion de la contraseña
         $model->create($request->merge(['password' => Hash::make($request->get('password'))])->all());
-
-        return redirect()->route('user.index')->withStatus(__('User successfully created.'));
+        return redirect()->route('user.index')->withStatus(__('Usuario creado satisfactoriamente.'));
     }
 
     /**

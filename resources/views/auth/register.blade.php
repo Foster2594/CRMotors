@@ -10,11 +10,11 @@
                         Un CRM es una solución de gestión de las relaciones
                         con clientes, orientada normalmente a gestionar tres
                         áreas básicas:
-                    <ul>
-                        <li>la gestión comercial,
-                        <li>el marketing
-                        <li>el servicio postventa o de atención al cliente.
-                    </ul>
+                        <ul>
+                            <li>la gestión comercial,
+                            <li>el marketing
+                            <li>el servicio postventa o de atención al cliente.
+                        </ul>
                     </p>
                 </div>
             </div>

@@ -43,27 +43,21 @@
 </div>
 <div class="form-group">
     {{ Form::label('idProvincia','Provincia *') }}
-    {{--{{ Form::text('idProvincia',null,['class' => 'form-control']) }}--}}
     <div>
-        {{ Form::select('idProvincia', $provincias, null, ['placeholder' => 'Seleccione Provincia','class' => 'form control btn dropdown-toggle btn-sm']) }}
+        {{ Form::select('idProvincia', $provincias, null, ['placeholder' => 'Seleccione Provincia','class' => 'form-control btn dropdown-toggle btn-sm','id'=>'idProvincia']) }}
     </div>
-    {{$errors->first('idProvincia')}}
 </div>
 <div class="form-group">
     {{ Form::label('idCanton','Canton *') }}
-    {{--}}{{ Form::text('idCanton',null,['class' => 'form-control']) }}--}}
     <div>
-        {{ Form::select('idCanton', $cantones, null, ['placeholder' => 'Seleccione Canton','class' => 'form control btn dropdown-toggle btn-sm']) }}
+        {{ Form::select('idCanton', $cantones, null, ['placeholder' => 'Seleccione Canton','class' => 'form-control btn dropdown-toggle btn-sm']) }}
     </div>
-    {{$errors->first('idCanton')}}
 </div>
 <div class="form-group">
     {{ Form::label('idDistrito','Distrito *') }}
-    {{--}}{{ Form::text('idDistrito',null,['class' => 'form-control']) }}--}}
     <div>
-        {{ Form::select('idDistrito', $distritos, null, ['placeholder' => 'Seleccione Distrito','class' => 'form control btn dropdown-toggle btn-sm']) }}
+        {{ Form::select('idDistrito', $distritos, null, ['placeholder' => 'Seleccione Distrito','class' => 'form-control btn dropdown-toggle btn-sm']) }}
     </div>
-    {{$errors->first('idDistrito')}}
 </div>
 <div class="form-group">
     {{ Form::label('direccionExacta','Direccion *') }}
@@ -87,5 +81,5 @@
 </div>
 <div class="form-group">
     {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}
-    <button type="button" onclick="history.go(-1)" class="btn btn-sm btn-success">{{ _('Regresar') }}</button>
+    <a href="{{ route('empleados.index') }}" class="btn btn-sm btn-primary">{{ _('Regresar') }}</a>
 </div>

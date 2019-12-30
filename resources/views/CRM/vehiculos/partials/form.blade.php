@@ -1,16 +1,4 @@
 <div class="form-group">
-    <div>
-        {{ Form::select('idProveedor', $proveedores, null, ['placeholder' => 'Seleccione Proveedor','class' => 'form control btn dropdown-toggle btn-sm']) }}
-    </div>
-    {{$errors->first('idProveedor')}}
-</div><br>
-<div class="form-group">
-    <div>
-        {{ Form::select('idTipoVehiculo', $tipos, null, ['placeholder' => 'Seleccione Tipo Vehiculo','class' => 'form control btn dropdown-toggle btn-sm']) }}
-    </div>
-    {{$errors->first('idTipoVehiculo')}}
-</div>
-<div class="form-group">
     {{ Form::label('codigo','Codigo*') }}
     {{ Form::text('codigo',null,['class' => 'form-control']) }}
     {{$errors->first('codigo')}}
@@ -36,6 +24,20 @@
     {{$errors->first('annio')}}
 </div>
 <div class="form-group">
+    {{ Form::label('idProveedor','Proveedor *') }}
+    <div>
+        {{ Form::select('idProveedor', $proveedores, null, ['placeholder' => 'Seleccione Proveedor','class' => 'form control btn dropdown-toggle btn-sm']) }}
+    </div>
+    {{$errors->first('idProveedor')}}
+</div>
+<div class="form-group">
+    {{ Form::label('idTipoVehiculo','Tipo de Vehiculo *') }}
+    <div>
+        {{ Form::select('idTipoVehiculo', $tipos, null, ['placeholder' => 'Seleccione Tipo Vehiculo','class' => 'form control btn dropdown-toggle btn-sm']) }}
+    </div>
+    {{$errors->first('idTipoVehiculo')}}
+</div>
+<div class="form-group">
     {{ Form::label('cantidadDisponible','Disponibles*') }}
     {{ Form::text('cantidadDisponible',null,['class' => 'form-control']) }}
     {{$errors->first('cantidadDisponible')}}
@@ -52,5 +54,5 @@
 </div>
 <div class="form-group">
     {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}
-    <button type="button" onclick="history.go(-1)" class="btn btn-sm btn-success">{{ _('Regresar') }}</button>
+    <a href="{{ route('vehiculos.index') }}" class="btn btn-sm btn-primary">{{ _('Regresar') }}</a>
 </div>

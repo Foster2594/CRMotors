@@ -34,7 +34,6 @@
                                 <td>{{ $proveedor->numeroTelefono }}</td>
                                 <td>{{ $proveedor->correo }}</td>
                                 <td>{{ $proveedor->idEstadoProveedor }}</td>
-
                                 <td width="10px">
                                     <a href="{{ route('proveedores.show', $proveedor->idProveedor) }}" class="btn btn-sm btn-success">
                                         Ver
@@ -44,15 +43,12 @@
                                     <a href="{{ route('proveedores.edit', $proveedor->idProveedor) }}" class="btn btn-sm btn-success">
                                         Editar
                                     </a>
-
                                 </td>
                                 <td width="10px">
-
                                     {!! Form::open(['route' => ['proveedores.destroy', $proveedor->idProveedor],
                                     'method' => 'DELETE']) !!}
                                     <button class="btn btn-sm btn-danger">Eliminar</button>
                                     {!! Form::close() !!}
-
                                 </td>
                             </tr>
                             @endforeach

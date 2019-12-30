@@ -1,12 +1,12 @@
-@extends('layouts.app', ['pageSlug' => 'create', 'page' => _('Crear Clientes '), 'contentClass' => 'create'])
+@extends('layouts.app', ['pageSlug' => 'create', 'page' => _('Crear Cliente '), 'contentClass' => 'create'])
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Cliente</h4>
+                    <h4>Crear Cliente</h4>
                 </div>
                 <div class="card-body">
                     {!! Form::open(['route' => 'clientes.store']) !!}

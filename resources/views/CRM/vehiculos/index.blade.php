@@ -67,6 +67,6 @@
 @endsection
 @section('script')
     <script>
-        document.getElementById('nav-sedes').className+=' active';
+        document.getElementById('nav-vehiculos').className+=' active';
     </script>
 @endsection

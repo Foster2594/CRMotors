@@ -294,6 +294,7 @@ input {
 button,
 select {
   text-transform: none;
+  width: 100%;
 }
 
 button,
@@ -16378,8 +16379,7 @@ code {
 .form-control[disabled],
 .form-control[readonly],
 fieldset[disabled] .form-control {
-  background-color: #1d253b;
-  color: #344675;
+  background-color: #212529;
   cursor: not-allowed;
 }
 

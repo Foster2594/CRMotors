@@ -15,7 +15,7 @@
                     <p><strong>Fecha de Modificación: </strong>{{ $user->updated_at }}</p>
                 </div>
                 <div class="card-footer">
-                    <button type="button" onclick="history.go(-1)" class="btn btn-sm btn-success">{{ _('Regresar') }}</button>
+                    <a href="{{ route('users.index') }}" class="btn btn-sm btn-primary">{{ _('Regresar') }}</a>
                 </div>
             </div>
         </div>

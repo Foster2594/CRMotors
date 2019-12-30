@@ -6,7 +6,8 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Cotización</h4>
+                    <h4>Editar Cotización</h4>
+                    <h4>COT-000{{ $cotizacion->idEncabezadoCotizacion }}</h4>
                 </div>
                 <div class="card-body">
                     {!! Form::model($cotizacion, ['route' => ['cotizaciones.update',$cotizacion->idEncabezadoCotizacion]]) !!}
@@ -20,6 +21,6 @@
 @endsection
 @section('script')
     <script>
-        document.getElementById('nav-roles').className+=' active';
+        document.getElementById('nav-cotizaciones').className+=' active';
     </script>
 @endsection

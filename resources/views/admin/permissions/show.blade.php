@@ -14,7 +14,7 @@
                     <p><strong>Slug: </strong>{{ $permission->slug }}</p>
                 </div>
                 <div class="card-footer">
-                    <button type="button" onclick="history.go(-1)" class="btn btn-sm btn-success">{{ _('Regresar') }}</button>
+                    <a href="{{ route('permissions.index') }}" class="btn btn-sm btn-primary">{{ _('Regresar') }}</a>
                 </div>
             </div>
         </div>
