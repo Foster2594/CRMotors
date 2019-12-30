@@ -270,7 +270,7 @@ return $clientes;
         Mail::send('CRM\cotizaciones\showEmail',$data, function ($message) {
 
             $message->from('email@royalmotors.net', 'Styde.Net');
-            $message->to('user@example.com')->subject('Cotización Royal Motors CR');
+            $message->to('user@example.com')->subject('Registro CRM Royal Motors');
         });
 
         return redirect()->back()->with('info', 'mensaje enviado con exito');

@@ -23,6 +23,6 @@
 @endsection
 @section('script')
     <script>
-        document.getElementById('nav-cotizaciones').className+=' active';
+        document.getElementById('nav-roles').className+=' active';
     </script>
 @endsection
