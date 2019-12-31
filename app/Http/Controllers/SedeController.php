@@ -43,7 +43,17 @@ class SedeController extends Controller
      */
     public function store(Request $request)
     {
-
+        $request->validate([
+            'idSede' =>'required',
+            'nombre' =>'required',
+            'telefono'=>'required|numeric',
+            'correo' =>'required|email',
+            'idProvincia' =>'required',
+            'idCanton' =>'required',
+            'idDistrito' =>'required',
+            'direccionExacta' =>'required',
+            'idEstadoSede' =>'required',
+        ]);
 
         $idSede = Sede::max('idSede');
         $idSede=$idSede+1;

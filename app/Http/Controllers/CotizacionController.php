@@ -174,7 +174,16 @@ return $clientes;
     //En esta funcion recibira los datos para guardarlos en la base de datos y enviar su respectiva notificacion por correo
     public function store(CotizacionRequest $request)
     {
-
+        $request->validate([
+            'idEncabezadoCotizacion'
+            , 'fechaCreacion'=>'required|date'
+            , 'idCliente'=>'required'
+            , 'idEmpleado'=>'required'
+            , 'subTotal'=>'required'
+            , 'montoDescuento'
+            , 'impuestoVentas'
+            , 'total',
+        ]);
 
 
         $idEncabezadoCotizacion = Cotizacion::max('idEncabezadoCotizacion');
