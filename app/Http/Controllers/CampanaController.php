@@ -56,7 +56,6 @@ class CampanaController extends Controller
     public function store(CreateCampana $request)
     {
         $request->validate([
-            'idCampana' =>'required',
             'idTipoCampana' =>'required',
             'idSede'=>'required',
             'idEstadoCampana'=>'required',

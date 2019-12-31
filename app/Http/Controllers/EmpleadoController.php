@@ -45,12 +45,11 @@ class EmpleadoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'idEmpleado' =>'required'
-            , 'cedula' =>'required|numeric|digits:8'
+           'cedula' =>'required|numeric|digits:9'
             , 'nombre'=>'required'
             , 'apellido1'=>'required'
             , 'apellido2'=>'required'
-            , 'idGenero'=>'required'
+
             , 'telefonoCelular' =>'required|numeric'
             , 'otroTelefono' =>'required|numeric'
             , 'correo'=>'required|email'
@@ -60,7 +59,6 @@ class EmpleadoController extends Controller
             , 'direccionExacta'=>'required'
             , 'idSede'=>'required'
             , 'idDepartamento'=>'required'
-            , 'idUsuario'=>'required'
             , 'idEstadoEmpleado' =>'required',
 
 

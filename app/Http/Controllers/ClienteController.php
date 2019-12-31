@@ -58,10 +58,10 @@ class Clientecontroller extends Controller
     public function store(ClienteRequest $request)
     {
         $request->validate([
-            'idCliente'  =>'required',
+            'idCliente',
             'idEmpleado' ,
             'idTipoCliente'  =>'required',
-            'cedula'  => 'required|numeric|digits:8',
+            'cedula'  => 'required|numeric|digits:9',
             'nombre' =>'required',
             'apellido1' =>'required',
             'apellido2' =>'required',
