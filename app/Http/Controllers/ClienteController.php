@@ -71,7 +71,7 @@ class Clientecontroller extends Controller
             'otroTelefono' =>'required|numeric',
             'correo'=>'required|email',
             'fechaNacimiento'=>'required|date',
-            'ingresoSalarial' =>'required',
+            'ingresoSalarial' =>'required|numeric',
             'idProvincia'=>'required',
             'idCanton'=>'required',
             'idDistrito'=>'required',
