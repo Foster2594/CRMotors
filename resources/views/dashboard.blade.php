@@ -1,6 +1,9 @@
-@extends('layouts.app', ['pageSlug' => 'dashboard', 'page' => _('Dashboard'), 'contentClass' => 'dashboard'])
+@extends('layouts.app', ['pageSlug' => 'dashboard', 'page' => _('Inicio'), 'contentClass' => 'dashboard'])
 <!--En esta vista se mostraran la informacion de detalle para reportes y graficos-->
 @section('content')
+    <div>
+        <img src="{{ asset('black') }}/img/fondoMG.png" alt="Morris Garages" title="Morris Garages">
+    </div>
     {{--<div class="row">--}}
         {{--<div class="col-12">--}}
             {{--<div class="card card-chart">--}}

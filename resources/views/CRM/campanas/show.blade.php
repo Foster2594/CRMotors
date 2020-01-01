@@ -16,6 +16,13 @@
                     <p><strong>Fecha Final: </strong>{{ $campana->fechaFinal }}</p>
                     <p><strong>Descuento Mínimo: </strong>{{ $campana->descuentoMinimo }}</p>
                     <p><strong>Descuento Máximo: </strong>{{ $campana->descuentoMaximo }}</p>
+                    <p><strong>Tipo Campaña: </strong>{{ $campana->idTipoCampana }}</p>
+                    <p><strong>Sede: </strong>{{ $campana->idSede }}</p>
+                    <p><strong>Provincia: </strong>{{ $campana->idProvincia }}</p>
+                    <p><strong>Canton: </strong>{{ $campana->idCanton }}</p>
+                    <p><strong>Creado por: </strong>{{ $campana->idEmpleadoCreador }}</p>
+                    <p><strong>Aprobado por: </strong>{{ $campana->idEmpleadoAprobador }}</p>
+                    <p><strong>Estado: </strong>{{ $campana->idEstadoCampana }}</p>
                 </div>
                 <div class="card-footer">
                     <a href="{{ route('campanas.index') }}" class="btn btn-sm btn-primary">{{ _('Regresar') }}</a>

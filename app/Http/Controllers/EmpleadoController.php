@@ -49,7 +49,6 @@ class EmpleadoController extends Controller
             , 'nombre'=>'required'
             , 'apellido1'=>'required'
             , 'apellido2'=>'required'
-
             , 'telefonoCelular' =>'required|numeric'
             , 'otroTelefono' =>'required|numeric'
             , 'correo'=>'required|email'
@@ -60,9 +59,6 @@ class EmpleadoController extends Controller
             , 'idSede'=>'required'
             , 'idDepartamento'=>'required'
             , 'idEstadoEmpleado' =>'required',
-
-
-
         ]);
 
 

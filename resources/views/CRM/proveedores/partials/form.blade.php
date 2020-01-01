@@ -5,7 +5,7 @@
 </div>
 <div class="form-group">
     {{--<input type="number" name="a" class="form-control" value="1" />--}}
-    {{ Form::label('nombre','Nombre proveedor *') }}
+    {{ Form::label('nombre','Nombre *') }}
     {{ Form::text('nombre',null,['class' => 'form-control']) }}
     {{$errors->first('nombre')}}
 
@@ -21,8 +21,9 @@
     {{$errors->first('correo')}}
 </div>
 <div class="form-group">
+    {{ Form::label('idEstadoProveedor','Estado *') }}
     <div>
-        {{ Form::select('idEstadoProveedor', $estados, null, ['placeholder' => 'Seleccione Estado Proveedor','class' => 'form control btn dropdown-toggle btn-sm']) }}
+        {{ Form::select('idEstadoProveedor', $estados, null, ['placeholder' => 'Seleccione Estado ','class' => 'form control btn dropdown-toggle btn-sm']) }}
     </div>
     {{$errors->first('idEstadoProveedor')}}
 </div>

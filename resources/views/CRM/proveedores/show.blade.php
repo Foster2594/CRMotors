@@ -10,7 +10,7 @@
                     <p><strong>Id: </strong>{{ $proveedor->idProveedor }}</p>
                     <p><strong>Cedula: </strong>{{ $proveedor->cedula }}</p>
                     <p><strong>Nombre: </strong>{{ $proveedor->nombre }}</p>
-                    <p><strong>Número Telefónico: </strong>{{ $proveedor->numeroTelefono }}</p>
+                    <p><strong>Teléfono: </strong>{{ $proveedor->numeroTelefono }}</p>
                     <p><strong>Correo: </strong>{{ $proveedor->correo }}</p>
                     <p><strong>Estado: </strong>{{ $proveedor->idEstadoProveedor }}</p>
                 </div>

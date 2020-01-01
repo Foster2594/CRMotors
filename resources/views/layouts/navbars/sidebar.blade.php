@@ -7,8 +7,15 @@
         <ul class="nav">
             <li>
                 <a href="{{ route('home') }}">
-                    <i class="tim-icons icon-chart-pie-36"></i>
-                    <p>{{ _('Dashboard') }}</p>
+{{--                    <i class="tim-icons icon-chart-pie-36"></i>--}}
+                    <i class="tim-icons icon-tv-2"></i>
+                    <p>{{ _('Inicio') }}</p>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('campanas.index') }}">
+                    <i class="tim-icons icon-bell-55"></i>
+                    <p>{{ _('Campaña') }}</p>
                 </a>
             </li>
             <li>
@@ -40,17 +47,11 @@
                     <p>{{ _('Cotizacion') }}</p>
                 </a>
             </li>
-            <li>
-                <a href="{{ route('campanas.index') }}">
-                    <i class="tim-icons icon-bell-55"></i>
-                    <p>{{ _('Campaña') }}</p>
-                </a>
-            </li>
-            @can('vehiculos.index')
+            @can('empleados.index')
                 <li>
-                    <a href="{{ route('vehiculos.index') }}">
-                        <i class="tim-icons icon-bus-front-12"></i>
-                        <p>{{ _('Vehiculos') }}</p>
+                    <a href="{{ route('empleados.index') }}">
+                        <i class="tim-icons icon-single-02"></i>
+                        <p>{{ _('Empleados') }}</p>
                     </a>
                 </li>
             @endcan
@@ -62,11 +63,19 @@
                     </a>
                 </li>
             @endcan
-            @can('empleados.index')
+            @can('sedes.index')
                 <li>
-                    <a href="{{ route('empleados.index') }}">
-                        <i class="tim-icons icon-single-02"></i>
-                        <p>{{ _('Empleados') }}</p>
+                    <a href="{{ route('sedes.index') }}">
+                        <i class="tim-icons icon-world"></i>
+                        <p>{{ _('Sedes') }}</p>
+                    </a>
+                </li>
+            @endcan
+            @can('vehiculos.index')
+                <li>
+                    <a href="{{ route('vehiculos.index') }}">
+                        <i class="tim-icons icon-bus-front-12"></i>
+                        <p>{{ _('Vehiculos') }}</p>
                     </a>
                 </li>
             @endcan
@@ -94,14 +103,7 @@
                     </a>
                 </li>
             @endcan
-            @can('sedes.index')
-                <li>
-                    <a href="{{ route('sedes.index') }}">
-                        <i class="tim-icons icon-world"></i>
-                        <p>{{ _('Sedes') }}</p>
-                    </a>
-                </li>
-        @endcan
+
         <!--li>
                 <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
                     <i class="fab fa-laravel"></i>

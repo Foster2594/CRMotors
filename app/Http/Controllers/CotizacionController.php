@@ -174,9 +174,6 @@ return $clientes;
     //En esta funcion recibira los datos para guardarlos en la base de datos y enviar su respectiva notificacion por correo
     public function store(CotizacionRequest $request)
     {
-
-
-
         $idEncabezadoCotizacion = Cotizacion::max('idEncabezadoCotizacion');
         $idEncabezadoCotizacion = $idEncabezadoCotizacion + 1;
         //return response()->json($idSede);
@@ -213,7 +210,6 @@ return $clientes;
         $det = $request->detalle;
         $det = \GuzzleHttp\json_decode($det);
         $detalle = new DetalleCotizacion();
-
         $detalle->idDetalleCotizacion = $det->idDetalleCotizacion;
         $detalle->idEncabezadoCotizacion = $request->idEncabezadoCotizacion;
         $detalle->idVehiculo = $det->idVehiculo;
@@ -223,7 +219,6 @@ return $clientes;
         $detalle->montoDescuento = $det->montoDescuento;
         $detalle->montoImpuesto = $det->montoImpuesto;
         $detalle->montoTotal = $det->montoTotal;
-
         $detalle->save();
 
 //        $flight = App\Flight::create(['name' => 'Flight 10']);
@@ -236,10 +231,7 @@ return $clientes;
         $id=$cotizacion;
         $cotizacion = Cotizacion::where('idEncabezadoCotizacion', $cotizacion)->first();
         $detalles = DetalleCotizacion::where('idEncabezadoCotizacion', $id)->get();
-
-
 //        return view('CRM.cotizaciones.show', compact('cotizacion','detalles'));
-
         $pdf = \PDF::loadView('CRM\cotizaciones\showlabel',compact('guide','cotizacion','detalles'));
         return $pdf->download('cotizacion.pdf');
     }

@@ -2304,7 +2304,7 @@ textarea.form-control {
 .btn {
   display: inline-block;
   font-weight: 600;
-  text-align: center;
+  text-align: left;
   white-space: nowrap;
   vertical-align: middle;
   user-select: none;
