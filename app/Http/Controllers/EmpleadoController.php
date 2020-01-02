@@ -103,6 +103,25 @@ class EmpleadoController extends Controller
      */
     public function edit($empleado,Request $request)
     {
+
+        $provincias=Provincia::pluck('nombre','idProvincia');
+        $cantones=Canton::pluck('nombre','idCanton');
+        $distritos=Distrito::pluck('nombre','idDistrito');
+        $empleado=Empleado::where('idempleado',$empleado)->first();
+
+        return view('CRM.empleados.edit', compact('empleado','provincias','cantones','distritos'));
+
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $empleado)
+    {
         $request->validate([
             'cedula' =>'required|numeric|digits:9'
             , 'nombre'=>'required'
@@ -119,23 +138,6 @@ class EmpleadoController extends Controller
             , 'idDepartamento'=>'required'
             , 'idEstadoEmpleado' =>'required',
         ]);
-        $provincias=Provincia::pluck('nombre','idProvincia');
-        $cantones=Canton::pluck('nombre','idCanton');
-        $distritos=Distrito::pluck('nombre','idDistrito');
-        $empleado=Empleado::where('idempleado',$empleado)->first();
-
-        return view('CRM.empleados.edit', compact('empleado','provincias','cantones','distritos'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $empleado)
-    {
         //  return $request;
         $request->request->add(['idempleado' => $empleado]);
 

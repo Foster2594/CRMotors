@@ -84,18 +84,7 @@ class VehiculoController extends Controller
      */
     public function edit($vehiculo,Request $request)
     {
-        $request->validate([
-            'idProveedor' =>'required',
-            'idTipoVehiculo' =>'required',
-            'codigo' =>'required|numeric|unique:Vehiculo',
-            'marca' =>'required',
-            'modelo' =>'required',
-            'parametroVersion' =>'required',
-            'annio' =>'required|numeric|digits:4',
-            'cantidadDisponible' =>'required|numeric',
-            'fechaIngreso' =>'required|date',
-            'fechaSalida' =>'required|date',
-        ]);
+
         $vehiculo=Vehiculo::where('idVehiculo',$vehiculo)->first();
         $proveedores=Proveedor::pluck('nombre','idProveedor');
         $tipos=tipoVehiculo::pluck('nombre','idTipoVehiculo');
@@ -111,6 +100,18 @@ class VehiculoController extends Controller
      */
     public function update(Request $request, $vehiculo)
     {
+        $request->validate([
+            'idProveedor' =>'required',
+            'idTipoVehiculo' =>'required',
+            'codigo' =>'required|numeric|unique:Vehiculo',
+            'marca' =>'required',
+            'modelo' =>'required',
+            'parametroVersion' =>'required',
+            'annio' =>'required|numeric|digits:4',
+            'cantidadDisponible' =>'required|numeric',
+            'fechaIngreso' =>'required|date',
+            'fechaSalida' =>'required|date',
+        ]);
         $vehiculo=Vehiculo::where('idVehiculo',$vehiculo)->update($request->except('_token','_method'));
 //        $role->permissions()->sync($request->get('permissions'));
 

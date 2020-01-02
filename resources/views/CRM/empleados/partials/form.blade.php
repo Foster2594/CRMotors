@@ -22,7 +22,7 @@
     <div>
         {{ Form::select('idGenero', $generos, null, ['placeholder' => 'Seleccione Género','class' => 'form control btn dropdown-toggle btn-sm']) }}
     </div>
-    {{$errors->first('idGenero')}}
+
 </div>--}}
 <div class="form-group">
     {{ Form::label('telefonoCelular','Telefono Celular*') }}

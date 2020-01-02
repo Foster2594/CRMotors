@@ -103,8 +103,11 @@ class CampanaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($campana)
+    public function edit($campana, request $request)
     {
+
+
+
         $sedes=Sede::pluck('nombre','idSede');
         $tipos=tipoCampana::pluck('nombre','idTipoCampana');
         $estados=estadoCampana::pluck('nombre','idEstadoCampana');
@@ -115,6 +118,9 @@ class CampanaController extends Controller
 
 
         return view('CRM.campanas.edit', compact('campana','sedes','tipos','estados','provincias','cantones','distritos'));
+
+
+
     }
 
     /**
@@ -126,6 +132,22 @@ class CampanaController extends Controller
      */
     public function update(Request $request, $campana)
     {
+        $request->validate([
+            'idTipoCampana' =>'required',
+            'idSede'=>'required',
+            'idEstadoCampana'=>'required',
+            'nombre' =>'required',
+            'descripcion'=>'required',
+            'idProvincia' =>'required',
+            'idCanton'=>'required',
+            'fechaInicio'=>'required|date',
+            'fechaFinal'=>'required|date',
+            'descuentoMinimo'=>'required|numeric',
+            'descuentoMaximo'=>'required|numeric',
+            'idEmpleadoCreador' =>'required',
+            'idEmpleadoAprobador'=>'required',
+
+        ]);
         $request->request->add(['idcampana' => $campana]);
 
         $campana=Campana::where('idcampana',$campana)->update($request->except('_token'));

@@ -121,6 +121,27 @@ class Clientecontroller extends Controller
     public function edit($cliente, Request $request)
     {
 
+
+        $provincias=Provincia::pluck('nombre','idProvincia');
+        $cantones=Canton::pluck('nombre','idCanton');
+        $distritos="";
+        $vehiculos=Vehiculo::pluck('modelo','idVehiculo');
+        $cliente=Cliente::where('idCliente',$cliente)->first();
+
+        return view('CRM.clientes.edit', compact('cliente','provincias','cantones','distritos','vehiculos'));
+
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    //aqui nos actualiza al usuario
+    public function update(ClienteRequest $request, $cliente)
+    {
         $request->validate([
             'idEmpleado' ,
             'idTipoCliente'  =>'required',
@@ -141,25 +162,6 @@ class Clientecontroller extends Controller
             'direccionExacta'=>'required',
             'idVehiculoInteres'=>'required',
         ]);
-        $provincias=Provincia::pluck('nombre','idProvincia');
-        $cantones=Canton::pluck('nombre','idCanton');
-        $distritos="";
-        $vehiculos=Vehiculo::pluck('modelo','idVehiculo');
-        $cliente=Cliente::where('idCliente',$cliente)->first();
-
-        return view('CRM.clientes.edit', compact('cliente','provincias','cantones','distritos','vehiculos'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    //aqui nos actualiza al usuario
-    public function update(ClienteRequest $request, $cliente)
-    {
         //  return $request;
         $request->request->add(['idCliente' => $cliente]);
         $cliente=Cliente::where('idCliente',$cliente)->update($request->except('_token'));
