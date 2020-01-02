@@ -55,27 +55,19 @@
                     </a>
                 </li>
             @endcan
+            @can('permissions.index')
+                <li>
+                    <a href="{{ route('permissions.index') }}">
+                        <i class="tim-icons icon-bag-16"></i>
+                        <p>{{ _('Permisos') }}</p>
+                    </a>
+                </li>
+            @endcan
             @can('proveedores.index')
                 <li>
                     <a href="{{ route('proveedores.index') }}">
                         <i class="tim-icons icon-credit-card"></i>
                         <p>{{ _('Proveedores') }}</p>
-                    </a>
-                </li>
-            @endcan
-            @can('sedes.index')
-                <li>
-                    <a href="{{ route('sedes.index') }}">
-                        <i class="tim-icons icon-world"></i>
-                        <p>{{ _('Sedes') }}</p>
-                    </a>
-                </li>
-            @endcan
-            @can('vehiculos.index')
-                <li>
-                    <a href="{{ route('vehiculos.index') }}">
-                        <i class="tim-icons icon-bus-front-12"></i>
-                        <p>{{ _('Vehiculos') }}</p>
                     </a>
                 </li>
             @endcan
@@ -87,11 +79,11 @@
                     </a>
                 </li>
             @endcan
-            @can('permissions.index')
+            @can('sedes.index')
                 <li>
-                    <a href="{{ route('permissions.index') }}">
-                        <i class="tim-icons icon-bag-16"></i>
-                        <p>{{ _('Permisos') }}</p>
+                    <a href="{{ route('sedes.index') }}">
+                        <i class="tim-icons icon-world"></i>
+                        <p>{{ _('Sedes') }}</p>
                     </a>
                 </li>
             @endcan
@@ -103,14 +95,20 @@
                     </a>
                 </li>
             @endcan
-
+            @can('vehiculos.index')
+                <li>
+                    <a href="{{ route('vehiculos.index') }}">
+                        <i class="tim-icons icon-bus-front-12"></i>
+                        <p>{{ _('Vehiculos') }}</p>
+                    </a>
+                </li>
+            @endcan
         <!--li>
                 <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
                     <i class="fab fa-laravel"></i>
                     <span class="nav-link-text">{{ __('Laravel Examples') }}</span>
                     <b class="caret mt-1"></b>
                 </a>
-
                 <div class="collapse show" id="laravel-examples">
                     <ul class="nav pl-4">
                         <li>
@@ -170,7 +168,6 @@
                     </ul>
                 </div>
             </li-->
-
         </ul>
     </div>
 </div>
