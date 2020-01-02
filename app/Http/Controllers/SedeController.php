@@ -87,8 +87,19 @@ class SedeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($sede)
+    public function edit($sede,Request $request)
     {
+        $request->validate([
+
+            'nombre' =>'required',
+            'telefono'=>'required|numeric',
+            'correo' =>'required|email',
+            'idProvincia' =>'required',
+            'idCanton' =>'required',
+            'idDistrito' =>'required',
+            'direccionExacta' =>'required',
+            'idEstadoSede' =>'required',
+        ]);
         $provincias=Provincia::pluck('nombre','idProvincia');
         $cantones=Canton::pluck('nombre','idCanton');
         $distritos=Distrito::pluck('nombre','idDistrito');

@@ -101,8 +101,24 @@ class EmpleadoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($empleado)
+    public function edit($empleado,Request $request)
     {
+        $request->validate([
+            'cedula' =>'required|numeric|digits:9'
+            , 'nombre'=>'required'
+            , 'apellido1'=>'required'
+            , 'apellido2'=>'required'
+            , 'telefonoCelular' =>'required|numeric'
+            , 'otroTelefono' =>'required|numeric'
+            , 'correo'=>'required|email'
+            , 'idProvincia'=>'required'
+            , 'idCanton'=>'required'
+            , 'idDistrito'=>'required'
+            , 'direccionExacta'=>'required'
+            , 'idSede'=>'required'
+            , 'idDepartamento'=>'required'
+            , 'idEstadoEmpleado' =>'required',
+        ]);
         $provincias=Provincia::pluck('nombre','idProvincia');
         $cantones=Canton::pluck('nombre','idCanton');
         $distritos=Distrito::pluck('nombre','idDistrito');

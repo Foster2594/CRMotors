@@ -151,14 +151,31 @@ class CampanaController extends Controller
             'detalles'=>$detalles,
 //
         ];
+
         $clientes=Cliente::all();
+        $cont=0;
         foreach ($clientes as $cliente){
+//            return $cliente->correo;
+
+            Mail::send('CRM\campanas\showEmail',$data, function ($message) use ($cliente) {
+                $message->from('email@royalmotors.net', 'Styde.Net');
+                $message->to($cliente->correo)->subject('Campañas Royal Motors');
+                sleep(7);
+            });
+            if($cont==2){
+                break;
+            }
+            $cont++;
+        }
+
+       //codigo viejo
+        /*foreach ($clientes as $cliente){
         Mail::send('CRM\campanas\showEmail',$data, function ($message) use ($cliente) {
 
             $message->from('email@royalmotors.net', 'Styde.Net');
             $message->bcc($cliente->correo)->subject('Campañas Royal Motors');
         });
-        }
+        }*/
         return redirect()->back()->with('info', 'mensaje enviado con exito');
     }
     //Detalles de Cotizacion

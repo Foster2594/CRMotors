@@ -118,8 +118,29 @@ class Clientecontroller extends Controller
      * @return \Illuminate\Http\Response
      */
     //esto nos abre una vista en donde podemos editar a algun usuario
-    public function edit($cliente)
+    public function edit($cliente, Request $request)
     {
+
+        $request->validate([
+            'idEmpleado' ,
+            'idTipoCliente'  =>'required',
+            'cedula'  => 'required|numeric|digits:9',
+            'nombre' =>'required',
+            'apellido1' =>'required',
+            'apellido2' =>'required',
+            'idGenero' =>'required',
+            'idOcupacion' =>'required',
+            'numeroCelular' =>'required|numeric',
+            'otroTelefono' =>'required|numeric',
+            'correo'=>'required|email',
+            'fechaNacimiento'=>'required|date',
+            'ingresoSalarial' =>'required|numeric',
+            'idProvincia'=>'required',
+            'idCanton'=>'required',
+            'idDistrito'=>'required',
+            'direccionExacta'=>'required',
+            'idVehiculoInteres'=>'required',
+        ]);
         $provincias=Provincia::pluck('nombre','idProvincia');
         $cantones=Canton::pluck('nombre','idCanton');
         $distritos="";

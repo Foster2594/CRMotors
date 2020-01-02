@@ -82,9 +82,20 @@ class VehiculoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($vehiculo)
+    public function edit($vehiculo,Request $request)
     {
-
+        $request->validate([
+            'idProveedor' =>'required',
+            'idTipoVehiculo' =>'required',
+            'codigo' =>'required|numeric|unique:Vehiculo',
+            'marca' =>'required',
+            'modelo' =>'required',
+            'parametroVersion' =>'required',
+            'annio' =>'required|numeric|digits:4',
+            'cantidadDisponible' =>'required|numeric',
+            'fechaIngreso' =>'required|date',
+            'fechaSalida' =>'required|date',
+        ]);
         $vehiculo=Vehiculo::where('idVehiculo',$vehiculo)->first();
         $proveedores=Proveedor::pluck('nombre','idProveedor');
         $tipos=tipoVehiculo::pluck('nombre','idTipoVehiculo');
