@@ -162,7 +162,7 @@ class CampanaController extends Controller
                 $message->to($cliente->correo)->subject('Campañas Royal Motors');
                 sleep(7);
             });
-            if($cont==2){
+            if($cont==10){
                 break;
             }
             $cont++;
