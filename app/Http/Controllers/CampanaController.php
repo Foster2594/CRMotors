@@ -10,10 +10,12 @@ use App\Http\Requests\CreateCampana;
 use App\Empleado;
 use App\empleados;
 use App\Distrito;
+use App\Cliente;
 
 use App\Provincia;
 use App\tipoCampana;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
@@ -149,12 +151,14 @@ class CampanaController extends Controller
             'detalles'=>$detalles,
 //
         ];
-        Mail::send('CRM\campanas\showEmail',$data, function ($message) {
+        $clientes=Cliente::all();
+        foreach ($clientes as $cliente){
+        Mail::send('CRM\campanas\showEmail',$data, function ($message) use ($cliente) {
 
             $message->from('email@royalmotors.net', 'Styde.Net');
-            $message->to('user@example.com')->subject('Campañas Royal Motors');
+            $message->bcc($cliente->correo)->subject('Campañas Royal Motors');
         });
-
+        }
         return redirect()->back()->with('info', 'mensaje enviado con exito');
     }
     //Detalles de Cotizacion
