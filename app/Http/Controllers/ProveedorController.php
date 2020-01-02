@@ -68,6 +68,7 @@ class ProveedorController extends Controller
      */
     public function edit($proveedor)
     {
+
         $estados=estadoProveedor::pluck('nombre','idEstadoProveedor');
         $proveedor=Proveedor::where('idProveedor',$proveedor)->first();
         return view('CRM.proveedores.edit', compact('proveedor','estados'));
@@ -82,12 +83,20 @@ class ProveedorController extends Controller
      */
     public function update(Request $request, $proveedor)
     {
+        {
+            $request->validate([
+                'cedula' =>'required|numeric|digits:9',
+                'nombre' =>'required',
+                'numeroTelefono'=>'required|numeric',
+                'correo' =>'required|email',
+                'idEstadoProveedor' =>'required',
+            ]);
         //  return $request;
         $request->request->add(['idProveedor' => $proveedor]);
         $proveedor=Proveedor::where('idProveedor',$proveedor)->update($request->except('_token'));
 //        $role->permissions()->sync($request->get('permissions'));
         return redirect()->route('proveedores.show', compact('proveedor'))->with('info','proveedor actualizada con éxito');
-    }
+    }}
 
     /**
      * Remove the specified resource from storage.
@@ -100,4 +109,4 @@ class ProveedorController extends Controller
         $proveedor=Proveedor::where('idProveedor',$proveedor)->delete();
         return back()->with('info', 'Eliminado correctamente');
     }
-}
+    }

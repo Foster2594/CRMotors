@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Canton;
 use App\Distrito;
+use App\estadoSede;
 use App\Provincia;
 use App\Sede;
 use Illuminate\Http\Request;
@@ -32,7 +33,8 @@ class SedeController extends Controller
         $provincias=Provincia::pluck('nombre','idProvincia');
         $cantones=Canton::pluck('nombre','idCanton');
         $distritos=Distrito::pluck('nombre','idDistrito');
-        return view('CRM.sedes.create',compact('sedes','provincias','cantones','distritos'));
+        $estados=estadoSede::pluck('nombre','idEstadoSede');
+        return view('CRM.sedes.create',compact('sedes','provincias','cantones','distritos','estados'));
     }
 
     /**
@@ -44,7 +46,7 @@ class SedeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'idSede' =>'required',
+
             'nombre' =>'required',
             'telefono'=>'required|numeric',
             'correo' =>'required|email',

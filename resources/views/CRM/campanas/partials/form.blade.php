@@ -31,7 +31,7 @@
 <div class="form-group">
     {{ Form::label('idTipoCampana','Tipo Campana*') }}
     <div>
-        {{ Form::select('idTipoCampana', $tipos, null, ['placeholder' => 'Seleccione Tipo Campaña','class' => 'form control btn dropdown-toggle btn-sm']) }}
+        {{ Form::select('idTipoCampana', $cantones, null, ['placeholder' => 'Seleccione Tipo Campaña','class' => 'form control btn dropdown-toggle btn-sm']) }}
     </div>
 </div>
 <div class="form-group">

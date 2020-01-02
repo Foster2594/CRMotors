@@ -29,11 +29,17 @@
 </div>
 <div class="form-group">
     {{ Form::label('idGenero','Genero *') }}
-    {{ Form::text('idGenero',null,['class' => 'form-control']) }}
+
+    <div>
+        {{ Form::select('idGenero', $genero, null, ['placeholder' => 'Seleccione Genero','class' => 'form-control btn dropdown-toggle btn-sm','id'=>'idGenero']) }}
+    </div>
 </div>
 <div class="form-group">
     {{ Form::label('idOcupacion','Ocupacion*') }}
-    {{ Form::text('idOcupacion',null,['class' => 'form-control']) }}
+
+    <div>
+        {{ Form::select('idOcupacion', $ocupacion, null, ['placeholder' => 'Seleccione una Ocupacion','class' => 'form-control btn dropdown-toggle btn-sm','id'=>'idOcupacion']) }}
+    </div>
 </div>
 <div class="form-group">
     {{ Form::label('numeroCelular','Telefono *') }}

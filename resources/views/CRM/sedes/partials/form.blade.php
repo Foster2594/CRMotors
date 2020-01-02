@@ -38,9 +38,10 @@
     {{$errors->first('direccionExacta')}}
 </div>
 <div class="form-group">
-    {{ Form::label('idEstadoSede','Estado *') }}
-    {{ Form::text('idEstadoSede',null,['class' => 'form-control']) }}
-    {{$errors->first('idEstadoSede')}}
+    {{ Form::label('idEstadoSede','Estado*') }}
+    <div>
+        {{ Form::select('idEstadoSede', $estados, null, ['placeholder' => 'Seleccione Estado Sede','class' => 'form-control btn dropdown-toggle btn-sm']) }}
+    </div>
 </div>
 <div class="form-group">
     {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}

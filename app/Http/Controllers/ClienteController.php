@@ -5,7 +5,9 @@ use App\Canton;
 use App\Cliente;
 use App\Distrito;
 use App\Empleado;
+use App\Genero;
 use App\Http\Requests\ClienteRequest;
+use App\Ocupacion;
 use App\Provincia;
 use App\User;
 use App\Vehiculo;
@@ -39,13 +41,15 @@ class Clientecontroller extends Controller
     //aqui muestra la vista donde se crearan los clientes nuevos
     public function create()
     {
+        $genero=Genero::pluck('nombre','idGenero');
+        $ocupacion=Ocupacion::pluck('nombre','idOcupacion');
         $provincias=Provincia::pluck('nombre','idProvincia');
         $cantones=Canton::pluck('nombre','idCanton');
         $distritos=Distrito::pluck('nombre','idDistrito');
         $vehiculos=Vehiculo::pluck('modelo','idVehiculo');
 
 
-        return view('CRM.clientes.create',compact('cliente','provincias','cantones','distritos','vehiculos'));
+        return view('CRM.clientes.create',compact('cliente','genero','ocupacion','provincias','cantones','distritos','vehiculos'));
     }
 
     /**
@@ -58,7 +62,6 @@ class Clientecontroller extends Controller
     public function store(ClienteRequest $request)
     {
         $request->validate([
-            'idCliente',
             'idEmpleado' ,
             'idTipoCliente'  =>'required',
             'cedula'  => 'required|numeric|digits:9',
@@ -77,7 +80,6 @@ class Clientecontroller extends Controller
             'idDistrito'=>'required',
             'direccionExacta'=>'required',
             'idVehiculoInteres'=>'required',
-            'idEstadoCliente'=>'required',
         ]);
         try{
 

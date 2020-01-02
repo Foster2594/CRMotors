@@ -18,11 +18,9 @@
     {{ Form::text('apellido2',null,['class' => 'form-control']) }}
     {{$errors->first('apellido2')}}
 </div>
-{{--<div class="form-group">
-    {{ Form::label('idGenero','Genero *') }}
-    --}}{{--{{ Form::text('idGenero',null,['class' => 'form-control']) }}--}}{{--
+<div class="form-group">
     <div>
-        {{ Form::select('idGenero', $idGenero, null, ['placeholder' => 'Seleccione Género','class' => 'form control btn dropdown-toggle btn-sm']) }}
+        {{ Form::select('idGenero', $generos, null, ['placeholder' => 'Seleccione Género','class' => 'form control btn dropdown-toggle btn-sm']) }}
     </div>
     {{$errors->first('idGenero')}}
 </div>--}}
@@ -65,19 +63,27 @@
     {{$errors->first('direccionExacta')}}
 </div>
 <div class="form-group">
-    {{ Form::label('idSede','Sede *') }}
-    {{ Form::text('idSede',null,['class' => 'form-control']) }}
-    {{$errors->first('idSede')}}
+    {{ Form::label('idSede','Sede*') }}
+    <div>
+        {{ Form::select('idSede', $sedes, null, ['placeholder' => 'Seleccione Sede','class' => 'form-control btn dropdown-toggle btn-sm']) }}
+    </div>
 </div>
 <div class="form-group">
-    {{ Form::label('idDepartamento','Departamento *') }}
-    {{ Form::text('idDepartamento',null,['class' => 'form-control']) }}
-    {{$errors->first('idDepartamento')}}
+    {{ Form::label('idDepartamento','Departamento*') }}
+    <div>
+        {{ Form::select('idDepartamento', $departamentos, null, ['placeholder' => 'Seleccione Departamento','class' => 'form-control btn dropdown-toggle btn-sm']) }}
+    </div>
 </div>
 <div class="form-group">
-    {{ Form::label('idEstadoEmpleado','Estado *') }}
-    {{ Form::text('idEstadoEmpleado',null,['class' => 'form-control']) }}
-    {{$errors->first('idEstadoEmpleado')}}
+    {{ Form::label('idUsuario','Usuario*') }}
+    {{ Form::text('idUsuario',null,['class' => 'form-control']) }}
+    {{$errors->first('idUsuario')}}
+</div>
+<div class="form-group">
+    {{ Form::label('idEstadoEmpleado','Estado*') }}
+    <div>
+        {{ Form::select('idEstadoEmpleado', $estados, null, ['placeholder' => 'Seleccione Estado Empleado','class' => 'form-control btn dropdown-toggle btn-sm']) }}
+    </div>
 </div>
 <div class="form-group">
     {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}

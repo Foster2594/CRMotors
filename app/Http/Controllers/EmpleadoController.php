@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Canton;
+use App\Departamento;
 use App\Distrito;
 use App\Empleado;
 
 
+use App\estadoEmpleado;
+use App\Genero;
 use App\Provincia;
+use App\Sede;
 use Illuminate\Http\Request;
 
 class EmpleadoController extends Controller
@@ -33,7 +37,11 @@ class EmpleadoController extends Controller
         $provincias=Provincia::pluck('nombre','idProvincia');
         $cantones=Canton::pluck('nombre','idCanton');
         $distritos=Distrito::pluck('nombre','idDistrito');
-        return view('CRM.empleados.create',compact('empleados','provincias','cantones','distritos'));
+        $sedes=Sede::pluck('nombre','idSede');
+        $estados=estadoEmpleado::pluck('nombre','idEstadoEmpleado');
+        $departamentos=Departamento::pluck('nombre','idDepartamento');
+        $generos=Genero::pluck('nombre','idGenero');
+        return view('CRM.empleados.create',compact('empleados','provincias','cantones','generos','distritos','sedes','estados','departamentos'));
     }
 
     /**
@@ -65,10 +73,10 @@ class EmpleadoController extends Controller
 
 
 
-        $idempleado = Empleado::max('idempleado');
+        $idempleado = Empleado::max('idEmpleado');
         $idempleado=$idempleado+1;
         //return response()->json($idempleado);
-        $request->request->add(['idempleado' => $idempleado]);
+        $request->request->add(['idEmpleado' => $idempleado]);
         $empleado = Empleado::create($request->all());
 
         return redirect()->route('empleados.index')->with('info','empleado guardada con éxito');

@@ -103,12 +103,16 @@ class CampanaController extends Controller
      */
     public function edit($campana)
     {
-        $campana=Campana::where('idCampana',$campana)->first();
+        $sedes=Sede::pluck('nombre','idSede');
+        $tipos=tipoCampana::pluck('nombre','idTipoCampana');
+        $estados=estadoCampana::pluck('nombre','idEstadoCampana');
         $provincias=Provincia::pluck('nombre','idProvincia');
         $cantones=Canton::pluck('nombre','idCanton');
         $distritos=Distrito::pluck('nombre','idDistrito');
+        $campana=Campana::where('idcampana',$campana)->first();
 
-        return view('CRM.campanas.edit', compact('campana','provincias','cantones','distritos'));
+
+        return view('CRM.campanas.edit', compact('campana','sedes','tipos','estados','provincias','cantones','distritos'));
     }
 
     /**
@@ -120,11 +124,14 @@ class CampanaController extends Controller
      */
     public function update(Request $request, $campana)
     {
-        $campana=Campana::where('idCampana',$campana)->first();
-        $campana->update($request->all());
-//        $role->permissions()->sync($request->get('permissions'));
+        $request->request->add(['idcampana' => $campana]);
 
-        return redirect()->route('campanas.edit',$campana->idCampana)->with('info','Campana actualizada con éxito');
+        $campana=Campana::where('idcampana',$campana)->update($request->except('_token'));
+        //$campana=Campana::where('idCampana',$campana)->first();
+        //$campana->update($request->all());
+//        $role->permissions()->sync($request->get('permissions'));
+        return redirect()->route('campanas.show', compact('campana'))->with('info','campaña actualizada con éxito');
+        //return redirect()->route('campanas.edit',$campana->idCampana)->with('info','Campana actualizada con éxito');
     }
 
     /**
@@ -136,7 +143,7 @@ class CampanaController extends Controller
     public function enviaremail($campana)
     {   $id=$campana;
         $campana = Campana::where('idCampana', $campana)->first();
-        $detalles = DetalleCampana::where('idCampana', $id)->get();
+        $detalles = Campana::where('idCampana', $id)->get();
         $data = ['idCampana' => Auth()->id(),
             'campana'=>$campana,
             'detalles'=>$detalles,
@@ -155,7 +162,7 @@ class CampanaController extends Controller
     {
         $det = $request->detalle;
         $det = \GuzzleHttp\json_decode($det);
-        $detalle = new DetalleCampana();
+        $detalle = new Campana();
 
         $detalle->idCampana = $det->idCampana;
         $detalle->nombre = $request->nombre;
