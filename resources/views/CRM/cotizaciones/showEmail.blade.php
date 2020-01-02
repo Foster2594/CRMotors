@@ -26,8 +26,13 @@
                             <p><strong>Empleado: </strong>{{ $cotizacion->idEmpleado }}</p>
                         </div>
                     </div>
+                </br>
+                    </br>
+                    </br>
+                    </br>
+                    <h4>Detalle de Cotizacion</h4>
                     <div class="card">
-                        <div class="card-header"><h4>Detalle de Cotizacion</h4></div>
+                        <div class="card-header"></div>
                         <div class="body ml-3">
                             <div class="card-body table-responsive">
                                 <table class="table table-striped table-hover">
