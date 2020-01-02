@@ -89,17 +89,7 @@ class SedeController extends Controller
      */
     public function edit($sede,Request $request)
     {
-        $request->validate([
 
-            'nombre' =>'required',
-            'telefono'=>'required|numeric',
-            'correo' =>'required|email',
-            'idProvincia' =>'required',
-            'idCanton' =>'required',
-            'idDistrito' =>'required',
-            'direccionExacta' =>'required',
-            'idEstadoSede' =>'required',
-        ]);
         $provincias=Provincia::pluck('nombre','idProvincia');
         $cantones=Canton::pluck('nombre','idCanton');
         $distritos=Distrito::pluck('nombre','idDistrito');
@@ -117,6 +107,17 @@ class SedeController extends Controller
      */
     public function update(Request $request, $sede)
     {
+        $request->validate([
+
+            'nombre' =>'required',
+            'telefono'=>'required|numeric',
+            'correo' =>'required|email',
+            'idProvincia' =>'required',
+            'idCanton' =>'required',
+            'idDistrito' =>'required',
+            'direccionExacta' =>'required',
+            'idEstadoSede' =>'required',
+        ]);
         //  return $request;
         $request->request->add(['idSede' => $sede]);
 
