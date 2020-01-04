@@ -90,12 +90,13 @@ class SedeController extends Controller
     public function edit($sede,Request $request)
     {
 
+        $estados=estadoSede::pluck('nombre','idEstadoSede');
         $provincias=Provincia::pluck('nombre','idProvincia');
         $cantones=Canton::pluck('nombre','idCanton');
         $distritos=Distrito::pluck('nombre','idDistrito');
         $sede=Sede::where('idSede',$sede)->first();
 
-        return view('CRM.sedes.edit', compact('sede','provincias','cantones','distritos'));
+        return view('CRM.sedes.edit', compact('sede','estados','provincias','cantones','distritos'));
     }
 
     /**

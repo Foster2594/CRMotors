@@ -53,6 +53,11 @@
     {{$errors->first('fechaSalida')}}
 </div>
 <div class="form-group">
+    {{ Form::label('precio','Precio*') }}
+    {{ Form::text('precio',null,['class' => 'form-control']) }}
+    {{$errors->first('precio')}}
+</div>
+<div class="form-group">
     {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}
     <a href="{{ route('vehiculos.index') }}" class="btn btn-sm btn-primary">{{ _('Regresar') }}</a>
 </div>

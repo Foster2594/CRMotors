@@ -16,6 +16,7 @@ class Vehiculo extends Model{
         'cantidadDisponible',
         'fechaIngreso',
         'fechaSalida',
+        'precio'
     ];
     protected $primary_key = 'idVehiculo';
     public $incrementing = true;

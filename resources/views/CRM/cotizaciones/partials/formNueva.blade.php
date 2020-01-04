@@ -145,7 +145,7 @@
                             <th>Codigo</th>
                             <th>Marca</th>
                             <th>Modelo</th>
-                            <th>Precio</th>
+                            <th>Año</th>
                             <th colspan="2">Operaciones</th>
                             <th></th>
                         </tr>

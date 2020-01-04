@@ -19,6 +19,7 @@
                     <p><strong>Disponibles: </strong>{{ $vehiculo->cantidadDisponible }}</p>
                     <p><strong>Fecha Ingreso: </strong>{{ $vehiculo->fechaIngreso }}</p>
                     <p><strong>Fecha Salida: </strong>{{ $vehiculo->fechaSalida }}</p>
+                    <p><strong>Precio: </strong>{{ $vehiculo->precio }}</p>
                 </div>
                 <div class="card-footer">
                     <a href="{{ route('vehiculos.index') }}" class="btn btn-sm btn-primary">{{ _('Regresar') }}</a>

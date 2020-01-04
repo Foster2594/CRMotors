@@ -121,14 +121,16 @@ class Clientecontroller extends Controller
     public function edit($cliente, Request $request)
     {
 
-
+        $genero=Genero::pluck('nombre','idGenero');
+        $ocupacion=Ocupacion::pluck('nombre','idOcupacion');
         $provincias=Provincia::pluck('nombre','idProvincia');
         $cantones=Canton::pluck('nombre','idCanton');
-        $distritos="";
+        $distritos=Distrito::pluck('nombre','idDistrito');
         $vehiculos=Vehiculo::pluck('modelo','idVehiculo');
+
         $cliente=Cliente::where('idCliente',$cliente)->first();
 
-        return view('CRM.clientes.edit', compact('cliente','provincias','cantones','distritos','vehiculos'));
+        return view('CRM.clientes.edit', compact('cliente','genero','ocupacion','provincias','cantones','distritos','vehiculos'));
 
     }
 

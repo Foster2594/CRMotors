@@ -31,7 +31,7 @@
     {{ Form::label('idGenero','Genero *') }}
 
     <div>
-        {{ Form::select('idGenero', $genero, null, ['placeholder' => 'Seleccione Genero','class' => 'form-control btn dropdown-toggle btn-sm','id'=>'idGenero']) }}
+        {{ Form::select('idGenero', $errors, null, ['placeholder' => 'Seleccione Genero','class' => 'form-control btn dropdown-toggle btn-sm','id'=>'idGenero']) }}
     </div>
 </div>
 <div class="form-group">

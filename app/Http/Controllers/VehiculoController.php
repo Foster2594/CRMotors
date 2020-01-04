@@ -53,6 +53,7 @@ class VehiculoController extends Controller
             'cantidadDisponible' =>'required|numeric',
             'fechaIngreso' =>'required|date',
             'fechaSalida' =>'required|date',
+            'precio' =>'required|numeric'
         ]);
         $idVehiculo = Vehiculo::max('idVehiculo');
         $idVehiculo=$idVehiculo+1;
@@ -60,7 +61,7 @@ class VehiculoController extends Controller
         $request->request->add(['idVehiculo' => $idVehiculo]);
         $vehiculo =  Vehiculo::create($request->all());
 
-        return redirect()->route('vehiculos.index')->with('info','Sede guardada con éxito');
+        return redirect()->route('vehiculos.index')->with('info','Vehiculo guardado con éxito');
     }
 
     /**
@@ -111,6 +112,7 @@ class VehiculoController extends Controller
             'cantidadDisponible' =>'required|numeric',
             'fechaIngreso' =>'required|date',
             'fechaSalida' =>'required|date',
+            'precio' =>'required|numeric'
         ]);
         $vehiculo=Vehiculo::where('idVehiculo',$vehiculo)->update($request->except('_token','_method'));
 //        $role->permissions()->sync($request->get('permissions'));
