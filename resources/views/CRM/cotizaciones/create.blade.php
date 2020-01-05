@@ -8,9 +8,8 @@
             <div class="card">
                 <div class="card-header">
                     <h1><label class="label-left ">Cotizaciones</label></h1>
-                    <h1><label class="label float-right simple-text" >Numero de Cotización: COT#-00{{$idCotizacion}}</label></h1>
+                    <h1><label class="label float-right simple-text" >Número de Cotización: COT#-00{{$idCotizacion}}</label></h1>
                 </div>
-
                 <div class="card-body">
                     {!! Form::open(['route' => 'cotizaciones.store']) !!}
                         @include('CRM.cotizaciones.partials.form')

@@ -15,10 +15,10 @@
                             @if (session('resent'))
                                 <div class="alert alert-success" role="alert">
                                     {{-- alerta para el usuario de que se ha mandado una verificacion al email del usuario--}}
-                                    {{ __('Se ha enviado la ruta de verificación a su correo electronico.') }}
+                                    {{ __('Se ha enviado la ruta de verificación a su correo electrónico.') }}
                                 </div>
                             @endif
-                            {{ __('Antes de proceder, por favor verificar su correo electronico para enviar la ruta de verificación.') }}
+                            {{ __('Antes de proceder, por favor verificar su correo electrónico para enviar la ruta de verificación.') }}
                             @if (Route::has('verification.resend'))
                                     {{-- si la verificacion aun no ha llegado se tiene la opcion de mandar de nuevo el correo--}}
                                 {{ __('Si usted no ha recibido el correo electrónico') }}, <a href="{{ route('verification.resend') }}">{{ __('clic aquí para reenviar otra petición') }}</a>

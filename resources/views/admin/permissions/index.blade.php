@@ -17,7 +17,7 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th width="10px">ID</th>
+                                <th width="10px">Id</th>
                                 <th>Nombre</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>

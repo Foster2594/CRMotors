@@ -20,7 +20,7 @@
                                 <th>Nombre</th>
                                 <th>Primer Apellido</th>
                                 <th>Segundo Apellido</th>
-                                <th>Telefono Celular</th>
+                                <th>Teléfono Celular</th>
                                 <th>Correo</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>

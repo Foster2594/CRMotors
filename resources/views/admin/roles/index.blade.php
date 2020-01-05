@@ -17,16 +17,16 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th width="10px">Id</th>
                                 <th>Nombre</th>
+                                <th>Descripción</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($roles as $role)
                             <tr>
-                                <td>{{ $role->id }}</td>
                                 <td>{{ $role->name }}</td>
+                                <td>{{ $role->description }}</td>
                                 <td width="10px">
                                     @can('$roles.show')
                                     <a href="{{ route('roles.show', $role->id) }}" class="btn btn-sm btn-success">

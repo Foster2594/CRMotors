@@ -12,6 +12,8 @@
                     <p><strong>Nombre: </strong>{{ $permission->name }}</p>
                     <p><strong>Descripción: </strong>{{ $permission->description }}</p>
                     <p><strong>Slug: </strong>{{ $permission->slug }}</p>
+                    <p><strong>Fecha de Creación: </strong>{{ $permission->created_at }}</p>
+                    <p><strong>Fecha de Actualización: </strong>{{ $permission->updated_at }}</p>
                 </div>
                 <div class="card-footer">
                     <a href="{{ route('permissions.index') }}" class="btn btn-sm btn-primary">{{ _('Regresar') }}</a>

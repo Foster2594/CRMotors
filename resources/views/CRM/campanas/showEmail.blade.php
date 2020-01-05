@@ -14,20 +14,16 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header float-right">
-
                 </div>
                 <div class="card-body">
-
                     <div class="card">
                         <div class="card-header"><h3>Campañas Disponibles</h3></div>
-
                     </div>
                     <div class="card">
                         <div class="card-header"><h4>Detalle de Campaña</h4></div>
                         <div class="body ml-3">
                             <div class="card-body table-responsive">
                                 <div class="card-header"><h4>Detalles de la Campaña</h4></div>
-
                                     <tr>
                                         <th width="10px">ID</th>
                                         <th>Nombre</th>
@@ -55,8 +51,6 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>

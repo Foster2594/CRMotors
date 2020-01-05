@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <p><strong>Id: </strong>{{ $campana->idCampana }}</p>
                     <p><strong>Nombre: </strong>{{ $campana->nombre }}</p>
-                    <p><strong>Descripcion: </strong>{{ $campana->descripcion }}</p>
+                    <p><strong>Descripción: </strong>{{ $campana->descripcion }}</p>
                     <p><strong>Fecha Inicio: </strong>{{ $campana->fechaInicio }}</p>
                     <p><strong>Fecha Final: </strong>{{ $campana->fechaFinal }}</p>
                     <p><strong>Descuento Mínimo: </strong>{{ $campana->descuentoMinimo }}</p>
@@ -19,7 +19,7 @@
                     <p><strong>Tipo Campaña: </strong>{{ $campana->idTipoCampana }}</p>
                     <p><strong>Sede: </strong>{{ $campana->idSede }}</p>
                     <p><strong>Provincia: </strong>{{ $campana->idProvincia }}</p>
-                    <p><strong>Canton: </strong>{{ $campana->idCanton }}</p>
+                    <p><strong>Cantón: </strong>{{ $campana->idCanton }}</p>
                     <p><strong>Creado por: </strong>{{ $campana->idEmpleadoCreador }}</p>
                     <p><strong>Aprobado por: </strong>{{ $campana->idEmpleadoAprobador }}</p>
                     <p><strong>Estado: </strong>{{ $campana->idEstadoCampana }}</p>

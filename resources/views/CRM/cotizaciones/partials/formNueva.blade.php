@@ -1,6 +1,6 @@
 <!--En este Form para generar las cotizaciones-->
 <div class="form-group">
-    {{ Form::date('fechaCreacion',today(),['class' => 'form-control col-md-4']) }}
+    {{ Form::date('fechaCreacion',today(),['class' => 'form-control col-md-4','readonly'=>'true']) }}
 </div>
 <div class="form-group">
     <div class="row">
@@ -11,13 +11,13 @@
             </div>
         </div>
         <div class="col-sm-4">
-            {{ Form::label('idEmpleado','Empleado*') }}
+            {{ Form::label('idEmpleado','Vendedor*') }}
             <div>
-            {{ Form::select('idEmpleado',$empleados,null, ['placeholder' => 'Seleccione un Empleado','class' => 'form-control btn dropdown-toggle btn-sm']) }}
+            {{ Form::select('idEmpleado',$empleados,null, ['placeholder' => 'Seleccione Empleado','class' => 'form-control btn dropdown-toggle btn-sm']) }}
             </div>
         </div>
         <div class="col-sm-4">
-            {{ Form::label('idCampana','Campana*') }}
+            {{ Form::label('idCampana','Campaña*') }}
             <div>
                 <a onchange="descuento()">
                 {{ Form::select('idCampana', $campanas, null, ['placeholder' => 'Seleccione Campaña','class' => 'form-control btn dropdown-toggle btn-sm']) }}
@@ -29,7 +29,7 @@
 </div>
 <div class="form-group">
     <h5>
-        Detalle de Cotizacion
+        Detalle de Cotización
     </h5>
 </div>
 <div class="form-group">
@@ -38,10 +38,10 @@
             <thead>
             <tr>
                 <th width="10px">ID</th>
-                <th>Vehiculo</th>
-                <th>Descripcion</th>
+{{--                <th>Vehículo</th>--}}
+                <th>Descripción</th>
                 <th>Cantidad</th>
-                <th>precio</th>
+                <th>Precio</th>
                 <th>Impuesto</th>
                 <th>SubTotal</th>
             </tr>
@@ -49,14 +49,13 @@
             <tbody id="cotizacion">
             <tr>
                 <td>{{ "" }}</td>
-                <td>{{ "" }}</td>
+{{--                <td>{{ "" }}</td>--}}
                 <td>{{ "" }}</td>
                 <td>{{ "" }}</td>
                 <td>{{ "" }}</td>
                 <td>{{ "" }}</td>
                 <td>{{ "" }}</td>
             </tr>
-
             </tbody>
             <tfoot class="footer">
             <tr>
@@ -75,7 +74,6 @@
         </table>
     </div>
 </div>
-
 <div class="form-group row">
     <div class="col-sm-4">
         {{ Form::hidden('detalle',0,['class' => 'form-control','id'=>'jsonhidden']) }}
@@ -84,11 +82,9 @@
         {{ Form::hidden('hiddenCamp',$campanasG,['class' => 'form-control','id'=>'hiddenCamp']) }}
     </div>
 </div>
-
 <div class="form-group row">
-    {{ Form::label('subTotal','subtotal' ,['class' => 'col-sm-2 col-form-label offset-sm-6']) }}
+    {{ Form::label('subTotal','SubTotal' ,['class' => 'col-sm-2 col-form-label offset-sm-6']) }}
     <div class="col-sm-4">
-
         {{ Form::text('subTotal',0,['class' => 'form-control','id'=>'subtotal','readonly'=>'true']) }}
     </div>
 </div>
@@ -99,17 +95,14 @@
     </div>
 </div>
 <div class="form-group row">
-
     {{ Form::label('impuestoVentas','IVA',['class' => 'col-sm-2 col-form-label offset-sm-6']) }}
     <div class="col-sm-4">
-
         {{ Form::text('impuestoVentas',0,['class' => 'form-control','id'=>'iva','readonly'=>'readonly']) }}
     </div>
 </div>
 <div class="form-group row">
     {{ Form::label('total','Total',['class' => 'col-sm-2 col-form-label offset-sm-6']) }}
     <div class="col-sm-4">
-
         {{ Form::text('total',0,['class' => 'form-control','id'=>'total','readonly'=>'true']) }}
     </div>
 </div>
@@ -120,72 +113,59 @@
     </div>
 </div>
 
-
 {{--modal--}}
 <div class="form-group">
-
-
-<div class="modal"  id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document" >
-        <div class="modal-2black modal-content" style="background: #1d2124;  color: white;" >
-            <div class="modal-header modal-2black">
-                <h3 class="modal-black justify-content-center" id="exampleModalLongTitle">Vehiculos disponibles</h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body" onclick="subtotal()">
-                <div class="card-body table-responsive">
-                    <table class="table table-dark table-hover">
-                        <thead>
-                        <tr>
-                            <th width="10px">ID</th>
-                            <th>Tipo Vehiculo</th>
-                            <th>Codigo</th>
-                            <th>Marca</th>
-                            <th>Modelo</th>
-                            <th>Año</th>
-                            <th colspan="2">Operaciones</th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach ($vehiculos as $vehiculo)
-                            <tr>
-                                <td>{{ $vehiculo->idVehiculo }}</td>
-                                <td>{{ $vehiculo->idTipoVehiculo }}</td>
-                                <td>{{ $vehiculo->codigo }}</td>
-                                <td>{{ $vehiculo->marca }}</td>
-                                <td>{{ $vehiculo->modelo }}</td>
-                                <td>{{ $vehiculo->annio }}</td>
-                                <td>{{ $vehiculo->Precio }}</td>
-                                <td width="10px">
-                                    <a href="{{ route('vehiculos.show', $vehiculo->idVehiculo) }}"
-                                       class="btn btn-sm btn-success">
-                                        Ver
-                                    </a>
-                                </td>
-                                <td width="10px">
-                                    <a href="#" class="btn btn-sm btn-success " data-dismiss="modal"
-                                       onclick=agregafila("vehiculo{{$vehiculo->idVehiculo}}")>
-                                        Agregar
-                                    </a>
-                                    <input type="hidden" id="vehiculo{{$vehiculo->idVehiculo}}" value="{{$vehiculo}}"/>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+    <div class="modal"  id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document" >
+            <div class="modal-2black modal-content" style="background: #1d2124;  color: white;" >
+                <div class="modal-header modal-2black">
+                    <h4 class="modal-black justify-content-center" id="exampleModalLongTitle">Vehiculos disponibles</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="float: right">&times;</span>
+                    </button>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
+                <div class="modal-body" onclick="subtotal()">
+                    <div class="card-body table-responsive">
+                        <table class="table table-dark table-hover">
+                            <thead>
+                            <tr>
+                                <th width="10px">ID</th>
+                                <th>Código</th>
+                                <th>Marca</th>
+                                <th>Modelo</th>
+                                <th>Año</th>
+                                <th>Tipo Vehiculo</th>
+                                <th colspan="1"></th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach ($vehiculos as $vehiculo)
+                                <tr>
+                                    <td>{{ $vehiculo->idVehiculo }}</td>
+                                    <td>{{ $vehiculo->codigo }}</td>
+                                    <td>{{ $vehiculo->marca }}</td>
+                                    <td>{{ $vehiculo->modelo }}</td>
+                                    <td>{{ $vehiculo->annio }}</td>
+                                    <td>{{ $vehiculo->idTipoVehiculo }}</td>
+                                    <td width="10px">
+                                        <a href="#" class="btn btn-sm btn-success " data-dismiss="modal"
+                                           onclick=agregafila("vehiculo{{$vehiculo->idVehiculo}}")>
+                                            Agregar
+                                        </a>
+                                        <input type="hidden" id="vehiculo{{$vehiculo->idVehiculo}}" value="{{$vehiculo}}"/>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                        <button type="button" class="btn btn-primary" style="float: right;width: auto" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 {{--//inicio javascript--}}
 <script>
@@ -201,16 +181,15 @@
         var jsonIn = document.getElementById(id).value;
         obj = JSON.parse(jsonIn);
         numeroLinea = cont + 1;
-        var descripcion = obj["codigo"].concat(" marca: ", obj['marca'], 'modelo: ', obj['modelo']);
+        var descripcion = "Código: " + obj["codigo"].concat(", Marca: ", obj['marca'], ', Modelo: ', obj['modelo'], ', Año: ', obj['annio']);
 //se agrega la linea a la tabla
         let da = `<tr id="` + cont + `" data-id="` + cont + `">
                     <td width="10px">` + numeroLinea + `</td>
-                    <td>` + obj["codigo"] + `   </td>
                     <td>` + descripcion + `</td>
-                    <td><input class="form-control col-md-11" type="number" name="` + cont + `" id="cant` + numeroLinea + `" value="1" onclick=total(this)></td>
+                    <td><input class="form-control col-md-11" type="number" name="` + cont + `" id="cant` + numeroLinea + `" value="1" min="1" step="1" onclick=total(this)></td>
                     <td>` + obj['precio'] + `</td>
-                    <td><input class="form-control col-md-11" type="number" id="iva` + numeroLinea + `" value="` + obj['precio']*0.13    + `" rea></td>
-                    <td><input class="form-control col-md-11" type="number" id="sub` + numeroLinea + `" value="` + obj['precio'] + `"></td>
+                    <td><input class="form-control col-md-11" readonly type="number" id="iva` + numeroLinea + `" value="` + obj['precio']*0.13    + `"></td>
+                    <td><input class="form-control col-md-11" readonly type="number" id="sub` + numeroLinea + `" value="` + obj['precio'] + `"></td>
                 </tr>`;
         $("#cotizacion").append(da);
         cont++;

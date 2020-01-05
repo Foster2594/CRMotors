@@ -17,7 +17,6 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th width="10px">Id</th>
                                 <th>Nombre</th>
                                 <th>Correo</th>
                                 <th colspan="3">&nbsp;</th>
@@ -26,7 +25,6 @@
                         <tbody>
                             @foreach ($users as $user)
                             <tr>
-                                <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td width="10px">

@@ -1,20 +1,23 @@
 <div class="form-group">
-    {{ Form::label('name','Nombre del Usuario *') }}
+    {{ Form::label('name','Nombre del Usuario*') }}
     {{ Form::text('name',null,['class' => 'form-control']) }}
 </div>
 <div class="form-group">
-    {{ Form::label('slug','URL amigable *') }}
+    {{ Form::label('slug','URL amigable*') }}
     {{ Form::text('slug',null,['class' => 'form-control']) }}
 </div>
 <div class="form-group">
-    {{ Form::label('description','Descripción *') }}
+    {{ Form::label('description','Descripción*') }}
     {{ Form::text('description',null,['class' => 'form-control']) }}
 </div>
-<h3>Permiso especial</h3>
+<br/>
+<h4>Permiso especial</h4>
 <div class="form-group">
+    <label>{{ Form::radio('special','all-access') }} Total acceso</label>
+    <br/>
     <label>{{ Form::radio('special','no-access') }} Ningún acceso</label>
 </div>
-<h3>Lista de permisos</h3>
+<h4>Lista de permisos</h4>
 <div class="form-group">
     <ul class="list-unstyled">
         @foreach ($permissions as $permission)

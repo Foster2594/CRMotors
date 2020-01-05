@@ -4,34 +4,34 @@
     {{$errors->first('nombre')}}
 </div>
 <div class="form-group">
-    {{ Form::label('descripcion','Descripcion*') }}
+    {{ Form::label('descripcion','Descripción*') }}
     {{ Form::text('descripcion',null,['class' => 'form-control']) }}
     {{$errors->first('descripcion')}}
 </div>
 <div class="form-group">
-    {{ Form::label('fechaInicio','Fecha de Inicio*') }}
+    {{ Form::label('fechaInicio','Fecha Inicio*') }}
     {{ Form::date('fechaInicio',null,['class' => 'form-control']) }}
     {{$errors->first('fechaInicio')}}
 </div>
 <div class="form-group">
-    {{ Form::label('fechaFinal','Fecha de finalizacion*') }}
+    {{ Form::label('fechaFinal','Fecha Final*') }}
     {{ Form::date('fechaFinal',null,['class' => 'form-control']) }}
     {{$errors->first('fechaFinal')}}
 </div>
 <div class="form-group">
-    {{ Form::label('descuentoMinimo','Descuento minimo para el cliente*') }}
+    {{ Form::label('descuentoMinimo','Descuento Mínimo*') }}
     {{ Form::text('descuentoMinimo',null,['class' => 'form-control']) }}
     {{$errors->first('descuentoMinimo')}}
 </div>
 <div class="form-group">
-    {{ Form::label('descuentoMaximo','Descuento maximo para el cliente*') }}
+    {{ Form::label('descuentoMaximo','Descuento Máximo*') }}
     {{ Form::text('descuentoMaximo',null,['class' => 'form-control']) }}
     {{$errors->first('descuentoMaximo')}}
 </div>
 <div class="form-group">
-    {{ Form::label('idTipoCampana','Tipo Campana*') }}
+    {{ Form::label('idTipoCampana','Tipo de Campaña*') }}
     <div>
-        {{ Form::select('idTipoCampana', $tipos, null, ['placeholder' => 'Seleccione Tipo Campaña','class' => 'form control btn dropdown-toggle btn-sm']) }}
+        {{ Form::select('idTipoCampana', $tipos, null, ['placeholder' => 'Seleccione Tipo de Campaña','class' => 'form control btn dropdown-toggle btn-sm']) }}
     </div>
 </div>
 <div class="form-group">
@@ -50,9 +50,9 @@
     {{$errors->first('idProvincia')}}
 </div>
 <div class="form-group">
-    {{ Form::label('idCanton','Canton*') }}
+    {{ Form::label('idCanton','Cantón*') }}
     <div>
-        {{ Form::select('idCanton', $cantones, null, ['placeholder' => 'Seleccione Canton','class' => 'form control btn dropdown-toggle btn-sm']) }}
+        {{ Form::select('idCanton', $cantones, null, ['placeholder' => 'Seleccione Cantón','class' => 'form control btn dropdown-toggle btn-sm']) }}
     </div>
     {{$errors->first('idCanton')}}
 </div>

@@ -16,19 +16,17 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th width="10px">ID</th>
-                                <th>Cedula</th>
+                                <th>Cédula</th>
                                 <th>Nombre</th>
-                                <th>Telefono</th>
+                                <th>Teléfono</th>
                                 <th>Correo</th>
-                                <th>Estado Proveedor</th>
+                                <th>Estado</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($proveedores as $proveedor)
                             <tr>
-                                <td>{{ $proveedor->idProveedor }}</td>
                                 <td>{{ $proveedor->cedula }}</td>
                                 <td>{{ $proveedor->nombre }}</td>
                                 <td>{{ $proveedor->numeroTelefono }}</td>

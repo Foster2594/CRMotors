@@ -9,6 +9,7 @@
                     <h4>Ver Usuario</h4>
                 </div>
                 <div class="card-body">
+                    <p><strong>Id: </strong>{{ $user->id }}</p>
                     <p><strong>Nombre: </strong>{{ $user->name }}</p>
                     <p><strong>Correo: </strong>{{ $user->email }}</p>
                     <p><strong>Fecha de Creación: </strong>{{ $user->created_at }}</p>

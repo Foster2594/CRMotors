@@ -9,9 +9,9 @@
                     <div class="form-group card-header">
                         <h4>Clientes Disponibles</h4>
                         <div >
-                            <p><strong>Seleccione un empleado</strong>
+                            <p><strong>Vendedor</strong>
                                 <a onchange="setId()">
-                                    {{ Form::select('idEmpleado', $usuarios, 10, ['class' => 'form control btn dropdown-toggle btn-sm', 'onclick=setId()']) }}
+                                    {{ Form::select('idEmpleado', $usuarios, null, ['placeholder' => 'Seleccione Vendedor','class' => 'form control btn dropdown-toggle btn-sm', 'onclick=setId()']) }}
                                 </a>
                             </p>
                         </div>
@@ -22,12 +22,12 @@
                         <table class="table table-striped table-hover">
                             <thead>
                             <tr>
-                                <th width="10px">ID</th>
-                                <th>Cedula</th>
+{{--                                <th width="10px">ID</th>--}}
+                                <th>Cédula</th>
                                 <th>Nombre</th>
-                                <th>Primer apellido</th>
-                                <th>Segundo apellido</th>
-                                <th>Celular</th>
+                                <th>Primer Apellido</th>
+                                <th>Segundo Apellido</th>
+                                <th>Teléfono Celular</th>
                                 <th>Correo</th>
                                 <th>Ingreso Salarial</th>
                                 <th>&nbsp;</th>
@@ -37,7 +37,7 @@
                             <tbody>
                             @foreach ($clientesVacios as $clienteV)
                                 <tr>
-                                    <td>{{ $clienteV->idCliente }}</td>
+{{--                                    <td>{{ $clienteV->idCliente }}</td>--}}
                                     <td>{{ $clienteV->cedula }}</td>
                                     <td>{{ $clienteV->nombre }}</td>
                                     <td>{{ $clienteV->apellido1 }}</td>

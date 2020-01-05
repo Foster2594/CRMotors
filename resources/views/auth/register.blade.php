@@ -11,9 +11,9 @@
                         con clientes, orientada normalmente a gestionar tres
                         áreas básicas:
                         <ul>
-                            <li>la gestión comercial,
-                            <li>el marketing
-                            <li>el servicio postventa o de atención al cliente.
+                            <li>La gestión comercial.
+                            <li>El marketing.
+                            <li>El servicio postventa o de atención al cliente.
                         </ul>
                     </p>
                 </div>

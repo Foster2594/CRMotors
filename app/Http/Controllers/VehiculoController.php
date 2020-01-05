@@ -45,11 +45,11 @@ class VehiculoController extends Controller
         $request->validate([
             'idProveedor' =>'required',
             'idTipoVehiculo' =>'required',
-            'codigo' =>'required|numeric|unique:Vehiculo',
+            'codigo' =>'required',
             'marca' =>'required',
             'modelo' =>'required',
             'parametroVersion' =>'required',
-            'annio' =>'required|numeric|digits:4',
+            'annio' =>'required|numeric|integer|digits:4',
             'cantidadDisponible' =>'required|numeric',
             'fechaIngreso' =>'required|date',
             'fechaSalida' =>'required|date',
@@ -104,12 +104,12 @@ class VehiculoController extends Controller
         $request->validate([
             'idProveedor' =>'required',
             'idTipoVehiculo' =>'required',
-            'codigo' =>'required|numeric|unique:Vehiculo',
+            'codigo' =>'required',
             'marca' =>'required',
             'modelo' =>'required',
             'parametroVersion' =>'required',
-            'annio' =>'required|numeric|digits:4',
-            'cantidadDisponible' =>'required|numeric',
+            'annio' =>'required|numeric|integer|digits:4',
+            'cantidadDisponible' =>'required|numeric|integer|min:1',
             'fechaIngreso' =>'required|date',
             'fechaSalida' =>'required|date',
             'precio' =>'required|numeric'
@@ -117,7 +117,7 @@ class VehiculoController extends Controller
         $vehiculo=Vehiculo::where('idVehiculo',$vehiculo)->update($request->except('_token','_method'));
 //        $role->permissions()->sync($request->get('permissions'));
 
-        return redirect()->route('vehiculos.edit',$vehiculo)->with('info','Vehiculo actualizado con éxito');
+        return redirect()->route('vehiculos.index',$vehiculo)->with('info','Vehiculo actualizado con éxito');
     }
 
     /**

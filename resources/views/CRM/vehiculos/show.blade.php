@@ -9,16 +9,17 @@
                     <h4>Ver Vehículo</h4>
                 </div>
                 <div class="card-body">
+                    <p><strong>Id: </strong>{{ $vehiculo->idVehiculo }}</p>
                     <p><strong>Proveedor: </strong>{{ $vehiculo->idProveedor }}</p>
-                    <p><strong>Tipo Vehiculo: </strong>{{ $vehiculo->idTipoVehiculo }}</p>
-                    <p><strong>Codigo: </strong>{{ $vehiculo->codigo }}</p>
+                    <p><strong>Tipo: </strong>{{ $vehiculo->idTipoVehiculo }}</p>
+                    <p><strong>Código: </strong>{{ $vehiculo->codigo }}</p>
                     <p><strong>Marca: </strong>{{ $vehiculo->marca }}</p>
                     <p><strong>Modelo: </strong>{{ $vehiculo->modelo }}</p>
-                    <p><strong>Version: </strong>{{ $vehiculo->parametroVersion }}</p>
+                    <p><strong>Versión: </strong>{{ $vehiculo->parametroVersion }}</p>
                     <p><strong>Año: </strong>{{ $vehiculo->annio }}</p>
                     <p><strong>Disponibles: </strong>{{ $vehiculo->cantidadDisponible }}</p>
-                    <p><strong>Fecha Ingreso: </strong>{{ $vehiculo->fechaIngreso }}</p>
-                    <p><strong>Fecha Salida: </strong>{{ $vehiculo->fechaSalida }}</p>
+                    <p><strong>Fecha de Ingreso: </strong>{{ $vehiculo->fechaIngreso }}</p>
+                    <p><strong>Fecha de Salida: </strong>{{ $vehiculo->fechaSalida }}</p>
                     <p><strong>Precio: </strong>{{ $vehiculo->precio }}</p>
                 </div>
                 <div class="card-footer">

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Empleado</div>
+                <div class="card-header"><h4>Editar Empleado</h4></div>
                 <div class="card-body">
                     {{--{!! Form::model($empleado, ['route' => ['empleados.update',$empleado->idempleado],--}}
                     {{--'method' => 'POST']) !!}--}}

@@ -16,28 +16,24 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th width="10px">Id</th>
                                 <th>Nombre</th>
-                                <th>Telefono</th>
+                                <th>Teléfono</th>
                                 <th>Correo</th>
                                 <th>Provincia</th>
-                                <th>Canton</th>
+                                <th>Cantón</th>
                                 <th>Distrito</th>
-                                <th>Estado</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($sedes as $sede)
                             <tr>
-                                <td>{{ $sede->idSede }}</td>
                                 <td>{{ $sede->nombre }}</td>
                                 <td>{{ $sede->telefono }}</td>
                                 <td>{{ $sede->correo }}</td>
                                 <td>{{ $sede->idProvincia }}</td>
                                 <td>{{ $sede->idCanton }}</td>
                                 <td>{{ $sede->idDistrito }}</td>
-                                <td>{{ $sede->idEstadoSede }}</td>
                                 <td width="10px">
                                     <a href="{{ route('sedes.show', $sede->idSede) }}" class="btn btn-sm btn-success">
                                         Ver
@@ -49,7 +45,6 @@
                                     </a>
                                 </td>
                                 <td width="10px">
-
                                     {!! Form::open(['route' => ['sedes.destroy', $sede->idSede],
                                     'method' => 'DELETE']) !!}
                                     <button class="btn btn-sm btn-danger">Eliminar</button>

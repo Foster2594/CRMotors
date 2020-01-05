@@ -8,7 +8,7 @@
                 <div class="card-header">
                     <div class="panel-content">
                         <h4 class="pull-left">Nueva Cotización</h4>
-                        <h4 class="pull-right">Numero de Cotización: COT#-00{{$idCotizacion}}</h4>
+                        <h4 class="pull-right">Número de Cotización: COT#-00{{$idCotizacion}}</h4>
                     </div>
                     {!! Form::open(['route' => 'cotizaciones.store']) !!}
                 </div>

@@ -14,8 +14,8 @@
                             <div class="body ml-3">
                                 <p><strong>Número: </strong>COT-000{{ $cotizacion->idEncabezadoCotizacion }}</p>
                                 <p><strong>Cliente: </strong>{{ $cotizacion->idCliente }}</p>
-                                <p><strong>Empleado: </strong>{{ $cotizacion->idEmpleado }}</p>
-                                <p><strong>Fecha de creacion: </strong>{{ $cotizacion->fechaCreacion }}</p>
+                                <p><strong>Vendedor: </strong>{{ $cotizacion->idEmpleado }}</p>
+                                <p><strong>Fecha de Creación: </strong>{{ $cotizacion->fechaCreacion }}</p>
                             </div>
                         </div>
                         <div class="card">
@@ -55,7 +55,7 @@
                             <div class="card-header">
                             </div>
                             <div class="body ml-3">
-                                <p><strong>Numero de lineas: </strong>{{ $cotizacion->numeroLineas }}</p>
+                                <p><strong>Número de Líneas: </strong>{{ $cotizacion->numeroLineas }}</p>
                                 <p><strong>Campaña: </strong>{{ $cotizacion->idCampana }}</p>
                                 <p><strong>Estado: </strong>{{ $cotizacion-> idEstadoCotizacion}}</p>
                                 <p><strong>SubTotal: </strong>{{ $cotizacion->subTotal }}</p>

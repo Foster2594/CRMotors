@@ -21,8 +21,8 @@
                             <tr>
                                 <th width="10px">ID</th>
                                 <th>Nombre</th>
-                                <th>Empleado</th>
-                                <th>Telefono</th>
+                                <th>Vendedor</th>
+                                <th>Teléfono</th>
                                 <th>Total</th>
                                 <th colspan="3"></th>
                             </tr>
@@ -48,28 +48,22 @@
                                         </a>
 
                                     </td>
-
                                     <td width="10px">
                                         <a href="{{ route('cotizaciones.pdf', $cotizacion->idEncabezadoCotizacion) }}" class="btn btn-sm btn-success float-right">
                                             PDF
                                         </a>
-
                                     </td>
                                     <td width="10px">
                                         <a href="{{ route('Email.cotizacionMail', $cotizacion->idEncabezadoCotizacion) }}" class="btn btn-sm btn-success float-right">
                                             Enviar
                                         </a>
                                     </td>
-
-
                                 @can('admin')
                                     <td width="10px">
-
                                         {!! Form::open(['route' => ['cotizaciones.destroy', $cotizacion->idEncabezadoCotizacion],
                                         'method' => 'DELETE']) !!}
                                         <button class="btn btn-sm btn-danger">Eliminar</button>
                                         {!! Form::close() !!}
-
                                     </td>
                                     @endcan
                                 </tr>

@@ -44,7 +44,7 @@
             <li>
                 <a href="{{ route('cotizaciones.index') }}">
                     <i class="tim-icons icon-notes"></i>
-                    <p>{{ _('Cotizacion') }}</p>
+                    <p>{{ _('Cotización') }}</p>
                 </a>
             </li>
             @can('empleados.index')
@@ -99,7 +99,7 @@
                 <li>
                     <a href="{{ route('vehiculos.index') }}">
                         <i class="tim-icons icon-bus-front-12"></i>
-                        <p>{{ _('Vehiculos') }}</p>
+                        <p>{{ _('Vehículos') }}</p>
                     </a>
                 </li>
             @endcan

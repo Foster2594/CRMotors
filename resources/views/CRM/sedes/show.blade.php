@@ -13,7 +13,7 @@
                     <p><strong>Telefono: </strong>{{ $sede->telefono }}</p>
                     <p><strong>Correo: </strong>{{ $sede->correo }}</p>
                     <p><strong>Provincia: </strong>{{ $sede->idProvincia }}</p>
-                    <p><strong>Canton: </strong>{{ $sede->idCanton }}</p>
+                    <p><strong>Cantón: </strong>{{ $sede->idCanton }}</p>
                     <p><strong>Distrito: </strong>{{ $sede->idDistrito }}</p>
                     <p><strong>Dirección: </strong>{{ $sede->direccionExacta }}</p>
                     <p><strong>Estado: </strong>{{ $sede->idEstadoSede }}</p>

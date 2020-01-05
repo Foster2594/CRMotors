@@ -19,18 +19,18 @@
     {{$errors->first('apellido2')}}
 </div>
 <div class="form-group">
+    {{ Form::label('idGenero','Género*') }}
     <div>
         {{ Form::select('idGenero', $generos, null, ['placeholder' => 'Seleccione Género','class' => 'form control btn dropdown-toggle btn-sm']) }}
     </div>
-
-</div>--}}
+</div>
 <div class="form-group">
-    {{ Form::label('telefonoCelular','Telefono Celular*') }}
+    {{ Form::label('telefonoCelular','Teléfono Celular*') }}
     {{ Form::text('telefonoCelular',null,['class' => 'form-control']) }}
     {{$errors->first('telefonoCelular')}}
 </div>
 <div class="form-group">
-    {{ Form::label('otroTelefono','Otro Telefono*') }}
+    {{ Form::label('otroTelefono','Otro Teléfono*') }}
     {{ Form::text('otroTelefono',null,['class' => 'form-control']) }}
     {{$errors->first('otroTelefono')}}
 </div>
@@ -40,25 +40,25 @@
     {{$errors->first('correo')}}
 </div>
 <div class="form-group">
-    {{ Form::label('idProvincia','Provincia *') }}
+    {{ Form::label('idProvincia','Provincia*') }}
     <div>
         {{ Form::select('idProvincia', $provincias, null, ['placeholder' => 'Seleccione Provincia','class' => 'form-control btn dropdown-toggle btn-sm','id'=>'idProvincia']) }}
     </div>
 </div>
 <div class="form-group">
-    {{ Form::label('idCanton','Canton *') }}
+    {{ Form::label('idCanton','Cantón*') }}
     <div>
-        {{ Form::select('idCanton', $cantones, null, ['placeholder' => 'Seleccione Canton','class' => 'form-control btn dropdown-toggle btn-sm']) }}
+        {{ Form::select('idCanton', $cantones, null, ['placeholder' => 'Seleccione Cantón','class' => 'form-control btn dropdown-toggle btn-sm']) }}
     </div>
 </div>
 <div class="form-group">
-    {{ Form::label('idDistrito','Distrito *') }}
+    {{ Form::label('idDistrito','Distrito*') }}
     <div>
         {{ Form::select('idDistrito', $distritos, null, ['placeholder' => 'Seleccione Distrito','class' => 'form-control btn dropdown-toggle btn-sm']) }}
     </div>
 </div>
 <div class="form-group">
-    {{ Form::label('direccionExacta','Direccion *') }}
+    {{ Form::label('direccionExacta','Dirección*') }}
     {{ Form::text('direccionExacta',null,['class' => 'form-control']) }}
     {{$errors->first('direccionExacta')}}
 </div>
@@ -82,7 +82,7 @@
 <div class="form-group">
     {{ Form::label('idEstadoEmpleado','Estado*') }}
     <div>
-        {{ Form::select('idEstadoEmpleado', $estados, null, ['placeholder' => 'Seleccione Estado Empleado','class' => 'form-control btn dropdown-toggle btn-sm']) }}
+        {{ Form::select('idEstadoEmpleado', $estados, null, ['placeholder' => 'Seleccione Estado','class' => 'form-control btn dropdown-toggle btn-sm']) }}
     </div>
 </div>
 <div class="form-group">

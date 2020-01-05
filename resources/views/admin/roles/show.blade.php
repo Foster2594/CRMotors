@@ -11,9 +11,12 @@
                     </h4>
                 </div>
                 <div class="card-body">
+                    <p><strong>Id: </strong>{{ $role->id }}</p>
                     <p><strong>Nombre: </strong>{{ $role->name }}</p>
                     <p><strong>Slug: </strong>{{ $role->slug }}</p>
                     <p><strong>Descripción: </strong>{{ $role->description }}</p>
+                    <p><strong>Fecha de Creación: </strong>{{ $role->created_at }}</p>
+                    <p><strong>Fecha de Actualización: </strong>{{ $role->updated_at }}</p>
                 </div>
                 <div class="card-footer">
                     <a href="{{ route('roles.index') }}" class="btn btn-sm btn-primary">{{ _('Regresar') }}</a>

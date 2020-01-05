@@ -8,7 +8,7 @@
                 <div class="card-header"><h4>Ver Proveedor</h4></div>
                 <div class="card-body">
                     <p><strong>Id: </strong>{{ $proveedor->idProveedor }}</p>
-                    <p><strong>Cedula: </strong>{{ $proveedor->cedula }}</p>
+                    <p><strong>Cédula: </strong>{{ $proveedor->cedula }}</p>
                     <p><strong>Nombre: </strong>{{ $proveedor->nombre }}</p>
                     <p><strong>Teléfono: </strong>{{ $proveedor->numeroTelefono }}</p>
                     <p><strong>Correo: </strong>{{ $proveedor->correo }}</p>

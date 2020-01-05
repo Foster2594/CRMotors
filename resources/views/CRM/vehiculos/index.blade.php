@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Vehiculos
+                    <h4>Vehículos
                             <a href="{{ route('vehiculos.create', $vehiculos) }}" class="btn btn-sm btn-primary float-right">
                                 Crear
                             </a>
@@ -16,21 +16,21 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th width="10px">ID</th>
+                                <th>Código</th>
                                 <th>Marca</th>
                                 <th>Modelo</th>
-                                <th>Version</th>
+                                <th>Versión</th>
                                 <th>Año</th>
                                 <th>Disponibles</th>
-                                <th>Fecha Ingreso</th>
-                                <th>Fecha Salida</th>
+                                <th>Fecha de Ingreso</th>
+                                <th>Fecha de Salida</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($vehiculos as $vehiculo)
                             <tr>
-                                <td>{{ $vehiculo->idVehiculo }}</td>
+                                <td>{{ $vehiculo->codigo }}</td>
                                 <td>{{ $vehiculo->marca }}</td>
                                 <td>{{ $vehiculo->modelo }}</td>
                                 <td>{{ $vehiculo->parametroVersion }}</td>

@@ -16,20 +16,20 @@
                         <table class="table table-striped table-hover">
                             <thead>
                             <tr>
-                                <th width="10px">ID</th>
+{{--                                <th width="10px">ID</th>--}}
                                 <th>Nombre</th>
-                                <th>Descripcion</th>
+                                <th>Descripción</th>
                                 <th>Fecha Inicio</th>
                                 <th>Fecha Final</th>
-                                <th>Descuento Minimo</th>
-                                <th>Descuento Maximo</th>
+                                <th>Descuento Mínimo</th>
+                                <th>Descuento Máximo</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach ($campanas as $campana)
                                 <tr>
-                                    <td>{{ $campana->idCampana }}</td>
+{{--                                    <td>{{ $campana->idCampana }}</td>--}}
                                     <td>{{ $campana->nombre }}</td>
                                     <td>{{ $campana->descripcion }}</td>
                                     <td>{{ $campana->fechaInicio }}</td>

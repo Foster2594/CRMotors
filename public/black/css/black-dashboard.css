@@ -88,7 +88,7 @@ section {
 
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: "Verdana", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
@@ -4751,7 +4751,7 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #ffffff;
+  background-color: #212529;
   background-clip: border-box;
   border: 0.0625rem solid rgba(34, 42, 66, 0.05);
   border-radius: 0.2857rem;
@@ -6035,7 +6035,7 @@ button.close {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: "Verdana", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -6160,7 +6160,7 @@ button.close {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Verdana", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -13988,7 +13988,7 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: "Poppins", sans-serif;
+  font-family: "Verdana", sans-serif;
 }
 
 .card h1,
@@ -17245,7 +17245,6 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .card {
-  background: #212529;
   border: 0;
   position: relative;
   width: 100%;

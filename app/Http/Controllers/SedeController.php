@@ -48,7 +48,7 @@ class SedeController extends Controller
         $request->validate([
 
             'nombre' =>'required',
-            'telefono'=>'required|numeric',
+            'telefono'=>'required',
             'correo' =>'required|email',
             'idProvincia' =>'required',
             'idCanton' =>'required',
@@ -111,7 +111,7 @@ class SedeController extends Controller
         $request->validate([
 
             'nombre' =>'required',
-            'telefono'=>'required|numeric',
+            'telefono'=>'required',
             'correo' =>'required|email',
             'idProvincia' =>'required',
             'idCanton' =>'required',
@@ -126,7 +126,7 @@ class SedeController extends Controller
 
 //        $role->permissions()->sync($request->get('permissions'));
 
-        return redirect()->route('sedes.show', compact('sede'))->with('info','Sede actualizada con éxito');
+        return redirect()->route('sedes.index', compact('sede'))->with('info','Sede actualizada con éxito');
     }
 
     /**

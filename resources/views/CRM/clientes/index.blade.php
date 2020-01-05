@@ -16,12 +16,12 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th width="10px">Id</th>
-                                <th>Cedula</th>
+{{--                                <th width="10px">Id</th>--}}
+                                <th>Cédula</th>
                                 <th>Nombre</th>
-                                <th>Primer apellido</th>
-                                <th>Segundo apellido</th>
-                                <th>Celular</th>
+                                <th>Primer Apellido</th>
+                                <th>Segundo Apellido</th>
+                                <th>Teléfono Celular</th>
                                 <th colspan="4">&nbsp;</th>
                                 <th ></th>
                             </tr>
@@ -29,7 +29,7 @@
                         <tbody>
                             @foreach ($clientes as $cliente)
                             <tr>
-                                <td>{{ $cliente->idCliente }}</td>
+{{--                                <td>{{ $cliente->idCliente }}</td>--}}
                                 <td>{{ $cliente->cedula }}</td>
                                 <td>{{ $cliente->nombre }}</td>
                                 <td>{{ $cliente->apellido1 }}</td>
