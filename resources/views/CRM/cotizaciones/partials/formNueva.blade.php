@@ -7,13 +7,13 @@
         <div class="col-sm-4">
             {{ Form::label('idCliente','Cliente*') }}
             <div>
-            {{ Form::select('idCliente', $clientes, null, ['placeholder' => 'Seleccione un Cliente','class' => 'form-control btn dropdown-toggle btn-sm']) }}
+            {{ Form::select('idCliente', $clientes, null, ['placeholder' => 'Seleccione Cliente','class' => 'form-control btn dropdown-toggle btn-sm']) }}
             </div>
         </div>
         <div class="col-sm-4">
             {{ Form::label('idEmpleado','Vendedor*') }}
             <div>
-            {{ Form::select('idEmpleado',$empleados,null, ['placeholder' => 'Seleccione Empleado','class' => 'form-control btn dropdown-toggle btn-sm']) }}
+            {{ Form::select('idEmpleado',$empleados,null, ['placeholder' => 'Seleccione Vendedor','class' => 'form-control btn dropdown-toggle btn-sm']) }}
             </div>
         </div>
         <div class="col-sm-4">

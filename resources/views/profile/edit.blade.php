@@ -34,7 +34,7 @@
                             @include('alerts.feedback', ['field' => 'name'])
                         </div>
                         <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
-                            <label>{{ _('Email') }}</label>
+                            <label>{{ _('Correo') }}</label>
                             <input type="email" name="email"
                                    class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
                                    placeholder="{{ _('Email address') }}"
@@ -47,7 +47,7 @@
                     </div>
                 </form>
                 <div class="card-header">
-                    <h5 class="title">{{ _('Password') }}</h5>
+                    <h5 class="title">{{ _('Contraseña') }}</h5>
                 </div>
                 <form method="post" action="{{ route('profile.password') }}" autocomplete="off">
                     <div class="card-body">

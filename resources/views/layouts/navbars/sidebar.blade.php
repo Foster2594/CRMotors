@@ -19,12 +19,11 @@
                 </a>
             </li>
             <li>
-                <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
+                <a data-toggle="collapse" aria-expanded="true">
                     <i class="tim-icons icon-single-02"></i>
                     <span class="nav-link-text">{{ __('Clientes') }}</span>
-                    <b class="caret mt-1"></b>
                 </a>
-                <div class="collapse show" id="laravel-examples">
+                <div class="collapse show">
                     <ul class="nav pl-4">
                         <li>
                             <a href="{{ route('clientes.indexCartera') }}">

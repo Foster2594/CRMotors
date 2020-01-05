@@ -9,9 +9,9 @@
                     <div class="form-group card-header">
                         <h4>Clientes Disponibles</h4>
                         <div >
-                            <p><strong>Vendedor</strong>
+                            <p><label>Vendedor*</label>
                                 <a onchange="setId()">
-                                    {{ Form::select('idEmpleado', $usuarios, null, ['placeholder' => 'Seleccione Vendedor','class' => 'form control btn dropdown-toggle btn-sm', 'onclick=setId()']) }}
+                                    {{ Form::select('idEmpleado', $usuarios, null, ['placeholder' => 'Seleccione Vendedor','class' => 'form-control btn dropdown-toggle btn-sm', 'onclick=setId()']) }}
                                 </a>
                             </p>
                         </div>
