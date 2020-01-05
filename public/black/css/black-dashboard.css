@@ -2309,7 +2309,7 @@ textarea.form-control {
   vertical-align: middle;
   user-select: none;
   border: 1px solid transparent;
-  padding: 11px 40px;
+  padding: 11px 15px;
   font-size: 0.875rem;
   line-height: 1.35em;
   border-radius: 0.25rem;
@@ -13999,6 +13999,7 @@ textarea {
 .card h6,
 .card p {
   color: rgba(255, 255, 255, 0.8);
+  padding: 0 0 0 5px;
 }
 
 h1,
@@ -17261,7 +17262,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .card .card-body {
-  padding: 0 15px 15px 15px;
+  padding: 0 15px 0px 15px;
 }
 
 .card .card-body.table-full-width {
@@ -17282,7 +17283,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .card .card-header {
-  padding: 15px 15px 0;
+  padding: 10px 10px 0;
   border: 0;
   color: rgba(255, 255, 255, 0.8);
 }
@@ -17494,7 +17495,7 @@ Copyright (c) 2015 Daniel Eden
 .card .card-footer {
   background-color: transparent;
   border: 0;
-  padding: 0 15px 15px 15px;
+  padding: 0 15px 5px 15px;
 }
 
 .card .card-footer .stats i {
@@ -17606,7 +17607,7 @@ Copyright (c) 2015 Daniel Eden
 .card-user .author {
   text-align: center;
   text-transform: none;
-  margin-top: 25px;
+  margin-top: 10px;
 }
 
 .card-user .author a+p.description {

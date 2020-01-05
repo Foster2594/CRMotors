@@ -2,53 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e37a962e-2b49-4f04-9a3a-bd87e5cc2aee" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/CRMotors.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CRMotors.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SedeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SedeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VehiculoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VehiculoController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/black/css/black-dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/black/css/black-dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/campanas/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/campanas/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/campanas/partials/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/campanas/partials/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/campanas/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/campanas/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/campanas/showEmail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/campanas/showEmail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/clientes/CarteraDisponible.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/clientes/CarteraDisponible.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/clientes/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/clientes/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/clientes/partials/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/clientes/partials/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/clientes/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/clientes/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/cotizaciones/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/cotizaciones/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/cotizaciones/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/cotizaciones/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/cotizaciones/nuevaCot.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/cotizaciones/nuevaCot.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/cotizaciones/partials/formNueva.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/cotizaciones/partials/formNueva.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/cotizaciones/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/cotizaciones/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/empleados/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/empleados/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/empleados/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/empleados/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/empleados/partials/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/empleados/partials/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/empleados/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/empleados/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/proveedores/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/proveedores/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/proveedores/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/proveedores/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/sedes/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/sedes/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/sedes/partials/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/sedes/partials/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/sedes/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/sedes/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/vehiculos/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/vehiculos/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/vehiculos/partials/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/vehiculos/partials/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CRM/vehiculos/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/vehiculos/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/permissions/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/permissions/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/permissions/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/permissions/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/permissions/partials/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/permissions/partials/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/permissions/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/permissions/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/roles/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/roles/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/roles/partials/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/roles/partials/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/roles/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/roles/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/partials/createForm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/partials/createForm.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/partials/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/partials/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbars/navs/auth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navbars/navs/auth.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbars/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navbars/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/CRM/campanas/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CRM/campanas/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/edit.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +200,7 @@
       <workItem from="1577912377700" duration="7613000" />
       <workItem from="1577928045222" duration="602000" />
       <workItem from="1577929361540" duration="24358000" />
-      <workItem from="1578163105709" duration="18526000" />
+      <workItem from="1578163105709" duration="21503000" />
     </task>
     <servers />
   </component>
