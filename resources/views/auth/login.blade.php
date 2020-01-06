@@ -36,7 +36,7 @@
                     {{-- boton para ingresar al home--}}
                     <div class="card-footer">
                         <button type="submit" href="" class="btn btn-primary btn-lg btn-block mb-3">{{ _('Ingresar') }}</button>
-                        <button type="button" onclick="history.go(-1)" class="btn btn-primary btn-lg btn-block mb-3">{{ _('Regresar') }}</button>
+                        <a href="/" class="btn btn-primary btn-lg btn-block mb-3">{{ _('Regresar') }}</a>
                         {{--<div class="pull-left">
                             --}}{{-- boton para registrarme como nuevo usuario--}}{{--
                             <h6>

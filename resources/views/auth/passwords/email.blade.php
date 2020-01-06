@@ -27,7 +27,7 @@
                     {{--enviar correo para resetearr mi contraseña --}}
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary btn-lg btn-block mb-3">{{ _('Enviar Correo') }}</button>
-                        <button type="button" onclick="history.go(-1)" class="btn btn-primary btn-lg btn-block mb-3">{{ _('Regresar') }}</button>
+                        <a href="{{ route('login') }}" class="btn btn-primary btn-lg btn-block mb-3">{{ _('Regresar') }}</a>
                     </div>
                 </div>
             </form>
