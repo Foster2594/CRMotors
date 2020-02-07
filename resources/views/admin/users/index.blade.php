@@ -11,6 +11,9 @@
                             <a href="{{ route('users.create') }}" class="btn btn-sm btn-primary float-right">
                                 Crear
                             </a>
+                            <h6>
+                                <a href="{{ route('register') }}" class="link footer-link">{{ _('Registrarme') }}</a>
+                            </h6>
                         @endcan</h4>
                 </div>
                 <div class="card-body table-responsive">

@@ -19,7 +19,7 @@
                 </a>
             </li>
             <li>
-                <a data-toggle="collapse" aria-expanded="true">
+                <a data-toggle="collapse" aria-expanded="false">
                     <i class="tim-icons icon-single-02"></i>
                     <span class="nav-link-text">{{ __('Clientes') }}</span>
                 </a>
