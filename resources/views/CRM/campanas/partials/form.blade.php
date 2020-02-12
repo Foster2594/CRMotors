@@ -8,17 +8,12 @@
     {{ Form::text('descripcion',null,['class' => 'form-control']) }}
     {{$errors->first('descripcion')}}
 </div>
-
 <div class="form-group">
-    <div class="col-sm-6">
-
     {{ Form::label('fechaInicio','Fecha Inicio*') }}
     {{ Form::date('fechaInicio',null,['class' => 'form-control']) }}
     {{$errors->first('fechaInicio')}}
-    </div>
 </div>
 <div class="form-group">
-    <div class="col-sm-6">
     {{ Form::label('fechaFinal','Fecha Final*') }}
     {{ Form::date('fechaFinal',null,['class' => 'form-control']) }}
     {{$errors->first('fechaFinal')}}
