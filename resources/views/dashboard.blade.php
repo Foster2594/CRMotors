@@ -375,7 +375,7 @@
     <div>
     <canvas id="myChart" width="400" height="400"></canvas>
     </div>--}}
-    <script>
+{{--    <script>
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'bar',
@@ -413,13 +413,13 @@
                 }
             }
         });
-    </script>
+    </script>--}}
 @endsection
 @push('js')
-<script src="{{ asset('black') }}/js/plugins/chartjs.min.js"></script>
+{{--<script src="{{ asset('black') }}/js/plugins/chartjs.min.js"></script>
 <script>
     $(document).ready(function () {
         demo.initDashboardPageCharts();
     });
-</script>
+</script>--}}
 @endpush
