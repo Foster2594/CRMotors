@@ -1,32 +1,42 @@
 <div class="form-group">
-    {{ Form::label('nombre','Nombre*') }}
+    {{ Form::label('nombre','Nombre Campaña *') }}
     {{ Form::text('nombre',null,['class' => 'form-control']) }}
     {{$errors->first('nombre')}}
 </div>
 <div class="form-group">
-    {{ Form::label('descripcion','Descripción*') }}
+    {{ Form::label('descripcion','Descripción') }}
     {{ Form::text('descripcion',null,['class' => 'form-control']) }}
     {{$errors->first('descripcion')}}
 </div>
 <div class="form-group">
-    {{ Form::label('fechaInicio','Fecha Inicio*') }}
-    {{ Form::date('fechaInicio',null,['class' => 'form-control']) }}
-    {{$errors->first('fechaInicio')}}
+    <div class="row">
+        <div class="col-sm-3">
+            {{ Form::label('fechaInicio','Fecha Inicio*') }}
+            {{ Form::date('fechaInicio',null,['class' => 'form-control']) }}
+            {{$errors->first('fechaInicio')}}
+        </div>
+        <div class="col-sm-3 offset-sm-6">
+            {{ Form::label('fechaFinal','Fecha Final*') }}
+            {{ Form::date('fechaFinal',null,['class' => 'form-control']) }}
+            {{$errors->first('fechaFinal')}}
+        </div>
+    </div>
 </div>
+
 <div class="form-group">
-    {{ Form::label('fechaFinal','Fecha Final*') }}
-    {{ Form::date('fechaFinal',null,['class' => 'form-control']) }}
-    {{$errors->first('fechaFinal')}}
-</div>
-<div class="form-group">
-    {{ Form::label('descuentoMinimo','Descuento Mínimo*') }}
-    {{ Form::text('descuentoMinimo',null,['class' => 'form-control']) }}
-    {{$errors->first('descuentoMinimo')}}
-</div>
-<div class="form-group">
-    {{ Form::label('descuentoMaximo','Descuento Máximo*') }}
-    {{ Form::text('descuentoMaximo',null,['class' => 'form-control']) }}
-    {{$errors->first('descuentoMaximo')}}
+    <div class="row">
+        <div class="col-sm-2 offset-sm-8">
+
+            {{ Form::label('descuentoMinimo','Descuento Mínimo*') }}
+            {{ Form::text('descuentoMinimo',null,['class' => 'form-control']) }}
+            {{$errors->first('descuentoMinimo')}}
+        </div>
+        <div class="col-sm-2">
+            {{ Form::label('descuentoMaximo','Descuento Máximo*') }}
+            {{ Form::text('descuentoMaximo',null,['class' => 'form-control']) }}
+            {{$errors->first('descuentoMaximo')}}
+        </div>
+    </div>
 </div>
 <div class="form-group">
     {{ Form::label('idTipoCampana','Tipo de Campaña*') }}

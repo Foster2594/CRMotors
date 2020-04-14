@@ -20,6 +20,7 @@
     <script>
         import axios from 'axios';
         document.getElementById('idProvincia').addEventListener('change',cantones);
+        alert('hola');
         document.getElementById('idCanton').addEventListener('change',distritos);
         function cantones() {
             alert('hola');

@@ -26,7 +26,7 @@
 <div class="form-group">
     {{ Form::label('idGenero','Género*') }}
     <div>
-        {{ Form::select('idGenero', $errors, null, ['placeholder' => 'Seleccione Género','class' => 'form-control btn dropdown-toggle btn-sm','id'=>'idGenero']) }}
+        {{ Form::select('idGenero', $genero, null, ['placeholder' => 'Seleccione Género','class' => 'form-control btn dropdown-toggle btn-sm','id'=>'idGenero']) }}
     </div>
 </div>
 <div class="form-group">

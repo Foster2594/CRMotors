@@ -36,8 +36,10 @@
                                 </td>
                                 <td width="10px">
                                         @can('users.edit')
+
                                     <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-success">
                                         Editar
+                                        <i class="tim-icons icon-tv-2"></i>
                                     </a>
                                     @endcan
                                 </td>

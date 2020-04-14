@@ -1,6 +1,6 @@
 <!--En este Form para generar las cotizaciones-->
 <div class="form-group">
-    {{ Form::date('fechaCreacion',today(),['class' => 'form-control col-md-4','readonly'=>'true']) }}
+    {{ Form::date('fechaCreacion',today(),['class' => 'form-control-plaintext col-md-4']) }}
 </div>
 <div class="form-group">
     <div class="row">
@@ -20,7 +20,7 @@
             {{ Form::label('idCampana','Campaña*') }}
             <div>
                 <a onchange="descuento()">
-                {{ Form::select('idCampana', $campanas, null, ['placeholder' => 'Seleccione Campaña','class' => 'form-control btn dropdown-toggle btn-sm']) }}
+                {{ Form::select('idCampana', $campanas, null, ['placeholder' => 'Seleccione Campaña','class' => 'form-control btn dropdown-toggle btn-sm','onchange'=>'descuento()']) }}
                     <input type="hidden" name="idDescuento" id="idDescuento"/>
                 </a>
             </div>
@@ -83,27 +83,27 @@
     </div>
 </div>
 <div class="form-group row">
-    {{ Form::label('subTotal','SubTotal' ,['class' => 'col-sm-2 col-form-label offset-sm-6']) }}
+    {{ Form::label('subTotal','SubTotal ($)' ,['class' => 'col-sm-2 col-form-label offset-sm-6']) }}
     <div class="col-sm-4">
-        {{ Form::text('subTotal',0,['class' => 'form-control','id'=>'subtotal','readonly'=>'true']) }}
+        {{ Form::text('subTotal',0,['class' => 'form-control-plaintext','id'=>'subtotal','readonly'=>'true']) }}
     </div>
 </div>
 <div class="form-group row">
-    {{ Form::label('montoDescuento','Descuento',['class' => 'col-sm-2 col-form-label offset-sm-6']) }}
+    {{ Form::label('montoDescuento','Descuento ($)',['class' => 'col-sm-2 col-form-label offset-sm-6']) }}
     <div class="col-sm-4">
-        {{ Form::text('montoDescuento',0,['class' => 'form-control','id'=>'descuento','readonly'=>'true']) }}
+        {{ Form::text('montoDescuento',0,['class' => 'form-control-plaintext','id'=>'descuento','readonly'=>'true']) }}
     </div>
 </div>
 <div class="form-group row">
-    {{ Form::label('impuestoVentas','IVA',['class' => 'col-sm-2 col-form-label offset-sm-6']) }}
+    {{ Form::label('impuestoVentas','IVA ($)',['class' => 'col-sm-2 col-form-label offset-sm-6']) }}
     <div class="col-sm-4">
-        {{ Form::text('impuestoVentas',0,['class' => 'form-control','id'=>'iva','readonly'=>'readonly']) }}
+        {{ Form::text('impuestoVentas',0,['class' => 'form-control-plaintext','id'=>'iva','readonly'=>'readonly']) }}
     </div>
 </div>
 <div class="form-group row">
-    {{ Form::label('total','Total',['class' => 'col-sm-2 col-form-label offset-sm-6']) }}
+    {{ Form::label('total','Total ($)',['class' => 'col-sm-2 col-form-label offset-sm-6']) }}
     <div class="col-sm-4">
-        {{ Form::text('total',0,['class' => 'form-control','id'=>'total','readonly'=>'true']) }}
+        {{ Form::text('total',0,['class' => 'form-control-plaintext','id'=>'total','readonly'=>'true']) }}
     </div>
 </div>
 <div class="form-group row">
@@ -183,13 +183,16 @@
         numeroLinea = cont + 1;
         var descripcion = "Código: " + obj["codigo"].concat(", Marca: ", obj['marca'], ', Modelo: ', obj['modelo'], ', Año: ', obj['annio']);
 //se agrega la linea a la tabla
+        let precio=obj['precio'];
+        let impuesto=precio*0.13;
+        impuesto=impuesto.toFixed(2);
         let da = `<tr id="` + cont + `" data-id="` + cont + `">
                     <td width="10px">` + numeroLinea + `</td>
                     <td>` + descripcion + `</td>
                     <td><input class="form-control col-md-11" type="number" name="` + cont + `" id="cant` + numeroLinea + `" value="1" min="1" step="1" onclick=total(this)></td>
                     <td>` + obj['precio'] + `</td>
-                    <td><input class="form-control col-md-11" readonly type="number" id="iva` + numeroLinea + `" value="` + obj['precio']*0.13    + `"></td>
-                    <td><input class="form-control col-md-11" readonly type="number" id="sub` + numeroLinea + `" value="` + obj['precio'] + `"></td>
+                    <td><input class="form-control-plaintext col-md-11" type="text" id="iva` + numeroLinea + `" value="` + impuesto  + `"></td>
+                    <td><input class="form-control-plaintext col-md-11" type="text" id="sub` + numeroLinea + `" value="` + precio + `"></td>
                 </tr>`;
         $("#cotizacion").append(da);
         cont++;
@@ -207,8 +210,8 @@
         let sub = parseFloat(cant) * parseFloat(prec);
         let iva = (parseFloat(cant) * parseFloat(prec))*0.13;
         let tot = sub + iva;
-        document.getElementById("sub" + numId).value = tot;
-        document.getElementById("iva" + numId).value = iva;
+        document.getElementById("sub" + numId).value = tot.toFixed(2);
+        document.getElementById("iva" + numId).value = iva.toFixed(2);
         JsonObj[click.name].cantidad = document.getElementById(click.id).value;
         JsonObj[click.name].montoTotal = tot;
 
@@ -237,10 +240,10 @@
         desc =sub*-desc;
         tot= sub+iva+desc;
 
-        document.getElementById('subtotal').value = sub;
-        document.getElementById('iva').value = iva;
-        document.getElementById('descuento').value = desc ;
-        document.getElementById('total').value = tot;
+        document.getElementById('subtotal').value =sub.toFixed(2);
+        document.getElementById('iva').value = iva.toFixed(2);
+        document.getElementById('descuento').value = desc.toFixed(2) ;
+        document.getElementById('total').value = tot.toFixed(2);
 
     }
 
@@ -281,8 +284,13 @@
     function descuento() {
         let desc= document.getElementById('idCampana').value;
         let jsonCamp = document.getElementById('hiddenCamp').value;
+        alert(desc);
+        alert(jsonCamp);
         let objCamp = JSON.parse(jsonCamp);
+        alert(objCamp);
+
         let des =objCamp[desc].descuentoMinimo;
+
         document.getElementById('idDescuento').value = des*0.01 ;
 
         subtotal();

@@ -20,7 +20,7 @@
                             <thead>
                             <tr>
                                 <th width="10px">ID</th>
-                                <th>Nombre</th>
+                                <th>Cliente</th>
                                 <th>Vendedor</th>
                                 <th>Teléfono</th>
                                 <th>Total</th>
@@ -34,7 +34,7 @@
                                     <td>{{ $cotizacion->nomcli }}</td>
                                     <td>{{ $cotizacion->nomemp }}</td>
                                     <td>{{ $cotizacion->tel }}</td>
-                                    <td>{{ $cotizacion->total }}</td>
+                                    <td>${{ number_format($cotizacion->total, 2, '.', '') }}</td>
                                     <td width="10px">
                                         <a href="{{ route('cotizaciones.show', $cotizacion->idEncabezadoCotizacion) }}"
                                            class="btn btn-sm btn-success">
@@ -44,25 +44,25 @@
                                     <td width="10px">
                                         <a href="{{ route('cotizaciones.edit', $cotizacion->idEncabezadoCotizacion) }}"
                                            class="btn btn-sm btn-success">
-                                            Editar
+                                            <i class="fas fa-edit"></i>
                                         </a>
 
                                     </td>
                                     <td width="10px">
                                         <a href="{{ route('cotizaciones.pdf', $cotizacion->idEncabezadoCotizacion) }}" class="btn btn-sm btn-success float-right">
-                                            PDF
+                                            <i class="far fa-file-pdf"></i>
                                         </a>
                                     </td>
                                     <td width="10px">
                                         <a href="{{ route('Email.cotizacionMail', $cotizacion->idEncabezadoCotizacion) }}" class="btn btn-sm btn-success float-right">
-                                            Enviar
+                                            <i class="far fa-share-square"></i>
                                         </a>
                                     </td>
                                 @can('admin')
                                     <td width="10px">
                                         {!! Form::open(['route' => ['cotizaciones.destroy', $cotizacion->idEncabezadoCotizacion],
                                         'method' => 'DELETE']) !!}
-                                        <button class="btn btn-sm btn-danger">Eliminar</button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
                                         {!! Form::close() !!}
                                     </td>
                                     @endcan

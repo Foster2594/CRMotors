@@ -14,6 +14,7 @@ use App\Vehiculo;
 use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class CotizacionController extends Controller
@@ -120,6 +121,7 @@ return $clientes;
     //al dar click en el icono de eliminar retornara la vista estandar y eliminara el valor
     public function destroy($cotizacion)
     {
+        $detalle=DetalleCotizacion::where('idEncabezadoCotizacion', $cotizacion)->delete();
         $cotizacion = Cotizacion::where('idEncabezadoCotizacion', $cotizacion)->delete();
 
         return back()->with('info', 'Eliminado correctamente');
@@ -158,10 +160,10 @@ return $clientes;
         $idCotizacion = $idCotizacion + 1;
         $vehiculos = Vehiculo::paginate();
 
-        $clientes=Cliente::pluck('nombre','idCliente');
+        $clientes=Cliente::select(DB::raw("idCliente, concat(nombre,' ',apellido1) as nombreCompleto"))->pluck('nombreCompleto','idCliente');
         $campanas=Campana::pluck('nombre','idCampana');
         $campanasG=Campana::get();//despliega todas las campanas
-        $empleados=Empleado::pluck('nombre','idEmpleado');
+        $empleados=Empleado::select(DB::raw("idEmpleado, concat(nombre,' ',apellido1) as nombreCompleto"))->where('idDepartamento',2)->pluck('nombreCompleto','idEmpleado');
 
         return view('CRM.cotizaciones.nuevaCot', compact('cotizaciones', 'idCotizacion', 'vehiculos','clientes','campanas','empleados','campanasG'));
     }

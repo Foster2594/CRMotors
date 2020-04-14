@@ -43,19 +43,19 @@
                                     </td>
                                     <td width="10px">
                                         <a href="{{ route('campanas.edit', $campana->idCampana) }}" class="btn btn-sm btn-success">
-                                            Editar
+                                            <i class="fas fa-edit"></i>
                                         </a>
                                     </td>
                                     <td width="10px">
                                         <a href="{{ route('Email.enviaremail', $campana->idCampana) }}" class="btn btn-sm btn-success">
-                                            Enviar
+                                            <i class="far fa-share-square"></i>
                                         </a>
                                     </td>
                                     <td width="10px">
                                         @can('campanas.delete')
                                         {!! Form::open(['route' => ['campanas.destroy', $campana->idCampana],
                                         'method' => 'DELETE']) !!}
-                                        <button class="btn btn-sm btn-danger">Eliminar</button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
                                         {!! Form::close() !!}
                                         @endcan
                                     </td>
