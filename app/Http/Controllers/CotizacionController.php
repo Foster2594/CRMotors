@@ -12,6 +12,7 @@ use App\empleados;
 use App\Http\Requests\CotizacionRequest;
 use App\Vehiculo;
 use Barryvdh\DomPDF\PDF;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -242,29 +243,17 @@ return $clientes;
     {   $id=$cotizacion;
         $cotizacion = Cotizacion::where('idEncabezadoCotizacion', $cotizacion)->first();
         $detalles = DetalleCotizacion::where('idEncabezadoCotizacion', $id)->get();
+        $cliente=Cliente::where('idCLiente',$cotizacion->idCliente)->first();
         $data = ['user' => Auth()->id(),
             'cotizacion'=>$cotizacion,
             'detalles'=>$detalles,
-//            'idEncabezadoCotizacion'=>$id,
-//            'fechaCreacion'=>$cotizacion->fechaCreacion,
-//            'idCliente'=>$cotizacion->fechaCreacion,
-//            'idEmpleado'=>$cotizacion->idEmpleado,
-//            'numeroLineas'=>$cotizacion->numeroLineas,
-//            'idCampana'=>$cotizacion->idCampana,
-//            'idEstadoCotizacion'=>$cotizacion->idEstadoCotizacion,
-//            'subTotal'=>$cotizacion->subTotal,
-//            'montoDescuento'=>$cotizacion->montoDescuento,
-//            'impuestoVentas'=>$cotizacion->impuestoVentas,
-//            'total'=>$cotizacion->total,
-//            'detalles'=>$detalles,
-//            'data'=>'hola'
+
             ];
 
-
-        Mail::send('CRM\cotizaciones\showEmail',$data, function ($message) {
+        Mail::send('CRM\cotizaciones\showEmail',$data, function ($message) use ($cliente) {
 
             $message->from('royalmotors.crm@gmail.com', 'Royal Motors');
-            $message->to('foster2594@gmail.com')->subject('Cotizacion Royal Motors');
+            $message->to($cliente->correo)->subject('Cotizacion Royal Motors');
         });
 
         return redirect()->back()->with('info', 'mensaje enviado con éxito');
