@@ -284,10 +284,7 @@
     function descuento() {
         let desc= document.getElementById('idCampana').value;
         let jsonCamp = document.getElementById('hiddenCamp').value;
-        alert(desc);
-        alert(jsonCamp);
         let objCamp = JSON.parse(jsonCamp);
-        alert(objCamp);
 
         let des =objCamp[desc].descuentoMinimo;
 

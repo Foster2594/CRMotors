@@ -46,7 +46,7 @@ class Clientecontroller extends Controller
         $provincias=Provincia::pluck('nombre','idProvincia');
         $cantones=Canton::pluck('nombre','idCanton');
         $distritos=Distrito::pluck('nombre','idDistrito');
-        $vehiculos=Vehiculo::pluck('modelo','idVehiculo');
+        $vehiculos=Vehiculo::pluck('codigo','idVehiculo');
 
 
         return view('CRM.clientes.create',compact('cliente','genero','ocupacion','provincias','cantones','distritos','vehiculos'));

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Campana;
 use App\Canton;
+use App\Genero;
 use App\Sede;
 use App\estadoCampana;
 use App\Http\Requests\CreateCampana;
@@ -14,6 +15,7 @@ use App\Cliente;
 
 use App\Provincia;
 use App\tipoCampana;
+use App\Vehiculo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -46,7 +48,11 @@ class CampanaController extends Controller
         $provincias=Provincia::pluck('nombre','idProvincia');
         $cantones=Canton::pluck('nombre','idCanton');
         $distritos=Distrito::pluck('nombre','idDistrito');
-        return view('CRM.campanas.create',compact('campanas','sedes','tipos','estados','provincias','cantones','distritos'));
+        $genero=Genero::pluck('nombre','idGenero');
+        $vehiculos=Vehiculo::pluck('codigo','idVehiculo');
+
+        return view('CRM.campanas.create',
+            compact('campanas','sedes','tipos','estados','provincias','cantones','distritos','genero','vehiculos'));
     }
 
     /**
@@ -105,9 +111,6 @@ class CampanaController extends Controller
      */
     public function edit($campana, request $request)
     {
-
-
-
         $sedes=Sede::pluck('nombre','idSede');
         $tipos=tipoCampana::pluck('nombre','idTipoCampana');
         $estados=estadoCampana::pluck('nombre','idEstadoCampana');
@@ -116,11 +119,7 @@ class CampanaController extends Controller
         $distritos=Distrito::pluck('nombre','idDistrito');
         $campana=Campana::where('idcampana',$campana)->first();
 
-
         return view('CRM.campanas.edit', compact('campana','sedes','tipos','estados','provincias','cantones','distritos'));
-
-
-
     }
 
     /**
@@ -206,7 +205,6 @@ class CampanaController extends Controller
         $det = $request->detalle;
         $det = \GuzzleHttp\json_decode($det);
         $detalle = new Campana();
-
         $detalle->idCampana = $det->idCampana;
         $detalle->nombre = $request->nombre;
         $detalle->descripcion = $det->descripcion;
@@ -214,10 +212,7 @@ class CampanaController extends Controller
         $detalle->fechaFinal = $det->fechaFinal;
         $detalle->descuentoMinimo = $det->descuentoMinimo;
         $detalle->descuentoMaximo = $det->descuentoMaximo;
-
-
         $detalle->save();
-
 
         return $detalle;
     }
