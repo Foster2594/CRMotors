@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT1', 587),
+    'port' => env('MAIL_PORT1', 467),
 
     /*
     |--------------------------------------------------------------------------
@@ -131,7 +131,7 @@ return [
     |
     */
 
-    'log_channel' => env('MAIL_LOG_CHANNEL'),
+    'log_channel' => env('MAIL_LOG_CHANNEL1'),
 
 ];
 

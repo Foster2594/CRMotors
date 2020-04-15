@@ -263,7 +263,7 @@ return $clientes;
 
         Mail::send('CRM\cotizaciones\showEmail',$data, function ($message) {
 
-            $message->from('email@royalmotors.net', 'Royal Motors');
+            $message->from('royalmotors.crm@gmail.com', 'Royal Motors');
             $message->to('foster2594@gmail.com')->subject('Cotizacion Royal Motors');
         });
 
