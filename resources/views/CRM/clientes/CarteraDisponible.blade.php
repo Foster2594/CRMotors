@@ -5,14 +5,15 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    {!! Form::open(['route' => ['clientes.asignarCliente']]) !!}
+
                     <div class="form-group card-header">
                         <h4>Clientes Disponibles</h4>
-                        <div >
+                        <div>
                             <p><label>Vendedor*</label>
-                                <a onchange="setId()">
-                                    {{ Form::select('idEmpleado', $usuarios, null, ['placeholder' => 'Seleccione Vendedor','class' => 'form-control btn dropdown-toggle btn-sm', 'onclick=setId()']) }}
-                                </a>
+
+
+                                    {{ Form::select('idEmpleado', $usuarios, null, ['placeholder' => 'Seleccione Vendedor','class' => 'form-control btn dropdown-toggle btn-sm','onchange'=>'setId()','id'=>'idEmpleado']) }}
+
                             </p>
                         </div>
                     </div>
@@ -22,7 +23,7 @@
                         <table class="table table-striped table-hover">
                             <thead>
                             <tr>
-{{--                                <th width="10px">ID</th>--}}
+                                <th width="10px">ID</th>
                                 <th>Cédula</th>
                                 <th>Nombre</th>
                                 <th>Primer Apellido</th>
@@ -37,7 +38,7 @@
                             <tbody>
                             @foreach ($clientesVacios as $clienteV)
                                 <tr>
-{{--                                    <td>{{ $clienteV->idCliente }}</td>--}}
+                                    <td>{{ $clienteV->idCliente }}</td>
                                     <td>{{ $clienteV->cedula }}</td>
                                     <td>{{ $clienteV->nombre }}</td>
                                     <td>{{ $clienteV->apellido1 }}</td>
@@ -46,36 +47,33 @@
                                     <td>{{ $clienteV->correo }}</td>
                                     <td>{{ $clienteV->ingresoSalarial }}</td>
                                     <td width="10px">
-                                        {{ Form::hidden('idCliente',$clienteV->idCliente,['class' => 'form-control','name'=>'idCliente']) }}
-                                        {{ Form::submit('asignar',['class' => 'btn btn-sm btn-success']) }}
+                                        {{--<a href="{{ route('clientes.asignarCliente',[$clienteV->idCliente, $clienteV->idCliente]) }}"--}}
+                                           {{--class="btn btn-sm btn-success">--}}
+                                            {{--Asignar--}}
+                                        {{--</a>--}}
+                                        {!! Form::open(['route' => ['clientes.asignarClienteR',$clienteV->idCliente]]) !!}
+                                        <button class="btn btn-sm btn-danger">Asignar</button>
+
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
                     </div>
+
+                    {{ Form::text('Empleado',0 ,['class' => 'form-control','id'=>'Empleado']) }}
                     {!! Form::close() !!}
                 </div>
             </div>
         </div>
 
     </div>
-    <script>
-
-        let emp;
-        let strUser
-        function setId() {
-            emp = document.getElementById('selectEmpleados');
-            strUser = emp.options[emp.selectedIndex].text;
-            document.getElementById('idEmpleado').value = strUser;
-            alert('j');
-        }
-    </script>
 @endsection
-@section('script')
-    <script>
+<script>
 
+    function setId() {
+        document.getElementById('Empleado').value=document.getElementById('idEmpleado').value
+    }
 
-        document.getElementById('nav-clientes').className += ' active';
-    </script>
-@endsection
+</script>
+

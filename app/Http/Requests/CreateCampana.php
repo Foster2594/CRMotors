@@ -29,13 +29,13 @@ class CreateCampana extends FormRequest
             'idEstadoCampana' =>'required',
             'nombre' =>'required',
             'descripcion' =>'required',
-            'idProvincia' =>'required',
-            'idCanton' =>'required',
+//            'idProvincia' =>'required',
+//            'idCanton' =>'required',
             'fechaInicio' =>'required|date',
-            'fechaFinal' =>'required|date',
+//            'fechaFinal' =>'required|date',
             'descuentoMinimo' =>'required|numeric',
             'descuentoMaximo' =>'required|numeric',
-            'idEmpleadoCreador' =>'required',
+//            'idEmpleadoCreador' =>'required',
 
 
         ];
@@ -49,16 +49,16 @@ class CreateCampana extends FormRequest
             'idEstadoCampana.required' =>  'Debe seleccionar un estado campaña',
             'nombre.required' =>  'Debe ingresar un nombre',
             'descripcion.required' =>  'Debe ingresar una descripción',
-            'idProvincia.required' =>  'Debe seleccionar una provincia',
-            'idCanton.required' =>  'Debe seleccionar un cantón',
+//            'idProvincia.required' =>  'Debe seleccionar una provincia',
+//            'idCanton.required' =>  'Debe seleccionar un cantón',
             'fechaInicio.required' =>  'Debe ingresar una fecha de inicio',
             'fechaInicio.date' =>  'Debe ingresar una fecha válida',
-            'fechaFinal.required' =>  'Debe ingresar una fecha de finalización',
+//            'fechaFinal.required' =>  'Debe ingresar una fecha de finalización',
             'descuentoMinimo.required' =>  'Debe ingresar una cantidad de descuento mínimo',
             'descuentoMinimo.numeric' =>  'Debe ingresar únicamente números en el descuento mínimo',
             'descuentoMaximo.required' =>  'Debe ingresar una cantidad de descuento máxima',
             'descuentoMaximo.numeric' =>  'Debe ingresar únicamente números en el descuento máximo',
-            'idEmpleadoCreador.required' =>  'Debe ingresar el nombre de la persona que lo aprueba',
+//            'idEmpleadoCreador.required' =>  'Debe ingresar el nombre de la persona que lo aprueba',
 
         ];
     }

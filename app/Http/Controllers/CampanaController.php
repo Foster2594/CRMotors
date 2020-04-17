@@ -69,14 +69,14 @@ class CampanaController extends Controller
             'idEstadoCampana'=>'required',
             'nombre' =>'required',
             'descripcion'=>'required',
-            'idProvincia' =>'required',
-            'idCanton'=>'required',
+//            'idProvincia' =>'required',
+//            'idCanton'=>'required',
             'fechaInicio'=>'required|date',
-            'fechaFinal'=>'required|date',
+//            'fechaFinal'=>'required|date',
             'descuentoMinimo'=>'required|numeric',
             'descuentoMaximo'=>'required|numeric',
-            'idEmpleadoCreador' =>'required',
-            'idEmpleadoAprobador'=>'required',
+//            'idEmpleadoCreador' =>'required',
+//            'idEmpleadoAprobador'=>'required',
 
         ]);
 
@@ -137,14 +137,14 @@ class CampanaController extends Controller
             'idEstadoCampana'=>'required',
             'nombre' =>'required',
             'descripcion'=>'required',
-            'idProvincia' =>'required',
-            'idCanton'=>'required',
+//            'idProvincia' =>'required',
+//            'idCanton'=>'required',
             'fechaInicio'=>'required|date',
-            'fechaFinal'=>'required|date',
+//            'fechaFinal'=>'required|date',
             'descuentoMinimo'=>'required|numeric',
             'descuentoMaximo'=>'required|numeric',
-            'idEmpleadoCreador' =>'required',
-            'idEmpleadoAprobador'=>'required',
+//            'idEmpleadoCreador' =>'required',
+//            'idEmpleadoAprobador'=>'required',
 
         ]);
         $request->request->add(['idcampana' => $campana]);
@@ -164,7 +164,8 @@ class CampanaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function enviaremail($campana)
-    {   $id=$campana;
+    {
+        $id=$campana;
         $campana = Campana::where('idCampana', $campana)->first();
         $detalles = Campana::where('idCampana', $id)->get();
         $data = ['idCampana' => Auth()->id(),
@@ -174,6 +175,8 @@ class CampanaController extends Controller
         ];
 
         $clientes=Cliente::all();
+
+
         $cont=0;
         foreach ($clientes as $cliente){
 //            return $cliente->correo;
@@ -181,7 +184,7 @@ class CampanaController extends Controller
             Mail::send('CRM\campanas\showEmail',$data, function ($message) use ($cliente) {
                 $message->from('email@royalmotors.net', 'Styde.Net');
                 $message->to($cliente->correo)->subject('Campañas Royal Motors');
-                sleep(7);
+                sleep(1);
             });
             if($cont==10){
                 break;
