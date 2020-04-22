@@ -26,6 +26,7 @@ class Cliente extends Model{
         'direccionExacta',
         'idVehiculoInteres',
         'idEstadoCliente',
+        'notificaciones',
     ];
 
     protected $primary_key = 'idCliente';

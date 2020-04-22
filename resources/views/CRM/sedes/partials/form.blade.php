@@ -15,10 +15,15 @@
     {{$errors->first('correo')}}
 </div>
 <div class="form-group">
-    {{ Form::label('idProvincia','Provincia*') }}
-    <div>
-        {{ Form::select('idProvincia', $provincias, null, ['placeholder' => 'Seleccione Provincia','class' => 'form-control btn dropdown-toggle btn-sm','id'=>'idProvincia']) }}
-    </div>
+    {{ Form::label('provincia','Provincia*') }}
+    <select class="form-control btn dropdown-toggle btn-sm" name="provincia" id="provincia" required>
+        <option value="" hidden>Seleccione una Provincia</option>
+        @foreach($provincias as $province)
+            <option value="{{$province->idProvincia}}">
+                {{$province->nombre}}
+            </option>
+        @endforeach
+    </select>
 </div>
 <div class="form-group">
     {{ Form::label('idCanton','Cantón*') }}

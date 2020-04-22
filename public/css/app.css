@@ -1,6 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);.panel {
     width: 100%;
     height: 300px;
+
+
 }@charset "UTF-8";
 
 /*!
@@ -173,13 +175,13 @@ sup {
 }
 
 a {
-  color: #343a40;
+  color: #3490dc;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #343a40;
+  color: #1d68a7;
   text-decoration: underline;
 }
 
@@ -538,7 +540,7 @@ mark,
 
 code {
   font-size: 87.5%;
-  color: #343a40;
+  color: #f66d9b;
   word-wrap: break-word;
 }
 

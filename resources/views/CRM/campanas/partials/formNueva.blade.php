@@ -60,28 +60,36 @@
 <div class="form-group">
     <label><h5>Datos de clientes a aplicar la notificacion</h5></label>
     <div class="row">
-
         <div class="col-sm-4">
-            {{ Form::label('idTipoCliente','Tipo de Cliente*') }}
-            {{ Form::text('idTipoCliente',null,['class' => 'form-control']) }}
+            {{ Form::label('Edad','Edad') }}
+            {{ Form::input('number','edad',25,['class' => 'form-control','min'=>"23",'max'=>"100"]) }}
         </div>
+    </div>
+
+    <div class="row">
+
         <div class="col-sm-4">
             {{ Form::label('idGenero','Género*') }}
             <div>
                 {{ Form::select('idGenero', $genero, 0, ['placeholder' => 'Cualquier Género','class' => 'form-control btn dropdown-toggle btn-sm','id'=>'idGenero']) }}
             </div>
         </div>
+    </div>
+
+    <div class="row">
         <div class="col-sm-4">
-            {{ Form::label('fechaNacimiento','Fecha de Nacimiento*') }}
-            {{ Form::date('fechaNacimiento',date_create("2000-02-02"),['class' => 'form-control']) }}
+            {{ Form::label('idVehiculo','Vehículo de campaña') }}
+            <div>
+                {{ Form::select('idVehiculo', $vehiculos, 0, ['placeholder' => 'Cualquier Vehículo','class' => 'form-control btn dropdown-toggle btn-sm']) }}
+            </div>
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-4">
-            {{ Form::label('idVehiculoInteres','Vehículo de Interés*') }}
+            {{ Form::label('cantidadClientes','Cantidad limite de clientes') }}
             <div>
-                {{ Form::select('idVehiculoInteres', $vehiculos, 0, ['placeholder' => 'Cualquier Vehículo','class' => 'form-control btn dropdown-toggle btn-sm']) }}
+                {{ Form::text('cantidadClientes',10,['class' => 'form-control']) }}
             </div>
         </div>
     </div>
@@ -138,31 +146,35 @@
     <hr/>
     <br/>
     <div class="form-group">
-        <div class="row">
+        {{--<div class="row">--}}
 
-            <div class="col-sm-4">
-                {{ Form::label('idNotificacion','Notificacion *') }}
-                <div>
-                    <a href="{{ route('campanas.index') }}"
-                       class="btn btn-success">{{ _('Enviar Prueba') }}</a>
-                </div>
-            </div>
+            {{--<div class="col-sm-4">--}}
+                {{--{{ Form::label('idNotificacion','Notificacion *') }}--}}
+                {{--<div>--}}
+                    {{--<a href="{{ route('campanas.index') }}"--}}
+                       {{--class="btn btn-success">{{ _('Enviar Prueba') }}</a>--}}
+                {{--</div>--}}
+            {{--</div>--}}
 
-            <div class="col-sm-4">
-                {{ Form::label('idEstadoCampana','Estado*') }}
-                <div>
-                    {{ Form::select('idEstadoCampana', $estados, null, ['placeholder' => 'Seleccione Estado','class' => 'form control btn dropdown-toggle btn-sm']) }}
-                </div>
-                {{$errors->first('idEstadoCampana')}}
-            </div>
-        </div>
+            {{--<div class="col-sm-4">--}}
+                {{--{{ Form::label('idEstadoCampana','Estado*') }}--}}
+                {{--<div>--}}
+                    {{----}}
+                {{--</div>--}}
+                {{--{{$errors->first('idEstadoCampana')}}--}}
+            {{--</div>--}}
+        {{--</div>--}}
     </div>
+    {{--<div class="col-sm-4">--}}
+    {{--{{ Form::label('idTipoCliente','Tipo de Cliente*') }}--}}
+    {{ Form::hidden('idEstadoCampana', 1, ['placeholder' => 'Seleccione Estado','class' => 'form control btn dropdown-toggle btn-sm']) }}
+    {{ Form::hidden('idTipoCliente',1,['class' => 'form-control']) }}
+    {{--</div>--}}
 </div>
 <hr/>
 <br/>
 <div class="form-group">
     {{ Form::submit('Guardar',['class' => 'btn btn-sm btn-success']) }}
-    {{ Form::submit('Guardar y Enviar',['class' => 'btn btn-sm btn-success']) }}
     <a href="{{ route('campanas.index') }}" class="btn btn-sm btn-primary">{{ _('Regresar') }}</a>
 </div>
 
@@ -178,7 +190,7 @@
             let da = ` <div class=row>
                         <div class=col-sm-5>
                             {{ Form::label('fechaInicio','Fecha Inicio') }}
-                    {{ Form::date('fechaInicio',null,['class' => 'form-control datatime']) }}
+                    {{ Form::date('fechaInicio',today(),['class' => 'form-control datatime']) }}
                     {{$errors->first('fechaInicio')}}
                 </div>
                 <div class=col-sm-3>
@@ -193,7 +205,7 @@
                <div class=row>
                    <div class=col-sm-5>
 {{ Form::label('fechaFinal','Fecha Final*') }}
-                    {{ Form::date('fechaFinal',null,['class' => 'form-control']) }}
+                    {{ Form::date('fechaFinal',today()->add(30,'days'),['class' => 'form-control']) }}
                     {{$errors->first('fechaFinal')}}
                 </div>
                 <div class=col-sm-3>
@@ -212,7 +224,7 @@
             let da = `<div class=row>
                 <div class=col-sm-5>
                     {{ Form::label('fechaInicio','Fecha Inicio') }}
-                    {{ Form::date('fechaInicio',null,['class' => 'form-control']) }}
+                    {{ Form::date('fechaInicio',today(),['class' => 'form-control']) }}
                 </div>
                 <div class=col-sm-3>
                     {{ Form::label('HoraI','Hora Inicio') }}

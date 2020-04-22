@@ -35,5 +35,4 @@ class SearchController extends Controller
         return $distritos;
     }
 
-
 }

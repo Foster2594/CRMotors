@@ -10,7 +10,6 @@ class Canton extends Model
         'idCanton',
         'idProvincia',
         'nombre'
-
     ];
 
     protected $primary_key = 'idCanton';

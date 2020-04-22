@@ -37,28 +37,28 @@
                                 <td>{{ $cliente->numeroCelular }}</td>
                                 <td width="10px">
                                     <a href="{{ route('clientes.show', $cliente->idCliente) }}" class="btn btn-sm btn-success">
-                                        Ver
+                                        <i class="fas fa-eye"></i>
                                     </a>
                                 </td>
                                 <td width="10px">
                                     <a href="{{ route('clientes.edit', $cliente->idCliente) }}" class="btn btn-sm btn-success">
-                                        Editar
+                                        <i class="fas fa-edit"></i>
                                     </a>
                                 </td>
                                 <td width="10px">
                                     <a href="{{ route('clientes.quitarDeCartera', $cliente->idCliente) }}" class="btn btn-sm btn-success">
-                                        Quitar Cartera
+                                        <i class="fas fa-minus-circle"></i>
                                     </a>
                                 </td>
                                 @can('clientes.delete')
-                                <td width="10px">
-                                    {!! Form::open(['route' => ['clientes.destroy', $cliente->idCliente],
-                                    'method' => 'DELETE']) !!}
-                                    <button class="btn btn-sm btn-success">
-                                        Eliminar
-                                    </button>
-                                    {!! Form::close() !!}
-                                </td>
+                                {{--<td width="10px">--}}
+                                    {{--{!! Form::open(['route' => ['clientes.destroy', $cliente->idCliente],--}}
+                                    {{--'method' => 'DELETE']) !!}--}}
+                                    {{--<button class="btn btn-sm btn-success">--}}
+                                        {{--Eliminar--}}
+                                    {{--</button>--}}
+                                    {{--{!! Form::close() !!}--}}
+                                {{--</td>--}}
                                 @endcan
                             </tr>
                             @endforeach

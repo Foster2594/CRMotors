@@ -52,7 +52,7 @@
                                             {{--Asignar--}}
                                         {{--</a>--}}
                                         {!! Form::open(['route' => ['clientes.asignarClienteR',$clienteV->idCliente]]) !!}
-                                        <button class="btn btn-sm btn-danger">Asignar</button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-user-plus"></i></button>
 
                                     </td>
                                 </tr>
@@ -61,7 +61,7 @@
                         </table>
                     </div>
 
-                    {{ Form::text('Empleado',0 ,['class' => 'form-control','id'=>'Empleado']) }}
+                    {{ Form::hidden('Empleado',0 ,['class' => 'form-control','id'=>'Empleado']) }}
                     {!! Form::close() !!}
                 </div>
             </div>
@@ -75,5 +75,8 @@
         document.getElementById('Empleado').value=document.getElementById('idEmpleado').value
     }
 
+</script>
+<script>
+    document.getElementById('nav-clientes').className+=' active';
 </script>
 

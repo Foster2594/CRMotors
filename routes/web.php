@@ -51,7 +51,6 @@ Route::group(['middleware' => 'auth'], function () {
  Route::get('cotizaciones/{cotizacion}/pdf', 'CotizacionController@create_pdf')->name('cotizaciones.pdf');
     //importacion de vehiculos para el modal
 
-
 //Campana
 
     Route::get('campanas/index', 'CampanaController@index')->name('campanas.index');
@@ -62,12 +61,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('campanas/{campana}', 'CampanaController@destroy')->name('campanas.destroy');
     Route::get('campanas/{campana}/edit', 'CampanaController@edit')->name('campanas.edit');
 
-
-
-
-
 //// rutas para el mantenimiento de vehiculo, aqui esta para ver la seccion Vehiculo,para actualizar,crear,eliminar,etc
-
 
     Route::get('vehiculos/select', 'VehiculoController@select')->name('vehiculos.select');
     Route::get('vehiculos/index', 'VehiculoController@index')->name('vehiculos.index');
@@ -143,6 +137,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('users/{user}', 'Roles\UserController@show')->name('users.show')->middleware('can:users.show');
         Route::delete('users/{user}', 'Roles\UserController@destroy')->name('users.destroy')->middleware('can:users.destroy');
         Route::get('users/{user}/edit', 'Roles\UserController@edit')->name('users.edit')->middleware('can:users.edit');
+
 
 
     });

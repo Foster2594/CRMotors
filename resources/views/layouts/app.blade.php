@@ -17,10 +17,12 @@
         <!-- CSS -->
         <link href="{{ asset('black') }}/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
         <link href="{{ asset('black') }}/css/theme.css" rel="stylesheet" />
+
+
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
-            <div class="wrapper">
+            <div class="wrapper" id="app">
                     @include('layouts.navbars.sidebar')
                 <div class="main-panel">
                     @include('layouts.navbars.navbar')
@@ -87,6 +89,9 @@
         <script src="{{ asset('black') }}/js/plugins/bootstrap-notify.js"></script>
         <script src="{{ asset('black') }}/js/black-dashboard.min.js?v=1.0.0"></script>
         <script src="{{ asset('black') }}/js/theme.js"></script>
+
+            {{--<!-- Scripts -->--}}
+            {{--<script src="{{ asset('js/app.js') }}"></script>--}}
         @stack('js')
         <script>
             $(document).ready(function() {

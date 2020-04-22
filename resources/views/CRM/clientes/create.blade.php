@@ -18,19 +18,19 @@
     </div>
 </div>
     <script>
-        import axios from 'axios';
-        document.getElementById('idProvincia').addEventListener('change',cantones);
-        alert('hola');
+        document.getElementById('provincia').addEventListener('change',cantones);
         document.getElementById('idCanton').addEventListener('change',distritos);
         function cantones() {
-            alert('hola');
-            let provincia=document.getElementById('idProvincia').value,
-                cantoList='',
+alert('hola');
+            let provincia=document.getElementById('provincia').value;
+                cantoList='';
                 data={provincia};
-            axios.post('{{ route('search.canton') }}',data).then( response=>{
+
+                axios.post('{{ route('search.canton') }}',data).then( response=>{
                 response.data.forEach( data =>{
                     cantoList+=`<option value=`+data.idCanton+`>`+data.nombre+`</option>`;
                 });
+
                 $('#idCanton').html(cantoList);
             });
         }
@@ -45,6 +45,8 @@
                 $('#idDistrito').html(DistritoList);
             });
         }
+
+
     </script>
     {{--@include('CRM.includes.direccion')--}}
 @endsection

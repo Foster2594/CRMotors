@@ -162,7 +162,7 @@ return $clientes;
         $vehiculos = Vehiculo::paginate();
 
         $clientes=Cliente::select(DB::raw("idCliente, concat(nombre,' ',apellido1) as nombreCompleto"))->pluck('nombreCompleto','idCliente');
-        $campanas=Campana::pluck('nombre','idCampana');
+        $campanas=Campana::where('IdEstadoCampana',1)->pluck('nombre','idCampana');
         $campanasG=Campana::get();//despliega todas las campanas
         $empleados=Empleado::select(DB::raw("idEmpleado, concat(nombre,' ',apellido1) as nombreCompleto"))->where('idDepartamento',2)->pluck('nombreCompleto','idEmpleado');
 
@@ -234,6 +234,7 @@ return $clientes;
         $id=$cotizacion;
         $cotizacion = Cotizacion::where('idEncabezadoCotizacion', $cotizacion)->first();
         $detalles = DetalleCotizacion::where('idEncabezadoCotizacion', $id)->get();
+        $cliente=Cliente::where('idCliente',$cotizacion->idCliente)->first();
 //        return view('CRM.cotizaciones.show', compact('cotizacion','detalles'));
         $pdf = \PDF::loadView('CRM\cotizaciones\showlabel',compact('guide','cotizacion','detalles'));
         return $pdf->download('cotizacion.pdf');
@@ -243,17 +244,20 @@ return $clientes;
     {   $id=$cotizacion;
         $cotizacion = Cotizacion::where('idEncabezadoCotizacion', $cotizacion)->first();
         $detalles = DetalleCotizacion::where('idEncabezadoCotizacion', $id)->get();
-        $cliente=Cliente::where('idCLiente',$cotizacion->idCliente)->first();
+        $cliente=Cliente::where('idCliente',$cotizacion->idCliente)->first();
         $data = ['user' => Auth()->id(),
             'cotizacion'=>$cotizacion,
             'detalles'=>$detalles,
 
             ];
-
-        Mail::send('CRM\cotizaciones\showEmail',$data, function ($message) use ($cliente) {
+        //return $detalles[0]->idVehiculo;
+        $pdf=Vehiculo::where('codigo','=',$detalles[0]->idVehiculo)->first();
+        ini_set('max_execution_time', 220);
+        Mail::send('CRM\cotizaciones\showEmail',$data, function ($message) use ($cliente,$pdf) {
 
             $message->from('royalmotors.crm@gmail.com', 'Royal Motors');
             $message->to($cliente->correo)->subject('Cotizacion Royal Motors');
+            $message->attach(public_path('\pdf\\'.$pdf->pdf));
         });
 
         return redirect()->back()->with('info', 'mensaje enviado con éxito');

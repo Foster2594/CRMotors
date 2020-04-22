@@ -30,9 +30,9 @@ class SedeController extends Controller
      */
     public function create()
     {
-        $provincias=Provincia::pluck('nombre','idProvincia');
-        $cantones=Canton::pluck('nombre','idCanton');
-        $distritos=Distrito::pluck('nombre','idDistrito');
+        $provincias=Provincia::get();
+        $cantones=[];
+        $distritos=[];
         $estados=estadoSede::pluck('nombre','idEstadoSede');
         return view('CRM.sedes.create',compact('sedes','provincias','cantones','distritos','estados'));
     }

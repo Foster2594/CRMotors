@@ -7,20 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Notificacion extends Model
 {
     protected $fillable=[
-        'idNotificacion',
+        'id',
         'idCampana',
-        'idTipoCliente',
-        'fechaInicio',
-        'envio',
+        'idTipoCampana',
+        'fechaNacimiento',
+        'edad',
+        'idGenero',
+        'idVehiculo',
+        'salario',
+        'ocupacion',
         'cantidadClientes',
-        'metodoEnvio',
-        'tipoCliente',
-        'Genereo',
-        'Edad',
-        'Vehiculos',
-
     ];
     protected $primary_key = 'idNotificacion';
-    protected $table = 'Notificaciones';
+    protected $table = 'Notificacion';
     public $timestamps = false;
 }

@@ -38,7 +38,7 @@
                                     <td width="10px">
                                         <a href="{{ route('cotizaciones.show', $cotizacion->idEncabezadoCotizacion) }}"
                                            class="btn btn-sm btn-success">
-                                            Ver
+                                            <i class="fas fa-eye"></i>
                                         </a>
                                     </td>
                                     <td width="10px">
@@ -48,11 +48,11 @@
                                         </a>
 
                                     </td>
-                                    <td width="10px">
-                                        <a href="{{ route('cotizaciones.pdf', $cotizacion->idEncabezadoCotizacion) }}" class="btn btn-sm btn-success float-right">
-                                            <i class="far fa-file-pdf"></i>
-                                        </a>
-                                    </td>
+                                    {{--<td width="10px">--}}
+                                        {{--<a href="{{ route('cotizaciones.pdf', $cotizacion->idEncabezadoCotizacion) }}" class="btn btn-sm btn-success float-right">--}}
+                                            {{--<i class="far fa-file-pdf"></i>--}}
+                                        {{--</a>--}}
+                                    {{--</td>--}}
                                     <td width="10px">
                                         <a href="{{ route('Email.cotizacionMail', $cotizacion->idEncabezadoCotizacion) }}" class="btn btn-sm btn-success float-right">
                                             <i class="far fa-share-square"></i>

@@ -48,12 +48,12 @@
             </li>
             {{--<hr/>--}}
             @can('empleados.index')
-                <li>
-                    <a href="{{ route('empleados.index') }}">
-                        <i class="tim-icons icon-single-02"></i>
-                        <p>{{ _('Empleados') }}</p>
-                    </a>
-                </li>
+                {{--<li>--}}
+                    {{--<a href="{{ route('empleados.index') }}">--}}
+                        {{--<i class="tim-icons icon-single-02"></i>--}}
+                        {{--<p>{{ _('Empleados') }}</p>--}}
+                    {{--</a>--}}
+                {{--</li>--}}
             @endcan
             @can('permissions.index')
                 <li>

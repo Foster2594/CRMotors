@@ -34,9 +34,9 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        $provincias=Provincia::pluck('nombre','idProvincia');
-        $cantones=Canton::pluck('nombre','idCanton');
-        $distritos=Distrito::pluck('nombre','idDistrito');
+        $provincias=Provincia::get();
+        $cantones=[];
+        $distritos=[];
         $sedes=Sede::pluck('nombre','idSede');
         $estados=estadoEmpleado::pluck('nombre','idEstadoEmpleado');
         $departamentos=Departamento::pluck('nombre','idDepartamento');
@@ -60,7 +60,6 @@ class EmpleadoController extends Controller
             , 'telefonoCelular' =>'required|numeric'
             , 'otroTelefono' =>'required|numeric'
             , 'correo'=>'required|email'
-            , 'idProvincia'=>'required'
             , 'idCanton'=>'required'
             , 'idDistrito'=>'required'
             , 'direccionExacta'=>'required'
@@ -103,9 +102,9 @@ class EmpleadoController extends Controller
      */
     public function edit($empleado,Request $request)
     {
-        $provincias=Provincia::pluck('nombre','idProvincia');
-        $cantones=Canton::pluck('nombre','idCanton');
-        $distritos=Distrito::pluck('nombre','idDistrito');
+        $provincias=Provincia::get();
+        $cantones=[];
+        $distritos=[];
         $sedes=Sede::pluck('nombre','idSede');
         $estados=estadoEmpleado::pluck('nombre','idEstadoEmpleado');
         $departamentos=Departamento::pluck('nombre','idDepartamento');
@@ -135,7 +134,6 @@ class EmpleadoController extends Controller
             , 'telefonoCelular' =>'required|numeric'
             , 'otroTelefono' =>'required|numeric'
             , 'correo'=>'required|email'
-            , 'idProvincia'=>'required'
             , 'idCanton'=>'required'
             , 'idDistrito'=>'required'
             , 'direccionExacta'=>'required'

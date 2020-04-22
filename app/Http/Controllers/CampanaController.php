@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Campana;
 use App\Canton;
 use App\Genero;
+use App\Models\Notificacion;
 use App\Sede;
 use App\estadoCampana;
 use App\Http\Requests\CreateCampana;
@@ -16,10 +17,12 @@ use App\Cliente;
 use App\Provincia;
 use App\tipoCampana;
 use App\Vehiculo;
+use Dompdf\Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use PhpParser\Node\Stmt\TryCatch;
 
 class CampanaController extends Controller
 {
@@ -30,7 +33,7 @@ class CampanaController extends Controller
      */
     public function index()
     {
-        $campanas=Campana::paginate();
+        $campanas=Campana::where('idEstadoCampana',1)->paginate();
 
         return view('CRM.campanas.index', compact('campanas'));
     }
@@ -63,6 +66,7 @@ class CampanaController extends Controller
      */
     public function store(CreateCampana $request)
     {
+
         $request->validate([
             'idTipoCampana' =>'required',
             'idSede'=>'required',
@@ -83,11 +87,11 @@ class CampanaController extends Controller
         $idCampana= Campana::max('idCampana');
         $idCampana = $idCampana+1;
         //return response()->json($idCampana);
-        $request->request->add(['idCampana' => $idCampana]);
+        $request->request->add(['idCampana' => $idCampana,
+                                'id' => $idCampana, ]);
         $campana = Campana::create($request->all());
-
+        $notificacion=Notificacion::create($request->all());
         return redirect()->route('campanas.index')->with('info','Campana guardada con éxito');
-
     }
 
     /**
@@ -165,31 +169,36 @@ class CampanaController extends Controller
      */
     public function enviaremail($campana)
     {
-        $id=$campana;
+        try{
+
+        ini_set('max_execution_time', 180);
         $campana = Campana::where('idCampana', $campana)->first();
-        $detalles = Campana::where('idCampana', $id)->get();
+        $notificacion=Notificacion::where('id',$campana->idCampana)->first();
         $data = ['idCampana' => Auth()->id(),
             'campana'=>$campana,
-            'detalles'=>$detalles,
+            'detalles'=>$notificacion,
 //
         ];
-
-        $clientes=Cliente::all();
-
+        $year=today()->year-$notificacion->edad;
+        $clientes=Cliente::where(['notificaciones'=>1],['idGenero'=>$notificacion->genero])->whereYear('fechaNacimiento', '<=', $year)->take($notificacion->cantidadCliente)->get();
 
         $cont=0;
         foreach ($clientes as $cliente){
 //            return $cliente->correo;
 
-            Mail::send('CRM\campanas\showEmail',$data, function ($message) use ($cliente) {
-                $message->from('email@royalmotors.net', 'Styde.Net');
-                $message->to($cliente->correo)->subject('Campañas Royal Motors');
-                sleep(1);
+            Mail::send('CRM\campanas\showEmail',$data, function ($message) use ($cliente,$campana) {
+                $message->from('royalmotors.crm@gmail.com', 'Royal Motors');
+                $message->to($cliente->correo)->subject('Campañas Royal Motors '.$campana->nombre);
+
+                sleep(3);
             });
             if($cont==10){
                 break;
             }
             $cont++;
+        }
+        }catch (Exception $exception){
+            return redirect()->back()->with('info', 'mensaje enviado con exito');
         }
 
        //codigo viejo
@@ -221,7 +230,7 @@ class CampanaController extends Controller
     }
     public function destroy($campana)
     {
-        $campana=Campana::where('idCampana',$campana)->delete();
+        $campana=Campana::where('idCampana',$campana)->update(['idEstadoCampana'=>0]);
 
         return back()->with('info', 'Eliminado correctamente');
     }

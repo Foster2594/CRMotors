@@ -19,16 +19,16 @@ class Clientecontroller extends Controller
     //esta funcion sirve para mostrar la vista principal donde nos muestra todos los clientes introducidos
     public function index()
     {
-        $clientes=Cliente::paginate();
-        $clientesVacios=Cliente::where('idEmpleado',null)->where('idEmpleado',0)->paginate();
+        $clientes=Cliente::where('idEstadoCliente',1)->paginate();
+        $clientesVacios=Cliente::where('idEstadoCliente',1)->where('idEmpleado',null)->where('idEmpleado',0)->paginate();
         return view('CRM.clientes.index', compact('clientes','clientesVacios'));
     }
 //busca clientes por cartera
     public function indexCartera()
     {
         $user= auth()->id();
-        $clientes=Cliente::where('idEmpleado',$user)->paginate();
-        $clientesVacios=Cliente::whereIn('idEmpleado',[null,0])->paginate();
+        $clientes=Cliente::where('idEstadoCliente',1)->where('idEmpleado',$user)->paginate();
+        $clientesVacios=Cliente::where('idEstadoCliente',1)->whereIn('idEmpleado',[null,0])->paginate();
 
         return view('CRM.clientes.index', compact('clientes','clientesVacios'));
     }
@@ -43,11 +43,10 @@ class Clientecontroller extends Controller
     {
         $genero=Genero::pluck('nombre','idGenero');
         $ocupacion=Ocupacion::pluck('nombre','idOcupacion');
-        $provincias=Provincia::pluck('nombre','idProvincia');
-        $cantones=Canton::pluck('nombre','idCanton');
-        $distritos=Distrito::pluck('nombre','idDistrito');
+        $provincias=Provincia::get();
+        $cantones=[];
+        $distritos=[];
         $vehiculos=Vehiculo::pluck('codigo','idVehiculo');
-
 
         return view('CRM.clientes.create',compact('cliente','genero','ocupacion','provincias','cantones','distritos','vehiculos'));
     }
@@ -182,9 +181,9 @@ class Clientecontroller extends Controller
     //aqui se borra un usuario
     public function destroy($cliente)
     {
-        $cliente=Cliente::where('idCliente',$cliente)->delete();
+        $cliente=Cliente::where('idCliente',$cliente)->update(['idEstadoCliente'=>0]);
 
-        return back()->with('info', 'Eliminado correctamente');
+        return back()->with('info', 'Inhabilitado correctamente');
     }
 
     public function quitarDeCartera($cliente)
@@ -196,7 +195,7 @@ class Clientecontroller extends Controller
 //
     public function asignarCartera()
     {
-        $clientesVacios=Cliente::whereIn('idEmpleado',[null,0,])->paginate();
+        $clientesVacios=Cliente::where('idEstadoCliente',1)->whereIn('idEmpleado',[null,0,])->paginate();
         $usuarios=User::pluck('name','id');
 
         return view('CRM.clientes.CarteraDisponible', compact('clientesVacios','usuarios'));

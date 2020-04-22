@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="{{ asset('black') }}/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
     <link href="{{ asset('black') }}/css/theme.css" rel="stylesheet" />
-    <title>Cotizacion para enviar</title>
+    <title>Campañas Royal Motors</title>
 </head>
 <body>
 <div class="container">
@@ -14,42 +14,22 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header float-right">
+                    <h2><b>Morrige Garage</b></h2>
+
                 </div>
                 <div class="card-body">
-                    <div class="card">
-                        <div class="card-header"><h3>Campañas Disponibles</h3></div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header"><h4>Detalle de Campaña</h4></div>
-                        <div class="body ml-3">
-                            <div class="card-body table-responsive">
-                                <div class="card-header"><h4>Detalles de la Campaña</h4></div>
-                                    <tr>
-                                        <th width="10px">ID</th>
-                                        <th>Nombre</th>
-                                        <th>Descripcion</th>
-                                        <th>Fecha Incio</th>
-                                        <th>Fecha Final</th>
-                                        <th>Descuento minimo</th>
-                                        <th>Descuento maximo</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach ($detalles as $detalle)
-                                        <tr>
-                                            <td>{{ $detalle->idCampana }}</td>
-                                            <td>{{ $detalle->nombre }}</td>
-                                            <td>{{ $detalle->descripcion }}</td>
-                                            <td>{{ $detalle->fechaInicio }}</td>
-                                            <td>{{ $detalle->fechaFinal }}</td>
-                                            <td>{{ $detalle->descuentoMinimo }}</td>
-                                            <td>{{ $detalle->descuentoMaximo }}</td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                    <p>
+                        Le invita a participar de nuestra campaña {{$campana->nombre}} y aprovechar de nuestros <br>
+                        <b size="24">DESCUENTOS</b> de: <br>
+                        <br>
+                        <b size="60"> {{$campana->descuentoMinimo }} %</b>   hasta   <b size="60"> {{$campana->descuentoMaximo }} %</b> <br>
+                        {{--<img src="{{ asset('black') }}/img/img.png">--}}
+                    Aprovecha ahora en la compra de tu automovil del año
+                    <br/>
+                    <h4>Dar click <a href="https://landing.mg.cr/">aquí</a> para mas informacion</h4>
+
+                    </p>
+
                     </div>
                 </div>
             </div>
